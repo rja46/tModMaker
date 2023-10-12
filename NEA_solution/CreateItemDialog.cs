@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace NEA_solution
 {
-    public partial class CreateItem : Form
+    public partial class CreateItemDialog : Form
     {
         public Item newItem;
-        public CreateItem()
+        public CreateItemDialog()
         {
             InitializeComponent();
         }

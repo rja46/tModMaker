@@ -59,11 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code.cs" />
-    <Compile Include="CreateItem.cs">
+    <Compile Include="CreateItemDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateItem.Designer.cs">
-      <DependentUpon>CreateItem.cs</DependentUpon>
+    <Compile Include="CreateItemDialog.Designer.cs">
+      <DependentUpon>CreateItemDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Item.cs" />
     <Compile Include="Mod.cs" />
@@ -76,8 +76,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprite.cs" />
-    <EmbeddedResource Include="CreateItem.resx">
-      <DependentUpon>CreateItem.cs</DependentUpon>
+    <EmbeddedResource Include="CreateItemDialog.resx">
+      <DependentUpon>CreateItemDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModOverview.resx">
       <DependentUpon>ModOverview.cs</DependentUpon>

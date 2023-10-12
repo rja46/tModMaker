@@ -46,12 +46,12 @@ namespace NEA_solution
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            CreateItem createItem = new CreateItem();
-            DialogResult result = createItem.ShowDialog();
+            CreateItemDialog createItemDialog = new CreateItemDialog();
+            DialogResult result = createItemDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
                 //get new item from CreateItem form
-                loadedMod.add_item(createItem.newItem);
+                loadedMod.add_item(createItemDialog.newItem);
                 
                 update_item_list();
             }

@@ -1,6 +1,6 @@
 ﻿namespace NEA_solution
 {
-    partial class CreateItem
+    partial class CreateItemDialog
     {
         /// <summary>
         /// Required designer variable.
