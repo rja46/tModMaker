@@ -50,7 +50,9 @@ namespace NEA_solution
             DialogResult result = createItem.ShowDialog();
             if (result == DialogResult.OK)
             {
+                //get new item from CreateItem form
                 loadedMod.add_item(createItem.newItem);
+                
                 update_item_list();
             }
         }

@@ -40,3 +40,4 @@ C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.ex
 C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.pdb
 C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.ModOverview.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.CreateItem.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.csproj.SuggestedBindingRedirects.cache
