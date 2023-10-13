@@ -19,14 +19,12 @@ namespace NEA_solution
             InitializeComponent();
 
             //placeholder
-            Mod theMod = new Mod("testMod", "null");
+            Mod theMod = new Mod("untitled", "null");
             loadedMod = theMod;
+            loadedMod.add_item(new Item("test", "null"));
+            loadedMod.add_item(new Item("test", "null"));
 
             txtModName.Text = loadedMod.get_name();
-            theMod.add_item(new Item("testItem", "testType"));
-            theMod.add_item(new Item("testThing", "Type"));
-            theMod.add_item(new Item("aaaaa", "aaaaa"));
-            theMod.add_item(new Item("12345", "12345"));
 
             update_item_list();
         }
