@@ -36,14 +36,14 @@
             this.lbItems = new System.Windows.Forms.ListBox();
             this.lbType = new System.Windows.Forms.ListBox();
             this.pnlItemPreview = new System.Windows.Forms.Panel();
-            this.lblItemName = new System.Windows.Forms.Label();
-            this.pbSprite = new System.Windows.Forms.PictureBox();
-            this.lblItemType = new System.Windows.Forms.Label();
-            this.btnChangeSprite = new System.Windows.Forms.Button();
-            this.btnDeleteItem = new System.Windows.Forms.Button();
             this.btnEditItem = new System.Windows.Forms.Button();
+            this.btnDeleteItem = new System.Windows.Forms.Button();
+            this.btnChangeSprite = new System.Windows.Forms.Button();
+            this.lblItemType = new System.Windows.Forms.Label();
+            this.pbSprite = new System.Windows.Forms.PictureBox();
+            this.lblItemName = new System.Windows.Forms.Label();
             this.btnExport = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnViewFiles = new System.Windows.Forms.Button();
             this.pnlItemPreview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
             this.SuspendLayout();
@@ -125,40 +125,14 @@
             this.pnlItemPreview.Size = new System.Drawing.Size(303, 144);
             this.pnlItemPreview.TabIndex = 9;
             // 
-            // lblItemName
+            // btnEditItem
             // 
-            this.lblItemName.AutoSize = true;
-            this.lblItemName.Location = new System.Drawing.Point(138, 12);
-            this.lblItemName.Name = "lblItemName";
-            this.lblItemName.Size = new System.Drawing.Size(35, 13);
-            this.lblItemName.TabIndex = 0;
-            this.lblItemName.Text = "Name";
-            // 
-            // pbSprite
-            // 
-            this.pbSprite.Location = new System.Drawing.Point(12, 12);
-            this.pbSprite.Name = "pbSprite";
-            this.pbSprite.Size = new System.Drawing.Size(120, 120);
-            this.pbSprite.TabIndex = 1;
-            this.pbSprite.TabStop = false;
-            // 
-            // lblItemType
-            // 
-            this.lblItemType.AutoSize = true;
-            this.lblItemType.Location = new System.Drawing.Point(138, 38);
-            this.lblItemType.Name = "lblItemType";
-            this.lblItemType.Size = new System.Drawing.Size(31, 13);
-            this.lblItemType.TabIndex = 2;
-            this.lblItemType.Text = "Type";
-            // 
-            // btnChangeSprite
-            // 
-            this.btnChangeSprite.Location = new System.Drawing.Point(138, 64);
-            this.btnChangeSprite.Name = "btnChangeSprite";
-            this.btnChangeSprite.Size = new System.Drawing.Size(156, 23);
-            this.btnChangeSprite.TabIndex = 3;
-            this.btnChangeSprite.Text = "sprite";
-            this.btnChangeSprite.UseVisualStyleBackColor = true;
+            this.btnEditItem.Location = new System.Drawing.Point(219, 93);
+            this.btnEditItem.Name = "btnEditItem";
+            this.btnEditItem.Size = new System.Drawing.Size(75, 23);
+            this.btnEditItem.TabIndex = 11;
+            this.btnEditItem.Text = "Edit Item";
+            this.btnEditItem.UseVisualStyleBackColor = true;
             // 
             // btnDeleteItem
             // 
@@ -169,14 +143,43 @@
             this.btnDeleteItem.Text = "Delete Item";
             this.btnDeleteItem.UseVisualStyleBackColor = true;
             // 
-            // btnEditItem
+            // btnChangeSprite
             // 
-            this.btnEditItem.Location = new System.Drawing.Point(219, 93);
-            this.btnEditItem.Name = "btnEditItem";
-            this.btnEditItem.Size = new System.Drawing.Size(75, 23);
-            this.btnEditItem.TabIndex = 11;
-            this.btnEditItem.Text = "Edit Item";
-            this.btnEditItem.UseVisualStyleBackColor = true;
+            this.btnChangeSprite.Location = new System.Drawing.Point(138, 64);
+            this.btnChangeSprite.Name = "btnChangeSprite";
+            this.btnChangeSprite.Size = new System.Drawing.Size(156, 23);
+            this.btnChangeSprite.TabIndex = 3;
+            this.btnChangeSprite.Text = "sprite";
+            this.btnChangeSprite.UseVisualStyleBackColor = true;
+            this.btnChangeSprite.Click += new System.EventHandler(this.btnChangeSprite_Click);
+            // 
+            // lblItemType
+            // 
+            this.lblItemType.AutoSize = true;
+            this.lblItemType.Location = new System.Drawing.Point(138, 38);
+            this.lblItemType.Name = "lblItemType";
+            this.lblItemType.Size = new System.Drawing.Size(31, 13);
+            this.lblItemType.TabIndex = 2;
+            this.lblItemType.Text = "Type";
+            // 
+            // pbSprite
+            // 
+            this.pbSprite.ImageLocation = "";
+            this.pbSprite.Location = new System.Drawing.Point(12, 12);
+            this.pbSprite.Name = "pbSprite";
+            this.pbSprite.Size = new System.Drawing.Size(120, 120);
+            this.pbSprite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSprite.TabIndex = 1;
+            this.pbSprite.TabStop = false;
+            // 
+            // lblItemName
+            // 
+            this.lblItemName.AutoSize = true;
+            this.lblItemName.Location = new System.Drawing.Point(138, 12);
+            this.lblItemName.Name = "lblItemName";
+            this.lblItemName.Size = new System.Drawing.Size(35, 13);
+            this.lblItemName.TabIndex = 0;
+            this.lblItemName.Text = "Name";
             // 
             // btnExport
             // 
@@ -187,21 +190,21 @@
             this.btnExport.Text = "Export";
             this.btnExport.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnViewFiles
             // 
-            this.button1.Location = new System.Drawing.Point(291, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnViewFiles.Location = new System.Drawing.Point(291, 9);
+            this.btnViewFiles.Name = "btnViewFiles";
+            this.btnViewFiles.Size = new System.Drawing.Size(75, 23);
+            this.btnViewFiles.TabIndex = 11;
+            this.btnViewFiles.Text = "View Files";
+            this.btnViewFiles.UseVisualStyleBackColor = true;
             // 
             // ModOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnViewFiles);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.pnlItemPreview);
             this.Controls.Add(this.lbType);
@@ -237,7 +240,7 @@
         private System.Windows.Forms.Button btnEditItem;
         private System.Windows.Forms.Button btnDeleteItem;
         private System.Windows.Forms.Button btnExport;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnViewFiles;
     }
 }
 

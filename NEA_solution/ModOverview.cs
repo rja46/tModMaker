@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace NEA_solution
 {
@@ -14,6 +15,7 @@ namespace NEA_solution
     {
         //load this value from path
         Mod loadedMod;
+        Item loadedItem;
         public ModOverview()
         {
             InitializeComponent();
@@ -39,7 +41,7 @@ namespace NEA_solution
 
         private void btnEditDetails_Click(object sender, EventArgs e)
         {
-            EditDetailsDialog editDetailsDialog = new EditDetailsDialog(loadedMod.get_name(),loadedMod.get_author(), loadedMod.get_description());
+            EditDetailsDialog editDetailsDialog = new EditDetailsDialog(loadedMod.get_name(), loadedMod.get_author(), loadedMod.get_description());
             DialogResult result = editDetailsDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -58,7 +60,7 @@ namespace NEA_solution
             {
                 //get new item from CreateItem form
                 loadedMod.add_item(createItemDialog.newItem);
-                
+
                 update_item_list();
             }
         }
@@ -70,7 +72,7 @@ namespace NEA_solution
             string[,] displayText = loadedMod.get_items_for_display();
             for (int i = 0; i < displayText.GetLength(0); i++)
             {
-                lbItems.Items.Add(displayText[i,0]);
+                lbItems.Items.Add(displayText[i, 0]);
                 lbType.Items.Add(displayText[i, 1]);
             }
         }
@@ -99,10 +101,30 @@ namespace NEA_solution
             {
                 pnlItemPreview.Visible = true;
             }
-            Item theItem = loadedMod.get_item(index);
-            lblItemName.Text = theItem.get_displayName();
-            lblItemType.Text = theItem.get_type();
-            btnChangeSprite.Text = theItem.get_name() + ".png";
+            loadedItem = loadedMod.get_item(index);
+            lblItemName.Text = loadedItem.get_displayName();
+            lblItemType.Text = loadedItem.get_type();
+            btnChangeSprite.Text = loadedItem.get_name() + ".png";
+            loadedItem.get_sprite().set_sprite_path(@"C:/Users/rjand/Desktop/a3466877c514a30.png");
+            if (loadedItem.get_sprite().get_sprite_path() != null)
+            {
+                pbSprite.ImageLocation = loadedItem.get_sprite().get_sprite_path();
+                Console.WriteLine(pbSprite.ImageLocation);
+                pbSprite.Refresh();
+            }
+        }
+
+        private void btnChangeSprite_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openSpriteDialog = new OpenFileDialog();
+            openSpriteDialog.InitialDirectory = "c:\\";
+            openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
+            if (openSpriteDialog.ShowDialog() == DialogResult.OK)
+            {
+                loadedItem.get_sprite().set_sprite_path(@openSpriteDialog.FileName);
+                Console.WriteLine(openSpriteDialog.FileName);
+                pbSprite.Refresh();
+            }
         }
     }
 }
