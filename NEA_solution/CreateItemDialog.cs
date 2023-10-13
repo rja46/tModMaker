@@ -17,11 +17,20 @@ namespace NEA_solution
         public CreateItemDialog()
         {
             InitializeComponent();
+            btnOK.DialogResult = DialogResult.None;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            newItem = new Item(txtName.Text, cbType.Text);
+            if (txtName.Text.Length != 0 && cbType.SelectedIndex != -1)
+            {
+                newItem = new Item(txtName.Text, cbType.Text);
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("Please enter all values");
+            }
         }
     }
 }
