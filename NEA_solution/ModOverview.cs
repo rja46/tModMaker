@@ -68,12 +68,26 @@ namespace NEA_solution
             lbType.Items.Clear();
             lbItems.Items.Clear();
             string[,] displayText = loadedMod.get_items_for_display();
-            string items = "";
-            string types = "";
             for (int i = 0; i < displayText.GetLength(0); i++)
             {
                 lbItems.Items.Add(displayText[i,0]);
                 lbType.Items.Add(displayText[i, 1]);
+            }
+        }
+
+        private void lbItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbItems.SelectedIndex != lbType.SelectedIndex)
+            {
+                lbType.SelectedIndex = lbItems.SelectedIndex;
+            }
+        }
+
+        private void lbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbType.SelectedIndex != lbItems.SelectedIndex)
+            {
+                lbItems.SelectedIndex = lbType.SelectedIndex;
             }
         }
     }

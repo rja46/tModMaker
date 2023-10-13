@@ -90,6 +90,7 @@
             this.lbItems.Name = "lbItems";
             this.lbItems.Size = new System.Drawing.Size(163, 355);
             this.lbItems.TabIndex = 7;
+            this.lbItems.SelectedIndexChanged += new System.EventHandler(this.lbItems_SelectedIndexChanged);
             // 
             // lbType
             // 
@@ -98,6 +99,7 @@
             this.lbType.Name = "lbType";
             this.lbType.Size = new System.Drawing.Size(163, 355);
             this.lbType.TabIndex = 8;
+            this.lbType.SelectedIndexChanged += new System.EventHandler(this.lbType_SelectedIndexChanged);
             // 
             // ModOverview
             // 
