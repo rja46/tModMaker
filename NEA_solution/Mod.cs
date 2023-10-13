@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace NEA_solution
 {
@@ -40,13 +41,11 @@ namespace NEA_solution
 
         public string[,] get_items_for_display()
         {
-            string[,] itemsDisplay = new string [items.Length, items.Length];
-            int count = 0;
-            foreach (var item in items)
+            string[,] itemsDisplay = new string[items.Length, items.Length+1];
+            for (int i = 0; i < items.Length; i++)
             {
-                itemsDisplay[count, 0] = item.get_name();
-                itemsDisplay[count, 1] = item.get_type();
-                count++;
+                itemsDisplay[i, 0] = items[i].get_name();
+                itemsDisplay[i, 1] = items[i].get_type();
             }
             return itemsDisplay;
         }

@@ -21,8 +21,8 @@ namespace NEA_solution
             //placeholder
             Mod theMod = new Mod("untitled", "null");
             loadedMod = theMod;
-            loadedMod.add_item(new Item("test", "null"));
-            loadedMod.add_item(new Item("test", "null"));
+            //loadedMod.add_item(new Item("test", "null"));
+            //loadedMod.add_item(new Item("test", "null"));
 
             txtModName.Text = loadedMod.get_name();
 
