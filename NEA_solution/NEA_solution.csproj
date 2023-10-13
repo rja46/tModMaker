@@ -65,6 +65,12 @@
     <Compile Include="CreateItemDialog.Designer.cs">
       <DependentUpon>CreateItemDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditDetailsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditDetailsDialog.Designer.cs">
+      <DependentUpon>EditDetailsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Item.cs" />
     <Compile Include="Mod.cs" />
     <Compile Include="ModOverview.cs">
@@ -78,6 +84,9 @@
     <Compile Include="Sprite.cs" />
     <EmbeddedResource Include="CreateItemDialog.resx">
       <DependentUpon>CreateItemDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditDetailsDialog.resx">
+      <DependentUpon>EditDetailsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModOverview.resx">
       <DependentUpon>ModOverview.cs</DependentUpon>
