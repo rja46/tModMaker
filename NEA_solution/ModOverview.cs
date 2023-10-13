@@ -39,7 +39,15 @@ namespace NEA_solution
 
         private void btnEditDetails_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(loadedMod.get_name());
+            EditDetailsDialog editDetailsDialog = new EditDetailsDialog(loadedMod.get_name(),loadedMod.get_author(), loadedMod.get_description());
+            DialogResult result = editDetailsDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                loadedMod.set_name(editDetailsDialog.name);
+                loadedMod.set_author(editDetailsDialog.author);
+                loadedMod.set_description(editDetailsDialog.description);
+                txtModName.Text = loadedMod.get_name();
+            }
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
