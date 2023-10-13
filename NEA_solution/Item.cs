@@ -31,5 +31,10 @@ namespace NEA_solution
         public string get_displayName() { return displayName; }
         public string get_tooltip() { return tooltip;}
         public string get_type() { return type;}
+
+        public void set_display_name(string displayName)
+        {
+            this.displayName = displayName;
+        }
     }
 }

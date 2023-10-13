@@ -101,6 +101,8 @@ namespace NEA_solution
             }
             Item theItem = loadedMod.get_item(index);
             lblItemName.Text = theItem.get_displayName();
+            lblItemType.Text = theItem.get_type();
+            btnChangeSprite.Text = theItem.get_name() + ".png";
         }
     }
 }

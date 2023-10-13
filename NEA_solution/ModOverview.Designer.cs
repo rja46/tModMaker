@@ -37,7 +37,13 @@
             this.lbType = new System.Windows.Forms.ListBox();
             this.pnlItemPreview = new System.Windows.Forms.Panel();
             this.lblItemName = new System.Windows.Forms.Label();
+            this.pbSprite = new System.Windows.Forms.PictureBox();
+            this.lblItemType = new System.Windows.Forms.Label();
+            this.btnChangeSprite = new System.Windows.Forms.Button();
+            this.btnDeleteItem = new System.Windows.Forms.Button();
+            this.btnEditItem = new System.Windows.Forms.Button();
             this.pnlItemPreview.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
             this.SuspendLayout();
             // 
             // txtModName
@@ -106,20 +112,69 @@
             // 
             // pnlItemPreview
             // 
+            this.pnlItemPreview.Controls.Add(this.btnEditItem);
+            this.pnlItemPreview.Controls.Add(this.btnDeleteItem);
+            this.pnlItemPreview.Controls.Add(this.btnChangeSprite);
+            this.pnlItemPreview.Controls.Add(this.lblItemType);
+            this.pnlItemPreview.Controls.Add(this.pbSprite);
             this.pnlItemPreview.Controls.Add(this.lblItemName);
             this.pnlItemPreview.Location = new System.Drawing.Point(350, 51);
             this.pnlItemPreview.Name = "pnlItemPreview";
-            this.pnlItemPreview.Size = new System.Drawing.Size(438, 355);
+            this.pnlItemPreview.Size = new System.Drawing.Size(303, 144);
             this.pnlItemPreview.TabIndex = 9;
             // 
             // lblItemName
             // 
             this.lblItemName.AutoSize = true;
-            this.lblItemName.Location = new System.Drawing.Point(106, 80);
+            this.lblItemName.Location = new System.Drawing.Point(138, 12);
             this.lblItemName.Name = "lblItemName";
             this.lblItemName.Size = new System.Drawing.Size(35, 13);
             this.lblItemName.TabIndex = 0;
-            this.lblItemName.Text = "label1";
+            this.lblItemName.Text = "Name";
+            // 
+            // pbSprite
+            // 
+            this.pbSprite.Location = new System.Drawing.Point(12, 12);
+            this.pbSprite.Name = "pbSprite";
+            this.pbSprite.Size = new System.Drawing.Size(120, 120);
+            this.pbSprite.TabIndex = 1;
+            this.pbSprite.TabStop = false;
+            // 
+            // lblItemType
+            // 
+            this.lblItemType.AutoSize = true;
+            this.lblItemType.Location = new System.Drawing.Point(138, 38);
+            this.lblItemType.Name = "lblItemType";
+            this.lblItemType.Size = new System.Drawing.Size(31, 13);
+            this.lblItemType.TabIndex = 2;
+            this.lblItemType.Text = "Type";
+            // 
+            // btnChangeSprite
+            // 
+            this.btnChangeSprite.Location = new System.Drawing.Point(138, 64);
+            this.btnChangeSprite.Name = "btnChangeSprite";
+            this.btnChangeSprite.Size = new System.Drawing.Size(156, 23);
+            this.btnChangeSprite.TabIndex = 3;
+            this.btnChangeSprite.Text = "sprite";
+            this.btnChangeSprite.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteItem
+            // 
+            this.btnDeleteItem.Location = new System.Drawing.Point(138, 93);
+            this.btnDeleteItem.Name = "btnDeleteItem";
+            this.btnDeleteItem.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteItem.TabIndex = 10;
+            this.btnDeleteItem.Text = "Delete Item";
+            this.btnDeleteItem.UseVisualStyleBackColor = true;
+            // 
+            // btnEditItem
+            // 
+            this.btnEditItem.Location = new System.Drawing.Point(219, 93);
+            this.btnEditItem.Name = "btnEditItem";
+            this.btnEditItem.Size = new System.Drawing.Size(75, 23);
+            this.btnEditItem.TabIndex = 11;
+            this.btnEditItem.Text = "Edit Item";
+            this.btnEditItem.UseVisualStyleBackColor = true;
             // 
             // ModOverview
             // 
@@ -138,6 +193,7 @@
             this.Text = "Form1";
             this.pnlItemPreview.ResumeLayout(false);
             this.pnlItemPreview.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,6 +209,11 @@
         private System.Windows.Forms.ListBox lbType;
         private System.Windows.Forms.Panel pnlItemPreview;
         private System.Windows.Forms.Label lblItemName;
+        private System.Windows.Forms.Label lblItemType;
+        private System.Windows.Forms.PictureBox pbSprite;
+        private System.Windows.Forms.Button btnChangeSprite;
+        private System.Windows.Forms.Button btnEditItem;
+        private System.Windows.Forms.Button btnDeleteItem;
     }
 }
 

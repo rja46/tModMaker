@@ -25,6 +25,7 @@ namespace NEA_solution
             if (txtName.Text.Length != 0 && cbType.SelectedIndex != -1)
             {
                 newItem = new Item(txtName.Text, cbType.Text);
+                newItem.set_display_name(txtDisplayName.Text);
                 this.DialogResult = DialogResult.OK;
             }
             else
