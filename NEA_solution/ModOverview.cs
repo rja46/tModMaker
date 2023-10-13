@@ -17,7 +17,7 @@ namespace NEA_solution
         public ModOverview()
         {
             InitializeComponent();
-
+            pnlItemPreview.Visible = false;
             //placeholder
             Mod theMod = new Mod("untitled", "null");
             loadedMod = theMod;
@@ -80,6 +80,7 @@ namespace NEA_solution
             if (lbItems.SelectedIndex != lbType.SelectedIndex)
             {
                 lbType.SelectedIndex = lbItems.SelectedIndex;
+                update_loaded_item(lbItems.SelectedIndex);
             }
         }
 
@@ -88,7 +89,18 @@ namespace NEA_solution
             if (lbType.SelectedIndex != lbItems.SelectedIndex)
             {
                 lbItems.SelectedIndex = lbType.SelectedIndex;
+                update_loaded_item(lbType.SelectedIndex);
             }
+        }
+
+        private void update_loaded_item(int index)
+        {
+            if (!pnlItemPreview.Visible)
+            {
+                pnlItemPreview.Visible = true;
+            }
+            Item theItem = loadedMod.get_item(index);
+            lblItemName.Text = theItem.get_displayName();
         }
     }
 }

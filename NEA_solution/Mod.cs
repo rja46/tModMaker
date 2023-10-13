@@ -35,6 +35,10 @@ namespace NEA_solution
             items = tempItems;
         }
 
+        public Item get_item(int index)
+        {
+            return items[index];
+        }
         public string get_name() { return name; }
         public string get_description() { return description; }
         public string get_author() { return author;}

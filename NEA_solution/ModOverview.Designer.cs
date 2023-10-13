@@ -35,6 +35,9 @@
             this.lblType = new System.Windows.Forms.Label();
             this.lbItems = new System.Windows.Forms.ListBox();
             this.lbType = new System.Windows.Forms.ListBox();
+            this.pnlItemPreview = new System.Windows.Forms.Panel();
+            this.lblItemName = new System.Windows.Forms.Label();
+            this.pnlItemPreview.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtModName
@@ -101,11 +104,29 @@
             this.lbType.TabIndex = 8;
             this.lbType.SelectedIndexChanged += new System.EventHandler(this.lbType_SelectedIndexChanged);
             // 
+            // pnlItemPreview
+            // 
+            this.pnlItemPreview.Controls.Add(this.lblItemName);
+            this.pnlItemPreview.Location = new System.Drawing.Point(350, 51);
+            this.pnlItemPreview.Name = "pnlItemPreview";
+            this.pnlItemPreview.Size = new System.Drawing.Size(438, 355);
+            this.pnlItemPreview.TabIndex = 9;
+            // 
+            // lblItemName
+            // 
+            this.lblItemName.AutoSize = true;
+            this.lblItemName.Location = new System.Drawing.Point(106, 80);
+            this.lblItemName.Name = "lblItemName";
+            this.lblItemName.Size = new System.Drawing.Size(35, 13);
+            this.lblItemName.TabIndex = 0;
+            this.lblItemName.Text = "label1";
+            // 
             // ModOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pnlItemPreview);
             this.Controls.Add(this.lbType);
             this.Controls.Add(this.lbItems);
             this.Controls.Add(this.lblType);
@@ -115,6 +136,8 @@
             this.Controls.Add(this.txtModName);
             this.Name = "ModOverview";
             this.Text = "Form1";
+            this.pnlItemPreview.ResumeLayout(false);
+            this.pnlItemPreview.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,6 +151,8 @@
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.ListBox lbItems;
         private System.Windows.Forms.ListBox lbType;
+        private System.Windows.Forms.Panel pnlItemPreview;
+        private System.Windows.Forms.Label lblItemName;
     }
 }
 
