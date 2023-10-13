@@ -28,21 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtItems = new System.Windows.Forms.TextBox();
             this.txtModName = new System.Windows.Forms.TextBox();
             this.btnEditDetails = new System.Windows.Forms.Button();
-            this.txtTypes = new System.Windows.Forms.TextBox();
             this.btnAddItem = new System.Windows.Forms.Button();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblType = new System.Windows.Forms.Label();
+            this.lbItems = new System.Windows.Forms.ListBox();
+            this.lbType = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
-            // 
-            // txtItems
-            // 
-            this.txtItems.Location = new System.Drawing.Point(12, 38);
-            this.txtItems.Multiline = true;
-            this.txtItems.Name = "txtItems";
-            this.txtItems.ReadOnly = true;
-            this.txtItems.Size = new System.Drawing.Size(163, 371);
-            this.txtItems.TabIndex = 0;
             // 
             // txtModName
             // 
@@ -62,15 +55,6 @@
             this.btnEditDetails.UseVisualStyleBackColor = true;
             this.btnEditDetails.Click += new System.EventHandler(this.btnEditDetails_Click);
             // 
-            // txtTypes
-            // 
-            this.txtTypes.Location = new System.Drawing.Point(181, 39);
-            this.txtTypes.Multiline = true;
-            this.txtTypes.Name = "txtTypes";
-            this.txtTypes.ReadOnly = true;
-            this.txtTypes.Size = new System.Drawing.Size(163, 371);
-            this.txtTypes.TabIndex = 3;
-            // 
             // btnAddItem
             // 
             this.btnAddItem.Location = new System.Drawing.Point(12, 415);
@@ -81,16 +65,52 @@
             this.btnAddItem.UseVisualStyleBackColor = true;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(74, 35);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.TabIndex = 5;
+            this.lblName.Text = "Name";
+            // 
+            // lblType
+            // 
+            this.lblType.AutoSize = true;
+            this.lblType.Location = new System.Drawing.Point(246, 35);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(31, 13);
+            this.lblType.TabIndex = 6;
+            this.lblType.Text = "Type";
+            // 
+            // lbItems
+            // 
+            this.lbItems.FormattingEnabled = true;
+            this.lbItems.Location = new System.Drawing.Point(12, 51);
+            this.lbItems.Name = "lbItems";
+            this.lbItems.Size = new System.Drawing.Size(163, 355);
+            this.lbItems.TabIndex = 7;
+            // 
+            // lbType
+            // 
+            this.lbType.FormattingEnabled = true;
+            this.lbType.Location = new System.Drawing.Point(181, 51);
+            this.lbType.Name = "lbType";
+            this.lbType.Size = new System.Drawing.Size(163, 355);
+            this.lbType.TabIndex = 8;
+            // 
             // ModOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbType);
+            this.Controls.Add(this.lbItems);
+            this.Controls.Add(this.lblType);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnAddItem);
-            this.Controls.Add(this.txtTypes);
             this.Controls.Add(this.btnEditDetails);
             this.Controls.Add(this.txtModName);
-            this.Controls.Add(this.txtItems);
             this.Name = "ModOverview";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -99,12 +119,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtItems;
         private System.Windows.Forms.TextBox txtModName;
         private System.Windows.Forms.Button btnEditDetails;
-        private System.Windows.Forms.TextBox txtTypes;
         private System.Windows.Forms.Button btnAddItem;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblType;
+        private System.Windows.Forms.ListBox lbItems;
+        private System.Windows.Forms.ListBox lbType;
     }
 }
 

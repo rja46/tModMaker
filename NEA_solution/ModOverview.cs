@@ -65,16 +65,16 @@ namespace NEA_solution
 
         private void update_item_list()
         {
+            lbType.Items.Clear();
+            lbItems.Items.Clear();
             string[,] displayText = loadedMod.get_items_for_display();
             string items = "";
             string types = "";
             for (int i = 0; i < displayText.GetLength(0); i++)
             {
-                items += displayText[i, 0] + "\r\n";
-                types += displayText[i, 1] + "\r\n";
+                lbItems.Items.Add(displayText[i,0]);
+                lbType.Items.Add(displayText[i, 1]);
             }
-            txtItems.Text = items;
-            txtTypes.Text = types;
         }
     }
 }
