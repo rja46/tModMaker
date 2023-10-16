@@ -133,16 +133,14 @@ namespace NEA_solution
 
         private void fileSaveMod_Click(object sender, EventArgs e)
         {
-            string thePath;
+            string thePath = loadedMod.get_modPath();
             string modFile = "";
             modFile += loadedMod.get_name() + "|";
             modFile += loadedMod.get_description() + "|";
             modFile += loadedMod.get_author();
-            SaveFileDialog sd = new SaveFileDialog();
-            if (sd.ShowDialog() == DialogResult.OK)
+            if (!(Directory.Exists(thePath + loadedMod.get_name())))
             {
-                thePath = @sd.FileName;
-                Directory.CreateDirectory(thePath + "\\" + loadedMod.get_name());
+                Directory.CreateDirectory(thePath + loadedMod.get_name());
             }
         }
     }

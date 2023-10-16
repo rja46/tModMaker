@@ -42,10 +42,12 @@ namespace NEA_solution
         public string get_name() { return name; }
         public string get_description() { return description; }
         public string get_author() { return author;}
+        public string get_modPath() {  return modPath;}
 
         public void set_name(string name) { this.name = name;}
         public void set_author (string  author) { this.author = author;}
         public void set_description(string description) {  this.description = description;}
+        public void set_modPath(string modPath) { this.modPath = modPath;}
 
         public string[,] get_items_for_display()
         {
