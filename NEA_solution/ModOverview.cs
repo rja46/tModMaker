@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -123,6 +124,26 @@ namespace NEA_solution
                 loadedItem.get_sprite().set_sprite_path(@openSpriteDialog.FileName);
                 pbSprite.ImageLocation = loadedItem.get_sprite().get_sprite_path();
                 pbSprite.Refresh();
+            }
+        }
+
+        private void fileSaveModAs_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fileSaveMod_Click(object sender, EventArgs e)
+        {
+            string thePath;
+            string modFile = "";
+            modFile += loadedMod.get_name() + "|";
+            modFile += loadedMod.get_description() + "|";
+            modFile += loadedMod.get_author();
+            SaveFileDialog sd = new SaveFileDialog();
+            if (sd.ShowDialog() == DialogResult.OK)
+            {
+                thePath = @sd.FileName;
+                Directory.CreateDirectory(thePath + "\\" + loadedMod.get_name());
             }
         }
     }

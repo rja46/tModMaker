@@ -44,13 +44,19 @@
             this.lblItemName = new System.Windows.Forms.Label();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnViewFiles = new System.Windows.Forms.Button();
+            this.msMain = new System.Windows.Forms.MenuStrip();
+            this.msMainFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileSaveMod = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileSaveModAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileOpenMod = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlItemPreview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
+            this.msMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtModName
             // 
-            this.txtModName.Location = new System.Drawing.Point(12, 12);
+            this.txtModName.Location = new System.Drawing.Point(12, 37);
             this.txtModName.Name = "txtModName";
             this.txtModName.Size = new System.Drawing.Size(192, 20);
             this.txtModName.TabIndex = 1;
@@ -58,7 +64,7 @@
             // 
             // btnEditDetails
             // 
-            this.btnEditDetails.Location = new System.Drawing.Point(210, 10);
+            this.btnEditDetails.Location = new System.Drawing.Point(210, 35);
             this.btnEditDetails.Name = "btnEditDetails";
             this.btnEditDetails.Size = new System.Drawing.Size(75, 23);
             this.btnEditDetails.TabIndex = 2;
@@ -79,7 +85,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(74, 35);
+            this.lblName.Location = new System.Drawing.Point(74, 60);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(35, 13);
             this.lblName.TabIndex = 5;
@@ -88,7 +94,7 @@
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(246, 35);
+            this.lblType.Location = new System.Drawing.Point(246, 60);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(31, 13);
             this.lblType.TabIndex = 6;
@@ -97,18 +103,18 @@
             // lbItems
             // 
             this.lbItems.FormattingEnabled = true;
-            this.lbItems.Location = new System.Drawing.Point(12, 51);
+            this.lbItems.Location = new System.Drawing.Point(12, 77);
             this.lbItems.Name = "lbItems";
-            this.lbItems.Size = new System.Drawing.Size(163, 355);
+            this.lbItems.Size = new System.Drawing.Size(163, 329);
             this.lbItems.TabIndex = 7;
             this.lbItems.SelectedIndexChanged += new System.EventHandler(this.lbItems_SelectedIndexChanged);
             // 
             // lbType
             // 
             this.lbType.FormattingEnabled = true;
-            this.lbType.Location = new System.Drawing.Point(181, 51);
+            this.lbType.Location = new System.Drawing.Point(181, 77);
             this.lbType.Name = "lbType";
-            this.lbType.Size = new System.Drawing.Size(163, 355);
+            this.lbType.Size = new System.Drawing.Size(163, 329);
             this.lbType.TabIndex = 8;
             this.lbType.SelectedIndexChanged += new System.EventHandler(this.lbType_SelectedIndexChanged);
             // 
@@ -120,7 +126,7 @@
             this.pnlItemPreview.Controls.Add(this.lblItemType);
             this.pnlItemPreview.Controls.Add(this.pbSprite);
             this.pnlItemPreview.Controls.Add(this.lblItemName);
-            this.pnlItemPreview.Location = new System.Drawing.Point(350, 51);
+            this.pnlItemPreview.Location = new System.Drawing.Point(350, 60);
             this.pnlItemPreview.Name = "pnlItemPreview";
             this.pnlItemPreview.Size = new System.Drawing.Size(303, 144);
             this.pnlItemPreview.TabIndex = 9;
@@ -192,12 +198,52 @@
             // 
             // btnViewFiles
             // 
-            this.btnViewFiles.Location = new System.Drawing.Point(291, 9);
+            this.btnViewFiles.Location = new System.Drawing.Point(291, 34);
             this.btnViewFiles.Name = "btnViewFiles";
             this.btnViewFiles.Size = new System.Drawing.Size(75, 23);
             this.btnViewFiles.TabIndex = 11;
             this.btnViewFiles.Text = "View Files";
             this.btnViewFiles.UseVisualStyleBackColor = true;
+            // 
+            // msMain
+            // 
+            this.msMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.msMainFile});
+            this.msMain.Location = new System.Drawing.Point(0, 0);
+            this.msMain.Name = "msMain";
+            this.msMain.Size = new System.Drawing.Size(800, 24);
+            this.msMain.TabIndex = 12;
+            this.msMain.Text = "menuStrip1";
+            // 
+            // msMainFile
+            // 
+            this.msMainFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileSaveMod,
+            this.fileSaveModAs,
+            this.fileOpenMod});
+            this.msMainFile.Name = "msMainFile";
+            this.msMainFile.Size = new System.Drawing.Size(37, 20);
+            this.msMainFile.Text = "File";
+            // 
+            // fileSaveMod
+            // 
+            this.fileSaveMod.Name = "fileSaveMod";
+            this.fileSaveMod.Size = new System.Drawing.Size(180, 22);
+            this.fileSaveMod.Text = "Save Mod";
+            this.fileSaveMod.Click += new System.EventHandler(this.fileSaveMod_Click);
+            // 
+            // fileSaveModAs
+            // 
+            this.fileSaveModAs.Name = "fileSaveModAs";
+            this.fileSaveModAs.Size = new System.Drawing.Size(180, 22);
+            this.fileSaveModAs.Text = "Save Mod As";
+            this.fileSaveModAs.Click += new System.EventHandler(this.fileSaveModAs_Click);
+            // 
+            // fileOpenMod
+            // 
+            this.fileOpenMod.Name = "fileOpenMod";
+            this.fileOpenMod.Size = new System.Drawing.Size(180, 22);
+            this.fileOpenMod.Text = "Open";
             // 
             // ModOverview
             // 
@@ -214,11 +260,15 @@
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.btnEditDetails);
             this.Controls.Add(this.txtModName);
+            this.Controls.Add(this.msMain);
+            this.MainMenuStrip = this.msMain;
             this.Name = "ModOverview";
             this.Text = "Form1";
             this.pnlItemPreview.ResumeLayout(false);
             this.pnlItemPreview.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).EndInit();
+            this.msMain.ResumeLayout(false);
+            this.msMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,6 +291,11 @@
         private System.Windows.Forms.Button btnDeleteItem;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnViewFiles;
+        private System.Windows.Forms.MenuStrip msMain;
+        private System.Windows.Forms.ToolStripMenuItem msMainFile;
+        private System.Windows.Forms.ToolStripMenuItem fileSaveMod;
+        private System.Windows.Forms.ToolStripMenuItem fileSaveModAs;
+        private System.Windows.Forms.ToolStripMenuItem fileOpenMod;
     }
 }
 
