@@ -21,11 +21,10 @@ namespace NEA_solution
         {
             InitializeComponent();
             pnlItemPreview.Visible = false;
-            //placeholder
-            Mod theMod = new Mod("untitled", "null");
-            loadedMod = theMod;
-            //loadedMod.add_item(new Item("test", "null"));
-            //loadedMod.add_item(new Item("test", "null"));
+
+            loadCreateModDialog loadCreateModDialog = new loadCreateModDialog();
+            loadCreateModDialog.ShowDialog();
+            loadedMod = loadCreateModDialog.theMod;
 
             txtModName.Text = loadedMod.get_name();
 

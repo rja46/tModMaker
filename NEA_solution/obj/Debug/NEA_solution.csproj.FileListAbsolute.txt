@@ -42,3 +42,5 @@ C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.Mo
 C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.csproj.SuggestedBindingRedirects.cache
 C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.CreateItemDialog.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.EditDetailsDialog.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.loadCreateModDialog.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.CreateModDialog.resources

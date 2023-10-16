@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace NEA_solution
 {
-    internal class Mod
+    public class Mod
     {
         public Item[] items;
         private string name;
