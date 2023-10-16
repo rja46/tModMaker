@@ -105,7 +105,6 @@ namespace NEA_solution
             lblItemName.Text = loadedItem.get_displayName();
             lblItemType.Text = loadedItem.get_type();
             btnChangeSprite.Text = loadedItem.get_name() + ".png";
-            loadedItem.get_sprite().set_sprite_path(@"C:/Users/rjand/Desktop/a3466877c514a30.png");
             if (loadedItem.get_sprite().get_sprite_path() != null)
             {
                 pbSprite.ImageLocation = loadedItem.get_sprite().get_sprite_path();
@@ -122,7 +121,7 @@ namespace NEA_solution
             if (openSpriteDialog.ShowDialog() == DialogResult.OK)
             {
                 loadedItem.get_sprite().set_sprite_path(@openSpriteDialog.FileName);
-                Console.WriteLine(openSpriteDialog.FileName);
+                pbSprite.ImageLocation = loadedItem.get_sprite().get_sprite_path();
                 pbSprite.Refresh();
             }
         }
