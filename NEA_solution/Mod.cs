@@ -43,6 +43,7 @@ namespace NEA_solution
         public string get_description() { return description; }
         public string get_author() { return author;}
         public string get_modPath() {  return modPath;}
+        public int get_item_number() { return items.Length; }
 
         public void set_name(string name) { this.name = name;}
         public void set_author (string  author) { this.author = author;}

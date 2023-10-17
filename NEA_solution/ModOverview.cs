@@ -134,9 +134,9 @@ namespace NEA_solution
 
         private void fileSaveMod_Click(object sender, EventArgs e)
         {
-            //maybe make this a subroutine
             string thePath = loadedMod.get_modPath();
             string modFile = "";
+            string tempItem;
             modFile += loadedMod.get_name() + "|";
             modFile += loadedMod.get_description() + "|";
             modFile += loadedMod.get_author();
@@ -145,10 +145,27 @@ namespace NEA_solution
                 Directory.CreateDirectory(thePath);
             }
             File.WriteAllText(thePath + "\\" + loadedMod.get_name() + ".txt", modFile);
+            if (loadedMod.get_item_number() != 0)
+            {
+                if (!(Directory.Exists(thePath + "\\" + "Items")))
+                {
+                    Directory.CreateDirectory(thePath + "\\" + "Items");
+                }
+                for (int i = 0; i < loadedMod.get_item_number(); i++)
+                {
+                    tempItem = "";
+                    tempItem += loadedMod.get_item(i).get_name() + "|";
+                    tempItem += loadedMod.get_item(i).get_displayName() + "|";
+                    tempItem += loadedMod.get_item(i).get_tooltip() + "|";
+                    tempItem += loadedMod.get_item(i).get_type();
+                    File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + ".txt", tempItem);
+                }
+            }
         }
 
         private void fileOpenMod_Click(object sender, EventArgs e)
         {
+            //maybe make this a subroutine
             Mod theMod;
             string modDetails;
             string[] modDetailsSplit;
