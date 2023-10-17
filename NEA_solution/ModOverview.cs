@@ -134,6 +134,7 @@ namespace NEA_solution
 
         private void fileSaveMod_Click(object sender, EventArgs e)
         {
+            //maybe make this a subroutine
             string thePath = loadedMod.get_modPath();
             string modFile = "";
             modFile += loadedMod.get_name() + "|";
@@ -144,6 +145,40 @@ namespace NEA_solution
                 Directory.CreateDirectory(thePath);
             }
             File.WriteAllText(thePath + "\\" + loadedMod.get_name() + ".txt", modFile);
+        }
+
+        private void fileOpenMod_Click(object sender, EventArgs e)
+        {
+            Mod theMod;
+            string modDetails;
+            string[] modDetailsSplit;
+            string[] existingFiles;
+            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
+            DialogResult result = folderDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    existingFiles = Directory.GetFiles(folderDialog.SelectedPath);
+                    if (existingFiles.Length != 1)
+                    {
+                        throw new Exception();
+                    }
+                    else
+                    {
+                        modDetails = File.ReadAllText(existingFiles[0]);
+                        modDetailsSplit = modDetails.Split('|');
+                        theMod = new Mod(modDetailsSplit[0], folderDialog.SelectedPath);
+                        theMod.set_description(modDetailsSplit[1]);
+                        theMod.set_author(modDetailsSplit[2]);
+                        loadedMod = theMod;
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Please select a valid folder");
+                }
+            }
         }
     }
 }
