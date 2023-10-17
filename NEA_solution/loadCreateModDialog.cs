@@ -54,7 +54,13 @@ namespace NEA_solution
 
         private void btnCreateMod_Click(object sender, EventArgs e)
         {
-            
+            CreateModDialog createModDialog = new CreateModDialog();
+            DialogResult result = createModDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                theMod = createModDialog.theMod;
+                this.Close();
+            }
         }
     }
 }
