@@ -22,7 +22,7 @@ namespace NEA_solution
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            theMod = new Mod(txtName.Text, thePath);
+            theMod = new Mod(txtName.Text, thePath + "\\" + txtName.Text);
         }
 
         private void btnFileLocation_Click(object sender, EventArgs e)

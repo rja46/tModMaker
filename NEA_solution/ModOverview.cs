@@ -139,11 +139,11 @@ namespace NEA_solution
             modFile += loadedMod.get_name() + "|";
             modFile += loadedMod.get_description() + "|";
             modFile += loadedMod.get_author();
-            if (!(Directory.Exists(thePath + "\\" + loadedMod.get_name())))
+            if (!(Directory.Exists(thePath)))
             {
-                Directory.CreateDirectory(thePath + "\\" + loadedMod.get_name());
+                Directory.CreateDirectory(thePath);
             }
-            File.WriteAllText(thePath + "\\" + loadedMod.get_name() + "\\" + loadedMod.get_name() + ".txt", modFile);
+            File.WriteAllText(thePath + "\\" + loadedMod.get_name() + ".txt", modFile);
         }
     }
 }

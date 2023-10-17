@@ -13,7 +13,6 @@ namespace NEA_solution
 {
     public partial class loadCreateModDialog : Form
     {
-        public string modDetails;
         public Mod theMod;
         public loadCreateModDialog()
         {
@@ -22,6 +21,8 @@ namespace NEA_solution
 
         private void btnLoadMod_Click(object sender, EventArgs e)
         {
+            string modDetails;
+            string[] modDetailsSplit;
             string[] existingFiles;
             FolderBrowserDialog folderDialog = new FolderBrowserDialog();
             DialogResult result = folderDialog.ShowDialog();
@@ -37,7 +38,11 @@ namespace NEA_solution
                     else
                     {
                         modDetails = File.ReadAllText(existingFiles[0]);
-                        MessageBox.Show(modDetails);
+                        modDetailsSplit = modDetails.Split('|');
+                        theMod = new Mod(modDetailsSplit[0], folderDialog.SelectedPath);
+                        theMod.set_description(modDetailsSplit[1]);
+                        theMod.set_author(modDetailsSplit[2]);
+                        this.Close();
                     }
                 }
                 catch
@@ -49,13 +54,7 @@ namespace NEA_solution
 
         private void btnCreateMod_Click(object sender, EventArgs e)
         {
-            CreateModDialog createModDialog = new CreateModDialog();
-            DialogResult result = createModDialog.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                theMod = createModDialog.theMod;
-                this.Close();
-            }
+
         }
     }
 }
