@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -142,6 +143,7 @@ namespace NEA_solution
             {
                 Directory.CreateDirectory(thePath + "\\" + loadedMod.get_name());
             }
+            File.WriteAllText(thePath + "\\" + loadedMod.get_name() + "\\" + loadedMod.get_name() + ".txt", modFile);
         }
     }
 }
