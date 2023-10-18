@@ -1,0 +1,103 @@
+body {
+    font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin: 8px;
+  font-size: 42px;
+}
+
+input[src]
+{
+  margin: 4px 8px 8px 4px;
+}
+
+
+
+#toolbar {
+  text-align: center;
+  margin-left: 8px;
+  margin-right: 8px;  
+}
+
+.app-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: visible;
+  background-color: #EFEFFF;
+  border: 4px solid black;
+  border-radius: 8px;
+  margin: 10px;
+  background-image: url('../images/logo_built_on.svg');
+  background-size: 200px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right 10px top 20px;
+}
+
+.main {
+  position: absolute;
+  top: 110px;
+  bottom: 8px;
+}
+
+#blocklyDiv {
+  left: 8px;
+  right: 400px;
+}
+
+#outputDiv {
+  right: 8px;
+  width: 365px;
+  background-color: #fff;
+  overflow: scroll;
+  padding: 8px;
+}
+
+hr {
+  height: 1px;
+  border: 0;
+  background-color: #ccc;
+  clear: both;
+}
+
+.blocklyTreeLabel {
+  color: #fff;  
+  font-size: 18px;
+  text-align: center;
+  min-width: 120px; 
+}
+
+.blocklyToolboxContents {
+  padding: 6px;
+}
+
+.blocklyTreeRow {
+  padding: 4px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+}
+
+.customIcon {
+  color: #fff;
+}
+
+.blocklyTreeRowContentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blocklyTreeRow {
+  height: initial;
+}
+
+#codeHolder {
+  padding: 0;
+  border: none;
+}
+

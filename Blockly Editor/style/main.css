@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+/* Enclose the whole page in a container */
+#page {
+  width: 1200px; 
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 2px;
+  text-align: center;
+  font-size: 28px;
+  color: white;
+}
+
+header h1 {
+  margin: 8px;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  background-color: #fff;
+  float: left;
+  width: 300px;
+  padding: 10px;
+  min-height: 650px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  
+}
+
+nav ul li {
+  padding-bottom: 1px;
+  background-image: url('../images/blob.png');
+  background-repeat: no-repeat;
+  background-position: center left;
+  padding-left: 16px;
+}
+
+a:link, a:visited {
+  font-size: 18px;
+  color: navy;
+  text-decoration: none;
+}
+a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+article {
+  float: left;
+  padding: 4px 10px 4px 10px;
+  width: 898px;
+  min-height: 650px;
+  background-color: #fff;
+  border-left: 1px solid #ccc;
+}
+
+article a:link, article a:visited,article a:hover
+{
+  color: blue;
+  text-decoration: underline;
+
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+/* Page Title */
+h2 {
+  text-align: center;
+  font-size: 24px;
+  color: navy;
+  margin: 4px;
+}
+h3 {
+  text-align: left;
+  font-size: 20px;
+  color: navy;
+  margin: 6px 0px 12px 0px;
+}
+p {
+  font-size: 18px;
+  color: black;
+}
+
+p:has(img) {
+  text-align: center;
+}
+
+code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+  line-height: 20px !important;
+  display: block; 
+  font: 18px 'Lucida Console', 'courier new', monospace;
+  width: 800px;
+  margin: 0 auto;
+  padding : 12px;
+  text-align : left;
+  background: #f8f4f1;
+  border : 1px dashed #D7C3C3;
+}
+
+pre.mycode {
+  word-wrap: break-word;
+  word-break: break-all;
+  line-height: 20px !important;
+  display: block; 
+  font: 18px 'Lucida Console', 'courier new', monospace;
+  width: 800px;
+  margin: 0 auto;
+  padding : 12px;
+  text-align : left;
+  background: #f8f4f1;
+  border : 1px dashed #D7C3C3;
+}
