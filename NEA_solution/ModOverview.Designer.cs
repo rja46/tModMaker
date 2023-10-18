@@ -49,6 +49,8 @@
             this.fileSaveMod = new System.Windows.Forms.ToolStripMenuItem();
             this.fileSaveModAs = new System.Windows.Forms.ToolStripMenuItem();
             this.fileOpenMod = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtItemName = new System.Windows.Forms.TextBox();
+            this.txtItemType = new System.Windows.Forms.TextBox();
             this.pnlItemPreview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
             this.msMain.SuspendLayout();
@@ -120,20 +122,22 @@
             // 
             // pnlItemPreview
             // 
+            this.pnlItemPreview.Controls.Add(this.txtItemType);
+            this.pnlItemPreview.Controls.Add(this.txtItemName);
             this.pnlItemPreview.Controls.Add(this.btnEditItem);
             this.pnlItemPreview.Controls.Add(this.btnDeleteItem);
             this.pnlItemPreview.Controls.Add(this.btnChangeSprite);
             this.pnlItemPreview.Controls.Add(this.lblItemType);
             this.pnlItemPreview.Controls.Add(this.pbSprite);
             this.pnlItemPreview.Controls.Add(this.lblItemName);
-            this.pnlItemPreview.Location = new System.Drawing.Point(350, 60);
+            this.pnlItemPreview.Location = new System.Drawing.Point(350, 77);
             this.pnlItemPreview.Name = "pnlItemPreview";
-            this.pnlItemPreview.Size = new System.Drawing.Size(303, 144);
+            this.pnlItemPreview.Size = new System.Drawing.Size(438, 329);
             this.pnlItemPreview.TabIndex = 9;
             // 
             // btnEditItem
             // 
-            this.btnEditItem.Location = new System.Drawing.Point(219, 93);
+            this.btnEditItem.Location = new System.Drawing.Point(360, 174);
             this.btnEditItem.Name = "btnEditItem";
             this.btnEditItem.Size = new System.Drawing.Size(75, 23);
             this.btnEditItem.TabIndex = 11;
@@ -143,7 +147,7 @@
             // 
             // btnDeleteItem
             // 
-            this.btnDeleteItem.Location = new System.Drawing.Point(138, 93);
+            this.btnDeleteItem.Location = new System.Drawing.Point(279, 174);
             this.btnDeleteItem.Name = "btnDeleteItem";
             this.btnDeleteItem.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteItem.TabIndex = 10;
@@ -152,9 +156,9 @@
             // 
             // btnChangeSprite
             // 
-            this.btnChangeSprite.Location = new System.Drawing.Point(138, 64);
+            this.btnChangeSprite.Location = new System.Drawing.Point(199, 145);
             this.btnChangeSprite.Name = "btnChangeSprite";
-            this.btnChangeSprite.Size = new System.Drawing.Size(156, 23);
+            this.btnChangeSprite.Size = new System.Drawing.Size(236, 23);
             this.btnChangeSprite.TabIndex = 3;
             this.btnChangeSprite.Text = "sprite";
             this.btnChangeSprite.UseVisualStyleBackColor = true;
@@ -163,18 +167,19 @@
             // lblItemType
             // 
             this.lblItemType.AutoSize = true;
-            this.lblItemType.Location = new System.Drawing.Point(138, 38);
+            this.lblItemType.Location = new System.Drawing.Point(196, 93);
             this.lblItemType.Name = "lblItemType";
-            this.lblItemType.Size = new System.Drawing.Size(31, 13);
+            this.lblItemType.Size = new System.Drawing.Size(34, 13);
             this.lblItemType.TabIndex = 2;
-            this.lblItemType.Text = "Type";
+            this.lblItemType.Text = "Type:";
             // 
             // pbSprite
             // 
+            this.pbSprite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbSprite.ImageLocation = "";
-            this.pbSprite.Location = new System.Drawing.Point(12, 12);
+            this.pbSprite.Location = new System.Drawing.Point(13, 17);
             this.pbSprite.Name = "pbSprite";
-            this.pbSprite.Size = new System.Drawing.Size(120, 120);
+            this.pbSprite.Size = new System.Drawing.Size(180, 180);
             this.pbSprite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSprite.TabIndex = 1;
             this.pbSprite.TabStop = false;
@@ -182,11 +187,11 @@
             // lblItemName
             // 
             this.lblItemName.AutoSize = true;
-            this.lblItemName.Location = new System.Drawing.Point(138, 12);
+            this.lblItemName.Location = new System.Drawing.Point(196, 42);
             this.lblItemName.Name = "lblItemName";
-            this.lblItemName.Size = new System.Drawing.Size(35, 13);
+            this.lblItemName.Size = new System.Drawing.Size(38, 13);
             this.lblItemName.TabIndex = 0;
-            this.lblItemName.Text = "Name";
+            this.lblItemName.Text = "Name:";
             // 
             // btnExport
             // 
@@ -247,6 +252,22 @@
             this.fileOpenMod.Text = "Open";
             this.fileOpenMod.Click += new System.EventHandler(this.fileOpenMod_Click);
             // 
+            // txtItemName
+            // 
+            this.txtItemName.Location = new System.Drawing.Point(237, 39);
+            this.txtItemName.Name = "txtItemName";
+            this.txtItemName.ReadOnly = true;
+            this.txtItemName.Size = new System.Drawing.Size(198, 20);
+            this.txtItemName.TabIndex = 12;
+            // 
+            // txtItemType
+            // 
+            this.txtItemType.Location = new System.Drawing.Point(237, 90);
+            this.txtItemType.Name = "txtItemType";
+            this.txtItemType.ReadOnly = true;
+            this.txtItemType.Size = new System.Drawing.Size(198, 20);
+            this.txtItemType.TabIndex = 13;
+            // 
             // ModOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,6 +319,8 @@
         private System.Windows.Forms.ToolStripMenuItem fileSaveMod;
         private System.Windows.Forms.ToolStripMenuItem fileSaveModAs;
         private System.Windows.Forms.ToolStripMenuItem fileOpenMod;
+        private System.Windows.Forms.TextBox txtItemType;
+        private System.Windows.Forms.TextBox txtItemName;
     }
 }
 

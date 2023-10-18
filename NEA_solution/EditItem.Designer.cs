@@ -53,6 +53,7 @@
             // 
             // pbSprite
             // 
+            this.pbSprite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbSprite.Location = new System.Drawing.Point(73, 12);
             this.pbSprite.Name = "pbSprite";
             this.pbSprite.Size = new System.Drawing.Size(170, 170);
@@ -128,7 +129,7 @@
             this.webViewCode.TabIndex = 9;
             this.webViewCode.ZoomFactor = 1D;
             // 
-            // editItem
+            // EditItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -143,7 +144,7 @@
             this.Controls.Add(this.btnChangeSprite);
             this.Controls.Add(this.pbSprite);
             this.Controls.Add(this.btnBack);
-            this.Name = "editItem";
+            this.Name = "EditItem";
             this.Text = "editItem";
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.webViewCode)).EndInit();

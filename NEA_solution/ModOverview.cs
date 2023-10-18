@@ -21,7 +21,6 @@ namespace NEA_solution
         public ModOverview()
         {
             InitializeComponent();
-            pnlItemPreview.Visible = false;
 
             loadCreateModDialog loadCreateModDialog = new loadCreateModDialog();
             loadCreateModDialog.ShowDialog();
@@ -98,13 +97,9 @@ namespace NEA_solution
 
         private void update_loaded_item(int index)
         {
-            if (!pnlItemPreview.Visible)
-            {
-                pnlItemPreview.Visible = true;
-            }
             loadedItem = loadedMod.get_item(index);
-            lblItemName.Text = loadedItem.get_displayName();
-            lblItemType.Text = loadedItem.get_type();
+            txtItemName.Text = loadedItem.get_displayName();
+            txtItemType.Text = loadedItem.get_type();
             btnChangeSprite.Text = loadedItem.get_name() + ".png";
             if (loadedItem.get_sprite().get_sprite_path() != null)
             {
@@ -116,14 +111,17 @@ namespace NEA_solution
 
         private void btnChangeSprite_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openSpriteDialog = new OpenFileDialog();
-            openSpriteDialog.InitialDirectory = "c:\\";
-            openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
-            if (openSpriteDialog.ShowDialog() == DialogResult.OK)
+            if (loadedItem != null)
             {
-                loadedItem.get_sprite().set_sprite_path(@openSpriteDialog.FileName);
-                pbSprite.ImageLocation = loadedItem.get_sprite().get_sprite_path();
-                pbSprite.Refresh();
+                OpenFileDialog openSpriteDialog = new OpenFileDialog();
+                openSpriteDialog.InitialDirectory = "c:\\";
+                openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
+                if (openSpriteDialog.ShowDialog() == DialogResult.OK)
+                {
+                    loadedItem.get_sprite().set_sprite_path(@openSpriteDialog.FileName);
+                    pbSprite.ImageLocation = loadedItem.get_sprite().get_sprite_path();
+                    pbSprite.Refresh();
+                }
             }
         }
 
@@ -231,8 +229,11 @@ namespace NEA_solution
 
         private void btnEditItem_Click(object sender, EventArgs e)
         {
-            EditItem editItem = new EditItem(loadedItem);
-            editItem.ShowDialog();
+            if (loadedItem != null)
+            {
+                EditItem editItem = new EditItem(loadedItem);
+                editItem.ShowDialog();
+            }
         }
     }
 }
