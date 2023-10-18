@@ -139,6 +139,7 @@
             this.btnEditItem.TabIndex = 11;
             this.btnEditItem.Text = "Edit Item";
             this.btnEditItem.UseVisualStyleBackColor = true;
+            this.btnEditItem.Click += new System.EventHandler(this.btnEditItem_Click);
             // 
             // btnDeleteItem
             // 
@@ -228,21 +229,21 @@
             // fileSaveMod
             // 
             this.fileSaveMod.Name = "fileSaveMod";
-            this.fileSaveMod.Size = new System.Drawing.Size(180, 22);
+            this.fileSaveMod.Size = new System.Drawing.Size(142, 22);
             this.fileSaveMod.Text = "Save Mod";
             this.fileSaveMod.Click += new System.EventHandler(this.fileSaveMod_Click);
             // 
             // fileSaveModAs
             // 
             this.fileSaveModAs.Name = "fileSaveModAs";
-            this.fileSaveModAs.Size = new System.Drawing.Size(180, 22);
+            this.fileSaveModAs.Size = new System.Drawing.Size(142, 22);
             this.fileSaveModAs.Text = "Save Mod As";
             this.fileSaveModAs.Click += new System.EventHandler(this.fileSaveModAs_Click);
             // 
             // fileOpenMod
             // 
             this.fileOpenMod.Name = "fileOpenMod";
-            this.fileOpenMod.Size = new System.Drawing.Size(180, 22);
+            this.fileOpenMod.Size = new System.Drawing.Size(142, 22);
             this.fileOpenMod.Text = "Open";
             this.fileOpenMod.Click += new System.EventHandler(this.fileOpenMod_Click);
             // 

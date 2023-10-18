@@ -226,10 +226,13 @@ namespace NEA_solution
                     }
                 }
             }
-            catch
-            {
+            catch { }
+        }
 
-            }
+        private void btnEditItem_Click(object sender, EventArgs e)
+        {
+            EditItem editItem = new EditItem(loadedItem);
+            editItem.ShowDialog();
         }
     }
 }

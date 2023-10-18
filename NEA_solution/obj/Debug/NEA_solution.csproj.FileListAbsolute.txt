@@ -44,3 +44,4 @@ C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.Cr
 C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.EditDetailsDialog.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.loadCreateModDialog.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.CreateModDialog.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.EditItem.resources
