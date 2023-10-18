@@ -32,7 +32,11 @@ namespace NEA_solution
         public string get_tooltip() { return tooltip;}
         public string get_type() { return type;}
         public Sprite get_sprite() { return sprite;}
-
+        
+        public void set_tooltip(string tooltip)
+        {
+            this.tooltip = tooltip;
+        }
         public void set_display_name(string displayName)
         {
             this.displayName = displayName;

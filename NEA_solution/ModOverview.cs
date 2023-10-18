@@ -28,7 +28,7 @@ namespace NEA_solution
             loadedMod = loadCreateModDialog.theMod;
 
             txtModName.Text = loadedMod.get_name();
-
+            load_items_for_mod();
             update_item_list();
         }
 
@@ -195,6 +195,40 @@ namespace NEA_solution
                 {
                     MessageBox.Show("Please select a valid folder");
                 }
+            }
+            load_items_for_mod();
+        }
+        private void load_items_for_mod()
+        {
+            string[] existingItems;
+            Item currentItem;
+            string[] tmpProperties;
+            string tmpFile;
+            try
+            {
+                existingItems = Directory.GetFiles(loadedMod.get_modPath() + "\\Items");
+                Console.WriteLine(loadedMod.get_modPath() + "\\Items");
+                if (existingItems.Length == 0)
+                {
+                    throw new Exception();
+                }
+                else
+                {
+                    for (int i = 0; i < existingItems.Length; i++)
+                    {
+                        tmpFile = File.ReadAllText(existingItems[i]);
+                        tmpProperties = tmpFile.Split('|');
+                        currentItem = new Item(tmpProperties[0], tmpProperties[3]);
+                        currentItem.set_display_name(tmpProperties[1]);
+                        currentItem.set_tooltip(tmpProperties[2]);
+                        loadedMod.add_item(currentItem);
+                        update_item_list();
+                    }
+                }
+            }
+            catch
+            {
+
             }
         }
     }
