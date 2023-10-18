@@ -1,0 +1,47 @@
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\bin\Debug\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\bin\Debug\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\bin\Debug\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\bin\Debug\NEA_solution.exe.config
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\bin\Debug\NEA_solution.exe
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\bin\Debug\NEA_solution.pdb
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\bin\Debug\Microsoft.Web.WebView2.Core.dll
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\bin\Debug\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\bin\Debug\Microsoft.Web.WebView2.Core.xml
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\obj\Debug\NEA_solution.csproj.AssemblyReference.cache
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\obj\Debug\NEA_solution.csproj.SuggestedBindingRedirects.cache
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\obj\Debug\NEA_solution.Form1.resources
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\obj\Debug\NEA_solution.Properties.Resources.resources
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\obj\Debug\NEA_solution.csproj.GenerateResource.cache
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\obj\Debug\NEA_solution.csproj.CoreCompileInputs.cache
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\obj\Debug\NEA_solution.csproj.CopyComplete
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\obj\Debug\NEA_solution.exe
+C:\Users\rjand\Documents\School\Computer Science\NEA\Code\NEA_solution\NEA_solution\obj\Debug\NEA_solution.pdb
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\bin\Debug\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\bin\Debug\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\bin\Debug\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.config
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\bin\Debug\NEA_solution.pdb
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\bin\Debug\Microsoft.Web.WebView2.Core.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\bin\Debug\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\bin\Debug\Microsoft.Web.WebView2.Core.xml
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.csproj.AssemblyReference.cache
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.Properties.Resources.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.csproj.GenerateResource.cache
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.csproj.CoreCompileInputs.cache
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.csproj.CopyComplete
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.exe
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.pdb
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.ModOverview.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.csproj.SuggestedBindingRedirects.cache
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.CreateItemDialog.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.EditDetailsDialog.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.loadCreateModDialog.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.CreateModDialog.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\NEA_solution\obj\Debug\NEA_solution.EditItem.resources
