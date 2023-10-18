@@ -34,10 +34,11 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblType = new System.Windows.Forms.Label();
             this.lblTooltip = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtType = new System.Windows.Forms.TextBox();
+            this.txtTooltip = new System.Windows.Forms.TextBox();
             this.webViewCode = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webViewCode)).BeginInit();
             this.SuspendLayout();
@@ -96,27 +97,27 @@
             this.lblTooltip.TabIndex = 5;
             this.lblTooltip.Text = "Tooltip:";
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Location = new System.Drawing.Point(53, 231);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 20);
-            this.textBox1.TabIndex = 6;
+            this.txtName.Location = new System.Drawing.Point(53, 231);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(190, 20);
+            this.txtName.TabIndex = 6;
             // 
-            // textBox2
+            // txtType
             // 
-            this.textBox2.Location = new System.Drawing.Point(53, 257);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(190, 20);
-            this.textBox2.TabIndex = 7;
+            this.txtType.Location = new System.Drawing.Point(53, 257);
+            this.txtType.Name = "txtType";
+            this.txtType.Size = new System.Drawing.Size(190, 20);
+            this.txtType.TabIndex = 7;
             // 
-            // textBox3
+            // txtTooltip
             // 
-            this.textBox3.Location = new System.Drawing.Point(53, 283);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(190, 155);
-            this.textBox3.TabIndex = 8;
+            this.txtTooltip.Location = new System.Drawing.Point(53, 283);
+            this.txtTooltip.Multiline = true;
+            this.txtTooltip.Name = "txtTooltip";
+            this.txtTooltip.Size = new System.Drawing.Size(190, 155);
+            this.txtTooltip.TabIndex = 8;
             // 
             // webViewCode
             // 
@@ -125,19 +126,31 @@
             this.webViewCode.DefaultBackgroundColor = System.Drawing.Color.White;
             this.webViewCode.Location = new System.Drawing.Point(249, 12);
             this.webViewCode.Name = "webViewCode";
-            this.webViewCode.Size = new System.Drawing.Size(539, 426);
+            this.webViewCode.Size = new System.Drawing.Size(539, 397);
+            this.webViewCode.Source = new System.Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\index.html", System.UriKind.Absolute);
             this.webViewCode.TabIndex = 9;
             this.webViewCode.ZoomFactor = 1D;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(713, 415);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // EditItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.webViewCode);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTooltip);
+            this.Controls.Add(this.txtType);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblTooltip);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.lblName);
@@ -161,9 +174,10 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblTooltip;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtType;
+        private System.Windows.Forms.TextBox txtTooltip;
         private Microsoft.Web.WebView2.WinForms.WebView2 webViewCode;
+        private System.Windows.Forms.Button btnSave;
     }
 }
