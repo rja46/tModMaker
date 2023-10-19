@@ -205,12 +205,14 @@ namespace NEA_solution
         private void load_items_for_mod()
         {
             string[] existingItems;
+            string[] existingCode;
             Item currentItem;
             string[] tmpProperties;
             string tmpFile;
             try
             {
                 existingItems = Directory.GetFiles(loadedMod.get_modPath() + "\\Items");
+                existingCode = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Code");
                 Console.WriteLine(loadedMod.get_modPath() + "\\Items");
                 if (existingItems.Length == 0)
                 {
@@ -225,6 +227,7 @@ namespace NEA_solution
                         currentItem = new Item(tmpProperties[0], tmpProperties[3]);
                         currentItem.set_display_name(tmpProperties[1]);
                         currentItem.set_tooltip(tmpProperties[2]);
+                        currentItem.set_code(File.ReadAllText(existingCode[i]));
                         loadedMod.add_item(currentItem);
                         update_item_list();
                     }
