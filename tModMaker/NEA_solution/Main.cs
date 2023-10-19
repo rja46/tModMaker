@@ -13,12 +13,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace NEA_solution
 {
-    public partial class ModOverview : Form
+    public partial class Main : Form
     {
         //load this value from path
         Mod loadedMod;
         Item loadedItem;
-        public ModOverview()
+        public Main()
         {
             InitializeComponent();
 
@@ -142,12 +142,16 @@ namespace NEA_solution
             {
                 Directory.CreateDirectory(thePath);
             }
-            File.WriteAllText(thePath + "\\" + loadedMod.get_name() + ".txt", modFile);
+            File.WriteAllText(thePath + "\\" + loadedMod.get_name() + ".mod", modFile);
             if (loadedMod.get_item_number() != 0)
             {
-                if (!(Directory.Exists(thePath + "\\" + "Items")))
+                if (!Directory.Exists(thePath + "\\Items"))
                 {
-                    Directory.CreateDirectory(thePath + "\\" + "Items");
+                    Directory.CreateDirectory(thePath + "\\Items");
+                }
+                if (!Directory.Exists(thePath + "\\Items\\Code"))
+                {
+                    Directory.CreateDirectory(thePath + "\\Items\\Code");
                 }
                 for (int i = 0; i < loadedMod.get_item_number(); i++)
                 {
@@ -156,8 +160,8 @@ namespace NEA_solution
                     tempItem += loadedMod.get_item(i).get_displayName() + "|";
                     tempItem += loadedMod.get_item(i).get_tooltip() + "|";
                     tempItem += loadedMod.get_item(i).get_type();
-                    File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + ".txt", tempItem);
-                    File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + "_code.txt", loadedMod.get_item(i).get_code());
+                    File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + ".item", tempItem);
+                    File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + "_code.code", loadedMod.get_item(i).get_code());
 
                 }
             }

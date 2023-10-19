@@ -1,6 +1,6 @@
 ﻿namespace NEA_solution
 {
-    partial class ModOverview
+    partial class Main
     {
         /// <summary>
         /// Required designer variable.

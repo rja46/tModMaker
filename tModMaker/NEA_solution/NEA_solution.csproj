@@ -90,11 +90,11 @@
       <DependentUpon>loadCreateModDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Mod.cs" />
-    <Compile Include="ModOverview.cs">
+    <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModOverview.Designer.cs">
-      <DependentUpon>ModOverview.cs</DependentUpon>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,8 +114,8 @@
     <EmbeddedResource Include="loadCreateModDialog.resx">
       <DependentUpon>loadCreateModDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModOverview.resx">
-      <DependentUpon>ModOverview.cs</DependentUpon>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

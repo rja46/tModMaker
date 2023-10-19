@@ -16,7 +16,7 @@ namespace NEA_solution
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ModOverview());
+            Application.Run(new Main());
         }
     }
 }
