@@ -69,26 +69,10 @@ namespace NEA_solution
             loadedItem = loadedMod.get_item(index);
             txtItemName.Text = loadedItem.get_displayName();
             txtItemType.Text = loadedItem.get_type();
-            if (loadedItem.get_sprite().get_sprite_path() != null)
+            if (loadedItem.get_sprite_path() != null)
             {
-                pbSprite.ImageLocation = loadedItem.get_sprite().get_sprite_path();
+                pbSprite.ImageLocation = loadedItem.get_sprite_path();
                 pbSprite.Refresh();
-            }
-        }
-
-        private void btnChangeSprite_Click(object sender, EventArgs e)
-        {
-            if (loadedItem != null)
-            {
-                OpenFileDialog openSpriteDialog = new OpenFileDialog();
-                openSpriteDialog.InitialDirectory = "c:\\";
-                openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
-                if (openSpriteDialog.ShowDialog() == DialogResult.OK)
-                {
-                    loadedItem.get_sprite().set_sprite_path(@openSpriteDialog.FileName);
-                    pbSprite.ImageLocation = loadedItem.get_sprite().get_sprite_path();
-                    pbSprite.Refresh();
-                }
             }
         }
 
@@ -208,6 +192,8 @@ namespace NEA_solution
             {
                 EditItem editItem = new EditItem(loadedItem);
                 editItem.Show();
+                loadedItem = editItem.theItem;
+                update_item_list();
             }
         }
 

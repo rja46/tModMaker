@@ -35,17 +35,18 @@
             this.lblType = new System.Windows.Forms.Label();
             this.lblTooltip = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtType = new System.Windows.Forms.TextBox();
             this.txtTooltip = new System.Windows.Forms.TextBox();
             this.webViewCode = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.btnSave = new System.Windows.Forms.Button();
+            this.txtDisplayName = new System.Windows.Forms.TextBox();
+            this.lblDisplayName = new System.Windows.Forms.Label();
+            this.cbType = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webViewCode)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
             // 
-            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnBack.Location = new System.Drawing.Point(12, 12);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(55, 23);
@@ -71,11 +72,12 @@
             this.btnChangeSprite.TabIndex = 2;
             this.btnChangeSprite.Text = "button1";
             this.btnChangeSprite.UseVisualStyleBackColor = true;
+            this.btnChangeSprite.Click += new System.EventHandler(this.btnChangeSprite_Click);
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(9, 234);
+            this.lblName.Location = new System.Drawing.Point(9, 220);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(38, 13);
             this.lblName.TabIndex = 3;
@@ -84,7 +86,7 @@
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(9, 260);
+            this.lblType.Location = new System.Drawing.Point(9, 272);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(34, 13);
             this.lblType.TabIndex = 4;
@@ -93,7 +95,7 @@
             // lblTooltip
             // 
             this.lblTooltip.AutoSize = true;
-            this.lblTooltip.Location = new System.Drawing.Point(9, 286);
+            this.lblTooltip.Location = new System.Drawing.Point(9, 298);
             this.lblTooltip.Name = "lblTooltip";
             this.lblTooltip.Size = new System.Drawing.Size(42, 13);
             this.lblTooltip.TabIndex = 5;
@@ -101,24 +103,17 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(53, 231);
+            this.txtName.Location = new System.Drawing.Point(53, 217);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(190, 20);
             this.txtName.TabIndex = 6;
             // 
-            // txtType
-            // 
-            this.txtType.Location = new System.Drawing.Point(53, 257);
-            this.txtType.Name = "txtType";
-            this.txtType.Size = new System.Drawing.Size(190, 20);
-            this.txtType.TabIndex = 7;
-            // 
             // txtTooltip
             // 
-            this.txtTooltip.Location = new System.Drawing.Point(53, 283);
+            this.txtTooltip.Location = new System.Drawing.Point(53, 295);
             this.txtTooltip.Multiline = true;
             this.txtTooltip.Name = "txtTooltip";
-            this.txtTooltip.Size = new System.Drawing.Size(190, 155);
+            this.txtTooltip.Size = new System.Drawing.Size(190, 143);
             this.txtTooltip.TabIndex = 8;
             // 
             // webViewCode
@@ -144,15 +139,49 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // txtDisplayName
+            // 
+            this.txtDisplayName.Location = new System.Drawing.Point(53, 243);
+            this.txtDisplayName.Name = "txtDisplayName";
+            this.txtDisplayName.Size = new System.Drawing.Size(190, 20);
+            this.txtDisplayName.TabIndex = 12;
+            // 
+            // lblDisplayName
+            // 
+            this.lblDisplayName.Location = new System.Drawing.Point(9, 240);
+            this.lblDisplayName.Name = "lblDisplayName";
+            this.lblDisplayName.Size = new System.Drawing.Size(42, 29);
+            this.lblDisplayName.TabIndex = 11;
+            this.lblDisplayName.Text = "Display Name:";
+            // 
+            // cbType
+            // 
+            this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbType.FormattingEnabled = true;
+            this.cbType.Items.AddRange(new object[] {
+            "Tool",
+            "Accessory",
+            "Tile",
+            "Consumable",
+            "Projectile",
+            "NPC",
+            "AI"});
+            this.cbType.Location = new System.Drawing.Point(53, 269);
+            this.cbType.Name = "cbType";
+            this.cbType.Size = new System.Drawing.Size(190, 21);
+            this.cbType.TabIndex = 13;
+            // 
             // EditItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbType);
+            this.Controls.Add(this.txtDisplayName);
+            this.Controls.Add(this.lblDisplayName);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.webViewCode);
             this.Controls.Add(this.txtTooltip);
-            this.Controls.Add(this.txtType);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblTooltip);
             this.Controls.Add(this.lblType);
@@ -178,9 +207,11 @@
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblTooltip;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtType;
         private System.Windows.Forms.TextBox txtTooltip;
         private Microsoft.Web.WebView2.WinForms.WebView2 webViewCode;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.TextBox txtDisplayName;
+        private System.Windows.Forms.Label lblDisplayName;
+        private System.Windows.Forms.ComboBox cbType;
     }
 }

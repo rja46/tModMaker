@@ -20,6 +20,10 @@ namespace NEA_solution
             theItem = loadedItem;
             InitializeComponent();
             InitWebview();
+            txtDisplayName.Text = theItem.get_displayName();
+            txtName.Text = theItem.get_name();
+            txtTooltip.Text = theItem.get_tooltip();
+            cbType.Text = theItem.get_type();
         }
 
         async void InitWebview()
@@ -36,6 +40,10 @@ namespace NEA_solution
         {
             requestData();
             theItem.set_code(code);
+            theItem.set_display_name(txtDisplayName.Text);
+            theItem.set_tooltip(txtTooltip.Text);
+            theItem.set_name(txtName.Text);
+            theItem.set_type(cbType.Text);
         }
 
         private void webViewCode_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e)
@@ -46,6 +54,22 @@ namespace NEA_solution
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnChangeSprite_Click(object sender, EventArgs e)
+        {
+            if (theItem != null)
+            {
+                OpenFileDialog openSpriteDialog = new OpenFileDialog();
+                openSpriteDialog.InitialDirectory = "c:\\";
+                openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
+                if (openSpriteDialog.ShowDialog() == DialogResult.OK)
+                {
+                    theItem.set_sprite_path(@openSpriteDialog.FileName);
+                    pbSprite.ImageLocation = theItem.get_sprite_path();
+                    pbSprite.Refresh();
+                }
+            }
         }
     }
 }
