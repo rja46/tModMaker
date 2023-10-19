@@ -157,6 +157,8 @@ namespace NEA_solution
                     tempItem += loadedMod.get_item(i).get_tooltip() + "|";
                     tempItem += loadedMod.get_item(i).get_type();
                     File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + ".txt", tempItem);
+                    File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + "_code.txt", loadedMod.get_item(i).get_code());
+
                 }
             }
         }
@@ -232,6 +234,11 @@ namespace NEA_solution
             if (loadedItem != null)
             {
                 EditItem editItem = new EditItem(loadedItem);
+                DialogResult result = editItem.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    loadedItem = editItem.theItem;
+                }
                 editItem.ShowDialog();
             }
         }

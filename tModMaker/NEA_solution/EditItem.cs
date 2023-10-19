@@ -12,8 +12,12 @@ namespace NEA_solution
 {
     public partial class EditItem : Form
     {
+        private string code;
+        public Item theItem;
+
         public EditItem(Item loadedItem)
         {
+            theItem = loadedItem;
             InitializeComponent();
             InitWebview();
         }
@@ -31,11 +35,17 @@ namespace NEA_solution
         private void btnSave_Click(object sender, EventArgs e)
         {
             requestData();
+            theItem.set_code(code);
         }
 
         private void webViewCode_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e)
         {
-            txtName.Text = e.TryGetWebMessageAsString();
+            code = e.TryGetWebMessageAsString();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

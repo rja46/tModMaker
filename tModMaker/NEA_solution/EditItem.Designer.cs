@@ -45,12 +45,14 @@
             // 
             // btnBack
             // 
+            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnBack.Location = new System.Drawing.Point(12, 12);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(55, 23);
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // pbSprite
             // 
