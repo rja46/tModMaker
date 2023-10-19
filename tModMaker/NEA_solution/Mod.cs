@@ -49,6 +49,7 @@ namespace NEA_solution
         public void set_author (string  author) { this.author = author;}
         public void set_description(string description) {  this.description = description;}
         public void set_modPath(string modPath) { this.modPath = modPath;}
+        public void set_items(Item[] items) { this.items = items;}
 
         public string[,] get_items_for_display()
         {

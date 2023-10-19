@@ -69,7 +69,6 @@ namespace NEA_solution
             loadedItem = loadedMod.get_item(index);
             txtItemName.Text = loadedItem.get_displayName();
             txtItemType.Text = loadedItem.get_type();
-            btnChangeSprite.Text = loadedItem.get_name() + ".png";
             if (loadedItem.get_sprite().get_sprite_path() != null)
             {
                 pbSprite.ImageLocation = loadedItem.get_sprite().get_sprite_path();
@@ -225,24 +224,25 @@ namespace NEA_solution
             }
         }
 
-        private void lblItemType_Click(object sender, EventArgs e)
+        private void btnDeleteItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtItemType_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblItemName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtItemName_TextChanged(object sender, EventArgs e)
-        {
-
+            DialogResult result = MessageBox.Show("Are you sure?", "Confirm action", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Item[] tmpItems = new Item[loadedMod.get_item_number() - 1];
+                int indexToDelete = lbItems.SelectedIndex;
+                int count = 0;
+                for (int i = 0; i < loadedMod.get_item_number(); i++)
+                {
+                    if (i != indexToDelete)
+                    {
+                        tmpItems[count] = loadedMod.get_item(i);
+                        count++;
+                    }
+                }
+                loadedMod.set_items(tmpItems);
+                update_item_list();
+            }
         }
     }
 }
