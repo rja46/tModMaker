@@ -130,6 +130,7 @@
             this.webViewCode.Source = new System.Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\index.html", System.UriKind.Absolute);
             this.webViewCode.TabIndex = 9;
             this.webViewCode.ZoomFactor = 1D;
+            this.webViewCode.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.webViewCode_WebMessageReceived);
             // 
             // btnSave
             // 

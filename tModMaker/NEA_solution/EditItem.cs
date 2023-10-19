@@ -23,11 +23,6 @@ namespace NEA_solution
             await webViewCode.EnsureCoreWebView2Async();
         }
 
-        private void webView21_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e)
-        {
-            txtName.Text = e.TryGetWebMessageAsString();
-        }
-
         public async void requestData()
         {
             await webViewCode.ExecuteScriptAsync("sendDataToWinForm()");
@@ -36,6 +31,11 @@ namespace NEA_solution
         private void btnSave_Click(object sender, EventArgs e)
         {
             requestData();
+        }
+
+        private void webViewCode_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e)
+        {
+            txtName.Text = e.TryGetWebMessageAsString();
         }
     }
 }

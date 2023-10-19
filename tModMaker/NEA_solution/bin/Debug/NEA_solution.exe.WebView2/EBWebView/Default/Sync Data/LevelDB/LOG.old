@@ -1,2 +1,3 @@
-2023/10/18-11:42:45.227 273c Creating DB C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Sync Data\LevelDB since it was missing.
-2023/10/18-11:42:45.252 273c Reusing MANIFEST C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Sync Data\LevelDB/MANIFEST-000001
+2023/10/19-09:50:46.721 588 Reusing MANIFEST C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Sync Data\LevelDB/MANIFEST-000001
+2023/10/19-09:50:46.723 588 Recovering log #3
+2023/10/19-09:50:46.724 588 Reusing old log C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Sync Data\LevelDB/000003.log 
