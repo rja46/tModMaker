@@ -240,6 +240,8 @@ namespace NEA_solution
                         count++;
                     }
                 }
+                File.Delete(loadedMod.get_modPath() + "\\Items\\" + loadedItem.get_name() + ".item");
+                File.Delete(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedItem.get_name() + "_code.code");
                 loadedMod.set_items(tmpItems);
                 update_item_list();
             }
