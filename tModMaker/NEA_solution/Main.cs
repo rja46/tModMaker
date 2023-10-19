@@ -26,30 +26,14 @@ namespace NEA_solution
             loadCreateModDialog.ShowDialog();
             loadedMod = loadCreateModDialog.theMod;
 
-            txtModName.Text = loadedMod.get_name();
+            this.Text = loadedMod.get_name();
             load_items_for_mod();
             update_item_list();
         }
 
-        private void txtModName_TextChanged(object sender, EventArgs e)
-        {
-            if (txtModName.Text != loadedMod.get_name())
-            {
-                loadedMod.set_name(txtModName.Text);
-            }
-        }
-
         private void btnEditDetails_Click(object sender, EventArgs e)
         {
-            EditDetailsDialog editDetailsDialog = new EditDetailsDialog(loadedMod.get_name(), loadedMod.get_author(), loadedMod.get_description());
-            DialogResult result = editDetailsDialog.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                loadedMod.set_name(editDetailsDialog.name);
-                loadedMod.set_author(editDetailsDialog.author);
-                loadedMod.set_description(editDetailsDialog.description);
-                txtModName.Text = loadedMod.get_name();
-            }
+            
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
@@ -67,32 +51,17 @@ namespace NEA_solution
 
         private void update_item_list()
         {
-            lbType.Items.Clear();
             lbItems.Items.Clear();
             string[,] displayText = loadedMod.get_items_for_display();
             for (int i = 0; i < displayText.GetLength(0); i++)
             {
                 lbItems.Items.Add(displayText[i, 0]);
-                lbType.Items.Add(displayText[i, 1]);
             }
         }
 
         private void lbItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lbItems.SelectedIndex != lbType.SelectedIndex)
-            {
-                lbType.SelectedIndex = lbItems.SelectedIndex;
                 update_loaded_item(lbItems.SelectedIndex);
-            }
-        }
-
-        private void lbType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lbType.SelectedIndex != lbItems.SelectedIndex)
-            {
-                lbItems.SelectedIndex = lbType.SelectedIndex;
-                update_loaded_item(lbType.SelectedIndex);
-            }
         }
 
         private void update_loaded_item(int index)
@@ -239,13 +208,41 @@ namespace NEA_solution
             if (loadedItem != null)
             {
                 EditItem editItem = new EditItem(loadedItem);
-                DialogResult result = editItem.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    loadedItem = editItem.theItem;
-                }
-                editItem.ShowDialog();
+                editItem.Show();
             }
+        }
+
+        private void modDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditDetailsDialog editDetailsDialog = new EditDetailsDialog(loadedMod.get_name(), loadedMod.get_author(), loadedMod.get_description());
+            DialogResult result = editDetailsDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                loadedMod.set_name(editDetailsDialog.name);
+                loadedMod.set_author(editDetailsDialog.author);
+                loadedMod.set_description(editDetailsDialog.description);
+                this.Text = loadedMod.get_name();
+            }
+        }
+
+        private void lblItemType_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtItemType_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblItemName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtItemName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -140,6 +140,7 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.cbType);
             this.Controls.Add(this.btnTemplate);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CreateItemDialog";
             this.Text = "CreateItem";
             this.ResumeLayout(false);
