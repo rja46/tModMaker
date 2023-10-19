@@ -104,7 +104,6 @@ namespace NEA_solution
             if (loadedItem.get_sprite().get_sprite_path() != null)
             {
                 pbSprite.ImageLocation = loadedItem.get_sprite().get_sprite_path();
-                Console.WriteLine(pbSprite.ImageLocation);
                 pbSprite.Refresh();
             }
         }
@@ -213,7 +212,6 @@ namespace NEA_solution
             {
                 existingItems = Directory.GetFiles(loadedMod.get_modPath() + "\\Items");
                 existingCode = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Code");
-                Console.WriteLine(loadedMod.get_modPath() + "\\Items");
                 if (existingItems.Length == 0)
                 {
                     throw new Exception();
