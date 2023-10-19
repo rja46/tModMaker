@@ -12,7 +12,7 @@ namespace NEA_solution
         private string name;
         private string displayName;
         private string tooltip;
-        private Code code;
+        private string code;
         private Sprite sprite;
         private string type;
 
@@ -22,7 +22,7 @@ namespace NEA_solution
             this.type = type;
             displayName = name;
             tooltip = "";
-            code = new Code();
+            code = "";
             sprite = new Sprite();
             type = "";
         }
@@ -31,6 +31,7 @@ namespace NEA_solution
         public string get_displayName() { return displayName; }
         public string get_tooltip() { return tooltip;}
         public string get_type() { return type;}
+        public string get_code() { return code;}
         public Sprite get_sprite() { return sprite;}
         
         public void set_tooltip(string tooltip)
@@ -40,6 +41,10 @@ namespace NEA_solution
         public void set_display_name(string displayName)
         {
             this.displayName = displayName;
+        }
+        public void set_code(string code)
+        {
+            this.code = code;
         }
     }
 }
