@@ -37,6 +37,7 @@ namespace NEA_solution
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            // the button has to be pressed twice. i do not know why. repeating the processes inside the event does nothing
             requestData();
             theItem.set_code(code);
             theItem.set_display_name(txtDisplayName.Text);
