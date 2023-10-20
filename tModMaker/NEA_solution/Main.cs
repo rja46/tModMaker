@@ -71,10 +71,14 @@ namespace NEA_solution
             {
                 txtItemName.Text = loadedItem.get_displayName();
                 txtItemType.Text = loadedItem.get_type();
-                if (loadedItem.get_sprite_path() != null)
+                try
                 {
-                    pbSprite.ImageLocation = loadedItem.get_sprite_path();
+                    pbSprite.Image = new Bitmap(loadedMod.get_modPath() + "\\Items\\Sprites\\" + loadedItem.get_name() + ".png");
                     pbSprite.Refresh();
+                }
+                catch
+                {
+                    pbSprite.Image = null;
                 }
             }
         }

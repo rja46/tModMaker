@@ -79,9 +79,9 @@ namespace NEA_solution
                     {
                         Directory.CreateDirectory(thePath + "\\Items\\Sprites");
                     }
-                    pbSprite.ImageLocation = @openSpriteDialog.FileName;
-                    pbSprite.Image.Save(thePath + "\\Items\\Sprites\\" + theItem.get_name() + ".png", ImageFormat.Png);
+                    pbSprite.Image = new Bitmap(@openSpriteDialog.FileName);
                     pbSprite.Refresh();
+                    pbSprite.Image.Save(thePath + "\\Items\\Sprites\\" + theItem.get_name() + ".png");
                 }
             }
         }
