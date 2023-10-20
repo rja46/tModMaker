@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,10 +16,12 @@ namespace NEA_solution
     {
         private string code;
         public Item theItem;
+        private string thePath;
 
-        public EditItem(Item loadedItem)
+        public EditItem(Item loadedItem, string path)
         {
             theItem = loadedItem;
+            thePath = path;
             InitializeComponent();
             InitWebview();
             txtDisplayName.Text = theItem.get_displayName();
@@ -68,10 +72,15 @@ namespace NEA_solution
                 OpenFileDialog openSpriteDialog = new OpenFileDialog();
                 openSpriteDialog.InitialDirectory = "c:\\";
                 openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
+                
                 if (openSpriteDialog.ShowDialog() == DialogResult.OK)
                 {
-                    theItem.set_sprite_path(@openSpriteDialog.FileName);
-                    pbSprite.ImageLocation = theItem.get_sprite_path();
+                    if (!Directory.Exists(thePath + "\\Items\\Sprites"))
+                    {
+                        Directory.CreateDirectory(thePath + "\\Items\\Sprites");
+                    }
+                    pbSprite.ImageLocation = @openSpriteDialog.FileName;
+                    pbSprite.Image.Save(thePath + "\\Items\\Sprites\\" + theItem.get_name() + ".png", ImageFormat.Png);
                     pbSprite.Refresh();
                 }
             }

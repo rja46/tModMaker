@@ -37,8 +37,16 @@ namespace NEA_solution
 
         public Item get_item(int index)
         {
-            return items[index];
+            try
+            {
+                return items[index];
+            }
+            catch
+            {
+                { return null; }
+            }
         }
+
         public string get_name() { return name; }
         public string get_description() { return description; }
         public string get_author() { return author;}

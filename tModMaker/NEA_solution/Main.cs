@@ -67,12 +67,15 @@ namespace NEA_solution
         private void update_loaded_item(int index)
         {
             loadedItem = loadedMod.get_item(index);
-            txtItemName.Text = loadedItem.get_displayName();
-            txtItemType.Text = loadedItem.get_type();
-            if (loadedItem.get_sprite_path() != null)
+            if (loadedItem != null)
             {
-                pbSprite.ImageLocation = loadedItem.get_sprite_path();
-                pbSprite.Refresh();
+                txtItemName.Text = loadedItem.get_displayName();
+                txtItemType.Text = loadedItem.get_type();
+                if (loadedItem.get_sprite_path() != null)
+                {
+                    pbSprite.ImageLocation = loadedItem.get_sprite_path();
+                    pbSprite.Refresh();
+                }
             }
         }
 
@@ -190,7 +193,7 @@ namespace NEA_solution
         {
             if (loadedItem != null)
             {
-                EditItem editItem = new EditItem(loadedItem);
+                EditItem editItem = new EditItem(loadedItem, loadedMod.get_modPath());
                 editItem.Show();
                 loadedItem = editItem.theItem;
                 update_item_list();
