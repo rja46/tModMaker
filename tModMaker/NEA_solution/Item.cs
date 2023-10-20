@@ -50,10 +50,6 @@ namespace NEA_solution
         {
             this.spritePath = sprite_path;
         }
-        public void set_name(string name)
-        {
-            this.name = name;
-        }
         public void set_type(string type)
         {
             this.type = type;

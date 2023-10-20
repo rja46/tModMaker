@@ -21,7 +21,6 @@ namespace NEA_solution
             InitializeComponent();
             InitWebview();
             txtDisplayName.Text = theItem.get_displayName();
-            txtName.Text = theItem.get_name();
             txtTooltip.Text = theItem.get_tooltip();
             cbType.Text = theItem.get_type();
         }
@@ -42,7 +41,6 @@ namespace NEA_solution
             theItem.set_code(code);
             theItem.set_display_name(txtDisplayName.Text);
             theItem.set_tooltip(txtTooltip.Text);
-            theItem.set_name(txtName.Text);
             theItem.set_type(cbType.Text);
         }
 

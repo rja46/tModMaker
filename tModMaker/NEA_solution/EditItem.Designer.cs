@@ -31,10 +31,8 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.pbSprite = new System.Windows.Forms.PictureBox();
             this.btnChangeSprite = new System.Windows.Forms.Button();
-            this.lblName = new System.Windows.Forms.Label();
             this.lblType = new System.Windows.Forms.Label();
             this.lblTooltip = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.txtTooltip = new System.Windows.Forms.TextBox();
             this.webViewCode = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.btnSave = new System.Windows.Forms.Button();
@@ -74,19 +72,10 @@
             this.btnChangeSprite.UseVisualStyleBackColor = true;
             this.btnChangeSprite.Click += new System.EventHandler(this.btnChangeSprite_Click);
             // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(9, 220);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(38, 13);
-            this.lblName.TabIndex = 3;
-            this.lblName.Text = "Name:";
-            // 
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(9, 272);
+            this.lblType.Location = new System.Drawing.Point(9, 246);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(34, 13);
             this.lblType.TabIndex = 4;
@@ -95,25 +84,18 @@
             // lblTooltip
             // 
             this.lblTooltip.AutoSize = true;
-            this.lblTooltip.Location = new System.Drawing.Point(9, 298);
+            this.lblTooltip.Location = new System.Drawing.Point(9, 273);
             this.lblTooltip.Name = "lblTooltip";
             this.lblTooltip.Size = new System.Drawing.Size(42, 13);
             this.lblTooltip.TabIndex = 5;
             this.lblTooltip.Text = "Tooltip:";
             // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(53, 217);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(190, 20);
-            this.txtName.TabIndex = 6;
-            // 
             // txtTooltip
             // 
-            this.txtTooltip.Location = new System.Drawing.Point(53, 295);
+            this.txtTooltip.Location = new System.Drawing.Point(53, 270);
             this.txtTooltip.Multiline = true;
             this.txtTooltip.Name = "txtTooltip";
-            this.txtTooltip.Size = new System.Drawing.Size(190, 143);
+            this.txtTooltip.Size = new System.Drawing.Size(190, 168);
             this.txtTooltip.TabIndex = 8;
             // 
             // webViewCode
@@ -141,14 +123,14 @@
             // 
             // txtDisplayName
             // 
-            this.txtDisplayName.Location = new System.Drawing.Point(53, 243);
+            this.txtDisplayName.Location = new System.Drawing.Point(53, 217);
             this.txtDisplayName.Name = "txtDisplayName";
             this.txtDisplayName.Size = new System.Drawing.Size(190, 20);
             this.txtDisplayName.TabIndex = 12;
             // 
             // lblDisplayName
             // 
-            this.lblDisplayName.Location = new System.Drawing.Point(9, 240);
+            this.lblDisplayName.Location = new System.Drawing.Point(9, 212);
             this.lblDisplayName.Name = "lblDisplayName";
             this.lblDisplayName.Size = new System.Drawing.Size(42, 29);
             this.lblDisplayName.TabIndex = 11;
@@ -166,7 +148,7 @@
             "Projectile",
             "NPC",
             "AI"});
-            this.cbType.Location = new System.Drawing.Point(53, 269);
+            this.cbType.Location = new System.Drawing.Point(53, 243);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(190, 21);
             this.cbType.TabIndex = 13;
@@ -182,10 +164,8 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.webViewCode);
             this.Controls.Add(this.txtTooltip);
-            this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblTooltip);
             this.Controls.Add(this.lblType);
-            this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnChangeSprite);
             this.Controls.Add(this.pbSprite);
             this.Controls.Add(this.btnBack);
@@ -203,10 +183,8 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.PictureBox pbSprite;
         private System.Windows.Forms.Button btnChangeSprite;
-        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblTooltip;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtTooltip;
         private Microsoft.Web.WebView2.WinForms.WebView2 webViewCode;
         private System.Windows.Forms.Button btnSave;
