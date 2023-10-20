@@ -9,6 +9,9 @@
             var text = document.getElementById("theText").value;
             window.chrome.webview.postMessage(text);
         }
+		function loadData(theData){
+			document.getElementById("theText").value = theData;
+		}
     </script>
     </head>
 <body>

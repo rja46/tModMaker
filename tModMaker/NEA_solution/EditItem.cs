@@ -23,11 +23,17 @@ namespace NEA_solution
             txtDisplayName.Text = theItem.get_displayName();
             txtTooltip.Text = theItem.get_tooltip();
             cbType.Text = theItem.get_type();
-        }
+            //sendData();
 
+        }
         async void InitWebview()
         {
             await webViewCode.EnsureCoreWebView2Async();
+        }
+
+        async void sendData()
+        {
+            await webViewCode.ExecuteScriptAsync("loadData(" + theItem.get_code() + ")");
         }
 
         public async void requestData()
