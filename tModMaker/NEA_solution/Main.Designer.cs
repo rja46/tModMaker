@@ -34,23 +34,26 @@
             this.txtItemType = new System.Windows.Forms.TextBox();
             this.txtItemName = new System.Windows.Forms.TextBox();
             this.btnEditItem = new System.Windows.Forms.Button();
-            this.btnDeleteItem = new System.Windows.Forms.Button();
             this.lblItemType = new System.Windows.Forms.Label();
             this.pbSprite = new System.Windows.Forms.PictureBox();
             this.lblItemName = new System.Windows.Forms.Label();
+            this.btnDeleteItem = new System.Windows.Forms.Button();
             this.msMain = new System.Windows.Forms.MenuStrip();
             this.msMainFile = new System.Windows.Forms.ToolStripMenuItem();
             this.fileSaveMod = new System.Windows.Forms.ToolStripMenuItem();
             this.fileSaveModAs = new System.Windows.Forms.ToolStripMenuItem();
             this.fileOpenMod = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stsBottom = new System.Windows.Forms.StatusStrip();
+            this.pbSave = new System.Windows.Forms.ToolStripProgressBar();
             this.pnlItemPreview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
             this.msMain.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.stsBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddItem
@@ -91,14 +94,16 @@
             this.txtItemType.Name = "txtItemType";
             this.txtItemType.ReadOnly = true;
             this.txtItemType.Size = new System.Drawing.Size(196, 20);
-            this.txtItemType.TabIndex = 13;            // 
+            this.txtItemType.TabIndex = 13;
+            // 
             // txtItemName
             // 
             this.txtItemName.Location = new System.Drawing.Point(43, 315);
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.ReadOnly = true;
             this.txtItemName.Size = new System.Drawing.Size(196, 20);
-            this.txtItemName.TabIndex = 12;            // 
+            this.txtItemName.TabIndex = 12;
+            // 
             // btnEditItem
             // 
             this.btnEditItem.Location = new System.Drawing.Point(240, 387);
@@ -108,16 +113,6 @@
             this.btnEditItem.Text = "Edit Item";
             this.btnEditItem.UseVisualStyleBackColor = true;
             this.btnEditItem.Click += new System.EventHandler(this.btnEditItem_Click);
-            // 
-            // btnDeleteItem
-            // 
-            this.btnDeleteItem.Location = new System.Drawing.Point(84, 388);
-            this.btnDeleteItem.Name = "btnDeleteItem";
-            this.btnDeleteItem.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteItem.TabIndex = 10;
-            this.btnDeleteItem.Text = "Delete Item";
-            this.btnDeleteItem.UseVisualStyleBackColor = true;
-            this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
             // 
             // lblItemType
             // 
@@ -146,7 +141,18 @@
             this.lblItemName.Name = "lblItemName";
             this.lblItemName.Size = new System.Drawing.Size(38, 13);
             this.lblItemName.TabIndex = 0;
-            this.lblItemName.Text = "Name:";            // 
+            this.lblItemName.Text = "Name:";
+            // 
+            // btnDeleteItem
+            // 
+            this.btnDeleteItem.Location = new System.Drawing.Point(84, 388);
+            this.btnDeleteItem.Name = "btnDeleteItem";
+            this.btnDeleteItem.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteItem.TabIndex = 10;
+            this.btnDeleteItem.Text = "Delete Item";
+            this.btnDeleteItem.UseVisualStyleBackColor = true;
+            this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
+            // 
             // msMain
             // 
             this.msMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -190,6 +196,12 @@
             this.fileOpenMod.Text = "Open";
             this.fileOpenMod.Click += new System.EventHandler(this.fileOpenMod_Click);
             // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.exportToolStripMenuItem.Text = "Export";
+            // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -201,7 +213,7 @@
             // modDetailsToolStripMenuItem
             // 
             this.modDetailsToolStripMenuItem.Name = "modDetailsToolStripMenuItem";
-            this.modDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modDetailsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.modDetailsToolStripMenuItem.Text = "Mod Details";
             this.modDetailsToolStripMenuItem.Click += new System.EventHandler(this.modDetailsToolStripMenuItem_Click);
             // 
@@ -215,17 +227,27 @@
             this.panel1.Size = new System.Drawing.Size(164, 411);
             this.panel1.TabIndex = 13;
             // 
-            // exportToolStripMenuItem
+            // stsBottom
             // 
-            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exportToolStripMenuItem.Text = "Export";
+            this.stsBottom.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pbSave});
+            this.stsBottom.Location = new System.Drawing.Point(0, 443);
+            this.stsBottom.Name = "stsBottom";
+            this.stsBottom.Size = new System.Drawing.Size(800, 22);
+            this.stsBottom.TabIndex = 14;
+            this.stsBottom.Text = "statusStrip1";
+            // 
+            // pbSave
+            // 
+            this.pbSave.Name = "pbSave";
+            this.pbSave.Size = new System.Drawing.Size(100, 16);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 465);
+            this.Controls.Add(this.stsBottom);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlItemPreview);
             this.Controls.Add(this.msMain);
@@ -238,6 +260,8 @@
             this.msMain.ResumeLayout(false);
             this.msMain.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.stsBottom.ResumeLayout(false);
+            this.stsBottom.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,6 +287,8 @@
         private System.Windows.Forms.ToolStripMenuItem modDetailsToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip stsBottom;
+        private System.Windows.Forms.ToolStripProgressBar pbSave;
     }
 }
 

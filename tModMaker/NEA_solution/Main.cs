@@ -96,6 +96,10 @@ namespace NEA_solution
             modFile += loadedMod.get_name() + "|";
             modFile += loadedMod.get_description() + "|";
             modFile += loadedMod.get_author();
+            pbSave.Step = 1;
+            pbSave.Minimum = 1;
+            pbSave.Maximum = loadedMod.get_item_number();
+            pbSave.Value = 1;
             if (!(Directory.Exists(thePath)))
             {
                 Directory.CreateDirectory(thePath);
@@ -113,6 +117,7 @@ namespace NEA_solution
                 }
                 for (int i = 0; i < loadedMod.get_item_number(); i++)
                 {
+                    pbSave.PerformStep();
                     tempItem = "";
                     tempItem += loadedMod.get_item(i).get_name() + "|";
                     tempItem += loadedMod.get_item(i).get_displayName() + "|";
