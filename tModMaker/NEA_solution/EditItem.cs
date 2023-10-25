@@ -45,16 +45,6 @@ namespace NEA_solution
             await webViewCode.ExecuteScriptAsync("sendDataToWinForm()");
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            // the button has to be pressed twice. i do not know why. repeating the processes inside the event does nothing
-            requestData();
-            theItem.set_code(code);
-            theItem.set_display_name(txtDisplayName.Text);
-            theItem.set_tooltip(txtTooltip.Text);
-            theItem.set_type(cbType.Text);
-        }
-
         private void webViewCode_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e)
         {
             code = e.TryGetWebMessageAsString();
@@ -84,6 +74,25 @@ namespace NEA_solution
                     pbSprite.Image.Save(thePath + "\\Items\\Sprites\\" + theItem.get_name() + ".png");
                 }
             }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            pbSave.Step = 1;
+            pbSave.Minimum = 1;
+            pbSave.Maximum = 4;
+            pbSave.Value = 1;
+            // the button has to be pressed twice. i do not know why. repeating the processes inside the event does nothing
+            requestData();
+            theItem.set_code(code);
+            pbSave.PerformStep();
+            theItem.set_display_name(txtDisplayName.Text);
+            pbSave.PerformStep();
+            theItem.set_tooltip(txtTooltip.Text);
+            pbSave.PerformStep();
+            theItem.set_type(cbType.Text);
+            pbSave.PerformStep();
+
         }
     }
 }

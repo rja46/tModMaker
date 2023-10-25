@@ -58,7 +58,7 @@
             // 
             // btnAddItem
             // 
-            this.btnAddItem.Location = new System.Drawing.Point(3, 388);
+            this.btnAddItem.Location = new System.Drawing.Point(3, 375);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(75, 23);
             this.btnAddItem.TabIndex = 4;
@@ -71,7 +71,7 @@
             this.lbItems.FormattingEnabled = true;
             this.lbItems.Location = new System.Drawing.Point(3, 4);
             this.lbItems.Name = "lbItems";
-            this.lbItems.Size = new System.Drawing.Size(156, 381);
+            this.lbItems.Size = new System.Drawing.Size(156, 368);
             this.lbItems.TabIndex = 7;
             this.lbItems.SelectedIndexChanged += new System.EventHandler(this.lbItems_SelectedIndexChanged);
             // 
@@ -85,7 +85,7 @@
             this.pnlItemPreview.Controls.Add(this.lblItemName);
             this.pnlItemPreview.Location = new System.Drawing.Point(182, 27);
             this.pnlItemPreview.Name = "pnlItemPreview";
-            this.pnlItemPreview.Size = new System.Drawing.Size(316, 411);
+            this.pnlItemPreview.Size = new System.Drawing.Size(316, 398);
             this.pnlItemPreview.TabIndex = 9;
             // 
             // txtItemType
@@ -106,7 +106,7 @@
             // 
             // btnEditItem
             // 
-            this.btnEditItem.Location = new System.Drawing.Point(240, 387);
+            this.btnEditItem.Location = new System.Drawing.Point(238, 372);
             this.btnEditItem.Name = "btnEditItem";
             this.btnEditItem.Size = new System.Drawing.Size(75, 23);
             this.btnEditItem.TabIndex = 11;
@@ -145,7 +145,7 @@
             // 
             // btnDeleteItem
             // 
-            this.btnDeleteItem.Location = new System.Drawing.Point(84, 388);
+            this.btnDeleteItem.Location = new System.Drawing.Point(84, 375);
             this.btnDeleteItem.Name = "btnDeleteItem";
             this.btnDeleteItem.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteItem.TabIndex = 10;
@@ -224,14 +224,14 @@
             this.panel1.Controls.Add(this.btnDeleteItem);
             this.panel1.Location = new System.Drawing.Point(12, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(164, 411);
+            this.panel1.Size = new System.Drawing.Size(164, 398);
             this.panel1.TabIndex = 13;
             // 
             // stsBottom
             // 
             this.stsBottom.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pbSave});
-            this.stsBottom.Location = new System.Drawing.Point(0, 443);
+            this.stsBottom.Location = new System.Drawing.Point(0, 428);
             this.stsBottom.Name = "stsBottom";
             this.stsBottom.Size = new System.Drawing.Size(800, 22);
             this.stsBottom.TabIndex = 14;
@@ -246,7 +246,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 465);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.stsBottom);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlItemPreview);

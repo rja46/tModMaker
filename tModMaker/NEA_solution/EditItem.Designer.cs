@@ -28,37 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBack = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditItem));
             this.pbSprite = new System.Windows.Forms.PictureBox();
             this.btnChangeSprite = new System.Windows.Forms.Button();
             this.lblType = new System.Windows.Forms.Label();
             this.lblTooltip = new System.Windows.Forms.Label();
             this.txtTooltip = new System.Windows.Forms.TextBox();
             this.webViewCode = new Microsoft.Web.WebView2.WinForms.WebView2();
-            this.btnSave = new System.Windows.Forms.Button();
             this.txtDisplayName = new System.Windows.Forms.TextBox();
             this.lblDisplayName = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
+            this.stsBottom = new System.Windows.Forms.StatusStrip();
+            this.pbSave = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnSave = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webViewCode)).BeginInit();
+            this.stsBottom.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(12, 12);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(55, 23);
-            this.btnBack.TabIndex = 0;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // pbSprite
             // 
             this.pbSprite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbSprite.Location = new System.Drawing.Point(73, 12);
+            this.pbSprite.Location = new System.Drawing.Point(53, 28);
             this.pbSprite.Name = "pbSprite";
-            this.pbSprite.Size = new System.Drawing.Size(170, 170);
+            this.pbSprite.Size = new System.Drawing.Size(154, 154);
             this.pbSprite.TabIndex = 1;
             this.pbSprite.TabStop = false;
             // 
@@ -95,7 +90,7 @@
             this.txtTooltip.Location = new System.Drawing.Point(53, 270);
             this.txtTooltip.Multiline = true;
             this.txtTooltip.Name = "txtTooltip";
-            this.txtTooltip.Size = new System.Drawing.Size(190, 168);
+            this.txtTooltip.Size = new System.Drawing.Size(190, 155);
             this.txtTooltip.TabIndex = 8;
             // 
             // webViewCode
@@ -103,23 +98,13 @@
             this.webViewCode.AllowExternalDrop = true;
             this.webViewCode.CreationProperties = null;
             this.webViewCode.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webViewCode.Location = new System.Drawing.Point(249, 12);
+            this.webViewCode.Location = new System.Drawing.Point(249, 28);
             this.webViewCode.Name = "webViewCode";
             this.webViewCode.Size = new System.Drawing.Size(539, 397);
             this.webViewCode.Source = new System.Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\index.html", System.UriKind.Absolute);
             this.webViewCode.TabIndex = 9;
             this.webViewCode.ZoomFactor = 1D;
             this.webViewCode.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.webViewCode_WebMessageReceived);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(713, 415);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 10;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtDisplayName
             // 
@@ -153,43 +138,83 @@
             this.cbType.Size = new System.Drawing.Size(190, 21);
             this.cbType.TabIndex = 13;
             // 
+            // stsBottom
+            // 
+            this.stsBottom.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pbSave});
+            this.stsBottom.Location = new System.Drawing.Point(0, 428);
+            this.stsBottom.Name = "stsBottom";
+            this.stsBottom.Size = new System.Drawing.Size(800, 22);
+            this.stsBottom.TabIndex = 14;
+            this.stsBottom.Text = "statusStrip1";
+            // 
+            // pbSave
+            // 
+            this.pbSave.Name = "pbSave";
+            this.pbSave.Size = new System.Drawing.Size(100, 16);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnSave});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.TabIndex = 15;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnSave
+            // 
+            this.btnSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(23, 22);
+            this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // EditItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.stsBottom);
             this.Controls.Add(this.cbType);
             this.Controls.Add(this.txtDisplayName);
             this.Controls.Add(this.lblDisplayName);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.webViewCode);
             this.Controls.Add(this.txtTooltip);
             this.Controls.Add(this.lblTooltip);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.btnChangeSprite);
             this.Controls.Add(this.pbSprite);
-            this.Controls.Add(this.btnBack);
             this.Name = "EditItem";
             this.Text = "editItem";
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.webViewCode)).EndInit();
+            this.stsBottom.ResumeLayout(false);
+            this.stsBottom.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.PictureBox pbSprite;
         private System.Windows.Forms.Button btnChangeSprite;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblTooltip;
         private System.Windows.Forms.TextBox txtTooltip;
         private Microsoft.Web.WebView2.WinForms.WebView2 webViewCode;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtDisplayName;
         private System.Windows.Forms.Label lblDisplayName;
         private System.Windows.Forms.ComboBox cbType;
+        private System.Windows.Forms.StatusStrip stsBottom;
+        private System.Windows.Forms.ToolStripProgressBar pbSave;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton btnSave;
     }
 }
