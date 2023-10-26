@@ -30,7 +30,7 @@ namespace NEA_solution
             //this.Text = loadedMod.get_name();
             //load_items_for_mod();
             //update_item_list();
-            loadedMod = new Mod("", "");
+            //loadedMod = new Mod("", "");
         }
 
         private void btnEditDetails_Click(object sender, EventArgs e)
@@ -87,7 +87,12 @@ namespace NEA_solution
 
         private void fileSaveModAs_Click(object sender, EventArgs e)
         {
-
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            DialogResult dialogResult = dialog.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                loadedMod.set_modPath(dialog.SelectedPath + loadedMod.get_name());
+            }
         }
 
         private void fileSaveMod_Click(object sender, EventArgs e)
