@@ -23,13 +23,14 @@ namespace NEA_solution
             InitializeComponent();
             this.MaximizeBox = false;
 
-            loadCreateModDialog loadCreateModDialog = new loadCreateModDialog();
-            loadCreateModDialog.ShowDialog();
-            loadedMod = loadCreateModDialog.theMod;
+            //loadCreateModDialog loadCreateModDialog = new loadCreateModDialog();
+            //loadCreateModDialog.ShowDialog();
+            //loadedMod = loadCreateModDialog.theMod;
 
-            this.Text = loadedMod.get_name();
-            load_items_for_mod();
-            update_item_list();
+            //this.Text = loadedMod.get_name();
+            //load_items_for_mod();
+            //update_item_list();
+            loadedMod = new Mod("", "");
         }
 
         private void btnEditDetails_Click(object sender, EventArgs e)

@@ -98,7 +98,8 @@ namespace NEA_solution
 
         private void btnFullscreen_Click(object sender, EventArgs e)
         {
-
+            FullscreenEditor fullscreenEditor = new FullscreenEditor();
+            fullscreenEditor.Show();
         }
     }
 }
