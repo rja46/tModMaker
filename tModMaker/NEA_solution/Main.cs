@@ -104,6 +104,19 @@ namespace NEA_solution
         }
         private void save_mod_as()
         {
+            if (loadedMod.get_name() == "")
+            {
+                NameDialog nameDialog = new NameDialog();
+                DialogResult result = nameDialog.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    loadedMod.set_name(nameDialog.name);
+                }
+                else
+                {
+                    return;
+                }
+            }
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             DialogResult dialogResult = dialog.ShowDialog();
             if (dialogResult == DialogResult.OK)
@@ -129,7 +142,7 @@ namespace NEA_solution
             }
             else
             {
-                pbSave.Maximum=1;
+                pbSave.Maximum = 1;
             }
             pbSave.Value = 1;
             if (!(Directory.Exists(thePath)))
@@ -274,6 +287,11 @@ namespace NEA_solution
                 loadedMod.set_items(tmpItems);
                 update_item_list();
             }
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadedMod = new Mod("", "");
         }
     }
 }
