@@ -30,7 +30,7 @@ namespace NEA_solution
             //this.Text = loadedMod.get_name();
             //load_items_for_mod();
             //update_item_list();
-            //loadedMod = new Mod("", "");
+            loadedMod = new Mod("", "");
         }
 
         private void btnEditDetails_Click(object sender, EventArgs e)
@@ -87,15 +87,33 @@ namespace NEA_solution
 
         private void fileSaveModAs_Click(object sender, EventArgs e)
         {
+            save_mod_as();
+        }
+
+        private void fileSaveMod_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Directory.Exists(loadedMod.get_modPath());
+                save_mod();
+            }
+            catch
+            {
+                save_mod_as();
+            }
+        }
+        private void save_mod_as()
+        {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             DialogResult dialogResult = dialog.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
                 loadedMod.set_modPath(dialog.SelectedPath + loadedMod.get_name());
+                save_mod();
             }
         }
 
-        private void fileSaveMod_Click(object sender, EventArgs e)
+        private void save_mod()
         {
             string thePath = loadedMod.get_modPath();
             string modFile = "";
@@ -105,7 +123,14 @@ namespace NEA_solution
             modFile += loadedMod.get_author();
             pbSave.Step = 1;
             pbSave.Minimum = 1;
-            pbSave.Maximum = loadedMod.get_item_number();
+            if (loadedMod.get_item_number() > 0)
+            {
+                pbSave.Maximum = loadedMod.get_item_number();
+            }
+            else
+            {
+                pbSave.Maximum=1;
+            }
             pbSave.Value = 1;
             if (!(Directory.Exists(thePath)))
             {
@@ -136,7 +161,6 @@ namespace NEA_solution
                 }
             }
         }
-
         private void fileOpenMod_Click(object sender, EventArgs e)
         {
             //maybe make this a subroutine
