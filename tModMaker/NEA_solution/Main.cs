@@ -68,6 +68,12 @@ namespace NEA_solution
 
         private void update_loaded_item(int index)
         {
+            if (index == -1)
+            {
+                txtItemName.Text = string.Empty;
+                txtItemType.Text = string.Empty;
+                pbSprite.Image = null;
+            }
             loadedItem = loadedMod.get_item(index);
             if (loadedItem != null)
             {
@@ -291,7 +297,13 @@ namespace NEA_solution
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            loadedMod = new Mod("", "");
+            DialogResult result = MessageBox.Show("Are you sure? Unsaved work will be lost.", "Confirm action", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                loadedMod = new Mod("", "");
+                update_item_list();
+                update_loaded_item(-1);
+            }
         }
     }
 }
