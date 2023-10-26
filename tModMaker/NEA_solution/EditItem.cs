@@ -20,6 +20,7 @@ namespace NEA_solution
 
         public EditItem(Item loadedItem, string path)
         {
+            this.MaximizeBox = false;
             theItem = loadedItem;
             thePath = path;
             InitializeComponent();
@@ -92,6 +93,11 @@ namespace NEA_solution
             pbSave.PerformStep();
             theItem.set_type(cbType.Text);
             pbSave.PerformStep();
+
+        }
+
+        private void btnFullscreen_Click(object sender, EventArgs e)
+        {
 
         }
     }

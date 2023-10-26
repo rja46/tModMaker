@@ -251,6 +251,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlItemPreview);
             this.Controls.Add(this.msMain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.msMain;
             this.Name = "Main";
             this.Text = "Form1";

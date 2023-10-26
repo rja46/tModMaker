@@ -42,6 +42,8 @@
             this.pbSave = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnFullscreen = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webViewCode)).BeginInit();
             this.stsBottom.SuspendLayout();
@@ -156,7 +158,9 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnSave});
+            this.btnSave,
+            this.toolStripSeparator1,
+            this.btnFullscreen});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
@@ -172,6 +176,21 @@
             this.btnSave.Size = new System.Drawing.Size(23, 22);
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnFullscreen
+            // 
+            this.btnFullscreen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnFullscreen.Image = ((System.Drawing.Image)(resources.GetObject("btnFullscreen.Image")));
+            this.btnFullscreen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFullscreen.Name = "btnFullscreen";
+            this.btnFullscreen.Size = new System.Drawing.Size(23, 22);
+            this.btnFullscreen.Text = "Fullscreen Editor";
+            this.btnFullscreen.Click += new System.EventHandler(this.btnFullscreen_Click);
             // 
             // EditItem
             // 
@@ -189,6 +208,7 @@
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.btnChangeSprite);
             this.Controls.Add(this.pbSprite);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EditItem";
             this.Text = "editItem";
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).EndInit();
@@ -216,5 +236,7 @@
         private System.Windows.Forms.ToolStripProgressBar pbSave;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnSave;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton btnFullscreen;
     }
 }

@@ -18,6 +18,8 @@ namespace NEA_solution
         {
             InitializeComponent();
             btnOK.DialogResult = DialogResult.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
         private void btnOK_Click(object sender, EventArgs e)

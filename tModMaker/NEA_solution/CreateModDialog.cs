@@ -17,6 +17,8 @@ namespace NEA_solution
         public CreateModDialog()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             btnFileLocation.Text = "Save Location";
         }
 

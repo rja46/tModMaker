@@ -21,6 +21,8 @@ namespace NEA_solution
             txtAuthor.Text = author;
             txtDescription.Text = description;
             txtName.Text = name;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
         private void btnOK_Click(object sender, EventArgs e)

@@ -92,6 +92,7 @@
             this.Controls.Add(this.btnFileLocation);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CreateModDialog";
             this.Text = "CreateModDialog";
             this.ResumeLayout(false);

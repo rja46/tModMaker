@@ -82,6 +82,12 @@
     <Compile Include="EditItem.Designer.cs">
       <DependentUpon>EditItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="FullscreenEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FullscreenEditor.Designer.cs">
+      <DependentUpon>FullscreenEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Item.cs" />
     <Compile Include="loadCreateModDialog.cs">
       <SubType>Form</SubType>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditItem.resx">
       <DependentUpon>EditItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FullscreenEditor.resx">
+      <DependentUpon>FullscreenEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="loadCreateModDialog.resx">
       <DependentUpon>loadCreateModDialog.cs</DependentUpon>

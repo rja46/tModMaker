@@ -121,6 +121,7 @@
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.txtName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EditDetailsDialog";
             this.Text = "EditDetailsDialog";
             this.ResumeLayout(false);

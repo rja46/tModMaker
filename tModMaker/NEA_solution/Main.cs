@@ -21,6 +21,7 @@ namespace NEA_solution
         public Main()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
 
             loadCreateModDialog loadCreateModDialog = new loadCreateModDialog();
             loadCreateModDialog.ShowDialog();
