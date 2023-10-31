@@ -60,16 +60,15 @@
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(69, 9);
+            this.lblName.Location = new System.Drawing.Point(9, 9);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(38, 13);
+            this.lblName.Size = new System.Drawing.Size(163, 13);
             this.lblName.TabIndex = 3;
-            this.lblName.Text = "Name:";
+            this.lblName.Text = "Please enter a name for the mod:";
             // 
             // NameDialog
             // 
@@ -82,6 +81,7 @@
             this.Controls.Add(this.txtName);
             this.Name = "NameDialog";
             this.Text = "NameDialog";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NameDialog_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

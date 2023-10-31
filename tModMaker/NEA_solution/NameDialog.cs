@@ -18,9 +18,17 @@ namespace NEA_solution
             InitializeComponent();
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
+        private void NameDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
-            name = txtName.Text;
+            if (txtName.Text != "")
+            {
+                name = txtName.Text;
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid name");
+                e.Cancel = true;
+            }
         }
     }
 }
