@@ -18,10 +18,10 @@ namespace NEA_solution
         //load this value from path
         Mod loadedMod;
         Item loadedItem;
+        EditItem editItem;
         public Main()
         {
             InitializeComponent();
-            this.MaximizeBox = false;
 
             //loadCreateModDialog loadCreateModDialog = new loadCreateModDialog();
             //loadCreateModDialog.ShowDialog();
@@ -233,11 +233,12 @@ namespace NEA_solution
         {
             if (loadedItem != null)
             {
-                EditItem editItem = new EditItem(loadedItem, loadedMod.get_modPath());
+                editItem = new EditItem(loadedItem, loadedMod.get_modPath());
                 editItem.TopLevel = false;
                 pnlItem.Controls.Add(editItem);
                 editItem.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
                 editItem.Dock = DockStyle.Fill;
+                editItem.Size = new Size(pnlItem.Size.Width, pnlItem.Size.Height);
                 editItem.Show();
                 loadedItem = editItem.theItem;
                 update_item_list();

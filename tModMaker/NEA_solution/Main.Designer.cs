@@ -41,10 +41,10 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEditItem = new System.Windows.Forms.Button();
             this.stsBottom = new System.Windows.Forms.StatusStrip();
             this.pbSave = new System.Windows.Forms.ToolStripProgressBar();
             this.pnlItem = new System.Windows.Forms.Panel();
-            this.btnEditItem = new System.Windows.Forms.Button();
             this.msMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.stsBottom.SuspendLayout();
@@ -52,6 +52,7 @@
             // 
             // btnAddItem
             // 
+            this.btnAddItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnAddItem.Location = new System.Drawing.Point(3, 375);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(75, 23);
@@ -62,6 +63,7 @@
             // 
             // lbItems
             // 
+            this.lbItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbItems.FormattingEnabled = true;
             this.lbItems.Location = new System.Drawing.Point(3, 4);
             this.lbItems.Name = "lbItems";
@@ -71,6 +73,7 @@
             // 
             // btnDeleteItem
             // 
+            this.btnDeleteItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnDeleteItem.Location = new System.Drawing.Point(84, 375);
             this.btnDeleteItem.Name = "btnDeleteItem";
             this.btnDeleteItem.Size = new System.Drawing.Size(75, 23);
@@ -147,12 +150,14 @@
             // modDetailsToolStripMenuItem
             // 
             this.modDetailsToolStripMenuItem.Name = "modDetailsToolStripMenuItem";
-            this.modDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modDetailsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.modDetailsToolStripMenuItem.Text = "Mod Details";
             this.modDetailsToolStripMenuItem.Click += new System.EventHandler(this.modDetailsToolStripMenuItem_Click);
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.lbItems);
             this.panel1.Controls.Add(this.btnAddItem);
             this.panel1.Controls.Add(this.btnDeleteItem);
@@ -161,6 +166,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(164, 398);
             this.panel1.TabIndex = 13;
+            // 
+            // btnEditItem
+            // 
+            this.btnEditItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnEditItem.Location = new System.Drawing.Point(3, 352);
+            this.btnEditItem.Name = "btnEditItem";
+            this.btnEditItem.Size = new System.Drawing.Size(75, 23);
+            this.btnEditItem.TabIndex = 11;
+            this.btnEditItem.Text = "Edit Item";
+            this.btnEditItem.UseVisualStyleBackColor = true;
+            this.btnEditItem.Click += new System.EventHandler(this.btnEditItem_Click);
             // 
             // stsBottom
             // 
@@ -183,16 +199,6 @@
             this.pnlItem.Name = "pnlItem";
             this.pnlItem.Size = new System.Drawing.Size(606, 398);
             this.pnlItem.TabIndex = 15;
-            // 
-            // btnEditItem
-            // 
-            this.btnEditItem.Location = new System.Drawing.Point(3, 352);
-            this.btnEditItem.Name = "btnEditItem";
-            this.btnEditItem.Size = new System.Drawing.Size(75, 23);
-            this.btnEditItem.TabIndex = 11;
-            this.btnEditItem.Text = "Edit Item";
-            this.btnEditItem.UseVisualStyleBackColor = true;
-            this.btnEditItem.Click += new System.EventHandler(this.btnEditItem_Click);
             // 
             // Main
             // 
