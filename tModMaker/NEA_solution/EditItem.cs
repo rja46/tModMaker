@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -92,6 +93,12 @@ namespace NEA_solution
         {
             FullscreenEditor fullscreenEditor = new FullscreenEditor();
             fullscreenEditor.Show();
+        }
+
+        public void resize_form(int width, int height)
+        {
+            this.Width = width;
+            this.Height = height;
         }
     }
 }
