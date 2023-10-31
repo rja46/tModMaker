@@ -203,7 +203,6 @@
             this.pnlItem.Name = "pnlItem";
             this.pnlItem.Size = new System.Drawing.Size(606, 398);
             this.pnlItem.TabIndex = 15;
-            this.pnlItem.SizeChanged += new System.EventHandler(this.pnlItem_SizeChanged);
             // 
             // Main
             // 
@@ -214,7 +213,6 @@
             this.Controls.Add(this.stsBottom);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.msMain);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.msMain;
             this.Name = "Main";
             this.Text = "Form1";

@@ -291,14 +291,5 @@ namespace NEA_solution
                 update_loaded_item(-1);
             }
         }
-
-        private void pnlItem_SizeChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                editItem.resize_form(pnlItem.Width, pnlItem.Height);
-            }
-            catch { }
-        }
     }
 }

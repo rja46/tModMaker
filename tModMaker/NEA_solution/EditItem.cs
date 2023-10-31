@@ -21,7 +21,6 @@ namespace NEA_solution
 
         public EditItem(Item loadedItem, string path)
         {
-            this.MaximizeBox = false;
             theItem = loadedItem;
             thePath = path;
             InitializeComponent();
@@ -93,12 +92,6 @@ namespace NEA_solution
         {
             FullscreenEditor fullscreenEditor = new FullscreenEditor();
             fullscreenEditor.Show();
-        }
-
-        public void resize_form(int width, int height)
-        {
-            this.Width = width;
-            this.Height = height;
         }
     }
 }
