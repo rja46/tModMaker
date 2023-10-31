@@ -68,28 +68,9 @@ namespace NEA_solution
 
         private void update_loaded_item(int index)
         {
-            if (index == -1)
-            {
-                txtItemName.Text = string.Empty;
-                txtItemType.Text = string.Empty;
-                pbSprite.Image = null;
-            }
             loadedItem = loadedMod.get_item(index);
-            if (loadedItem != null)
-            {
-                txtItemName.Text = loadedItem.get_displayName();
-                txtItemType.Text = loadedItem.get_type();
-                try
-                {
-                    pbSprite.Image = new Bitmap(loadedMod.get_modPath() + "\\Items\\Sprites\\" + loadedItem.get_name() + ".png");
-                    pbSprite.Refresh();
-                }
-                catch
-                {
-                    pbSprite.Image = null;
-                }
-            }
         }
+
 
         private void fileSaveModAs_Click(object sender, EventArgs e)
         {
@@ -253,6 +234,10 @@ namespace NEA_solution
             if (loadedItem != null)
             {
                 EditItem editItem = new EditItem(loadedItem, loadedMod.get_modPath());
+                editItem.TopLevel = false;
+                pnlItem.Controls.Add(editItem);
+                editItem.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                editItem.Dock = DockStyle.Fill;
                 editItem.Show();
                 loadedItem = editItem.theItem;
                 update_item_list();

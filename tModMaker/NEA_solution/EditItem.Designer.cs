@@ -38,15 +38,12 @@
             this.txtDisplayName = new System.Windows.Forms.TextBox();
             this.lblDisplayName = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
-            this.stsBottom = new System.Windows.Forms.StatusStrip();
-            this.pbSave = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnFullscreen = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webViewCode)).BeginInit();
-            this.stsBottom.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -140,21 +137,6 @@
             this.cbType.Size = new System.Drawing.Size(190, 21);
             this.cbType.TabIndex = 13;
             // 
-            // stsBottom
-            // 
-            this.stsBottom.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pbSave});
-            this.stsBottom.Location = new System.Drawing.Point(0, 428);
-            this.stsBottom.Name = "stsBottom";
-            this.stsBottom.Size = new System.Drawing.Size(800, 22);
-            this.stsBottom.TabIndex = 14;
-            this.stsBottom.Text = "statusStrip1";
-            // 
-            // pbSave
-            // 
-            this.pbSave.Name = "pbSave";
-            this.pbSave.Size = new System.Drawing.Size(100, 16);
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -198,7 +180,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.stsBottom);
             this.Controls.Add(this.cbType);
             this.Controls.Add(this.txtDisplayName);
             this.Controls.Add(this.lblDisplayName);
@@ -208,13 +189,11 @@
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.btnChangeSprite);
             this.Controls.Add(this.pbSprite);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditItem";
             this.Text = "editItem";
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.webViewCode)).EndInit();
-            this.stsBottom.ResumeLayout(false);
-            this.stsBottom.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -232,8 +211,6 @@
         private System.Windows.Forms.TextBox txtDisplayName;
         private System.Windows.Forms.Label lblDisplayName;
         private System.Windows.Forms.ComboBox cbType;
-        private System.Windows.Forms.StatusStrip stsBottom;
-        private System.Windows.Forms.ToolStripProgressBar pbSave;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnSave;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
