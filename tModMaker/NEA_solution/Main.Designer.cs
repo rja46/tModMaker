@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.btnAddItem = new System.Windows.Forms.Button();
             this.lbItems = new System.Windows.Forms.ListBox();
             this.btnDeleteItem = new System.Windows.Forms.Button();
@@ -45,15 +46,20 @@
             this.stsBottom = new System.Windows.Forms.StatusStrip();
             this.pbSave = new System.Windows.Forms.ToolStripProgressBar();
             this.pnlItem = new System.Windows.Forms.Panel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tbSave = new System.Windows.Forms.ToolStripButton();
+            this.tbNew = new System.Windows.Forms.ToolStripButton();
+            this.tbOpen = new System.Windows.Forms.ToolStripButton();
             this.msMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.stsBottom.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddItem
             // 
             this.btnAddItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAddItem.Location = new System.Drawing.Point(3, 375);
+            this.btnAddItem.Location = new System.Drawing.Point(3, 350);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(75, 23);
             this.btnAddItem.TabIndex = 4;
@@ -67,14 +73,14 @@
             this.lbItems.FormattingEnabled = true;
             this.lbItems.Location = new System.Drawing.Point(3, 4);
             this.lbItems.Name = "lbItems";
-            this.lbItems.Size = new System.Drawing.Size(156, 342);
+            this.lbItems.Size = new System.Drawing.Size(156, 316);
             this.lbItems.TabIndex = 7;
             this.lbItems.SelectedIndexChanged += new System.EventHandler(this.lbItems_SelectedIndexChanged);
             // 
             // btnDeleteItem
             // 
             this.btnDeleteItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnDeleteItem.Location = new System.Drawing.Point(84, 375);
+            this.btnDeleteItem.Location = new System.Drawing.Point(84, 350);
             this.btnDeleteItem.Name = "btnDeleteItem";
             this.btnDeleteItem.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteItem.TabIndex = 10;
@@ -108,35 +114,35 @@
             // btnNew
             // 
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(142, 22);
+            this.btnNew.Size = new System.Drawing.Size(180, 22);
             this.btnNew.Text = "New";
             this.btnNew.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // fileSaveMod
             // 
             this.fileSaveMod.Name = "fileSaveMod";
-            this.fileSaveMod.Size = new System.Drawing.Size(142, 22);
+            this.fileSaveMod.Size = new System.Drawing.Size(180, 22);
             this.fileSaveMod.Text = "Save Mod";
             this.fileSaveMod.Click += new System.EventHandler(this.fileSaveMod_Click);
             // 
             // fileSaveModAs
             // 
             this.fileSaveModAs.Name = "fileSaveModAs";
-            this.fileSaveModAs.Size = new System.Drawing.Size(142, 22);
+            this.fileSaveModAs.Size = new System.Drawing.Size(180, 22);
             this.fileSaveModAs.Text = "Save Mod As";
             this.fileSaveModAs.Click += new System.EventHandler(this.fileSaveModAs_Click);
             // 
             // fileOpenMod
             // 
             this.fileOpenMod.Name = "fileOpenMod";
-            this.fileOpenMod.Size = new System.Drawing.Size(142, 22);
+            this.fileOpenMod.Size = new System.Drawing.Size(180, 22);
             this.fileOpenMod.Text = "Open";
             this.fileOpenMod.Click += new System.EventHandler(this.fileOpenMod_Click);
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportToolStripMenuItem.Text = "Export";
             // 
             // editToolStripMenuItem
@@ -162,15 +168,15 @@
             this.panel1.Controls.Add(this.btnAddItem);
             this.panel1.Controls.Add(this.btnDeleteItem);
             this.panel1.Controls.Add(this.btnEditItem);
-            this.panel1.Location = new System.Drawing.Point(624, 27);
+            this.panel1.Location = new System.Drawing.Point(624, 52);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(164, 398);
+            this.panel1.Size = new System.Drawing.Size(164, 373);
             this.panel1.TabIndex = 13;
             // 
             // btnEditItem
             // 
             this.btnEditItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnEditItem.Location = new System.Drawing.Point(3, 352);
+            this.btnEditItem.Location = new System.Drawing.Point(3, 327);
             this.btnEditItem.Name = "btnEditItem";
             this.btnEditItem.Size = new System.Drawing.Size(75, 23);
             this.btnEditItem.TabIndex = 11;
@@ -199,16 +205,60 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlItem.Location = new System.Drawing.Point(12, 27);
+            this.pnlItem.Location = new System.Drawing.Point(12, 56);
             this.pnlItem.Name = "pnlItem";
-            this.pnlItem.Size = new System.Drawing.Size(606, 398);
+            this.pnlItem.Size = new System.Drawing.Size(606, 369);
             this.pnlItem.TabIndex = 15;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tbNew,
+            this.tbOpen,
+            this.tbSave});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.TabIndex = 16;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tbSave
+            // 
+            this.tbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbSave.Image = ((System.Drawing.Image)(resources.GetObject("tbSave.Image")));
+            this.tbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbSave.Name = "tbSave";
+            this.tbSave.Size = new System.Drawing.Size(23, 22);
+            this.tbSave.Text = "Save";
+            this.tbSave.ToolTipText = "Save";
+            this.tbSave.Click += new System.EventHandler(this.tbSave_Click);
+            // 
+            // tbNew
+            // 
+            this.tbNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbNew.Image = ((System.Drawing.Image)(resources.GetObject("tbNew.Image")));
+            this.tbNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbNew.Name = "tbNew";
+            this.tbNew.Size = new System.Drawing.Size(23, 22);
+            this.tbNew.Text = "New";
+            this.tbNew.Click += new System.EventHandler(this.tbNew_Click);
+            // 
+            // tbOpen
+            // 
+            this.tbOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbOpen.Image = ((System.Drawing.Image)(resources.GetObject("tbOpen.Image")));
+            this.tbOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbOpen.Name = "tbOpen";
+            this.tbOpen.Size = new System.Drawing.Size(23, 22);
+            this.tbOpen.Text = "Open";
+            this.tbOpen.Click += new System.EventHandler(this.tbOpen_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pnlItem);
             this.Controls.Add(this.stsBottom);
             this.Controls.Add(this.panel1);
@@ -221,6 +271,8 @@
             this.panel1.ResumeLayout(false);
             this.stsBottom.ResumeLayout(false);
             this.stsBottom.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,6 +296,10 @@
         private System.Windows.Forms.ToolStripMenuItem btnNew;
         private System.Windows.Forms.Panel pnlItem;
         private System.Windows.Forms.Button btnEditItem;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton tbNew;
+        private System.Windows.Forms.ToolStripButton tbSave;
+        private System.Windows.Forms.ToolStripButton tbOpen;
     }
 }
 

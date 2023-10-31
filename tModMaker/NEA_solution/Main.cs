@@ -163,38 +163,7 @@ namespace NEA_solution
         }
         private void fileOpenMod_Click(object sender, EventArgs e)
         {
-            //maybe make this a subroutine
-            Mod theMod;
-            string modDetails;
-            string[] modDetailsSplit;
-            string[] existingFiles;
-            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
-            DialogResult result = folderDialog.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                try
-                {
-                    existingFiles = Directory.GetFiles(folderDialog.SelectedPath);
-                    if (existingFiles.Length != 1)
-                    {
-                        throw new Exception();
-                    }
-                    else
-                    {
-                        modDetails = File.ReadAllText(existingFiles[0]);
-                        modDetailsSplit = modDetails.Split('|');
-                        theMod = new Mod(modDetailsSplit[0], folderDialog.SelectedPath);
-                        theMod.set_description(modDetailsSplit[1]);
-                        theMod.set_author(modDetailsSplit[2]);
-                        loadedMod = theMod;
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("Please select a valid folder");
-                }
-            }
-            load_items_for_mod();
+            open_mod();
         }
         private void load_items_for_mod()
         {
@@ -283,12 +252,76 @@ namespace NEA_solution
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            new_project();
+        }
+
+        private void tbNew_Click(object sender, EventArgs e)
+        {
+            new_project();
+        }
+
+        private void new_project()
+        {
             DialogResult result = MessageBox.Show("Are you sure? Unsaved work will be lost.", "Confirm action", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (result == DialogResult.OK)
             {
                 loadedMod = new Mod("", "");
                 update_item_list();
                 update_loaded_item(-1);
+            }
+        }
+
+        private void tbOpen_Click(object sender, EventArgs e)
+        {
+            open_mod();
+        }
+
+        private void open_mod()
+        {
+            //maybe make this a subroutine
+            Mod theMod;
+            string modDetails;
+            string[] modDetailsSplit;
+            string[] existingFiles;
+            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
+            DialogResult result = folderDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    existingFiles = Directory.GetFiles(folderDialog.SelectedPath);
+                    if (existingFiles.Length != 1)
+                    {
+                        throw new Exception();
+                    }
+                    else
+                    {
+                        modDetails = File.ReadAllText(existingFiles[0]);
+                        modDetailsSplit = modDetails.Split('|');
+                        theMod = new Mod(modDetailsSplit[0], folderDialog.SelectedPath);
+                        theMod.set_description(modDetailsSplit[1]);
+                        theMod.set_author(modDetailsSplit[2]);
+                        loadedMod = theMod;
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Please select a valid folder");
+                }
+            }
+            load_items_for_mod();
+        }
+
+        private void tbSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Directory.Exists(loadedMod.get_modPath());
+                save_mod();
+            }
+            catch
+            {
+                save_mod_as();
             }
         }
     }
