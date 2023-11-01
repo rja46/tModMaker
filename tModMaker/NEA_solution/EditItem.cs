@@ -77,7 +77,7 @@ namespace NEA_solution
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        public void save_item()
         {
             // the button has to be pressed twice. i do not know why. repeating the processes inside the event does nothing
             requestData();
@@ -85,7 +85,6 @@ namespace NEA_solution
             theItem.set_display_name(txtDisplayName.Text);
             theItem.set_tooltip(txtTooltip.Text);
             theItem.set_type(cbType.Text);
-
         }
 
         private void btnFullscreen_Click(object sender, EventArgs e)

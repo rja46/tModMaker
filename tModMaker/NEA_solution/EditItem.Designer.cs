@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditItem));
             this.pbSprite = new System.Windows.Forms.PictureBox();
             this.btnChangeSprite = new System.Windows.Forms.Button();
             this.lblType = new System.Windows.Forms.Label();
@@ -38,14 +37,9 @@
             this.txtDisplayName = new System.Windows.Forms.TextBox();
             this.lblDisplayName = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnSave = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnFullscreen = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webViewCode)).BeginInit();
-            this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,7 +85,7 @@
             this.txtTooltip.Location = new System.Drawing.Point(47, 252);
             this.txtTooltip.Multiline = true;
             this.txtTooltip.Name = "txtTooltip";
-            this.txtTooltip.Size = new System.Drawing.Size(190, 155);
+            this.txtTooltip.Size = new System.Drawing.Size(190, 171);
             this.txtTooltip.TabIndex = 8;
             // 
             // webViewCode
@@ -102,9 +96,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.webViewCode.CreationProperties = null;
             this.webViewCode.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webViewCode.Location = new System.Drawing.Point(261, 28);
+            this.webViewCode.Location = new System.Drawing.Point(261, 12);
             this.webViewCode.Name = "webViewCode";
-            this.webViewCode.Size = new System.Drawing.Size(527, 410);
+            this.webViewCode.Size = new System.Drawing.Size(527, 426);
             this.webViewCode.Source = new System.Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\index.html", System.UriKind.Absolute);
             this.webViewCode.TabIndex = 9;
             this.webViewCode.ZoomFactor = 1D;
@@ -142,43 +136,6 @@
             this.cbType.Size = new System.Drawing.Size(190, 21);
             this.cbType.TabIndex = 13;
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnSave,
-            this.toolStripSeparator1,
-            this.btnFullscreen});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
-            this.toolStrip1.TabIndex = 15;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // btnSave
-            // 
-            this.btnSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(23, 22);
-            this.btnSave.Text = "Save";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btnFullscreen
-            // 
-            this.btnFullscreen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnFullscreen.Image = ((System.Drawing.Image)(resources.GetObject("btnFullscreen.Image")));
-            this.btnFullscreen.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFullscreen.Name = "btnFullscreen";
-            this.btnFullscreen.Size = new System.Drawing.Size(23, 22);
-            this.btnFullscreen.Text = "Fullscreen Editor";
-            this.btnFullscreen.Click += new System.EventHandler(this.btnFullscreen_Click);
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -191,9 +148,9 @@
             this.panel1.Controls.Add(this.lblTooltip);
             this.panel1.Controls.Add(this.lblDisplayName);
             this.panel1.Controls.Add(this.txtTooltip);
-            this.panel1.Location = new System.Drawing.Point(12, 28);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(242, 410);
+            this.panel1.Size = new System.Drawing.Size(242, 426);
             this.panel1.TabIndex = 16;
             // 
             // EditItem
@@ -202,19 +159,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.webViewCode);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EditItem";
             this.Text = "editItem";
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.webViewCode)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -228,10 +181,6 @@
         private System.Windows.Forms.TextBox txtDisplayName;
         private System.Windows.Forms.Label lblDisplayName;
         private System.Windows.Forms.ComboBox cbType;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnSave;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton btnFullscreen;
         private System.Windows.Forms.Panel panel1;
     }
 }
