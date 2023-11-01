@@ -108,7 +108,7 @@ namespace NEA_solution
             DialogResult dialogResult = dialog.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-                loadedMod.set_modPath(dialog.SelectedPath + loadedMod.get_name());
+                loadedMod.set_modPath(dialog.SelectedPath + "\\" + loadedMod.get_name());
                 save_mod();
             }
         }
