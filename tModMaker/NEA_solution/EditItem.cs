@@ -30,6 +30,7 @@ namespace NEA_solution
             cbType.Text = theItem.get_type();
             pbSprite.Image = theItem.get_sprite();
             pbSprite.Refresh();
+            //need to adjust the scaling mode on the picture box to avoid the existing blurryness.
             //sendData();
 
         }
