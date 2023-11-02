@@ -305,10 +305,18 @@ namespace NEA_solution
             try
             {
                 Directory.Exists(loadedMod.get_modPath());
+                if (editItem != null)
+                {
+                    editItem.save_item();
+                }
                 save_mod();
             }
             catch
             {
+                if (editItem != null)
+                {
+                    editItem.save_item();
+                }
                 save_mod_as();
             }
         }
