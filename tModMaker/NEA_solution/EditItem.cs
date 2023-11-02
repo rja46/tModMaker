@@ -28,6 +28,8 @@ namespace NEA_solution
             txtDisplayName.Text = theItem.get_displayName();
             txtTooltip.Text = theItem.get_tooltip();
             cbType.Text = theItem.get_type();
+            pbSprite.Image = theItem.get_sprite();
+            pbSprite.Refresh();
             //sendData();
 
         }

@@ -162,12 +162,12 @@ namespace NEA_solution
                     tempItem += loadedMod.get_item(i).get_type();
                     File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + ".item", tempItem);
                     File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + "_code.code", loadedMod.get_item(i).get_code());
-                    try
+                    //kill ghost file.
+                    Bitmap bmp = loadedMod.get_item(i).get_sprite();
+                    if (bmp != null)
                     {
-                        Bitmap bmp = loadedMod.get_item(i).get_sprite();
                         bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name(), ImageFormat.Png);
                     }
-                    catch { }
                 }
             }
         }
@@ -179,6 +179,7 @@ namespace NEA_solution
         {
             string[] existingItems;
             string[] existingCode;
+            string[] existingSprites;
             Item currentItem;
             string[] tmpProperties;
             string tmpFile;
@@ -186,6 +187,7 @@ namespace NEA_solution
             {
                 existingItems = Directory.GetFiles(loadedMod.get_modPath() + "\\Items");
                 existingCode = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Code");
+                existingSprites = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Sprites");
                 if (existingItems.Length == 0)
                 {
                     throw new Exception();
@@ -200,6 +202,8 @@ namespace NEA_solution
                         currentItem.set_display_name(tmpProperties[1]);
                         currentItem.set_tooltip(tmpProperties[2]);
                         currentItem.set_code(File.ReadAllText(existingCode[i]));
+                        //cursed
+                        currentItem.set_sprite((Bitmap)Bitmap.FromFile(existingSprites[i]));
                         loadedMod.add_item(currentItem);
                         update_item_list();
                     }
