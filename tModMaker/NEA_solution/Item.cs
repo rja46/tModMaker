@@ -25,6 +25,7 @@ namespace NEA_solution
             tooltip = "";
             code = "";
             type = "";
+            sprite = null;
         }
 
         public string get_name() { return name; }

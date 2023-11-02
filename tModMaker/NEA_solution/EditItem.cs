@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
@@ -88,6 +89,17 @@ namespace NEA_solution
         {
             FullscreenEditor fullscreenEditor = new FullscreenEditor();
             fullscreenEditor.Show();
+        }
+
+        private void pbSprite_Paint(object sender, PaintEventArgs e)
+        {
+            Bitmap theImage = theItem.get_sprite();
+            Graphics g = e.Graphics;
+            e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+            if (theItem.get_sprite() != null)
+            {
+                e.Graphics.DrawImage(theImage, 0, 0, pbSprite.Width, pbSprite.Height);
+            }
         }
     }
 }

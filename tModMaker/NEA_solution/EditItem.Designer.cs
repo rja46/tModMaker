@@ -52,6 +52,7 @@
             this.pbSprite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbSprite.TabIndex = 1;
             this.pbSprite.TabStop = false;
+            this.pbSprite.Paint += new System.Windows.Forms.PaintEventHandler(this.pbSprite_Paint);
             // 
             // btnChangeSprite
             // 
