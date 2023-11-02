@@ -13,6 +13,7 @@ namespace NEA_solution
     public partial class NameDialog : Form
     {
         public string name;
+        bool isCanceled;
         public NameDialog()
         {
             InitializeComponent();
@@ -20,15 +21,23 @@ namespace NEA_solution
 
         private void NameDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (txtName.Text != "")
+            if (!isCanceled)
             {
-                name = txtName.Text;
+                if (txtName.Text != "")
+                {
+                    name = txtName.Text;
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid name");
+                    e.Cancel = true;
+                }
             }
-            else
-            {
-                MessageBox.Show("Please enter a valid name");
-                e.Cancel = true;
-            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            isCanceled = true;
         }
     }
 }

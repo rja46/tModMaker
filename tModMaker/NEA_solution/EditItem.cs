@@ -63,16 +63,11 @@ namespace NEA_solution
                 OpenFileDialog openSpriteDialog = new OpenFileDialog();
                 openSpriteDialog.InitialDirectory = "c:\\";
                 openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
-                
                 if (openSpriteDialog.ShowDialog() == DialogResult.OK)
                 {
-                    if (!Directory.Exists(thePath + "\\Items\\Sprites"))
-                    {
-                        Directory.CreateDirectory(thePath + "\\Items\\Sprites");
-                    }
-                    pbSprite.Image = new Bitmap(@openSpriteDialog.FileName);
+                    theItem.set_sprite(new Bitmap(@openSpriteDialog.FileName));
+                    pbSprite.Image = theItem.get_sprite();
                     pbSprite.Refresh();
-                    pbSprite.Image.Save(thePath + "\\Items\\Sprites\\" + theItem.get_name() + ".png");
                 }
             }
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Security.Permissions;
@@ -147,6 +148,10 @@ namespace NEA_solution
                 {
                     Directory.CreateDirectory(thePath + "\\Items\\Code");
                 }
+                if (!Directory.Exists(thePath + "\\Items\\Sprites"))
+                {
+                    Directory.CreateDirectory(thePath + "\\Items\\Sprites");
+                }
                 for (int i = 0; i < loadedMod.get_item_number(); i++)
                 {
                     pbSave.PerformStep();
@@ -157,6 +162,8 @@ namespace NEA_solution
                     tempItem += loadedMod.get_item(i).get_type();
                     File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + ".item", tempItem);
                     File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + "_code.code", loadedMod.get_item(i).get_code());
+                    Bitmap bmp = loadedMod.get_item(i).get_sprite();
+                    bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name(), ImageFormat.Png);
 
                 }
             }
@@ -284,6 +291,7 @@ namespace NEA_solution
                     }
                     else
                     {
+                        pnlItem.Controls.Clear();
                         modDetails = File.ReadAllText(existingFiles[0]);
                         modDetailsSplit = modDetails.Split('|');
                         theMod = new Mod(modDetailsSplit[0], folderDialog.SelectedPath);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace NEA_solution
         private string tooltip;
         private string code;
         private string type;
+        private Bitmap sprite;
 
         public Item(string name, string type)
         {
@@ -29,7 +31,9 @@ namespace NEA_solution
         public string get_displayName() { return displayName; }
         public string get_tooltip() { return tooltip;}
         public string get_type() { return type;}
-        public string get_code() { return code;}        
+        public string get_code() { return code;}     
+        
+        public Bitmap get_sprite() { return sprite;}
         public void set_tooltip(string tooltip)
         {
             this.tooltip = tooltip;
@@ -45,6 +49,11 @@ namespace NEA_solution
         public void set_type(string type)
         {
             this.type = type;
+        }
+
+        public void set_sprite(Bitmap sprite)
+        {
+            this.sprite = sprite;
         }
     }
 }
