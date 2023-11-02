@@ -162,9 +162,12 @@ namespace NEA_solution
                     tempItem += loadedMod.get_item(i).get_type();
                     File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + ".item", tempItem);
                     File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + "_code.code", loadedMod.get_item(i).get_code());
-                    Bitmap bmp = loadedMod.get_item(i).get_sprite();
-                    bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name(), ImageFormat.Png);
-
+                    try
+                    {
+                        Bitmap bmp = loadedMod.get_item(i).get_sprite();
+                        bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name(), ImageFormat.Png);
+                    }
+                    catch { }
                 }
             }
         }
