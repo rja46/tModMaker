@@ -200,18 +200,7 @@ namespace NEA_solution
 
         private void btnEditItem_Click(object sender, EventArgs e)
         {
-            if (loadedItem != null)
-            {
-                editItem = new EditItem(loadedItem, loadedMod.get_modPath());
-                editItem.TopLevel = false;
-                pnlItem.Controls.Add(editItem);
-                editItem.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                editItem.Dock = DockStyle.Fill;
-                editItem.Size = new Size(pnlItem.Size.Width, pnlItem.Size.Height);
-                editItem.Show();
-                loadedItem = editItem.theItem;
-                update_item_list();
-            }
+
         }
 
         private void modDetailsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -278,7 +267,6 @@ namespace NEA_solution
 
         private void open_mod()
         {
-            //maybe make this a subroutine
             Mod theMod;
             string modDetails;
             string[] modDetailsSplit;
@@ -322,6 +310,23 @@ namespace NEA_solution
             catch
             {
                 save_mod_as();
+            }
+        }
+
+        private void lbItems_DoubleClick(object sender, EventArgs e)
+        {
+            if (loadedItem != null)
+            {
+                pnlItem.Controls.Clear();
+                editItem = new EditItem(loadedItem, loadedMod.get_modPath());
+                editItem.TopLevel = false;
+                pnlItem.Controls.Add(editItem);
+                editItem.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                editItem.Dock = DockStyle.Fill;
+                editItem.Size = new Size(pnlItem.Size.Width, pnlItem.Size.Height);
+                editItem.Show();
+                loadedItem = editItem.theItem;
+                update_item_list();
             }
         }
     }

@@ -42,14 +42,13 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnEditItem = new System.Windows.Forms.Button();
             this.stsBottom = new System.Windows.Forms.StatusStrip();
             this.pbSave = new System.Windows.Forms.ToolStripProgressBar();
             this.pnlItem = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tbSave = new System.Windows.Forms.ToolStripButton();
             this.tbNew = new System.Windows.Forms.ToolStripButton();
             this.tbOpen = new System.Windows.Forms.ToolStripButton();
+            this.tbSave = new System.Windows.Forms.ToolStripButton();
             this.msMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.stsBottom.SuspendLayout();
@@ -73,9 +72,10 @@
             this.lbItems.FormattingEnabled = true;
             this.lbItems.Location = new System.Drawing.Point(3, 4);
             this.lbItems.Name = "lbItems";
-            this.lbItems.Size = new System.Drawing.Size(156, 316);
+            this.lbItems.Size = new System.Drawing.Size(156, 342);
             this.lbItems.TabIndex = 7;
             this.lbItems.SelectedIndexChanged += new System.EventHandler(this.lbItems_SelectedIndexChanged);
+            this.lbItems.DoubleClick += new System.EventHandler(this.lbItems_DoubleClick);
             // 
             // btnDeleteItem
             // 
@@ -114,35 +114,35 @@
             // btnNew
             // 
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(180, 22);
+            this.btnNew.Size = new System.Drawing.Size(142, 22);
             this.btnNew.Text = "New";
             this.btnNew.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // fileSaveMod
             // 
             this.fileSaveMod.Name = "fileSaveMod";
-            this.fileSaveMod.Size = new System.Drawing.Size(180, 22);
+            this.fileSaveMod.Size = new System.Drawing.Size(142, 22);
             this.fileSaveMod.Text = "Save Mod";
             this.fileSaveMod.Click += new System.EventHandler(this.fileSaveMod_Click);
             // 
             // fileSaveModAs
             // 
             this.fileSaveModAs.Name = "fileSaveModAs";
-            this.fileSaveModAs.Size = new System.Drawing.Size(180, 22);
+            this.fileSaveModAs.Size = new System.Drawing.Size(142, 22);
             this.fileSaveModAs.Text = "Save Mod As";
             this.fileSaveModAs.Click += new System.EventHandler(this.fileSaveModAs_Click);
             // 
             // fileOpenMod
             // 
             this.fileOpenMod.Name = "fileOpenMod";
-            this.fileOpenMod.Size = new System.Drawing.Size(180, 22);
+            this.fileOpenMod.Size = new System.Drawing.Size(142, 22);
             this.fileOpenMod.Text = "Open";
             this.fileOpenMod.Click += new System.EventHandler(this.fileOpenMod_Click);
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.exportToolStripMenuItem.Text = "Export";
             // 
             // editToolStripMenuItem
@@ -167,22 +167,10 @@
             this.panel1.Controls.Add(this.lbItems);
             this.panel1.Controls.Add(this.btnAddItem);
             this.panel1.Controls.Add(this.btnDeleteItem);
-            this.panel1.Controls.Add(this.btnEditItem);
             this.panel1.Location = new System.Drawing.Point(624, 52);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(164, 373);
             this.panel1.TabIndex = 13;
-            // 
-            // btnEditItem
-            // 
-            this.btnEditItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnEditItem.Location = new System.Drawing.Point(3, 327);
-            this.btnEditItem.Name = "btnEditItem";
-            this.btnEditItem.Size = new System.Drawing.Size(75, 23);
-            this.btnEditItem.TabIndex = 11;
-            this.btnEditItem.Text = "Edit Item";
-            this.btnEditItem.UseVisualStyleBackColor = true;
-            this.btnEditItem.Click += new System.EventHandler(this.btnEditItem_Click);
             // 
             // stsBottom
             // 
@@ -222,17 +210,6 @@
             this.toolStrip1.TabIndex = 16;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // tbSave
-            // 
-            this.tbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbSave.Image = ((System.Drawing.Image)(resources.GetObject("tbSave.Image")));
-            this.tbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbSave.Name = "tbSave";
-            this.tbSave.Size = new System.Drawing.Size(23, 22);
-            this.tbSave.Text = "Save";
-            this.tbSave.ToolTipText = "Save";
-            this.tbSave.Click += new System.EventHandler(this.tbSave_Click);
-            // 
             // tbNew
             // 
             this.tbNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -252,6 +229,17 @@
             this.tbOpen.Size = new System.Drawing.Size(23, 22);
             this.tbOpen.Text = "Open";
             this.tbOpen.Click += new System.EventHandler(this.tbOpen_Click);
+            // 
+            // tbSave
+            // 
+            this.tbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbSave.Image = ((System.Drawing.Image)(resources.GetObject("tbSave.Image")));
+            this.tbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbSave.Name = "tbSave";
+            this.tbSave.Size = new System.Drawing.Size(23, 22);
+            this.tbSave.Text = "Save";
+            this.tbSave.ToolTipText = "Save";
+            this.tbSave.Click += new System.EventHandler(this.tbSave_Click);
             // 
             // Main
             // 
@@ -295,7 +283,6 @@
         private System.Windows.Forms.ToolStripProgressBar pbSave;
         private System.Windows.Forms.ToolStripMenuItem btnNew;
         private System.Windows.Forms.Panel pnlItem;
-        private System.Windows.Forms.Button btnEditItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tbNew;
         private System.Windows.Forms.ToolStripButton tbSave;

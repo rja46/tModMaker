@@ -140,20 +140,20 @@
   <data name="tbOpen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEYSURBVDhPYyAZxOwqYYje7QDlkQFid9swxO56yRCz0wkq
-        QgQIXcUG1NQJxM+A+D8E77wKlSUCxO7sAOItDHF7pMHOj971CsUbM/IYHszMZ/iPhD9Oz2dAKIjd8ZQh
-        epsMmI0tDECaZhQwSMLwtDyGYCD+ChIHKwA5GaQul+E+mI8O0A3AheEGogOqGDCrhMFgZh7DBxCbGAwM
-        t51Q7VAX5DG0zchnWAkKPFx4Wj5DAYieWcCwEGjZFKh2iAHAAHo0K58hAV0TMgYZMKWIwRmo+eWsAgZt
-        qHaoAfkM57BpQsZgF+QyVM/KZTgB1QoBYC8UMLRh04SMwQbkMRwFejceqhUCgJL3oK4giIFqH/cWMnBC
-        tQ44YGAAAOzj2d4EcbTUAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEbSURBVDhPYyAZxOwqYYje7QDlkQFid9swxO56yRCz0wkq
+        QgQIXcUG1NQJxM+A+D8E77wKlSUCxO7sAOItDHF7pMHOj971CsUbM/IYHszMZ/iPhD9Oz2dAKIjd9pQh
+        epsMmI0tDECaZhQwSMLwtDyG4Cl5DF9B4mAFICeD1GUz3Afz0QG6Abgw3EB0QBUDZpUwGMzMY/gAYhOD
+        p+cx7IRqh7ogj6FtRj7DSlDg4cLT8hkKQPTMAoaFQMumQLVDDJiZy/BoVj5DAromZAwyYEoRgzNQ88tZ
+        BQzaUO1QA/IZzmHThIzBLshlqJ6Vw3ACqhUCwF4oYGjDpgkZgw3IYzgK9G48VCsEACXuQV1BEAPVPu4t
+        ZOCEah1wwMAAANhN2dR1EEgGAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="tbSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB+SURBVDhPY6AOiNn5gCF2138i8UeG6N0OUJ1QAJKI3i4J
-        xshsdAw2YLc/Q/SuV0BLnaC6gYAUA0B0zI5ghuidn6C6gYBUA2BsOKCqATG7HoH52DBIjqABxGLsBuzc
-        AGQfxYtBanAaAFYAtQEXhqkZNQDNANIyEwSD9FAOGBgAVFUuBnmaCx8AAAAASUVORK5CYII=
+        xshsdAw2YLc/Q/SuV0BLnaC6gYAUA0B0zI5ghsidn6C6gYBUA2BsOKCqATG7HoH52DBIjqABxGLsBuzc
+        AGQfxYtBanAaAFYAtQEXhqkZNQDNANIyEwSD9FAOGBgATi8uBIstwtoAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
