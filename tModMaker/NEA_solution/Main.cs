@@ -68,15 +68,19 @@ namespace NEA_solution
 
         private void fileSaveMod_Click(object sender, EventArgs e)
         {
+            save_mod();
+            /*
             try
             {
-                Directory.Exists(loadedMod.get_modPath());
+                //Directory.Exists(loadedMod.get_modPath());
                 save_mod();
             }
-            catch
+            catch (Exception except)
             {
+                Console.WriteLine("Error: " + except.Message);
                 save_mod_as();
             }
+            */
         }
         private void save_mod_as()
         {
