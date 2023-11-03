@@ -91,6 +91,7 @@
             this.txtTooltip.Name = "txtTooltip";
             this.txtTooltip.Size = new System.Drawing.Size(190, 171);
             this.txtTooltip.TabIndex = 8;
+            this.txtTooltip.TextChanged += new System.EventHandler(this.txtTooltip_TextChanged);
             // 
             // webViewCode
             // 
@@ -114,6 +115,7 @@
             this.txtDisplayName.Name = "txtDisplayName";
             this.txtDisplayName.Size = new System.Drawing.Size(190, 20);
             this.txtDisplayName.TabIndex = 12;
+            this.txtDisplayName.TextChanged += new System.EventHandler(this.txtDisplayName_TextChanged);
             // 
             // lblDisplayName
             // 
@@ -139,6 +141,7 @@
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(190, 21);
             this.cbType.TabIndex = 13;
+            this.cbType.Click += new System.EventHandler(this.cbType_Click);
             // 
             // panel1
             // 
@@ -167,6 +170,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EditItem";
             this.Text = "editItem";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditItem_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.webViewCode)).EndInit();
             this.panel1.ResumeLayout(false);

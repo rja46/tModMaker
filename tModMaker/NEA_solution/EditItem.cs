@@ -16,6 +16,7 @@ namespace NEA_solution
 {
     public partial class EditItem : Form
     {
+        bool isChanged;
         private string code;
         public Item theItem;
         private string thePath;
@@ -25,11 +26,12 @@ namespace NEA_solution
             theItem = loadedItem;
             thePath = path;
             InitializeComponent();
-            InitWebview();
+            //InitWebview();
             txtDisplayName.Text = theItem.get_displayName();
             txtTooltip.Text = theItem.get_tooltip();
             cbType.Text = theItem.get_type();
             pbSprite.Refresh();
+            isChanged = false;
             //need to adjust the scaling mode on the picture box to avoid the existing blurryness.
             //sendData();
 
@@ -70,17 +72,19 @@ namespace NEA_solution
                 {
                     theItem.set_sprite(new Bitmap(@openSpriteDialog.FileName));
                     pbSprite.Refresh();
+                    isChanged = true;
                 }
             }
         }
 
         public void save_item()
         {
-            requestData();
+            //requestData();
             theItem.set_code(code);
             theItem.set_display_name(txtDisplayName.Text);
             theItem.set_tooltip(txtTooltip.Text);
             theItem.set_type(cbType.Text);
+            isChanged = false;
         }
 
         private void btnFullscreen_Click(object sender, EventArgs e)
@@ -98,6 +102,33 @@ namespace NEA_solution
             {
                 e.Graphics.DrawImage(theImage, 0, 0, pbSprite.Width, pbSprite.Height);
             }
+        }
+
+        private void EditItem_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isChanged)
+            {
+                DialogResult result = MessageBox.Show("You have unsaved changes, Do you wish to save them?", "Save changes?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    save_item();
+                }
+            }
+        }
+
+        private void txtDisplayName_TextChanged(object sender, EventArgs e)
+        {
+            isChanged = true;
+        }
+
+        private void txtTooltip_TextChanged(object sender, EventArgs e)
+        {
+            isChanged = true;
+        }
+
+        private void cbType_Click(object sender, EventArgs e)
+        {
+            isChanged = true;
         }
     }
 }

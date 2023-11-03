@@ -23,6 +23,7 @@ namespace NEA_solution
         public Main()
         {
             InitializeComponent();
+            this.Text = "tModMaker";
             loadedMod = new Mod("", "");
         }
 
@@ -299,6 +300,7 @@ namespace NEA_solution
                         theMod.set_description(modDetailsSplit[1]);
                         theMod.set_author(modDetailsSplit[2]);
                         loadedMod = theMod;
+                        this.Text = "tModLoader - " + loadedMod.get_name();
                     }
                 }
                 catch
@@ -334,6 +336,10 @@ namespace NEA_solution
         {
             if (loadedItem != null)
             {
+                if (editItem != null)
+                {
+                    editItem.Close();
+                }
                 pnlItem.Controls.Clear();
                 editItem = new EditItem(loadedItem, loadedMod.get_modPath());
                 editItem.TopLevel = false;
