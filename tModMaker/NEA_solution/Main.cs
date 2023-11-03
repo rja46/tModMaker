@@ -34,11 +34,6 @@ namespace NEA_solution
             loadedMod = new Mod("", "");
         }
 
-        private void btnEditDetails_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             CreateItemDialog createItemDialog = new CreateItemDialog();
@@ -194,6 +189,7 @@ namespace NEA_solution
                 }
                 else
                 {
+                    lbItems.Items.Clear();
                     for (int i = 0; i < existingItems.Length; i++)
                     {
                         tmpFile = File.ReadAllText(existingItems[i]);
@@ -210,11 +206,6 @@ namespace NEA_solution
                 }
             }
             catch { }
-        }
-
-        private void btnEditItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void modDetailsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -235,21 +226,24 @@ namespace NEA_solution
             DialogResult result = MessageBox.Show("Are you sure?", "Confirm action", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Item[] tmpItems = new Item[loadedMod.get_item_number() - 1];
-                int indexToDelete = lbItems.SelectedIndex;
-                int count = 0;
-                for (int i = 0; i < loadedMod.get_item_number(); i++)
+                if (lbItems.SelectedIndex != -1)
                 {
-                    if (i != indexToDelete)
+                    Item[] tmpItems = new Item[loadedMod.get_item_number() - 1];
+                    int indexToDelete = lbItems.SelectedIndex;
+                    int count = 0;
+                    for (int i = 0; i < loadedMod.get_item_number(); i++)
                     {
-                        tmpItems[count] = loadedMod.get_item(i);
-                        count++;
+                        if (i != indexToDelete)
+                        {
+                            tmpItems[count] = loadedMod.get_item(i);
+                            count++;
+                        }
                     }
+                    File.Delete(loadedMod.get_modPath() + "\\Items\\" + loadedItem.get_name() + ".item");
+                    File.Delete(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedItem.get_name() + "_code.code");
+                    loadedMod.set_items(tmpItems);
+                    update_item_list();
                 }
-                File.Delete(loadedMod.get_modPath() + "\\Items\\" + loadedItem.get_name() + ".item");
-                File.Delete(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedItem.get_name() + "_code.code");
-                loadedMod.set_items(tmpItems);
-                update_item_list();
             }
         }
 
