@@ -60,7 +60,7 @@
             this.btnChangeSprite.Name = "btnChangeSprite";
             this.btnChangeSprite.Size = new System.Drawing.Size(231, 23);
             this.btnChangeSprite.TabIndex = 2;
-            this.btnChangeSprite.Text = "button1";
+            this.btnChangeSprite.Text = "Change Sprite";
             this.btnChangeSprite.UseVisualStyleBackColor = true;
             this.btnChangeSprite.Click += new System.EventHandler(this.btnChangeSprite_Click);
             // 
@@ -84,6 +84,8 @@
             // 
             // txtTooltip
             // 
+            this.txtTooltip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.txtTooltip.Location = new System.Drawing.Point(47, 252);
             this.txtTooltip.Multiline = true;
             this.txtTooltip.Name = "txtTooltip";
