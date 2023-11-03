@@ -185,6 +185,7 @@ namespace NEA_solution
                 existingSprites = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Sprites");
                 if (existingItems.Length == 0)
                 {
+                    //this is stupid as a mod could have no items, but i need to fix other stuff first.
                     throw new Exception();
                 }
                 else
@@ -199,7 +200,13 @@ namespace NEA_solution
                         currentItem.set_tooltip(tmpProperties[2]);
                         currentItem.set_code(File.ReadAllText(existingCode[i]));
                         //cursed
-                        currentItem.set_sprite((Bitmap)Bitmap.FromFile(existingSprites[i]));
+                        for (int j = 0; j < existingSprites.Length; j++)
+                        {
+                            if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + ".png" == existingSprites[j])
+                            {
+                                currentItem.set_sprite((Bitmap)Bitmap.FromFile(existingSprites[j]));
+                            }
+                        }
                         loadedMod.add_item(currentItem);
                         update_item_list();
                     }
