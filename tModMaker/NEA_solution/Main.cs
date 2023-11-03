@@ -23,14 +23,6 @@ namespace NEA_solution
         public Main()
         {
             InitializeComponent();
-
-            //loadCreateModDialog loadCreateModDialog = new loadCreateModDialog();
-            //loadCreateModDialog.ShowDialog();
-            //loadedMod = loadCreateModDialog.theMod;
-
-            //this.Text = loadedMod.get_name();
-            //load_items_for_mod();
-            //update_item_list();
             loadedMod = new Mod("", "");
         }
 
@@ -159,9 +151,10 @@ namespace NEA_solution
                     File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + "_code.code", loadedMod.get_item(i).get_code());
                     //kill ghost file.
                     Bitmap bmp = loadedMod.get_item(i).get_sprite();
+                    File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + ".png");
                     if (bmp != null)
                     {
-                        bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name(), ImageFormat.Png);
+                        bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + ".png", ImageFormat.Png);
                     }
                 }
             }

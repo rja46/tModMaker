@@ -69,7 +69,6 @@ namespace NEA_solution
                 if (openSpriteDialog.ShowDialog() == DialogResult.OK)
                 {
                     theItem.set_sprite(new Bitmap(@openSpriteDialog.FileName));
-                    pbSprite.Image = theItem.get_sprite();
                     pbSprite.Refresh();
                 }
             }
