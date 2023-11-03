@@ -306,6 +306,7 @@ namespace NEA_solution
                 catch
                 {
                     MessageBox.Show("Please select a valid folder");
+                    return;
                 }
             }
             load_items_for_mod();

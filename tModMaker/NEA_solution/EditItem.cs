@@ -108,7 +108,7 @@ namespace NEA_solution
         {
             if (isChanged)
             {
-                DialogResult result = MessageBox.Show("You have unsaved changes, Do you wish to save them?", "Save changes?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("You have unsaved changes, do you wish to save them?", "Save changes?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     save_item();
