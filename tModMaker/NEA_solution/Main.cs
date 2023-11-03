@@ -68,19 +68,14 @@ namespace NEA_solution
 
         private void fileSaveMod_Click(object sender, EventArgs e)
         {
-            save_mod();
-            /*
             try
             {
-                //Directory.Exists(loadedMod.get_modPath());
                 save_mod();
             }
-            catch (Exception except)
+            catch
             {
-                Console.WriteLine("Error: " + except.Message);
                 save_mod_as();
             }
-            */
         }
         private void save_mod_as()
         {
@@ -146,7 +141,6 @@ namespace NEA_solution
                 }
                 for (int i = 0; i < loadedMod.get_item_number(); i++)
                 {
-                    pbSave.PerformStep();
                     tempItem = "";
                     tempItem += loadedMod.get_item(i).get_name() + "|";
                     tempItem += loadedMod.get_item(i).get_displayName() + "|";
@@ -154,13 +148,13 @@ namespace NEA_solution
                     tempItem += loadedMod.get_item(i).get_type();
                     File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + ".item", tempItem);
                     File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + "_code.code", loadedMod.get_item(i).get_code());
-                    //kill ghost file.
                     Bitmap bmp = loadedMod.get_item(i).get_sprite();
                     File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + ".png");
                     if (bmp != null)
                     {
                         bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + ".png", ImageFormat.Png);
                     }
+                    pbSave.PerformStep();
                 }
             }
         }
@@ -202,7 +196,9 @@ namespace NEA_solution
                         {
                             if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + ".png" == existingSprites[j])
                             {
-                                currentItem.set_sprite((Bitmap)Bitmap.FromFile(existingSprites[j]));
+                                FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
+                                currentItem.set_sprite(new Bitmap(fileHandler));
+                                fileHandler.Close();
                             }
                         }
                         loadedMod.add_item(currentItem);
@@ -319,7 +315,6 @@ namespace NEA_solution
         {
             try
             {
-                Directory.Exists(loadedMod.get_modPath());
                 if (editItem != null)
                 {
                     editItem.save_item();

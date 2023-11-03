@@ -33,7 +33,6 @@ namespace NEA_solution
         public string get_tooltip() { return tooltip;}
         public string get_type() { return type;}
         public string get_code() { return code;}     
-        
         public Bitmap get_sprite() { return sprite;}
         public void set_tooltip(string tooltip)
         {
