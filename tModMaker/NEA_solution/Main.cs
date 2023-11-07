@@ -170,43 +170,50 @@ namespace NEA_solution
             Item currentItem;
             string[] tmpProperties;
             string tmpFile;
-            try
             {
-                existingItems = Directory.GetFiles(loadedMod.get_modPath() + "\\Items");
-                existingCode = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Code");
-                existingSprites = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Sprites");
-                if (existingItems.Length == 0)
+                if (Directory.Exists(loadedMod.get_modPath() + "\\Items") 
+                    && Directory.Exists(loadedMod.get_modPath() + "\\Items\\Code") 
+                    && Directory.Exists(loadedMod.get_modPath() + "\\Items\\Sprites"))
                 {
-                    //this is stupid as a mod could have no items, but i need to fix other stuff first.
-                    throw new Exception();
+                    existingItems = Directory.GetFiles(loadedMod.get_modPath() + "\\Items");
+                    existingCode = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Code");
+                    existingSprites = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Sprites");
+                    if (existingItems.Length == 0)
+                    {
+                        //this is stupid as a mod could have no items, but i need to fix other stuff first.
+                        throw new Exception();
+                    }
+                    else
+                    {
+                        lbItems.Items.Clear();
+                        for (int i = 0; i < existingItems.Length; i++)
+                        {
+                            tmpFile = File.ReadAllText(existingItems[i]);
+                            tmpProperties = tmpFile.Split('|');
+                            currentItem = new Item(tmpProperties[0], tmpProperties[3]);
+                            currentItem.set_display_name(tmpProperties[1]);
+                            currentItem.set_tooltip(tmpProperties[2]);
+                            currentItem.set_code(File.ReadAllText(existingCode[i]));
+                            //cursed
+                            for (int j = 0; j < existingSprites.Length; j++)
+                            {
+                                if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + ".png" == existingSprites[j])
+                                {
+                                    FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
+                                    currentItem.set_sprite(new Bitmap(fileHandler));
+                                    fileHandler.Close();
+                                }
+                            }
+                            loadedMod.add_item(currentItem);
+                            update_item_list();
+                        }
+                    }
                 }
                 else
                 {
-                    lbItems.Items.Clear();
-                    for (int i = 0; i < existingItems.Length; i++)
-                    {
-                        tmpFile = File.ReadAllText(existingItems[i]);
-                        tmpProperties = tmpFile.Split('|');
-                        currentItem = new Item(tmpProperties[0], tmpProperties[3]);
-                        currentItem.set_display_name(tmpProperties[1]);
-                        currentItem.set_tooltip(tmpProperties[2]);
-                        currentItem.set_code(File.ReadAllText(existingCode[i]));
-                        //cursed
-                        for (int j = 0; j < existingSprites.Length; j++)
-                        {
-                            if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + ".png" == existingSprites[j])
-                            {
-                                FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
-                                currentItem.set_sprite(new Bitmap(fileHandler));
-                                fileHandler.Close();
-                            }
-                        }
-                        loadedMod.add_item(currentItem);
-                        update_item_list();
-                    }
+                    MessageBox.Show("Please select a valid folder");
                 }
             }
-            catch { }
         }
 
         private void modDetailsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -284,12 +291,12 @@ namespace NEA_solution
             DialogResult result = folderDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                try
+                //try
                 {
                     existingFiles = Directory.GetFiles(folderDialog.SelectedPath);
                     if (existingFiles.Length != 1)
                     {
-                        throw new Exception();
+                        //throw new Exception();
                     }
                     else
                     {
@@ -303,10 +310,10 @@ namespace NEA_solution
                         this.Text = "tModLoader - " + loadedMod.get_name();
                     }
                 }
-                catch
+                //catch
                 {
-                    MessageBox.Show("Please select a valid folder");
-                    return;
+                    //MessageBox.Show("Please select a valid folder");
+                    //return;
                 }
             }
             load_items_for_mod();
