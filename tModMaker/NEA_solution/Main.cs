@@ -68,13 +68,20 @@ namespace NEA_solution
 
         private void fileSaveMod_Click(object sender, EventArgs e)
         {
+            if (editItem != null)
+            {
+                editItem.save_item();
+            }
             try
             {
                 save_mod();
             }
-            catch
+            catch (Exception ex)
             {
-                save_mod_as();
+                if (ex.Message == "Path cannot be the empty string or all whitespace.")
+                {
+                    save_mod_as();
+                }
             }
         }
         private void save_mod_as()
@@ -321,21 +328,20 @@ namespace NEA_solution
 
         private void tbSave_Click(object sender, EventArgs e)
         {
+            if (editItem != null)
+            {
+                editItem.save_item();
+            }
             try
             {
-                if (editItem != null)
-                {
-                    editItem.save_item();
-                }
                 save_mod();
             }
-            catch
+            catch (Exception ex)
             {
-                if (editItem != null)
+                if (ex.Message == "Path cannot be the empty string or all whitespace.")
                 {
-                    editItem.save_item();
+                    save_mod_as();
                 }
-                save_mod_as();
             }
         }
 
