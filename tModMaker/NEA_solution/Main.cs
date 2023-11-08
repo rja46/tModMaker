@@ -187,8 +187,7 @@ namespace NEA_solution
                     existingSprites = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Sprites");
                     if (existingItems.Length == 0)
                     {
-                        //this is stupid as a mod could have no items, but i need to fix other stuff first.
-                        throw new Exception();
+                        return;
                     }
                     else
                     {
@@ -201,7 +200,6 @@ namespace NEA_solution
                             currentItem.set_display_name(tmpProperties[1]);
                             currentItem.set_tooltip(tmpProperties[2]);
                             currentItem.set_code(File.ReadAllText(existingCode[i]));
-                            //cursed
                             for (int j = 0; j < existingSprites.Length; j++)
                             {
                                 if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + ".png" == existingSprites[j])
@@ -298,30 +296,23 @@ namespace NEA_solution
             DialogResult result = folderDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                //try
+                existingFiles = Directory.GetFiles(folderDialog.SelectedPath);
+                if (existingFiles.Length != 1)
                 {
-                    existingFiles = Directory.GetFiles(folderDialog.SelectedPath);
-                    if (existingFiles.Length != 1)
-                    {
-                        //throw new Exception();
-                    }
-                    else
-                    {
-                        pnlItem.Controls.Clear();
-                        modDetails = File.ReadAllText(existingFiles[0]);
-                        modDetailsSplit = modDetails.Split('|');
-                        theMod = new Mod(modDetailsSplit[0], folderDialog.SelectedPath);
-                        theMod.set_description(modDetailsSplit[1]);
-                        theMod.set_author(modDetailsSplit[2]);
-                        loadedMod = theMod;
-                        this.Text = "tModLoader - " + loadedMod.get_name();
-                    }
-                }
-                //catch
+                    MessageBox.Show("Please select a valid folder");
+                    return;
+                }   
+                else
                 {
-                    //MessageBox.Show("Please select a valid folder");
-                    //return;
-                }
+                    pnlItem.Controls.Clear();
+                    modDetails = File.ReadAllText(existingFiles[0]);
+                    modDetailsSplit = modDetails.Split('|');
+                    theMod = new Mod(modDetailsSplit[0], folderDialog.SelectedPath);
+                    theMod.set_description(modDetailsSplit[1]);
+                    theMod.set_author(modDetailsSplit[2]);
+                    loadedMod = theMod;
+                    this.Text = "tModLoader - " + loadedMod.get_name();
+                    }
             }
             load_items_for_mod();
         }
