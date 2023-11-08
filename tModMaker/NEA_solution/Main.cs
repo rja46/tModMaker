@@ -16,7 +16,6 @@ namespace NEA_solution
 {
     public partial class Main : Form
     {
-        //load this value from path
         Mod loadedMod;
         Item loadedItem;
         EditItem editItem;

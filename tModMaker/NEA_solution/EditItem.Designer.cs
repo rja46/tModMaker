@@ -171,6 +171,7 @@
             this.Name = "EditItem";
             this.Text = "editItem";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditItem_FormClosing);
+            this.Load += new System.EventHandler(this.EditItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.webViewCode)).EndInit();
             this.panel1.ResumeLayout(false);

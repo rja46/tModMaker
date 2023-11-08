@@ -23,18 +23,14 @@ namespace NEA_solution
 
         public EditItem(Item loadedItem, string path)
         {
+            InitializeComponent();
             theItem = loadedItem;
             thePath = path;
-            InitializeComponent();
-            //InitWebview();
             txtDisplayName.Text = theItem.get_displayName();
             txtTooltip.Text = theItem.get_tooltip();
             cbType.Text = theItem.get_type();
             pbSprite.Refresh();
             isChanged = false;
-            //need to adjust the scaling mode on the picture box to avoid the existing blurryness.
-            //sendData();
-
         }
         async void InitWebview()
         {
@@ -54,11 +50,6 @@ namespace NEA_solution
         private void webViewCode_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e)
         {
             code = e.TryGetWebMessageAsString();
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void btnChangeSprite_Click(object sender, EventArgs e)
@@ -129,6 +120,14 @@ namespace NEA_solution
         private void cbType_Click(object sender, EventArgs e)
         {
             isChanged = true;
+        }
+
+        private void EditItem_Load(object sender, EventArgs e)
+        {
+            InitWebview();
+            requestData();
+            //sendData();
+
         }
     }
 }
