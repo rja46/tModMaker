@@ -35,6 +35,10 @@ namespace NEA_solution
         async void InitWebview()
         {
             await webViewCode.EnsureCoreWebView2Async();
+            if (webViewCode == null )
+            {
+                MessageBox.Show("is null");
+            }
         }
 
         async void sendData()
@@ -125,7 +129,7 @@ namespace NEA_solution
         private void EditItem_Load(object sender, EventArgs e)
         {
             InitWebview();
-            requestData();
+            //requestData();
             //sendData();
 
         }

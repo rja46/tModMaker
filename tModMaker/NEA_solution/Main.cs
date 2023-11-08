@@ -310,10 +310,11 @@ namespace NEA_solution
                     theMod.set_description(modDetailsSplit[1]);
                     theMod.set_author(modDetailsSplit[2]);
                     loadedMod = theMod;
-                    this.Text = "tModLoader - " + loadedMod.get_name();
-                    }
+                    Text = "tModLoader - " + loadedMod.get_name();
+             
+                }
+                load_items_for_mod();
             }
-            load_items_for_mod();
         }
 
         private void tbSave_Click(object sender, EventArgs e)
