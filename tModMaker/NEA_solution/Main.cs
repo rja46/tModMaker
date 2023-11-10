@@ -19,15 +19,16 @@ namespace NEA_solution
         Mod loadedMod;
         Item loadedItem;
         EditItem editItem;
-        public static bool recieved;
+        bool pathExists;
+
 
         public Main()
         {
-            recieved = false;
             //MessageBox.Show("Hi Sir, please do not click one item 4 times in a short space of time.");
             InitializeComponent();
             this.Text = "tModMaker";
             loadedMod = new Mod("", "");
+            pathExists = false;
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
@@ -53,6 +54,18 @@ namespace NEA_solution
             }
         }
 
+        private void save()
+        {
+            if (pathExists)
+            {
+                save_mod();
+            }
+            else
+            {
+                save_mod_as();
+            }
+        }
+
         private void lbItems_SelectedIndexChanged(object sender, EventArgs e)
         {
                 update_loaded_item(lbItems.SelectedIndex);
@@ -71,14 +84,7 @@ namespace NEA_solution
 
         private void fileSaveMod_Click(object sender, EventArgs e)
         {
-            if (editItem == null)
-            {
-                save_mod();
-            }
-            else
-            {
-                editItem.save_item();
-            }
+            save();
         }
         private void save_mod_as()
         {
@@ -106,6 +112,7 @@ namespace NEA_solution
 
         public void save_mod()
         {
+            editItem.save_item();
             string thePath = loadedMod.get_modPath();
             string modFile = "";
             string tempItem;
@@ -164,6 +171,7 @@ namespace NEA_solution
                     pbSave.PerformStep();
                 }
             }
+            pathExists = true;
         }
         private void fileOpenMod_Click(object sender, EventArgs e)
         {
@@ -315,24 +323,13 @@ namespace NEA_solution
              
                 }
                 load_items_for_mod();
+                pathExists = true;
             }
         }
 
         private void tbSave_Click(object sender, EventArgs e)
         {
-            if (editItem != null)
-            {
-                editItem.save_item();
-            }
-            do
-            {
-                if (recieved)
-                {
-                    save_mod();
-
-                }
-            } while (!recieved);
-            recieved = false; recieved=false;
+            save();
         }
 
         private void lbItems_DoubleClick(object sender, EventArgs e)

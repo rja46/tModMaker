@@ -23,8 +23,8 @@ namespace NEA_solution
         bool isChanged;
         private string code;
         public Item theItem;
-        private string thePath;
         private string theCode;
+        static TaskCompletionSource<bool> tcs = new TaskCompletionSource<bool>();
 
         public EditItem(Item loadedItem, string path)
         {
@@ -32,7 +32,6 @@ namespace NEA_solution
             InitWebview();
             wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\index.html");
             theItem = loadedItem;
-            thePath = path;
             txtDisplayName.Text = theItem.get_displayName();
             txtTooltip.Text = theItem.get_tooltip();
             cbType.Text = theItem.get_type();
@@ -70,9 +69,8 @@ namespace NEA_solution
 
         public void save_item()
         {
-
             requestData();
-
+            Console.WriteLine(theCode);
         }
 
         private void btnFullscreen_Click(object sender, EventArgs e)
@@ -127,7 +125,6 @@ namespace NEA_solution
         private void wvCode_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
             requestData();
-
         }
 
         private void wvCode_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
@@ -139,7 +136,6 @@ namespace NEA_solution
             theItem.set_tooltip(txtTooltip.Text);
             theItem.set_type(cbType.Text);
             isChanged = false;
-            Main.recieved = true;
         }
     }
 }
