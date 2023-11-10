@@ -21,6 +21,7 @@ namespace NEA_solution
         EditItem editItem;
         public Main()
         {
+            //MessageBox.Show("Hi Sir, please do not click one item 4 times in a short space of time.");
             InitializeComponent();
             this.Text = "tModMaker";
             loadedMod = new Mod("", "");

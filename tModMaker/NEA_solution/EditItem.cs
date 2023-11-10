@@ -7,10 +7,14 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+using System.Xml.Linq;
+using Microsoft.Web.WebView2.Core;
 
 namespace NEA_solution
 {
@@ -24,6 +28,8 @@ namespace NEA_solution
         public EditItem(Item loadedItem, string path)
         {
             InitializeComponent();
+            InitWebview();
+            wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\index.html");
             theItem = loadedItem;
             thePath = path;
             txtDisplayName.Text = theItem.get_displayName();
@@ -32,28 +38,17 @@ namespace NEA_solution
             pbSprite.Refresh();
             isChanged = false;
         }
+
         async void InitWebview()
         {
-            await webViewCode.EnsureCoreWebView2Async();
-            if (webViewCode == null )
-            {
-                MessageBox.Show("is null");
-            }
+            Controls.Add(wvCode);
+            wvCode.Enabled = true;
+            await wvCode.EnsureCoreWebView2Async(null);
         }
 
-        async void sendData()
+        async void requestData()
         {
-            await webViewCode.ExecuteScriptAsync("loadData(" + theItem.get_code() + ")");
-        }
-
-        public async void requestData()
-        {
-            await webViewCode.ExecuteScriptAsync("sendDataToWinForm()");
-        }
-
-        private void webViewCode_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e)
-        {
-            code = e.TryGetWebMessageAsString();
+            await wvCode.ExecuteScriptAsync("sendDataToWinForm()");
         }
 
         private void btnChangeSprite_Click(object sender, EventArgs e)
@@ -74,7 +69,6 @@ namespace NEA_solution
 
         public void save_item()
         {
-            //requestData();
             theItem.set_code(code);
             theItem.set_display_name(txtDisplayName.Text);
             theItem.set_tooltip(txtTooltip.Text);
@@ -126,11 +120,14 @@ namespace NEA_solution
             isChanged = true;
         }
 
-        private void EditItem_Load(object sender, EventArgs e)
+        private void wvCode_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
         {
-            InitWebview();
-            //requestData();
-            //sendData();
+            Console.WriteLine("AAAAAAAAA");
+        }
+
+        private void wvCode_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        {
+            requestData();
 
         }
     }

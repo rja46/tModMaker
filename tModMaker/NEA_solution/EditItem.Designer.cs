@@ -33,14 +33,14 @@
             this.lblType = new System.Windows.Forms.Label();
             this.lblTooltip = new System.Windows.Forms.Label();
             this.txtTooltip = new System.Windows.Forms.TextBox();
-            this.webViewCode = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.txtDisplayName = new System.Windows.Forms.TextBox();
             this.lblDisplayName = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.wvCode = new Microsoft.Web.WebView2.WinForms.WebView2();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.webViewCode)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wvCode)).BeginInit();
             this.SuspendLayout();
             // 
             // pbSprite
@@ -93,22 +93,6 @@
             this.txtTooltip.TabIndex = 8;
             this.txtTooltip.TextChanged += new System.EventHandler(this.txtTooltip_TextChanged);
             // 
-            // webViewCode
-            // 
-            this.webViewCode.AllowExternalDrop = true;
-            this.webViewCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.webViewCode.CreationProperties = null;
-            this.webViewCode.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webViewCode.Location = new System.Drawing.Point(261, 12);
-            this.webViewCode.Name = "webViewCode";
-            this.webViewCode.Size = new System.Drawing.Size(527, 426);
-            this.webViewCode.Source = new System.Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\index.html", System.UriKind.Absolute);
-            this.webViewCode.TabIndex = 9;
-            this.webViewCode.ZoomFactor = 1D;
-            this.webViewCode.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.webViewCode_WebMessageReceived);
-            // 
             // txtDisplayName
             // 
             this.txtDisplayName.Location = new System.Drawing.Point(47, 199);
@@ -160,22 +144,37 @@
             this.panel1.Size = new System.Drawing.Size(242, 426);
             this.panel1.TabIndex = 16;
             // 
+            // wvCode
+            // 
+            this.wvCode.AllowExternalDrop = true;
+            this.wvCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.wvCode.CreationProperties = null;
+            this.wvCode.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.wvCode.Location = new System.Drawing.Point(260, 12);
+            this.wvCode.Name = "wvCode";
+            this.wvCode.Size = new System.Drawing.Size(528, 426);
+            this.wvCode.TabIndex = 17;
+            this.wvCode.ZoomFactor = 1D;
+            this.wvCode.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.wvCode_CoreWebView2InitializationCompleted);
+            this.wvCode.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.wvCode_NavigationCompleted);
+            // 
             // EditItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.wvCode);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.webViewCode);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EditItem";
             this.Text = "editItem";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditItem_FormClosing);
-            this.Load += new System.EventHandler(this.EditItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.webViewCode)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wvCode)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -186,10 +185,10 @@
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblTooltip;
         private System.Windows.Forms.TextBox txtTooltip;
-        private Microsoft.Web.WebView2.WinForms.WebView2 webViewCode;
         private System.Windows.Forms.TextBox txtDisplayName;
         private System.Windows.Forms.Label lblDisplayName;
         private System.Windows.Forms.ComboBox cbType;
         private System.Windows.Forms.Panel panel1;
+        private Microsoft.Web.WebView2.WinForms.WebView2 wvCode;
     }
 }
