@@ -19,8 +19,11 @@ namespace NEA_solution
         Mod loadedMod;
         Item loadedItem;
         EditItem editItem;
+        public static bool recieved;
+
         public Main()
         {
+            recieved = false;
             //MessageBox.Show("Hi Sir, please do not click one item 4 times in a short space of time.");
             InitializeComponent();
             this.Text = "tModMaker";
@@ -68,20 +71,13 @@ namespace NEA_solution
 
         private void fileSaveMod_Click(object sender, EventArgs e)
         {
-            if (editItem != null)
-            {
-                editItem.save_item();
-            }
-            try
+            if (editItem == null)
             {
                 save_mod();
             }
-            catch (Exception ex)
+            else
             {
-                if (ex.Message == "Path cannot be the empty string or all whitespace.")
-                {
-                    save_mod_as();
-                }
+                editItem.save_item();
             }
         }
         private void save_mod_as()
@@ -108,7 +104,7 @@ namespace NEA_solution
             }
         }
 
-        private void save_mod()
+        public void save_mod()
         {
             string thePath = loadedMod.get_modPath();
             string modFile = "";
@@ -154,7 +150,11 @@ namespace NEA_solution
                     tempItem += loadedMod.get_item(i).get_tooltip() + "|";
                     tempItem += loadedMod.get_item(i).get_type();
                     File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + ".item", tempItem);
-                    File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + "_code.code", loadedMod.get_item(i).get_code());
+                    Console.WriteLine(loadedMod.get_item(i).get_code());
+                    if (loadedMod.get_item(i).get_code() != "")
+                    {
+                        File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + "_code.code", loadedMod.get_item(i).get_code());
+                    }
                     Bitmap bmp = loadedMod.get_item(i).get_sprite();
                     File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + ".png");
                     if (bmp != null)
@@ -324,17 +324,15 @@ namespace NEA_solution
             {
                 editItem.save_item();
             }
-            try
+            do
             {
-                save_mod();
-            }
-            catch (Exception ex)
-            {
-                if (ex.Message == "Path cannot be the empty string or all whitespace.")
+                if (recieved)
                 {
-                    save_mod_as();
+                    save_mod();
+
                 }
-            }
+            } while (!recieved);
+            recieved = false; recieved=false;
         }
 
         private void lbItems_DoubleClick(object sender, EventArgs e)

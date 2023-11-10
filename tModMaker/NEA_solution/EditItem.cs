@@ -24,6 +24,7 @@ namespace NEA_solution
         private string code;
         public Item theItem;
         private string thePath;
+        private string theCode;
 
         public EditItem(Item loadedItem, string path)
         {
@@ -69,11 +70,9 @@ namespace NEA_solution
 
         public void save_item()
         {
-            theItem.set_code(code);
-            theItem.set_display_name(txtDisplayName.Text);
-            theItem.set_tooltip(txtTooltip.Text);
-            theItem.set_type(cbType.Text);
-            isChanged = false;
+
+            requestData();
+
         }
 
         private void btnFullscreen_Click(object sender, EventArgs e)
@@ -129,6 +128,18 @@ namespace NEA_solution
         {
             requestData();
 
+        }
+
+        private void wvCode_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
+        {
+            theCode = e.TryGetWebMessageAsString();
+            theItem.set_code(theCode);
+            theItem.set_code(code);
+            theItem.set_display_name(txtDisplayName.Text);
+            theItem.set_tooltip(txtTooltip.Text);
+            theItem.set_type(cbType.Text);
+            isChanged = false;
+            Main.recieved = true;
         }
     }
 }

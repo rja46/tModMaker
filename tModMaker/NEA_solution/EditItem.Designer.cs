@@ -159,6 +159,7 @@
             this.wvCode.ZoomFactor = 1D;
             this.wvCode.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.wvCode_CoreWebView2InitializationCompleted);
             this.wvCode.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.wvCode_NavigationCompleted);
+            this.wvCode.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.wvCode_WebMessageReceived);
             // 
             // EditItem
             // 
