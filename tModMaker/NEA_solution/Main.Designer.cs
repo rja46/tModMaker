@@ -252,6 +252,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.msMain);
             this.MainMenuStrip = this.msMain;
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Main";
             this.Text = "Form1";
             this.msMain.ResumeLayout(false);
