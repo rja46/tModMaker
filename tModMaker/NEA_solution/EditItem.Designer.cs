@@ -155,10 +155,12 @@
             this.wvCode.Location = new System.Drawing.Point(260, 12);
             this.wvCode.Name = "wvCode";
             this.wvCode.Size = new System.Drawing.Size(528, 426);
+            this.wvCode.Source = new System.Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor", System.UriKind.Absolute);
             this.wvCode.TabIndex = 17;
             this.wvCode.ZoomFactor = 1D;
             this.wvCode.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.wvCode_CoreWebView2InitializationCompleted);
             this.wvCode.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.wvCode_NavigationCompleted);
+            this.wvCode.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.wvCode_WebMessageReceived);
             // 
             // EditItem
             // 

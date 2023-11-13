@@ -108,8 +108,12 @@ namespace NEA_solution
             }
         }
 
-        private void save_mod()
+        private async void save_mod()
         {
+            if (editItem != null)
+            {
+               await editItem.save_item();
+            }
             string thePath = loadedMod.get_modPath();
             string modFile = "";
             string tempItem;
@@ -154,6 +158,8 @@ namespace NEA_solution
                     tempItem += loadedMod.get_item(i).get_tooltip() + "|";
                     tempItem += loadedMod.get_item(i).get_type();
                     File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + ".item", tempItem);
+                    Console.WriteLine("new loop");
+                    Console.WriteLine(loadedMod.get_item(i).get_code());
                     File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + "_code.code", loadedMod.get_item(i).get_code());
                     Bitmap bmp = loadedMod.get_item(i).get_sprite();
                     File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + ".png");

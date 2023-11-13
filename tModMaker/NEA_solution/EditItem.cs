@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.Xml.Linq;
 using Microsoft.Web.WebView2.Core;
+using System.Threading;
 
 namespace NEA_solution
 {
@@ -23,7 +24,7 @@ namespace NEA_solution
         bool isChanged;
         private string code;
         public Item theItem;
-        private string thePath;
+        bool returned;
 
         public EditItem(Item loadedItem, string path)
         {
@@ -31,7 +32,6 @@ namespace NEA_solution
             InitWebview();
             wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\index.html");
             theItem = loadedItem;
-            thePath = path;
             txtDisplayName.Text = theItem.get_displayName();
             txtTooltip.Text = theItem.get_tooltip();
             cbType.Text = theItem.get_type();
@@ -67,12 +67,21 @@ namespace NEA_solution
             }
         }
 
-        public void save_item()
+        public async 
+        Task
+save_item()
         {
-            theItem.set_code(code);
+            requestData();
+            returned = false;
             theItem.set_display_name(txtDisplayName.Text);
             theItem.set_tooltip(txtTooltip.Text);
             theItem.set_type(cbType.Text);
+            do
+            {
+                await Task.Delay(100);
+            }
+            while (returned == false);
+            theItem.set_code(code);
             isChanged = false;
         }
 
@@ -128,7 +137,12 @@ namespace NEA_solution
         private void wvCode_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
             requestData();
+        }
 
+        private void wvCode_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
+        {
+            code = e.TryGetWebMessageAsString();
+            returned = true;
         }
     }
 }
