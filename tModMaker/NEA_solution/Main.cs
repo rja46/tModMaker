@@ -68,10 +68,6 @@ namespace NEA_solution
 
         private void fileSaveMod_Click(object sender, EventArgs e)
         {
-            if (editItem != null)
-            {
-                editItem.save_item();
-            }
             try
             {
                 save_mod();
@@ -326,10 +322,6 @@ namespace NEA_solution
 
         private void tbSave_Click(object sender, EventArgs e)
         {
-            if (editItem != null)
-            {
-                editItem.save_item();
-            }
             try
             {
                 save_mod();
