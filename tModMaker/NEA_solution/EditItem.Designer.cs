@@ -172,7 +172,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EditItem";
             this.Text = "editItem";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditItem_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

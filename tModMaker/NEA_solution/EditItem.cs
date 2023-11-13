@@ -102,17 +102,17 @@ save_item()
             }
         }
 
-        private void EditItem_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (isChanged)
-            {
-                DialogResult result = MessageBox.Show("You have unsaved changes, do you wish to save them?", "Save changes?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    save_item();
-                }
-            }
-        }
+        //private async Task EditItem_FormClosingAsync(object sender, FormClosingEventArgs e)
+        //{
+        //    if (isChanged)
+        //    {
+        //        DialogResult result = MessageBox.Show("You have unsaved changes, do you wish to save them?", "Save changes?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        //        if (result == DialogResult.Yes)
+        //        {
+        //            await save_item();
+        //        }
+        //    }
+        //}
 
         private void txtDisplayName_TextChanged(object sender, EventArgs e)
         {
@@ -136,13 +136,18 @@ save_item()
 
         private void wvCode_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
-            requestData();
+            sendData();
         }
 
         private void wvCode_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
         {
             code = e.TryGetWebMessageAsString();
             returned = true;
+        }
+
+        async void sendData()
+        {
+            await wvCode.ExecuteScriptAsync("loadData('" + theItem.get_code() + "')");
         }
     }
 }
