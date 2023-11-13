@@ -67,9 +67,7 @@ namespace NEA_solution
             }
         }
 
-        public async 
-        Task
-save_item()
+        public async Task save_item()
         {
             requestData();
             returned = false;
