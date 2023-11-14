@@ -485,8 +485,9 @@ javascript.javascriptGenerator.forBlock['define_weapon_essential'] = function(bl
   var dropdown_rare = block.getFieldValue('rare');
   var number_usesound = block.getFieldValue('UseSound');
   var checkbox_autoreuse = block.getFieldValue('autoReuse') === 'TRUE';
+  var number_crit = block.getFieldValue('crit');
   // TODO: Assemble javascript into code variable.
-  var code = 'public override void SetDefaults() {Item.width = ' + number_width + '; Item.height = ' + number_height + '; Item.useStyle = ' + 'dropdown_usestyle' + ';';
+  var code = 'public override void SetDefaults() {Item.damage = ' + number_damage + '; Item.melee = ' + checkbox_melee + '; Item.width = '+ number_width + '; Item.height = ' +  number_height + '; Item.useTime = ' + number_usetime + '; Item.useAnimation = ' + number_useanimation + '; Item.knockBack = ' + number_knockback + '; Item.value = ' + number_value + '; Item.rare = ' + dropdown_rare + '; Item.UseSound = ' + number_usesound + '; Item.autoReuse = ' + checkbox_autoreuse + '; Item.useStyle = ' + dropdown_usestyle + ';}';
   return code;
 };
 
