@@ -1,4 +1,11 @@
-  const toolbox = {
+let workspace = null;
+
+function sendDataToWinForm(){
+	const code = Blockly.JavaScript.workspaceToCode(workspace);
+	window.chrome.webview.postMessage(code);
+}	
+
+ const toolbox = {
   "kind": "categoryToolbox",
     "contents": [
       {
@@ -458,7 +465,7 @@ Blockly.common.defineBlocksWithJsonArray([{
   "helpUrl": ""
 }]);
 
-Blockly.inject('blocklyDiv', {
+ workspace = Blockly.inject('blocklyDiv', {
   toolbox: toolbox,
   scrollbars: false,
   horizontalLayout: false,
@@ -479,7 +486,7 @@ javascript.javascriptGenerator.forBlock['define_weapon_essential'] = function(bl
   var number_usesound = block.getFieldValue('UseSound');
   var checkbox_autoreuse = block.getFieldValue('autoReuse') === 'TRUE';
   // TODO: Assemble javascript into code variable.
-  var code = '...\n';
+  var code = 'test code';
   return code;
 };
 

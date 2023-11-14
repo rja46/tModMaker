@@ -30,7 +30,7 @@ namespace NEA_solution
         {
             InitializeComponent();
             InitWebview();
-            wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\index.html");
+            wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
             theItem = loadedItem;
             txtDisplayName.Text = theItem.get_displayName();
             txtTooltip.Text = theItem.get_tooltip();
