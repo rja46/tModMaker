@@ -486,7 +486,7 @@ javascript.javascriptGenerator.forBlock['define_weapon_essential'] = function(bl
   var number_usesound = block.getFieldValue('UseSound');
   var checkbox_autoreuse = block.getFieldValue('autoReuse') === 'TRUE';
   // TODO: Assemble javascript into code variable.
-  var code = 'test code';
+  var code = 'public override void SetDefaults() {Item.width = ' + number_width + '; Item.height = ' + number_height + '; Item.useStyle = ' + 'dropdown_usestyle' + ';';
   return code;
 };
 
