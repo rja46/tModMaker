@@ -1,9 +1,18 @@
 let workspace = null;
 
 function sendDataToWinForm(){
-	const code = Blockly.JavaScript.workspaceToCode(workspace);
-	window.chrome.webview.postMessage(code);
-}	
+	const state = JSON.stringify(Blockly.serialization.workspaces.save(workspace));
+	window.chrome.webview.postMessage(state);
+}
+
+function loadData(theData){
+	var json = null;
+	json = JSON.parse(theData);
+	try{
+	Blockly.serialization.workspaces.load(json, workspace);
+	}
+	catch{}
+}
 
  const toolbox = {
   "kind": "categoryToolbox",
@@ -79,9 +88,10 @@ function sendDataToWinForm(){
   ]
 };
 
-Blockly.common.defineBlocksWithJsonArray([{
+Blockly.common.defineBlocksWithJsonArray([
+{
   "type": "define_weapon_essential",
-  "message0": "Damage: %1 %2 Melee: %3 %4 Width: %5 Height: %6 %7 Use Time: %8 %9 Animation Time: %10 %11 Use Style: %12 %13 Knockback: %14 %15 Value %16 %17 Rarity %18 %19 Sound ID %20 %21 Auto Reuse %22",
+  "message0": "Damage: %1 %2 Damage Type %3 %4 Width: %5 Height: %6 %7 Use Time: %8 %9 Animation Time: %10 %11 Use Style: %12 %13 Knockback: %14 %15 Crit Chance %16 %17 Value %18 %19 Rarity %20 %21 Sound ID %22 %23 Auto Reuse %24",
   "args0": [
     {
       "type": "field_number",
@@ -93,9 +103,30 @@ Blockly.common.defineBlocksWithJsonArray([{
       "type": "input_dummy"
     },
     {
-      "type": "field_checkbox",
-      "name": "melee",
-      "checked": true
+      "type": "field_dropdown",
+      "name": "damageType",
+      "options": [
+        [
+          "Melee",
+          "Melee"
+        ],
+        [
+          "Ranged",
+          "Ranged"
+        ],
+        [
+          "Magic",
+          "Magic"
+        ],
+        [
+          "Summon",
+          "Summon"
+        ],
+        [
+          "Generic",
+          "Generic"
+        ]
+      ]
     },
     {
       "type": "input_dummy"
@@ -204,6 +235,15 @@ Blockly.common.defineBlocksWithJsonArray([{
       "type": "field_number",
       "name": "knockback",
       "value": 0
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_number",
+      "name": "crit",
+      "value": 0,
+      "min": 0
     },
     {
       "type": "input_dummy"
@@ -474,7 +514,7 @@ Blockly.common.defineBlocksWithJsonArray([{
 
 javascript.javascriptGenerator.forBlock['define_weapon_essential'] = function(block, generator) {
   var number_damage = block.getFieldValue('damage');
-  var checkbox_melee = block.getFieldValue('melee') === 'TRUE';
+  var dropdown_damagetype = block.getFieldValue('damageType');
   var number_width = block.getFieldValue('width');
   var number_height = block.getFieldValue('height');
   var number_usetime = block.getFieldValue('useTime');
@@ -487,7 +527,7 @@ javascript.javascriptGenerator.forBlock['define_weapon_essential'] = function(bl
   var checkbox_autoreuse = block.getFieldValue('autoReuse') === 'TRUE';
   var number_crit = block.getFieldValue('crit');
   // TODO: Assemble javascript into code variable.
-  var code = 'public override void SetDefaults() {Item.damage = ' + number_damage + '; Item.melee = ' + checkbox_melee + '; Item.width = '+ number_width + '; Item.height = ' +  number_height + '; Item.useTime = ' + number_usetime + '; Item.useAnimation = ' + number_useanimation + '; Item.knockBack = ' + number_knockback + '; Item.value = ' + number_value + '; Item.rare = ' + dropdown_rare + '; Item.UseSound = ' + number_usesound + '; Item.autoReuse = ' + checkbox_autoreuse + '; Item.useStyle = ' + dropdown_usestyle + ';}';
+  var code = 'public override void SetDefaults() {Item.damage = ' + number_damage + '; Item.DamageType = DamageClass.' + dropdown_damagetype + '; Item.width = '+ number_width + '; Item.height = ' +  number_height + '; Item.useTime = ' + number_usetime + '; Item.useAnimation = ' + number_useanimation + '; Item.knockBack = ' + number_knockback + '; Item.value = ' + number_value + '; Item.rare = ' + dropdown_rare + '; Item.UseSound = ' + number_usesound + '; Item.autoReuse = ' + checkbox_autoreuse + '; Item.useStyle = ' + dropdown_usestyle + ';}';
   return code;
 };
 
