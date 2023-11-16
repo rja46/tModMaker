@@ -5,6 +5,10 @@ function sendDataToWinForm(){
 	window.chrome.webview.postMessage(state);
 }
 
+function sendTranslatedCode(){
+
+}
+
 function loadData(theData){
 	var json = null;
 	json = JSON.parse(theData);

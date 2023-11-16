@@ -355,5 +355,46 @@ namespace NEA_solution
                 update_item_list();
             }
         }
+
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path;
+            //get path for output
+            //validate if the mod is going to overwrite the editable files: do they have the same name.
+            FolderBrowserDialog fd = new FolderBrowserDialog();
+            DialogResult dialogResult = fd.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                path = fd.SelectedPath + "\\" + loadedMod.get_name();
+                
+                //create an array of the items
+                Item[] itemsToExport = new Item[loadedMod.get_item_number()];
+                for (int i = 0; i < itemsToExport.Length; i++)
+                {
+                    itemsToExport[i] = loadedMod.get_item(i);
+                }
+
+                //create the necessary directories
+                Directory.CreateDirectory(path);
+                Directory.CreateDirectory(path + "\\Items");
+                //need to get the files for these 2
+                Directory.CreateDirectory(path + "\\Localization");
+                Directory.CreateDirectory(path + "\\Properties");
+
+                File.WriteAllText(path + "\\description.txt", loadedMod.get_description());
+                //add functionality to enter a version number
+                File.WriteAllText(path + "\\build.txt", "displayName = " + loadedMod.get_name() + "\nauthor = " + loadedMod.get_author() + "\nversion = 0.1");
+
+                //save code and sprite for each item
+                Bitmap bmp;
+                for (int i = 0; i < itemsToExport.Length; i++)
+                {
+                    File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", itemsToExport[i].get_exportedCode());
+                    bmp = itemsToExport[i].get_sprite();
+                    bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                }
+            }
+
+        }
     }
 }
