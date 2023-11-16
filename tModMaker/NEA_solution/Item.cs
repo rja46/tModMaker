@@ -20,7 +20,7 @@ namespace NEA_solution
 
         public Item(string name, string type)
         {
-            this.name = name;
+            this.name = name.Replace('\u0020', '_');
             this.type = type;
             displayName = name;
             tooltip = "";

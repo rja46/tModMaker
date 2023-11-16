@@ -53,7 +53,7 @@ namespace NEA_solution
         public string get_modPath() {  return modPath;}
         public int get_item_number() { return items.Length; }
 
-        public void set_name(string name) { this.name = name;}
+        public void set_name(string name) { this.name = name.Replace('\u0020', '_');}
         public void set_author (string  author) { this.author = author;}
         public void set_description(string description) {  this.description = description;}
         public void set_modPath(string modPath) { this.modPath = modPath;}
