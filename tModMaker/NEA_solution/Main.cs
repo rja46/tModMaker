@@ -360,6 +360,8 @@ namespace NEA_solution
         {
             string path;
             string tmpCode;
+            bool canExport = true;
+            List<string> incompleteItems = new List<string>();
             //get path for output
             //validate if the mod is going to overwrite the editable files: do they have the same name.
             FolderBrowserDialog fd = new FolderBrowserDialog();
@@ -393,10 +395,33 @@ namespace NEA_solution
                     //this works, but i need to prevent the user from using spaces in names.
                     tmpCode = "using Terraria;\r\nusing Terraria.ID;\r\nusing Terraria.ModLoader;\r\nnamespace " + loadedMod.get_name() + ".Items\r\n{\r\n\tpublic class " + itemsToExport[i].get_name() + " : ModItem\r\n\t{";
                     tmpCode += itemsToExport[i].get_exportedCode();
-                    tmpCode += "\t}\r\n}";
+                    tmpCode += "\r\n}\r\n}";
                     File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     bmp = itemsToExport[i].get_sprite();
-                    bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                    if (bmp == null)
+                    {
+                        incompleteItems.Add(itemsToExport[i].get_name());
+                        canExport = false;
+                    }
+                    else
+                    {
+                        bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                    }
+                }
+
+
+                //make this the last thing that runs
+                if (!canExport)
+                {
+                    Directory.Delete(path, true);
+
+                    string tmpString = "The following items cannot be exported:\n";
+                    for (int i = 0;i < incompleteItems.Count; i++)
+                    {
+                        tmpString += "\u2022 " + incompleteItems[i] + "\n";
+                    }
+                    tmpString += "Please ensure all items have sprites, details, and code.";
+                    MessageBox.Show(tmpString);
                 }
             }
 
