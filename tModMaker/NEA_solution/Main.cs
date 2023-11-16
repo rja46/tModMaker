@@ -359,6 +359,7 @@ namespace NEA_solution
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string path;
+            string tmpCode;
             //get path for output
             //validate if the mod is going to overwrite the editable files: do they have the same name.
             FolderBrowserDialog fd = new FolderBrowserDialog();
@@ -389,7 +390,11 @@ namespace NEA_solution
                 Bitmap bmp;
                 for (int i = 0; i < itemsToExport.Length; i++)
                 {
-                    File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", itemsToExport[i].get_exportedCode());
+                    //this works, but i need to prevent the user from using spaces in names.
+                    tmpCode = "using Terraria;\r\nusing Terraria.ID;\r\nusing Terraria.ModLoader;\r\nnamespace " + loadedMod.get_name() + ".Items\r\n{\r\n\tpublic class " + itemsToExport[i].get_name() + " : ModItem\r\n\t{";
+                    tmpCode += itemsToExport[i].get_exportedCode();
+                    tmpCode += "\t}\r\n}";
+                    File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     bmp = itemsToExport[i].get_sprite();
                     bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
                 }
