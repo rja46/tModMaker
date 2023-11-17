@@ -29,13 +29,19 @@ namespace NEA_solution
         public EditItem(Item loadedItem, string path)
         {
             InitializeComponent();
+            
+            //sets up the webview component running the editor
             InitWebview();
             wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
+            
+            //loads the details of the item onto the screen
             theItem = loadedItem;
             txtDisplayName.Text = theItem.get_displayName();
             txtTooltip.Text = theItem.get_tooltip();
             cbType.Text = theItem.get_type();
             pbSprite.Refresh();
+
+            //flags that no details have been changed
             isChanged = false;
         }
 
