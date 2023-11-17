@@ -24,11 +24,14 @@ namespace NEA_solution
             //MessageBox.Show("Hi Sir, please do not click one item 4 times in a short space of time.");
             InitializeComponent();
             this.Text = "tModMaker";
+
+            //creates a blank mod
             loadedMod = new Mod("", "");
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
+            //loads dialog to get the details for the new item
             CreateItemDialog createItemDialog = new CreateItemDialog();
             DialogResult result = createItemDialog.ShowDialog();
             if (result == DialogResult.OK)
@@ -36,12 +39,14 @@ namespace NEA_solution
                 //get new item from CreateItem form
                 loadedMod.add_item(createItemDialog.newItem);
 
+                //updates the list of items in the mod
                 update_item_list();
             }
         }
 
         private void update_item_list()
         {
+            //loops through items and add their names to the list box
             lbItems.Items.Clear();
             string[,] displayText = loadedMod.get_items_for_display();
             for (int i = 0; i < displayText.GetLength(0); i++)
@@ -52,11 +57,13 @@ namespace NEA_solution
 
         private void lbItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-                update_loaded_item(lbItems.SelectedIndex);
+            //changes the item loaded by the mod when a different one is select
+            update_loaded_item(lbItems.SelectedIndex);
         }
 
         private void update_loaded_item(int index)
         {
+            //loads the item specified by the index from the list of items in the mod
             loadedItem = loadedMod.get_item(index);
         }
 
@@ -74,6 +81,7 @@ namespace NEA_solution
             }
             catch (Exception ex)
             {
+                //if the path does not exist, it will call save_mod_as() to create the path
                 if (ex.Message == "Path cannot be the empty string or all whitespace.")
                 {
                     save_mod_as();
@@ -84,6 +92,7 @@ namespace NEA_solution
         {
             if (loadedMod.get_name() == "")
             {
+                //loads the dialog to ensure the mod has a name
                 NameDialog nameDialog = new NameDialog();
                 DialogResult result = nameDialog.ShowDialog();
                 if (result == DialogResult.OK)
@@ -95,27 +104,44 @@ namespace NEA_solution
                     return;
                 }
             }
+            //opens a folder browser so the user can choose where the mod is saved
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             DialogResult dialogResult = dialog.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
                 loadedMod.set_modPath(dialog.SelectedPath + "\\" + loadedMod.get_name());
+                //once the necessary details exist, the regular save_mod() procedure is called
                 save_mod();
             }
         }
 
+        //this procedure is asynchronous as it waits to recieve the data from the web component
         private async void save_mod()
         {
+            //if an item is loaded, it is saved
             if (editItem != null)
             {
                await editItem.save_item();
             }
+
             string thePath = loadedMod.get_modPath();
             string modFile = "";
             string tempItem;
+            
+            /*
+            the details of the mod are compiled into one string, seperated with pipes,
+            as it is a fairly uncommon character, and is unlikely to appear in the mod's
+            details
+            */
             modFile += loadedMod.get_name() + "|";
             modFile += loadedMod.get_description() + "|";
             modFile += loadedMod.get_author();
+
+            /*
+            the progress bar is set up to make a step for each item in the mod
+            it is worth noting that the progress bar doesnt appear to work on 
+            windows 11
+            */
             pbSave.Step = 1;
             pbSave.Minimum = 1;
             if (loadedMod.get_item_number() > 0)
@@ -127,13 +153,19 @@ namespace NEA_solution
                 pbSave.Maximum = 1;
             }
             pbSave.Value = 1;
+
+            //this creates the directory for the mod if it doesnt already exist
             if (!(Directory.Exists(thePath)))
             {
                 Directory.CreateDirectory(thePath);
             }
+
+            //the details of the mod are written to a file here
             File.WriteAllText(thePath + "\\" + loadedMod.get_name() + ".mod", modFile);
+
             if (loadedMod.get_item_number() != 0)
             {
+                //this checks for and creates other directories that need to exist
                 if (!Directory.Exists(thePath + "\\Items"))
                 {
                     Directory.CreateDirectory(thePath + "\\Items");
@@ -146,23 +178,30 @@ namespace NEA_solution
                 {
                     Directory.CreateDirectory(thePath + "\\Items\\Sprites");
                 }
+
+                //this loops through and saves each item
                 for (int i = 0; i < loadedMod.get_item_number(); i++)
                 {
+                    //the details of the item and put into a string, then saved
                     tempItem = "";
                     tempItem += loadedMod.get_item(i).get_name() + "|";
                     tempItem += loadedMod.get_item(i).get_displayName() + "|";
                     tempItem += loadedMod.get_item(i).get_tooltip() + "|";
                     tempItem += loadedMod.get_item(i).get_type();
                     File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + ".item", tempItem);
-                    Console.WriteLine("new loop");
-                    Console.WriteLine(loadedMod.get_item(i).get_code());
+                    
+                    //the code is written to a seperate file
                     File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + "_code.code", loadedMod.get_item(i).get_code());
+                    
                     Bitmap bmp = loadedMod.get_item(i).get_sprite();
                     File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + ".png");
+                    //if a sprite exists for the item, it is saved as a .png
                     if (bmp != null)
                     {
                         bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + ".png", ImageFormat.Png);
                     }
+
+                    //the step for the progress bar is performed
                     pbSave.PerformStep();
                 }
             }
@@ -180,13 +219,17 @@ namespace NEA_solution
             string[] tmpProperties;
             string tmpFile;
             {
+                //this ensures the correct structure exists in the specified directory
                 if (Directory.Exists(loadedMod.get_modPath() + "\\Items") 
                     && Directory.Exists(loadedMod.get_modPath() + "\\Items\\Code") 
                     && Directory.Exists(loadedMod.get_modPath() + "\\Items\\Sprites"))
                 {
+                    //if it does, arrays of paths are created for each item, sprite, and code
                     existingItems = Directory.GetFiles(loadedMod.get_modPath() + "\\Items");
                     existingCode = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Code");
                     existingSprites = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Sprites");
+                    
+                    //this stops and item with no items from loading - it needs to be removed
                     if (existingItems.Length == 0)
                     {
                         return;
@@ -196,12 +239,22 @@ namespace NEA_solution
                         lbItems.Items.Clear();
                         for (int i = 0; i < existingItems.Length; i++)
                         {
+                            //the contents of each path in the array are read
                             tmpFile = File.ReadAllText(existingItems[i]);
+
+                            //the details are split by the dividing symbol
                             tmpProperties = tmpFile.Split('|');
+                            
+                            //the properties in the array created are used to assemble the item
                             currentItem = new Item(tmpProperties[0], tmpProperties[3]);
                             currentItem.set_display_name(tmpProperties[1]);
                             currentItem.set_tooltip(tmpProperties[2]);
                             currentItem.set_code(File.ReadAllText(existingCode[i]));
+
+                            /*
+                            sprites are assigned to their item by sharing a file name,
+                            so this checks if a sprite corresponds to the item that has been loaded
+                            */
                             for (int j = 0; j < existingSprites.Length; j++)
                             {
                                 if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + ".png" == existingSprites[j])
@@ -211,11 +264,13 @@ namespace NEA_solution
                                     fileHandler.Close();
                                 }
                             }
+                            //the item is added to the list, then the displayed list is updated
                             loadedMod.add_item(currentItem);
                             update_item_list();
                         }
                     }
                 }
+                //this is triggered if the directory does not have the right structure
                 else
                 {
                     MessageBox.Show("Please select a valid folder");
@@ -225,6 +280,7 @@ namespace NEA_solution
 
         private void modDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //this opens a dialog where the user can edit the details of the mod
             EditDetailsDialog editDetailsDialog = new EditDetailsDialog(loadedMod.get_name(), loadedMod.get_author(), loadedMod.get_description());
             DialogResult result = editDetailsDialog.ShowDialog();
             if (result == DialogResult.OK)
@@ -238,11 +294,17 @@ namespace NEA_solution
 
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {
+            //a confirmation dialog will appear
             DialogResult result = MessageBox.Show("Are you sure?", "Confirm action", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                //this ensures they have selected a valid item to delete
                 if (lbItems.SelectedIndex != -1)
                 {
+                    /*
+                    a list one shorter than the current one is created,
+                     and every item except the deleted one is written to it
+                    */
                     Item[] tmpItems = new Item[loadedMod.get_item_number() - 1];
                     int indexToDelete = lbItems.SelectedIndex;
                     int count = 0;
@@ -254,6 +316,7 @@ namespace NEA_solution
                             count++;
                         }
                     }
+                    //the files for the item are deleted, and the list of items is overwritten
                     File.Delete(loadedMod.get_modPath() + "\\Items\\" + loadedItem.get_name() + ".item");
                     File.Delete(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedItem.get_name() + "_code.code");
                     loadedMod.set_items(tmpItems);
@@ -274,10 +337,14 @@ namespace NEA_solution
 
         private void new_project()
         {
+            //a confirmation dialog will appear
             DialogResult result = MessageBox.Show("Are you sure? Unsaved work will be lost.", "Confirm action", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (result == DialogResult.OK)
             {
+                //a blank mod is created
                 loadedMod = new Mod("", "");
+                
+                //the ui is reset
                 update_item_list();
                 update_loaded_item(-1);
             }
