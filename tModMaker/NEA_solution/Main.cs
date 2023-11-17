@@ -361,11 +361,15 @@ namespace NEA_solution
             string modDetails;
             string[] modDetailsSplit;
             string[] existingFiles;
+            
+            //this opens a folder browser for the user to select the folder
             FolderBrowserDialog folderDialog = new FolderBrowserDialog();
             DialogResult result = folderDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
                 existingFiles = Directory.GetFiles(folderDialog.SelectedPath);
+
+                //ensures that the is only one directory (\\Items) in the directory selected
                 if (existingFiles.Length != 1)
                 {
                     MessageBox.Show("Please select a valid folder");
@@ -373,6 +377,7 @@ namespace NEA_solution
                 }   
                 else
                 {
+                    //loads the details for the mod from the folder
                     pnlItem.Controls.Clear();
                     modDetails = File.ReadAllText(existingFiles[0]);
                     modDetailsSplit = modDetails.Split('|');
@@ -383,6 +388,7 @@ namespace NEA_solution
                     Text = "tModLoader - " + loadedMod.get_name();
              
                 }
+                //calls the procedure to load the items
                 load_items_for_mod();
             }
         }
@@ -408,8 +414,10 @@ namespace NEA_solution
             {
                 if (editItem != null)
                 {
+                    //closes the existing window if there is one
                     editItem.Close();
                 }
+                //loads the selected item into a window in the panel
                 pnlItem.Controls.Clear();
                 editItem = new EditItem(loadedItem, loadedMod.get_modPath());
                 editItem.TopLevel = false;
