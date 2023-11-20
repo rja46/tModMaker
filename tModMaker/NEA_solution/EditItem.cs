@@ -105,6 +105,7 @@ namespace NEA_solution
             }
             while (returned == false);
             theItem.set_exportedCode(code);
+            await Console.Out.WriteLineAsync(code);
             isChanged = false;
         }
 
