@@ -1,11 +1,13 @@
 let workspace = null;
 
 function sendDataToWinForm(){
-	const state = JSON.stringify(Blockly.serialization.workspaces.save(workspace));
+	const state = "0" + JSON.stringify(Blockly.serialization.workspaces.save(workspace));
 	window.chrome.webview.postMessage(state);
 }
 
 function sendTranslatedCode(){
+	const code = "1" + JSON.stringify(Blockly.JavaScript.workspaceToCode(workspace));
+	window.chrome.webview.postMessage(code);
 
 }
 

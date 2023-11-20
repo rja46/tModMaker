@@ -22,7 +22,9 @@ namespace NEA_solution
     public partial class EditItem : Form
     {
         bool isChanged;
+        private string workspace;
         private string code;
+        private string recievedData;
         public Item theItem;
         bool returned;
 
@@ -57,6 +59,11 @@ namespace NEA_solution
             await wvCode.ExecuteScriptAsync("sendDataToWinForm()");
         }
 
+        async void requestCode()
+        {
+            await wvCode.ExecuteScriptAsync("sendTranslatedCode");
+        }
+
         private void btnChangeSprite_Click(object sender, EventArgs e)
         {
             if (theItem != null)
@@ -85,7 +92,19 @@ namespace NEA_solution
                 await Task.Delay(100);
             }
             while (returned == false);
-            theItem.set_code(code);
+            theItem.set_code(workspace);
+            isChanged = false;
+        }
+
+        public async Task save_code()
+        {
+            requestCode();
+            do
+            {
+                await Task.Delay(100);
+            }
+            while (returned == false);
+            theItem.set_exportedCode(code);
             isChanged = false;
         }
 
@@ -145,8 +164,19 @@ namespace NEA_solution
 
         private void wvCode_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
         {
-            code = e.TryGetWebMessageAsString();
-            returned = true;
+            recievedData = e.TryGetWebMessageAsString();
+            if (recievedData[0] == '0')
+            {
+
+                workspace = recievedData.Substring(1);
+                returned = true;
+            }
+            else if (recievedData[0] == '1')
+            {
+                code = recievedData.Substring(1);
+                returned = true;
+            }
+
         }
 
         async void sendData()

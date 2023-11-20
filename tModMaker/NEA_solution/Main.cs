@@ -122,6 +122,7 @@ namespace NEA_solution
             if (editItem != null)
             {
                await editItem.save_item();
+                await editItem.save_code();
             }
 
             string thePath = loadedMod.get_modPath();
