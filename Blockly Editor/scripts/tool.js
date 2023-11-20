@@ -95,7 +95,7 @@ function loadData(theData){
 Blockly.common.defineBlocksWithJsonArray([
 {
   "type": "define_weapon_essential",
-  "message0": "Damage: %1 %2 Damage Type %3 %4 Width: %5 Height: %6 %7 Use Time: %8 %9 Animation Time: %10 %11 Use Style: %12 %13 Knockback: %14 %15 Crit Chance %16 %17 Value %18 %19 Rarity %20 %21 Sound ID %22 %23 Auto Reuse %24",
+  "message0": "Damage: %1 %2 Damage Type %3 %4 Width: %5 Height: %6 %7 Use Time: %8 %9 Animation Time: %10 %11 Use Style: %12 %13 Knockback: %14 %15 Crit Chance: %16 %17 Value: %18 %19 Rarity: %20 %21 Sound ID: %22 %23 Auto Reuse: %24",
   "args0": [
     {
       "type": "field_number",
