@@ -133,6 +133,8 @@ namespace NEA_solution
             the details of the mod are compiled into one string, seperated with pipes,
             as it is a fairly uncommon character, and is unlikely to appear in the mod's
             details
+            validation is needed here, because terrible things will happen if someone enters
+            a pipe in any of these fields
             */
             modFile += loadedMod.get_name() + "|";
             modFile += loadedMod.get_description() + "|";
