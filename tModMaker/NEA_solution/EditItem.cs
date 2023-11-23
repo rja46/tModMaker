@@ -167,7 +167,7 @@ namespace NEA_solution
         private void wvCode_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
         {
             recievedData = e.TryGetWebMessageAsString();
-            Console.WriteLine(recievedData);
+            //Console.WriteLine(recievedData);
             if (recievedData[0] == '0')
             {
 

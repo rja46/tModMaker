@@ -6,8 +6,7 @@ function sendDataToWinForm(){
 }
 
 function sendTranslatedCode(){
-    //const code =  "1" + JSON.stringify(Blockly.JavaScript.workspaceToCode(workspace));
-	const code =  "a";
+    const code =  "1" + JSON.stringify(Blockly.JavaScript.workspaceToCode(workspace));
 	window.chrome.webview.postMessage(code);
 
 }
