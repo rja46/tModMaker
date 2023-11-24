@@ -21,7 +21,9 @@ namespace NEA_solution
         Mod loadedMod;
         Item loadedItem;
         EditItem editItem;
-        bool navComplete;
+        bool returned;
+        string tmpCodeFromBlockly;
+
         public Main()
         {
             //MessageBox.Show("Hi Sir, please do not click one item 4 times in a short space of time.");
@@ -482,16 +484,23 @@ namespace NEA_solution
 
                 //save code and sprite for each item
                 Bitmap bmp;
-                string tmpCodeFromBlockly;
                 for (int i = 0; i < itemsToExport.Length; i++)
                 {
+                    returned = false;
                     //load code from web component
                     tmpCodeFromBlockly = "";
                     await wvCodeGetter.ExecuteScriptAsync("loadData('" + itemsToExport[i].get_code() + "')");
 
+                    await wvCodeGetter.ExecuteScriptAsync("sendTranslatedCode()");
+                    do
+                    {
+                        await Task.Delay(100);
+                    }
+                    while (returned == false);
+
                     //this works, but i need to prevent the user from using spaces in names.
                     tmpCode = "using Terraria;\r\nusing Terraria.ID;\r\nusing Terraria.ModLoader;\r\nnamespace " + loadedMod.get_name() + ".Items\r\n{\r\n\tpublic class " + itemsToExport[i].get_name() + " : ModItem\r\n\t{";
-                    tmpCode += tmpCodeFromBlockly;
+                    tmpCode += tmpCodeFromBlockly.TrimStart('"').TrimEnd('"');
                     tmpCode += "\r\n}\r\n}";
                     File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     bmp = itemsToExport[i].get_sprite();
@@ -506,7 +515,6 @@ namespace NEA_solution
                     }
                 }
 
-
                 //make this the last thing that runs
                 if (!canExport)
                 {
@@ -520,18 +528,16 @@ namespace NEA_solution
                     tmpString += "Please ensure all items have sprites, details, and code.";
                     MessageBox.Show(tmpString);
                 }
+
+                await Console.Out.WriteLineAsync("done exporting");
             }
 
         }
 
-        private void wvCodeGetter_NavigationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
-        {
-            navComplete = true;
-        }
-
         private void wvCodeGetter_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e)
         {
-
+            tmpCodeFromBlockly = e.TryGetWebMessageAsString();
+            returned = true;
         }
     }
 }
