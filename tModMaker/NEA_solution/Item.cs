@@ -27,7 +27,6 @@ namespace NEA_solution
             code = "";
             type = "";
             sprite = null;
-            exportedCode = "";
         }
 
         public string get_name() { return name; }
@@ -36,7 +35,6 @@ namespace NEA_solution
         public string get_type() { return type;}
         public string get_code() { return code;}     
         public Bitmap get_sprite() { return sprite;}
-        public string get_exportedCode() {  return exportedCode;}
         public void set_tooltip(string tooltip)
         {
             this.tooltip = tooltip;
@@ -56,10 +54,6 @@ namespace NEA_solution
         public void set_sprite(Bitmap sprite)
         {
             this.sprite = sprite;
-        }
-        public void set_exportedCode(string code)
-        {
-            this.exportedCode = code;
         }
     }
 }

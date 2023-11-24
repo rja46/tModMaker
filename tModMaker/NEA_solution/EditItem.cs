@@ -23,8 +23,6 @@ namespace NEA_solution
     {
         bool isChanged;
         private string workspace;
-        private string code;
-        private string recievedData;
         public Item theItem;
         bool returned;
 
@@ -96,20 +94,6 @@ namespace NEA_solution
             isChanged = false;
         }
 
-        public async Task save_code()
-        {
-            //this isnt working. could be this or web side idk
-            requestCode();
-            do
-            {
-                await Task.Delay(100);
-            }
-            while (returned == false);
-            theItem.set_exportedCode(code);
-            await Console.Out.WriteLineAsync(code);
-            isChanged = false;
-        }
-
         private void btnFullscreen_Click(object sender, EventArgs e)
         {
             FullscreenEditor fullscreenEditor = new FullscreenEditor();
@@ -166,20 +150,8 @@ namespace NEA_solution
 
         private void wvCode_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
         {
-            recievedData = e.TryGetWebMessageAsString();
-            //Console.WriteLine(recievedData);
-            if (recievedData[0] == '0')
-            {
-
-                workspace = recievedData.Substring(1);
-                returned = true;
-            }
-            else if (recievedData[0] == '1')
-            {
-                code = recievedData.Substring(1);
-                returned = true;
-            }
-
+            workspace = e.TryGetWebMessageAsString();
+            returned = true;
         }
 
         async void sendData()

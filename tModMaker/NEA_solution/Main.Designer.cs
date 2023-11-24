@@ -49,10 +49,12 @@
             this.tbNew = new System.Windows.Forms.ToolStripButton();
             this.tbOpen = new System.Windows.Forms.ToolStripButton();
             this.tbSave = new System.Windows.Forms.ToolStripButton();
+            this.wvCodeGetter = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.msMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.stsBottom.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wvCodeGetter)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddItem
@@ -114,35 +116,35 @@
             // btnNew
             // 
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(180, 22);
+            this.btnNew.Size = new System.Drawing.Size(142, 22);
             this.btnNew.Text = "New";
             this.btnNew.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // fileSaveMod
             // 
             this.fileSaveMod.Name = "fileSaveMod";
-            this.fileSaveMod.Size = new System.Drawing.Size(180, 22);
+            this.fileSaveMod.Size = new System.Drawing.Size(142, 22);
             this.fileSaveMod.Text = "Save Mod";
             this.fileSaveMod.Click += new System.EventHandler(this.fileSaveMod_Click);
             // 
             // fileSaveModAs
             // 
             this.fileSaveModAs.Name = "fileSaveModAs";
-            this.fileSaveModAs.Size = new System.Drawing.Size(180, 22);
+            this.fileSaveModAs.Size = new System.Drawing.Size(142, 22);
             this.fileSaveModAs.Text = "Save Mod As";
             this.fileSaveModAs.Click += new System.EventHandler(this.fileSaveModAs_Click);
             // 
             // fileOpenMod
             // 
             this.fileOpenMod.Name = "fileOpenMod";
-            this.fileOpenMod.Size = new System.Drawing.Size(180, 22);
+            this.fileOpenMod.Size = new System.Drawing.Size(142, 22);
             this.fileOpenMod.Text = "Open";
             this.fileOpenMod.Click += new System.EventHandler(this.fileOpenMod_Click);
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
@@ -242,11 +244,26 @@
             this.tbSave.ToolTipText = "Save";
             this.tbSave.Click += new System.EventHandler(this.tbSave_Click);
             // 
+            // wvCodeGetter
+            // 
+            this.wvCodeGetter.AllowExternalDrop = true;
+            this.wvCodeGetter.CreationProperties = null;
+            this.wvCodeGetter.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.wvCodeGetter.Location = new System.Drawing.Point(246, 288);
+            this.wvCodeGetter.Name = "wvCodeGetter";
+            this.wvCodeGetter.Size = new System.Drawing.Size(230, 162);
+            this.wvCodeGetter.Source = new System.Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor", System.UriKind.Absolute);
+            this.wvCodeGetter.TabIndex = 17;
+            this.wvCodeGetter.ZoomFactor = 1D;
+            this.wvCodeGetter.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.wvCodeGetter_NavigationCompleted);
+            this.wvCodeGetter.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.wvCodeGetter_WebMessageReceived);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.wvCodeGetter);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pnlItem);
             this.Controls.Add(this.stsBottom);
@@ -263,6 +280,7 @@
             this.stsBottom.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wvCodeGetter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,6 +307,7 @@
         private System.Windows.Forms.ToolStripButton tbNew;
         private System.Windows.Forms.ToolStripButton tbSave;
         private System.Windows.Forms.ToolStripButton tbOpen;
+        private Microsoft.Web.WebView2.WinForms.WebView2 wvCodeGetter;
     }
 }
 

@@ -6,11 +6,13 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace NEA_solution
 {
@@ -19,6 +21,7 @@ namespace NEA_solution
         Mod loadedMod;
         Item loadedItem;
         EditItem editItem;
+        bool navComplete;
         public Main()
         {
             //MessageBox.Show("Hi Sir, please do not click one item 4 times in a short space of time.");
@@ -27,6 +30,9 @@ namespace NEA_solution
 
             //creates a blank mod
             loadedMod = new Mod("", "");
+
+            InitWebview();
+            wvCodeGetter.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
@@ -122,7 +128,6 @@ namespace NEA_solution
             if (editItem != null)
             {
                await editItem.save_item();
-               await editItem.save_code();
             }
 
             string thePath = loadedMod.get_modPath();
@@ -434,7 +439,12 @@ namespace NEA_solution
             }
         }
 
-        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        async void InitWebview()
+        {
+            await wvCodeGetter.EnsureCoreWebView2Async();
+        }
+
+        private async void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string path;
             string tmpCode;
@@ -472,11 +482,16 @@ namespace NEA_solution
 
                 //save code and sprite for each item
                 Bitmap bmp;
+                string tmpCodeFromBlockly;
                 for (int i = 0; i < itemsToExport.Length; i++)
                 {
+                    //load code from web component
+                    tmpCodeFromBlockly = "";
+                    await wvCodeGetter.ExecuteScriptAsync("loadData('" + itemsToExport[i].get_code() + "')");
+
                     //this works, but i need to prevent the user from using spaces in names.
                     tmpCode = "using Terraria;\r\nusing Terraria.ID;\r\nusing Terraria.ModLoader;\r\nnamespace " + loadedMod.get_name() + ".Items\r\n{\r\n\tpublic class " + itemsToExport[i].get_name() + " : ModItem\r\n\t{";
-                    tmpCode += itemsToExport[i].get_exportedCode();
+                    tmpCode += tmpCodeFromBlockly;
                     tmpCode += "\r\n}\r\n}";
                     File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     bmp = itemsToExport[i].get_sprite();
@@ -506,6 +521,16 @@ namespace NEA_solution
                     MessageBox.Show(tmpString);
                 }
             }
+
+        }
+
+        private void wvCodeGetter_NavigationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
+        {
+            navComplete = true;
+        }
+
+        private void wvCodeGetter_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e)
+        {
 
         }
     }
