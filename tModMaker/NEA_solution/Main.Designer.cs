@@ -42,18 +42,18 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.wvCodeGetter = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.stsBottom = new System.Windows.Forms.StatusStrip();
             this.pbSave = new System.Windows.Forms.ToolStripProgressBar();
             this.pnlItem = new System.Windows.Forms.Panel();
-            this.wvCodeGetter = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tbNew = new System.Windows.Forms.ToolStripButton();
             this.tbOpen = new System.Windows.Forms.ToolStripButton();
             this.tbSave = new System.Windows.Forms.ToolStripButton();
             this.msMain.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.stsBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wvCodeGetter)).BeginInit();
+            this.stsBottom.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -167,7 +167,6 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.wvCodeGetter);
             this.panel1.Controls.Add(this.lbItems);
             this.panel1.Controls.Add(this.btnAddItem);
             this.panel1.Controls.Add(this.btnDeleteItem);
@@ -175,6 +174,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(164, 373);
             this.panel1.TabIndex = 13;
+            // 
+            // wvCodeGetter
+            // 
+            this.wvCodeGetter.AllowExternalDrop = true;
+            this.wvCodeGetter.CreationProperties = null;
+            this.wvCodeGetter.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.wvCodeGetter.Location = new System.Drawing.Point(624, 14);
+            this.wvCodeGetter.Name = "wvCodeGetter";
+            this.wvCodeGetter.Size = new System.Drawing.Size(159, 36);
+            this.wvCodeGetter.Source = new System.Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor", System.UriKind.Absolute);
+            this.wvCodeGetter.TabIndex = 17;
+            this.wvCodeGetter.Visible = false;
+            this.wvCodeGetter.ZoomFactor = 1D;
+            this.wvCodeGetter.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.wvCodeGetter_WebMessageReceived);
             // 
             // stsBottom
             // 
@@ -201,19 +214,6 @@
             this.pnlItem.Name = "pnlItem";
             this.pnlItem.Size = new System.Drawing.Size(606, 369);
             this.pnlItem.TabIndex = 15;
-            // 
-            // wvCodeGetter
-            // 
-            this.wvCodeGetter.AllowExternalDrop = true;
-            this.wvCodeGetter.CreationProperties = null;
-            this.wvCodeGetter.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.wvCodeGetter.Location = new System.Drawing.Point(0, -148);
-            this.wvCodeGetter.Name = "wvCodeGetter";
-            this.wvCodeGetter.Size = new System.Drawing.Size(494, 316);
-            this.wvCodeGetter.Source = new System.Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor", System.UriKind.Absolute);
-            this.wvCodeGetter.TabIndex = 17;
-            this.wvCodeGetter.ZoomFactor = 1D;
-            this.wvCodeGetter.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.wvCodeGetter_WebMessageReceived);
             // 
             // toolStrip1
             // 
@@ -263,6 +263,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.wvCodeGetter);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pnlItem);
             this.Controls.Add(this.stsBottom);
@@ -275,9 +276,9 @@
             this.msMain.ResumeLayout(false);
             this.msMain.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.wvCodeGetter)).EndInit();
             this.stsBottom.ResumeLayout(false);
             this.stsBottom.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.wvCodeGetter)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
