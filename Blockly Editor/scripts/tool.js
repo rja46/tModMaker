@@ -6,7 +6,7 @@ function sendDataToWinForm(){
 }
 
 function sendTranslatedCode(){
-    const code = JSON.stringify(Blockly.JavaScript.workspaceToCode(workspace));
+const code = 'public override void SetDefaults() {' + JSON.stringify(Blockly.JavaScript.workspaceToCode(workspace)).slice(0,-1).slice(1) + '}';
 	window.chrome.webview.postMessage(code);
 
 }
@@ -401,6 +401,8 @@ Blockly.common.defineBlocksWithJsonArray([
       "min": 0
     }
   ],
+  "previousStatement": null,
+  "nextStatement": null,
   "colour": 60,
   "tooltip": "Defines the item's power as a hammer",
   "helpUrl": ""
@@ -533,28 +535,28 @@ javascript.javascriptGenerator.forBlock['define_weapon_essential'] = function(bl
   var checkbox_autoreuse = block.getFieldValue('autoReuse') === 'TRUE';
   var number_crit = block.getFieldValue('crit');
   // TODO: Assemble javascript into code variable.
-  var code = 'public override void SetDefaults() {Item.damage = ' + number_damage + '; Item.DamageType = DamageClass.' + dropdown_damagetype + '; Item.width = '+ number_width + '; Item.height = ' +  number_height + '; Item.useTime = ' + number_usetime + '; Item.useAnimation = ' + number_useanimation + '; Item.knockBack = ' + number_knockback + '; Item.value = ' + number_value + '; Item.rare = ' + dropdown_rare + '; Item.UseSound = ' + number_usesound + '; Item.autoReuse = ' + checkbox_autoreuse + '; Item.useStyle = ' + dropdown_usestyle + ';}';
+  var code = 'Item.damage = ' + number_damage + '; Item.DamageType = DamageClass.' + dropdown_damagetype + '; Item.width = '+ number_width + '; Item.height = ' +  number_height + '; Item.useTime = ' + number_usetime + '; Item.useAnimation = ' + number_useanimation + '; Item.knockBack = ' + number_knockback + '; Item.value = ' + number_value + '; Item.rare = ' + dropdown_rare + '; Item.UseSound = SoundID.Item' + number_usesound + '; Item.autoReuse = ' + checkbox_autoreuse + '; Item.useStyle = ' + dropdown_usestyle + ';';
   return code;
 };
 
 javascript.javascriptGenerator.forBlock['pick_power'] = function(block, generator) {
   var number_pick = block.getFieldValue('pick');
   // TODO: Assemble javascript into code variable.
-  var code = '...\n';
+  var code = 'Item.pick = ' + number_pick + ';';
   return code;
 };
 
 javascript.javascriptGenerator.forBlock['axe_power'] = function(block, generator) {
   var number_axe = block.getFieldValue('axe');
   // TODO: Assemble javascript into code variable.
-  var code = '...\n';
+  var code = 'Item.axe = ' + number_axe + ';';
   return code;
 };
 
 javascript.javascriptGenerator.forBlock['hammer_power'] = function(block, generator) {
   var number_hammer = block.getFieldValue('hammer');
   // TODO: Assemble javascript into code variable.
-  var code = '...\n';
+  var code = 'Item.hammer = ' + number_hammer + ';';
   return code;
 };
 

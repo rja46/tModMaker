@@ -500,7 +500,7 @@ namespace NEA_solution
 
                     //this works, but i need to prevent the user from using spaces in names.
                     tmpCode = "using Terraria;\r\nusing Terraria.ID;\r\nusing Terraria.ModLoader;\r\nnamespace " + loadedMod.get_name() + ".Items\r\n{\r\n\tpublic class " + itemsToExport[i].get_name() + " : ModItem\r\n\t{";
-                    tmpCode += tmpCodeFromBlockly.TrimStart('"').TrimEnd('"');
+                    tmpCode += tmpCodeFromBlockly;
                     tmpCode += "\r\n}\r\n}";
                     File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     bmp = itemsToExport[i].get_sprite();
