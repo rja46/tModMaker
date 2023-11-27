@@ -352,13 +352,15 @@ namespace NEA_solution
 
         private void new_project()
         {
-            //update this
             //a confirmation dialog will appear
             DialogResult result = MessageBox.Show("Are you sure? Unsaved work will be lost.", "Confirm action", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (result == DialogResult.OK)
             {
                 //a blank mod is created
                 loadedMod = new Mod("", "");
+                editItem.displayItem(new Item("", ""));
+                editItem.clearBlockly();
+                editItem.lock_controls();
                 
                 //the ui is reset
                 update_item_list();
