@@ -66,9 +66,9 @@ function loadData(theData){
       "name": "Projectile",
 	  "colour": 360,
       "contents": [
-        {
+	  	{
           "kind": "block",
-          "type": "shoot"
+          "type": "shoot_existing_ammo"
         },
 		{
           "kind": "block",
@@ -87,11 +87,11 @@ function loadData(theData){
         },
 		{
           "kind": "block",
-          "type": "use_ammo"
-        },
-		{
-          "kind": "block",
           "type": "is_consumable"
+        },
+				{
+          "kind": "block",
+          "type": "no_melee"
         },
       ]
     },
@@ -342,8 +342,8 @@ Blockly.common.defineBlocksWithJsonArray([
     {
       "type": "field_number",
       "name": "UseSound",
-      "value": 0,
-      "min": 0,
+      "value": 1,
+      "min": 1,
       "max": 172
     },
     {
@@ -429,30 +429,6 @@ Blockly.common.defineBlocksWithJsonArray([
   "helpUrl": ""
 },
 {
-  "type": "shoot",
-  "message0": "Projectile:  %1 %2 Projectile velocity: %3",
-  "args0": [
-    {
-      "type": "field_input",
-      "name": "projectileName",
-      "text": "null"
-    },
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "field_number",
-      "name": "NAME",
-      "value": 0
-    }
-  ],
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": 0,
-  "tooltip": "Defines the projectile fired by an item",
-  "helpUrl": ""
-},
-{
   "type": "is_boomerang",
   "message0": "Return to player:  %1",
   "args0": [
@@ -485,19 +461,61 @@ Blockly.common.defineBlocksWithJsonArray([
   "helpUrl": ""
 },
 {
-  "type": "use_ammo",
-  "message0": "Use ammo:  %1",
+  "type": "no_melee",
+  "message0": "No melee:  %1",
   "args0": [
     {
-      "type": "field_input",
-      "name": "ammoName",
-      "text": "null"
+      "type": "field_checkbox",
+      "name": "no_melee",
+      "checked": true
     }
   ],
   "previousStatement": null,
   "nextStatement": null,
   "colour": 120,
-  "tooltip": "Defines what ammo an item uses",
+  "tooltip": "Defines if an item deals melee damage",
+  "helpUrl": ""
+},
+{
+  "type": "shoot_existing_ammo",
+  "message0": "Ammo Type:  %1 %2 Shoot Speed:  %3",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "ammo_type",
+      "options": [
+        [
+          "Bullet",
+          "Bullet"
+        ],
+        [
+          "Arrow",
+          "Arrow"
+        ],
+        [
+          "Rocket",
+          "Rocket"
+        ],
+        [
+          "Dart",
+          "Dart"
+        ]
+      ]
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_number",
+      "name": "shoot_speed",
+      "value": 0,
+      "min": 0
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 0,
+  "tooltip": "",
   "helpUrl": ""
 },
 {
@@ -571,14 +589,6 @@ javascript.javascriptGenerator.forBlock['fishing_power'] = function(block, gener
   return code;
 };
 
-javascript.javascriptGenerator.forBlock['shoot'] = function(block, generator) {
-  var text_projectilename = block.getFieldValue('projectileName');
-  var number_name = block.getFieldValue('NAME');
-  // TODO: Assemble javascript into code variable.
-  var code = 'shoot';
-  return code;
-};
-
 javascript.javascriptGenerator.forBlock['is_boomerang'] = function(block, generator) {
   var checkbox_isboomerang = block.getFieldValue('isBoomerang') === 'TRUE';
   // TODO: Assemble javascript into code variable.
@@ -601,8 +611,23 @@ javascript.javascriptGenerator.forBlock['use_ammo'] = function(block, generator)
 };
 
 javascript.javascriptGenerator.forBlock['is_consumable'] = function(block, generator) {
-  var checkbox_name = block.getFieldValue('isConsumable') === 'TRUE';
+  var checkbox_consumable = block.getFieldValue('isConsumable') === 'TRUE';
   // TODO: Assemble javascript into code variable.
-  var code = 'Item.consumable = ' + checkbox_name + ';';
+  var code = 'Item.consumable = ' + checkbox_consumable + ';';
+  return code;
+};
+
+javascript.javascriptGenerator.forBlock['no_melee'] = function(block, generator) {
+  var checkbox_noMelee = block.getFieldValue('no_melee') === 'TRUE';
+  // TODO: Assemble javascript into code variable.
+  var code = 'Item.noMelee = ' + checkbox_noMelee + ';';
+  return code;
+};
+
+javascript.javascriptGenerator.forBlock['shoot_existing_ammo'] = function(block, generator) {
+  var dropdown_ammo_type = block.getFieldValue('ammo_type');
+  var number_shoot_speed = block.getFieldValue('shoot_speed');
+  // TODO: Assemble javascript into code variable.
+  var code = 'Item.shoot = 10;' + 'Item.shootSpeed = ' + number_shoot_speed + ';' + 'Item.useAmmo = AmmoID.' + dropdown_ammo_type + ';';
   return code;
 };
