@@ -21,11 +21,10 @@ namespace NEA_solution
 {
     public partial class EditItem : Form
     {
-        bool isChanged;
         private string workspace;
         public Item theItem;
         bool returned;
-        bool wvready = false;
+        public bool wvready = false;
 
         public EditItem(Item loadedItem)
         {
@@ -48,8 +47,7 @@ namespace NEA_solution
                 pbSprite.Refresh();
                 sendData();
 
-                //flags that no details have been changed
-                isChanged = false;
+                unlock_controls();
             }
         }
 
@@ -76,7 +74,6 @@ namespace NEA_solution
                 {
                     theItem.set_sprite(new Bitmap(@openSpriteDialog.FileName));
                     pbSprite.Refresh();
-                    isChanged = true;
                 }
             }
         }
@@ -94,7 +91,6 @@ namespace NEA_solution
             }
             while (returned == false);
             theItem.set_code(workspace);
-            isChanged = false;
         }
 
         private void btnFullscreen_Click(object sender, EventArgs e)
@@ -105,50 +101,23 @@ namespace NEA_solution
 
         private void pbSprite_Paint(object sender, PaintEventArgs e)
         {
-            Bitmap theImage = theItem.get_sprite();
-            Graphics g = e.Graphics;
-            e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
-            if (theItem.get_sprite() != null)
+            if (theItem != null)
             {
-                e.Graphics.DrawImage(theImage, 0, 0, pbSprite.Width, pbSprite.Height);
+                Bitmap theImage = theItem.get_sprite();
+                Graphics g = e.Graphics;
+                e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+                if (theItem.get_sprite() != null)
+                {
+                    e.Graphics.DrawImage(theImage, 0, 0, pbSprite.Width, pbSprite.Height);
+                }
             }
-        }
-
-        //private async Task EditItem_FormClosingAsync(object sender, FormClosingEventArgs e)
-        //{
-        //    if (isChanged)
-        //    {
-        //        DialogResult result = MessageBox.Show("You have unsaved changes, do you wish to save them?", "Save changes?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-        //        if (result == DialogResult.Yes)
-        //        {
-        //            await save_item();
-        //        }
-        //    }
-        //}
-
-        private void txtDisplayName_TextChanged(object sender, EventArgs e)
-        {
-            isChanged = true;
-        }
-
-        private void txtTooltip_TextChanged(object sender, EventArgs e)
-        {
-            isChanged = true;
-        }
-
-        private void cbType_Click(object sender, EventArgs e)
-        {
-            isChanged = true;
-        }
-
-        private void wvCode_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
-        {
-            Console.WriteLine("AAAAAAAAA");
         }
 
         private void wvCode_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
             wvready = true;
+            displayItem(new Item("", ""));
+            lock_controls();
         }
 
         private void wvCode_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
@@ -160,6 +129,27 @@ namespace NEA_solution
         async void sendData()
         {
             await wvCode.ExecuteScriptAsync("loadData('" + theItem.get_code() + "')");
+        }
+
+        public async void clearBlockly()
+        {
+            await wvCode.ExecuteScriptAsync("clear()");
+        }
+
+        public void lock_controls()
+        {
+            btnChangeSprite.Enabled = false;
+            txtDisplayName.Enabled = false;
+            cbType.Enabled = false;
+            txtTooltip.Enabled = false;
+        }
+
+        public void unlock_controls()
+        {
+            btnChangeSprite.Enabled = true;
+            txtDisplayName.Enabled = true;
+            cbType.Enabled = true;
+            txtTooltip.Enabled = true;
         }
     }
 }

@@ -11,6 +11,10 @@ const code = 'public override void SetDefaults() {' + JSON.stringify(Blockly.Jav
 
 }
 
+function clear(){
+	workspace.clear();
+}
+
 function loadData(theData){
 	var json = null;
 	json = JSON.parse(theData);

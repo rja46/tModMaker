@@ -91,7 +91,6 @@
             this.txtTooltip.Name = "txtTooltip";
             this.txtTooltip.Size = new System.Drawing.Size(190, 171);
             this.txtTooltip.TabIndex = 8;
-            this.txtTooltip.TextChanged += new System.EventHandler(this.txtTooltip_TextChanged);
             // 
             // txtDisplayName
             // 
@@ -99,7 +98,6 @@
             this.txtDisplayName.Name = "txtDisplayName";
             this.txtDisplayName.Size = new System.Drawing.Size(190, 20);
             this.txtDisplayName.TabIndex = 12;
-            this.txtDisplayName.TextChanged += new System.EventHandler(this.txtDisplayName_TextChanged);
             // 
             // lblDisplayName
             // 
@@ -125,7 +123,6 @@
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(190, 21);
             this.cbType.TabIndex = 13;
-            this.cbType.Click += new System.EventHandler(this.cbType_Click);
             // 
             // panel1
             // 
@@ -158,7 +155,6 @@
             this.wvCode.Source = new System.Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor", System.UriKind.Absolute);
             this.wvCode.TabIndex = 17;
             this.wvCode.ZoomFactor = 1D;
-            this.wvCode.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.wvCode_CoreWebView2InitializationCompleted);
             this.wvCode.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.wvCode_NavigationCompleted);
             this.wvCode.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.wvCode_WebMessageReceived);
             // 

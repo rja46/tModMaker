@@ -49,7 +49,6 @@ namespace NEA_solution
             editItem.Dock = DockStyle.Fill;
             editItem.Size = new Size(pnlItem.Size.Width, pnlItem.Size.Height);
             editItem.Show();
-            editItem.displayItem(new Item("", ""));
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
@@ -353,6 +352,7 @@ namespace NEA_solution
 
         private void new_project()
         {
+            //update this
             //a confirmation dialog will appear
             DialogResult result = MessageBox.Show("Are you sure? Unsaved work will be lost.", "Confirm action", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (result == DialogResult.OK)
@@ -402,7 +402,9 @@ namespace NEA_solution
                     theMod.set_author(modDetailsSplit[2]);
                     loadedMod = theMod;
                     Text = "tModLoader - " + loadedMod.get_name();
-             
+                    editItem.displayItem(new Item("", ""));
+                    editItem.clearBlockly();
+                    editItem.lock_controls();
                 }
                 //calls the procedure to load the items
                 load_items_for_mod();
