@@ -506,7 +506,7 @@ Blockly.common.defineBlocksWithJsonArray([
   "args0": [
     {
       "type": "field_checkbox",
-      "name": "NAME",
+      "name": "isConsumable",
       "checked": true
     }
   ],
@@ -567,7 +567,7 @@ javascript.javascriptGenerator.forBlock['hammer_power'] = function(block, genera
 javascript.javascriptGenerator.forBlock['fishing_power'] = function(block, generator) {
   var number_name = block.getFieldValue('NAME');
   // TODO: Assemble javascript into code variable.
-  var code = '...\n';
+  var code = 'fishing_power';
   return code;
 };
 
@@ -575,34 +575,34 @@ javascript.javascriptGenerator.forBlock['shoot'] = function(block, generator) {
   var text_projectilename = block.getFieldValue('projectileName');
   var number_name = block.getFieldValue('NAME');
   // TODO: Assemble javascript into code variable.
-  var code = '...\n';
+  var code = 'shoot';
   return code;
 };
 
 javascript.javascriptGenerator.forBlock['is_boomerang'] = function(block, generator) {
   var checkbox_isboomerang = block.getFieldValue('isBoomerang') === 'TRUE';
   // TODO: Assemble javascript into code variable.
-  var code = '...\n';
+  var code = 'is_boomerang';
   return code;
 };
 
 javascript.javascriptGenerator.forBlock['use_mana'] = function(block, generator) {
   var checkbox_usemana = block.getFieldValue('useMana') === 'TRUE';
   // TODO: Assemble javascript into code variable.
-  var code = '...\n';
+  var code = 'use_mana';
   return code;
 };
 
 javascript.javascriptGenerator.forBlock['use_ammo'] = function(block, generator) {
   var text_ammoname = block.getFieldValue('ammoName');
   // TODO: Assemble javascript into code variable.
-  var code = '...\n';
+  var code = 'use_ammo';
   return code;
 };
 
 javascript.javascriptGenerator.forBlock['is_consumable'] = function(block, generator) {
-  var checkbox_name = block.getFieldValue('NAME') === 'TRUE';
+  var checkbox_name = block.getFieldValue('isConsumable') === 'TRUE';
   // TODO: Assemble javascript into code variable.
-  var code = '...\n';
+  var code = 'Item.consumable = ' + checkbox_name + ';';
   return code;
 };
