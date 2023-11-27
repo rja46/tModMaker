@@ -171,9 +171,11 @@ namespace NEA_solution
             //this creates the directory for the mod if it doesnt already exist
             if (!(Directory.Exists(thePath)))
             {
-                save_mod_as();
-                return;
+                //save_mod_as();
+                //return;
             }
+
+            Directory.CreateDirectory(thePath);
 
             //the details of the mod are written to a file here
             File.WriteAllText(thePath + "\\" + loadedMod.get_name() + ".mod", modFile);
