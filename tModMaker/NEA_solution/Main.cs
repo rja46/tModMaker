@@ -83,19 +83,9 @@ namespace NEA_solution
 
         private void fileSaveMod_Click(object sender, EventArgs e)
         {
-            try
-            {
-                save_mod();
-            }
-            catch (Exception ex)
-            {
-                //if the path does not exist, it will call save_mod_as() to create the path
-                if (ex.Message == "Path cannot be the empty string or all whitespace.")
-                {
-                    save_mod_as();
-                }
-            }
+            save_mod();
         }
+
         private void save_mod_as()
         {
             if (loadedMod.get_name() == "")
@@ -167,7 +157,8 @@ namespace NEA_solution
             //this creates the directory for the mod if it doesnt already exist
             if (!(Directory.Exists(thePath)))
             {
-                Directory.CreateDirectory(thePath);
+                save_mod_as();
+                return;
             }
 
             //the details of the mod are written to a file here
@@ -405,17 +396,7 @@ namespace NEA_solution
 
         private void tbSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                save_mod();
-            }
-            catch (Exception ex)
-            {
-                if (ex.Message == "Path cannot be the empty string or all whitespace.")
-                {
-                    save_mod_as();
-                }
-            }
+            save_mod();
         }
 
         private void lbItems_DoubleClick(object sender, EventArgs e)
