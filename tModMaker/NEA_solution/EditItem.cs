@@ -93,12 +93,6 @@ namespace NEA_solution
             theItem.set_code(workspace);
         }
 
-        private void btnFullscreen_Click(object sender, EventArgs e)
-        {
-            FullscreenEditor fullscreenEditor = new FullscreenEditor();
-            fullscreenEditor.Show();
-        }
-
         private void pbSprite_Paint(object sender, PaintEventArgs e)
         {
             if (theItem != null)
@@ -108,7 +102,20 @@ namespace NEA_solution
                 e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
                 if (theItem.get_sprite() != null)
                 {
-                    e.Graphics.DrawImage(theImage, 0, 0, pbSprite.Width, pbSprite.Height);
+                    int height = theItem.get_sprite().Height;
+                    int width = theItem.get_sprite().Width;
+                    if (height > width)
+                    {
+                        e.Graphics.DrawImage(theImage, 0, 0, pbSprite.Height / height * width, pbSprite.Height);
+                    }
+                    if (height < width)
+                    {
+                        e.Graphics.DrawImage(theImage, 0, pbSprite.Height/2 - height, pbSprite.Width, pbSprite.Width / width * height);
+                    }
+                    else
+                    {
+                        e.Graphics.DrawImage(theImage, 0, 0, pbSprite.Width, pbSprite.Height);
+                    }
                 }
             }
         }

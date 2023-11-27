@@ -49,7 +49,6 @@
             this.pbSprite.Location = new System.Drawing.Point(47, 10);
             this.pbSprite.Name = "pbSprite";
             this.pbSprite.Size = new System.Drawing.Size(154, 154);
-            this.pbSprite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbSprite.TabIndex = 1;
             this.pbSprite.TabStop = false;
             this.pbSprite.Paint += new System.Windows.Forms.PaintEventHandler(this.pbSprite_Paint);
