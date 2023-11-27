@@ -35,6 +35,21 @@ namespace NEA_solution
 
             InitWebview();
             wvCodeGetter.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
+
+            initialise_editor();
+        }
+
+        private void initialise_editor()
+        {
+            pnlItem.Controls.Clear();
+            editItem = new EditItem(loadedItem);
+            editItem.TopLevel = false;
+            pnlItem.Controls.Add(editItem);
+            editItem.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            editItem.Dock = DockStyle.Fill;
+            editItem.Size = new Size(pnlItem.Size.Width, pnlItem.Size.Height);
+            editItem.Show();
+            editItem.displayItem(new Item("", ""));
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
@@ -83,7 +98,7 @@ namespace NEA_solution
 
         private void fileSaveMod_Click(object sender, EventArgs e)
         {
-            save_mod();
+             save_mod();
         }
 
         private void save_mod_as()
@@ -379,7 +394,7 @@ namespace NEA_solution
                 else
                 {
                     //loads the details for the mod from the folder
-                    pnlItem.Controls.Clear();
+                    //pnlItem.Controls.Clear();
                     modDetails = File.ReadAllText(existingFiles[0]);
                     modDetailsSplit = modDetails.Split('|');
                     theMod = new Mod(modDetailsSplit[0], folderDialog.SelectedPath);
@@ -403,21 +418,7 @@ namespace NEA_solution
         {
             if (loadedItem != null)
             {
-                if (editItem != null)
-                {
-                    //closes the existing window if there is one
-                    editItem.Close();
-                }
-                //loads the selected item into a window in the panel
-                pnlItem.Controls.Clear();
-                editItem = new EditItem(loadedItem, loadedMod.get_modPath());
-                editItem.TopLevel = false;
-                pnlItem.Controls.Add(editItem);
-                editItem.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                editItem.Dock = DockStyle.Fill;
-                editItem.Size = new Size(pnlItem.Size.Width, pnlItem.Size.Height);
-                editItem.Show();
-                loadedItem = editItem.theItem;
+                editItem.displayItem(loadedItem);
                 update_item_list();
             }
         }

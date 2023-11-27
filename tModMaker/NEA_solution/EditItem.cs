@@ -25,24 +25,32 @@ namespace NEA_solution
         private string workspace;
         public Item theItem;
         bool returned;
+        bool wvready = false;
 
-        public EditItem(Item loadedItem, string path)
+        public EditItem(Item loadedItem)
         {
             InitializeComponent();
             
             //sets up the webview component running the editor
             InitWebview();
             wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
-            
-            //loads the details of the item onto the screen
-            theItem = loadedItem;
-            txtDisplayName.Text = theItem.get_displayName();
-            txtTooltip.Text = theItem.get_tooltip();
-            cbType.Text = theItem.get_type();
-            pbSprite.Refresh();
+        }
 
-            //flags that no details have been changed
-            isChanged = false;
+        public void displayItem(Item loadedItem)
+        {
+            if (wvready)
+            {
+                //loads the details of the item onto the screen
+                theItem = loadedItem;
+                txtDisplayName.Text = theItem.get_displayName();
+                txtTooltip.Text = theItem.get_tooltip();
+                cbType.Text = theItem.get_type();
+                pbSprite.Refresh();
+                sendData();
+
+                //flags that no details have been changed
+                isChanged = false;
+            }
         }
 
         async void InitWebview()
@@ -55,11 +63,6 @@ namespace NEA_solution
         async void requestData()
         {
             await wvCode.ExecuteScriptAsync("sendDataToWinForm()");
-        }
-
-        async void requestCode()
-        {
-            await wvCode.ExecuteScriptAsync("sendTranslatedCode()");
         }
 
         private void btnChangeSprite_Click(object sender, EventArgs e)
@@ -145,7 +148,7 @@ namespace NEA_solution
 
         private void wvCode_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
-            sendData();
+            wvready = true;
         }
 
         private void wvCode_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
