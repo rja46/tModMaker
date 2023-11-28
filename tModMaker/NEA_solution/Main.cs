@@ -221,7 +221,16 @@ namespace NEA_solution
                     //the step for the progress bar is performed
                     pbSave.PerformStep();
                 }
+                finishPb(1000);
             }
+        }
+
+        //this doesnt work with any value <1000
+        private async void finishPb(int delay)
+        {
+            await Task.Delay(delay);
+            await Console.Out.WriteLineAsync("clearing");
+            pbSave.Value = 1;
         }
         private void fileOpenMod_Click(object sender, EventArgs e)
         {
@@ -405,7 +414,7 @@ namespace NEA_solution
                     theMod.set_description(modDetailsSplit[1]);
                     theMod.set_author(modDetailsSplit[2]);
                     loadedMod = theMod;
-                    Text = "tModLoader - " + loadedMod.get_name();
+                    Text = "tModMaker - " + loadedMod.get_name();
                     editItem.displayItem(new Item("", ""));
                     editItem.clearBlockly();
                     editItem.lock_controls();
@@ -489,6 +498,8 @@ namespace NEA_solution
                     //this works, but i need to prevent the user from using spaces in names.
                     tmpCode = "using Terraria;\r\nusing Terraria.ID;\r\nusing Terraria.ModLoader;\r\nnamespace " + loadedMod.get_name() + ".Items\r\n{\r\n\tpublic class " + itemsToExport[i].get_name() + " : ModItem\r\n\t{";
                     tmpCode += tmpCodeFromBlockly;
+                    //this line MUST add a curly bracket to close set defaults.
+                    tmpCode += "Item.SetNameOverride('" + itemsToExport[i].get_displayName() + "')};";
                     tmpCode += "\r\n}\r\n}";
                     File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     bmp = itemsToExport[i].get_sprite();

@@ -104,6 +104,7 @@ namespace NEA_solution
                 {
                     int height = theItem.get_sprite().Height;
                     int width = theItem.get_sprite().Width;
+                    //there are some serious rendering issues here.
                     if (height > width)
                     {
                         e.Graphics.DrawImage(theImage, 0, 0, pbSprite.Height / height * width, pbSprite.Height);
@@ -149,6 +150,7 @@ namespace NEA_solution
             txtDisplayName.Enabled = false;
             cbType.Enabled = false;
             txtTooltip.Enabled = false;
+            wvCode.Enabled = false;
         }
 
         public void unlock_controls()
@@ -157,6 +159,7 @@ namespace NEA_solution
             txtDisplayName.Enabled = true;
             cbType.Enabled = true;
             txtTooltip.Enabled = true;
+            wvCode.Enabled = true;
         }
     }
 }

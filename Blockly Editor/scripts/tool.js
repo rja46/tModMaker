@@ -6,7 +6,7 @@ function sendDataToWinForm(){
 }
 
 function sendTranslatedCode(){
-const code = 'public override void SetDefaults() {' + JSON.stringify(Blockly.JavaScript.workspaceToCode(workspace)).slice(0,-1).slice(1) + '}';
+const code = 'public override void SetDefaults() {' + JSON.stringify(Blockly.JavaScript.workspaceToCode(workspace)).slice(0,-1).slice(1);
 	window.chrome.webview.postMessage(code);
 
 }
