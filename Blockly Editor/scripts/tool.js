@@ -159,7 +159,8 @@ Blockly.common.defineBlocksWithJsonArray([
     {
       "type": "field_number",
       "name": "useTime",
-      "value": 0
+      "value": 1,
+	  "min": 1
     },
     {
       "type": "input_dummy"
@@ -167,7 +168,8 @@ Blockly.common.defineBlocksWithJsonArray([
     {
       "type": "field_number",
       "name": "useAnimation",
-      "value": 0
+      "value": 1,
+	  "min": 1
     },
     {
       "type": "input_dummy"

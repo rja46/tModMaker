@@ -40,6 +40,7 @@ namespace NEA_solution
             if (wvready)
             {
                 //loads the details of the item onto the screen
+                clearBlockly();
                 theItem = loadedItem;
                 txtDisplayName.Text = theItem.get_displayName();
                 txtTooltip.Text = theItem.get_tooltip();
@@ -109,7 +110,7 @@ namespace NEA_solution
                     {
                         e.Graphics.DrawImage(theImage, 0, 0, pbSprite.Height / height * width, pbSprite.Height);
                     }
-                    if (height < width)
+                    else if (height < width)
                     {
                         e.Graphics.DrawImage(theImage, 0, pbSprite.Height/2 - height, pbSprite.Width, pbSprite.Width / width * height);
                     }

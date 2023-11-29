@@ -499,7 +499,7 @@ namespace NEA_solution
                     tmpCode = "using Terraria;\r\nusing Terraria.ID;\r\nusing Terraria.ModLoader;\r\nnamespace " + loadedMod.get_name() + ".Items\r\n{\r\n\tpublic class " + itemsToExport[i].get_name() + " : ModItem\r\n\t{";
                     tmpCode += tmpCodeFromBlockly;
                     //this line MUST add a curly bracket to close set defaults.
-                    tmpCode += "Item.SetNameOverride('" + itemsToExport[i].get_displayName() + "')};";
+                    tmpCode += "Item.SetNameOverride(\"" + itemsToExport[i].get_displayName() + "\");}";
                     tmpCode += "\r\n}\r\n}";
                     File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     bmp = itemsToExport[i].get_sprite();
