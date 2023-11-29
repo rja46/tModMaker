@@ -95,6 +95,17 @@ function loadData(theData){
         },
       ]
     },
+	{
+	"kind": "category",
+      "name": "Dual Use",
+	  "colour": 290,
+      "contents": [
+		{
+			"kind": "block",
+			"type": "dual_use_core"
+		},
+	  ]
+	}
   ]
 };
 
@@ -479,6 +490,127 @@ Blockly.common.defineBlocksWithJsonArray([
   "helpUrl": ""
 },
 {
+  "type": "dual_use_core",
+  "message0": "Damage:  %1 %2 Use Time:  %3 %4 Animation Time: %5 %6 Use Style:  %7 %8 Knockback:  %9 %10 Crit Chance:  %11",
+  "args0": [
+    {
+      "type": "field_number",
+      "name": "damage",
+      "value": 0,
+      "min": 0
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_number",
+      "name": "use_time",
+      "value": 0,
+      "min": 1
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_number",
+      "name": "animation_time",
+      "value": 0,
+      "min": 1
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_dropdown",
+      "name": "useStyle",
+      "options": [
+        [
+          "None",
+          "0"
+        ],
+        [
+          "Swing",
+          "1"
+        ],
+        [
+          "DrinkOld",
+          "2"
+        ],
+        [
+          "Thrust",
+          "3"
+        ],
+        [
+          "HoldUp",
+          "4"
+        ],
+        [
+          "Shoot",
+          "5"
+        ],
+        [
+          "DrinkLong",
+          "6"
+        ],
+        [
+          "EatFood",
+          "7"
+        ],
+        [
+          "GolfPlay",
+          "8"
+        ],
+        [
+          "DrinkLiquid",
+          "9"
+        ],
+        [
+          "HiddenAnimation",
+          "10"
+        ],
+        [
+          "MowTheLaw",
+          "11"
+        ],
+        [
+          "Guitar",
+          "12"
+        ],
+        [
+          "Rapier",
+          "13"
+        ],
+        [
+          "RaiseLamp",
+          "14"
+        ]
+      ]
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_number",
+      "name": "knockback",
+      "value": 0,
+      "min": 0
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_number",
+      "name": "crit",
+      "value": 0,
+      "min": 0
+    }
+  ],
+  "nextStatement": null,
+  "colour": 290,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
   "type": "shoot_existing_ammo",
   "message0": "Ammo Type:  %1 %2 Shoot Speed:  %3",
   "args0": [
@@ -631,5 +763,17 @@ javascript.javascriptGenerator.forBlock['shoot_existing_ammo'] = function(block,
   var number_shoot_speed = block.getFieldValue('shoot_speed');
   // TODO: Assemble javascript into code variable.
   var code = 'Item.shoot = 10;' + 'Item.shootSpeed = ' + number_shoot_speed + ';' + 'Item.useAmmo = AmmoID.' + dropdown_ammo_type + ';';
+  return code;
+};
+
+javascript.javascriptGenerator.forBlock['dual_use_core'] = function(block, generator) {
+  var number_damage = block.getFieldValue('damage');
+  var number_use_time = block.getFieldValue('use_time');
+  var number_animation_time = block.getFieldValue('animation_time');
+  var dropdown_usestyle = block.getFieldValue('useStyle');
+  var number_knockback = block.getFieldValue('knockback');
+  var number_crit = block.getFieldValue('crit');
+  // TODO: Assemble javascript into code variable.
+  var code = '...\n';
   return code;
 };
