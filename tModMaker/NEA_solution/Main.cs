@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -537,6 +538,13 @@ namespace NEA_solution
         {
             tmpCodeFromBlockly = e.TryGetWebMessageAsString();
             returned = true;
+        }
+
+        private Item GetValuesFromJson(string path)
+        {
+            Item deserialisedItem;
+            deserialisedItem = JsonConvert.DeserializeObject<Item>(File.ReadAllText(path));
+            return deserialisedItem;
         }
     }
 }
