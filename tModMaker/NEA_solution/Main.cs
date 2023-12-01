@@ -484,22 +484,11 @@ namespace NEA_solution
                 Bitmap bmp;
                 for (int i = 0; i < itemsToExport.Length; i++)
                 {
-                    returned = false;
-                    //load code from web component
-                    tmpCodeFromBlockly = "";
-                    await wvCodeGetter.ExecuteScriptAsync("loadData('" + itemsToExport[i].get_code() + "')");
-
-                    await wvCodeGetter.ExecuteScriptAsync("sendTranslatedCode()");
-                    do
-                    {
-                        await Task.Delay(100);
-                    }
-                    while (returned == false);
 
                     //this works, but i need to prevent the user from using spaces in names.
                     tmpCode = "using Terraria;\r\nusing Terraria.ID;\r\nusing Terraria.ModLoader;\r\nnamespace " + loadedMod.get_name() + ".Items\r\n{\r\n\tpublic class " + itemsToExport[i].get_name() + " : ModItem\r\n\t{";
-                    tmpCode += tmpCodeFromBlockly;
-                    //this line MUST add a curly bracket to close set defaults.
+                    tmpCode += GetValuesFromJson(itemsToExport[i].get_code());
+                    //this needs to add the }
                     tmpCode += "Item.SetNameOverride(\"" + itemsToExport[i].get_displayName() + "\");}";
                     tmpCode += "\r\n}\r\n}";
                     File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
@@ -540,11 +529,11 @@ namespace NEA_solution
             returned = true;
         }
 
-        private Item GetValuesFromJson(string path)
+        private string GetValuesFromJson(string json)
         {
-            Item deserialisedItem;
-            deserialisedItem = JsonConvert.DeserializeObject<Item>(File.ReadAllText(path));
-            return deserialisedItem;
+            Code code = new Code();
+            code = JsonConvert.DeserializeObject<Code>(json);
+            return code.generate_code();
         }
     }
 }
