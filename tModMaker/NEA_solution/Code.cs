@@ -23,11 +23,28 @@ namespace NEA_solution
         private int UseSound { get; set; }
         private bool autoReuse { get; set; }
 
+        //pick_power
+        private int? pick { get; set; }
+
+        //axe_power
+        private int? axe { get; set; }
+
+        //hammer_power
+        private int? hammer { get; set; }
+
         public string generate_code()
         {
             string code = "public override void SetDefaults() {";
             code = "Item.damage = " + damage + "; Item.DamageType = DamageClass." + damageType + "; Item.width = "+ width + "; Item.height = " + height + "; Item.useTime = " + useTime + "; Item.useAnimation = " + useAnimation + "; Item.knockBack = " + knockback + "; Item.value = " + value + "; Item.rare = " + rare + "; Item.UseSound = SoundID.Item" + UseSound + "; Item.autoReuse = " + autoReuse + "; Item.useStyle = " + useStyle + ";";
             return code;
         }
+
+        
+        /*
+        turn this into a json dictionary
+        iterate through each item. if not null, find corresponding point in dict,
+        grab code snippet and add the value.
+        */
+
     }
 }
