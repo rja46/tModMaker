@@ -208,7 +208,7 @@ namespace NEA_solution
                     File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + ".item", tempItem);
                     
                     //the code is written to a seperate file
-                    File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + "_code.code", loadedMod.get_item(i).get_code());
+                    File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + ".json", loadedMod.get_item(i).get_code());
                     
                     Bitmap bmp = loadedMod.get_item(i).get_sprite();
                     File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + ".png");
@@ -344,7 +344,7 @@ namespace NEA_solution
                     }
                     //the files for the item are deleted, and the list of items is overwritten
                     File.Delete(loadedMod.get_modPath() + "\\Items\\" + loadedItem.get_name() + ".item");
-                    File.Delete(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedItem.get_name() + "_code.code");
+                    File.Delete(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedItem.get_name() + ".json");
                     loadedMod.set_items(tmpItems);
                     update_item_list();
                 }
