@@ -34,9 +34,6 @@ namespace NEA_solution
             //creates a blank mod
             loadedMod = new Mod("", "");
 
-            InitWebview();
-            wvCodeGetter.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
-
             initialise_editor();
         }
 
@@ -439,11 +436,6 @@ namespace NEA_solution
             }
         }
 
-        async void InitWebview()
-        {
-            await wvCodeGetter.EnsureCoreWebView2Async();
-        }
-
         private async void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string path;
@@ -487,10 +479,13 @@ namespace NEA_solution
 
                     //this works, but i need to prevent the user from using spaces in names.
                     tmpCode = "using Terraria;\r\nusing Terraria.ID;\r\nusing Terraria.ModLoader;\r\nnamespace " + loadedMod.get_name() + ".Items\r\n{\r\n\tpublic class " + itemsToExport[i].get_name() + " : ModItem\r\n\t{";
-                    tmpCode += GetValuesFromJson(itemsToExport[i].get_code());
-                    //this needs to add the }
-                    tmpCode += "Item.SetNameOverride(\"" + itemsToExport[i].get_displayName() + "\");}";
-                    tmpCode += "\r\n}\r\n}";
+
+                    CodeGenerator code = new CodeGenerator();
+                    code = JsonConvert.DeserializeObject<CodeGenerator>(itemsToExport[i].get_code());
+                    tmpCode += code.generate_code(itemsToExport[i].get_displayName());
+                    
+
+                    tmpCode += "\r\n\t}\r\n}";
                     File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     bmp = itemsToExport[i].get_sprite();
                     if (bmp == null)
@@ -521,19 +516,6 @@ namespace NEA_solution
                 await Console.Out.WriteLineAsync("done exporting");
             }
 
-        }
-
-        private void wvCodeGetter_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e)
-        {
-            tmpCodeFromBlockly = e.TryGetWebMessageAsString();
-            returned = true;
-        }
-
-        private string GetValuesFromJson(string json)
-        {
-            Code code = new Code();
-            code = JsonConvert.DeserializeObject<Code>(json);
-            return code.generate_code();
         }
     }
 }

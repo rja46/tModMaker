@@ -61,7 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code.cs" />
+    <Compile Include="CodeGenerator.cs" />
     <Compile Include="CreateItemDialog.cs">
       <SubType>Form</SubType>
     </Compile>
