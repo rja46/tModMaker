@@ -11,23 +11,23 @@ namespace NEA_solution
         private string name;
         
         //these following properties are added to define_weapon_essential
-        private int damage { get; set; }
-        private string damageType { get; set; }
-        private int width { get; set; }
-        private int height { get; set; }
-        private int useTime { get; set; }
-        private int useAnimation { get; set; }
-        private string useStyle { get; set; }
-        private int knockback { get; set; }
-        private int crit { get; set; }
-        private int value { get; set; }
-        private string rare { get; set; }
-        private int UseSound { get; set; }
-        private bool autoReuse { get; set; }
+        public int damage { get; set; }
+        public string damageType { get; set; }
+        public int width { get; set; }
+        public int height { get; set; }
+        public int useTime { get; set; }
+        public int useAnimation { get; set; }
+        public string useStyle { get; set; }
+        public int knockback { get; set; }
+        public int crit { get; set; }
+        public int value { get; set; }
+        public string rare { get; set; }
+        public int UseSound { get; set; }
+        public bool autoReuse { get; set; }
         //additional blocks
-        private int? pick { get; set; }
-        private int? axe { get; set; }
-        private int? hammer { get; set; }
+        public int? pick { get; set; }
+        public int? axe { get; set; }
+        public int? hammer { get; set; }
 
 
 

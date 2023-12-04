@@ -436,7 +436,7 @@ namespace NEA_solution
             }
         }
 
-        private async void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string path;
             string tmpCode;
@@ -480,9 +480,11 @@ namespace NEA_solution
                     //this works, but i need to prevent the user from using spaces in names.
                     tmpCode = "using Terraria;\r\nusing Terraria.ID;\r\nusing Terraria.ModLoader;\r\nnamespace " + loadedMod.get_name() + ".Items\r\n{\r\n\tpublic class " + itemsToExport[i].get_name() + " : ModItem\r\n\t{";
 
-                    CodeGenerator code = new CodeGenerator();
-                    code = JsonConvert.DeserializeObject<CodeGenerator>(itemsToExport[i].get_code());
-                    tmpCode += code.generate_code(itemsToExport[i].get_displayName());
+                    //:(
+                    CodeGenerator codeGenerator = JsonConvert.DeserializeObject<CodeGenerator>(File.ReadAllText(loadedMod.get_modPath() + "\\Items\\Code\\" + itemsToExport[i].get_name() + ".json"));
+                    Console.WriteLine(codeGenerator.damage.ToString());
+
+                    tmpCode += codeGenerator.generate_code(itemsToExport[i].get_displayName());
                     
 
                     tmpCode += "\r\n\t}\r\n}";
@@ -512,10 +514,7 @@ namespace NEA_solution
                     tmpString += "Please ensure all items have sprites, details, and code.";
                     MessageBox.Show(tmpString);
                 }
-
-                await Console.Out.WriteLineAsync("done exporting");
             }
-
         }
     }
 }
