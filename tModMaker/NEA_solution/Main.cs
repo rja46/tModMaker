@@ -486,7 +486,6 @@ namespace NEA_solution
 
                     tmpCode += codeGenerator.generate_code(itemsToExport[i].get_displayName());
                     
-
                     tmpCode += "\r\n\t}\r\n}";
                     File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     bmp = itemsToExport[i].get_sprite();
