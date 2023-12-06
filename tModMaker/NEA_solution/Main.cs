@@ -481,7 +481,8 @@ namespace NEA_solution
                     tmpCode = "using Terraria;\r\nusing Terraria.ID;\r\nusing Terraria.ModLoader;\r\nnamespace " + loadedMod.get_name() + ".Items\r\n{\r\n\tpublic class " + itemsToExport[i].get_name() + " : ModItem\r\n\t{";
 
                     //:(
-                    CodeGenerator codeGenerator = JsonConvert.DeserializeObject<CodeGenerator>(File.ReadAllText(loadedMod.get_modPath() + "\\Items\\Code\\" + itemsToExport[i].get_name() + ".json"));
+                    string jsonString = File.ReadAllText(loadedMod.get_modPath() + "\\Items\\Code\\" + itemsToExport[i].get_name() + ".json");
+                    CodeGenerator codeGenerator = JsonSerializer.Deserialize<CodeGenerator>(jsonString);
                     Console.WriteLine(codeGenerator.damage.ToString());
 
                     tmpCode += codeGenerator.generate_code(itemsToExport[i].get_displayName());
