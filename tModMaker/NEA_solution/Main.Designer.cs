@@ -50,6 +50,7 @@
             this.tbNew = new System.Windows.Forms.ToolStripButton();
             this.tbOpen = new System.Windows.Forms.ToolStripButton();
             this.tbSave = new System.Windows.Forms.ToolStripButton();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMain.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wvCodeGetter)).BeginInit();
@@ -116,42 +117,43 @@
             // btnNew
             // 
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(142, 22);
+            this.btnNew.Size = new System.Drawing.Size(180, 22);
             this.btnNew.Text = "New";
             this.btnNew.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // fileSaveMod
             // 
             this.fileSaveMod.Name = "fileSaveMod";
-            this.fileSaveMod.Size = new System.Drawing.Size(142, 22);
+            this.fileSaveMod.Size = new System.Drawing.Size(180, 22);
             this.fileSaveMod.Text = "Save Mod";
             this.fileSaveMod.Click += new System.EventHandler(this.fileSaveMod_Click);
             // 
             // fileSaveModAs
             // 
             this.fileSaveModAs.Name = "fileSaveModAs";
-            this.fileSaveModAs.Size = new System.Drawing.Size(142, 22);
+            this.fileSaveModAs.Size = new System.Drawing.Size(180, 22);
             this.fileSaveModAs.Text = "Save Mod As";
             this.fileSaveModAs.Click += new System.EventHandler(this.fileSaveModAs_Click);
             // 
             // fileOpenMod
             // 
             this.fileOpenMod.Name = "fileOpenMod";
-            this.fileOpenMod.Size = new System.Drawing.Size(142, 22);
+            this.fileOpenMod.Size = new System.Drawing.Size(180, 22);
             this.fileOpenMod.Text = "Open";
             this.fileOpenMod.Click += new System.EventHandler(this.fileOpenMod_Click);
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modDetailsToolStripMenuItem});
+            this.modDetailsToolStripMenuItem,
+            this.settingsToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -159,7 +161,7 @@
             // modDetailsToolStripMenuItem
             // 
             this.modDetailsToolStripMenuItem.Name = "modDetailsToolStripMenuItem";
-            this.modDetailsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.modDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modDetailsToolStripMenuItem.Text = "Mod Details";
             this.modDetailsToolStripMenuItem.Click += new System.EventHandler(this.modDetailsToolStripMenuItem_Click);
             // 
@@ -258,6 +260,13 @@
             this.tbSave.ToolTipText = "Save";
             this.tbSave.Click += new System.EventHandler(this.tbSave_Click);
             // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,6 +317,7 @@
         private System.Windows.Forms.ToolStripButton tbSave;
         private System.Windows.Forms.ToolStripButton tbOpen;
         private Microsoft.Web.WebView2.WinForms.WebView2 wvCodeGetter;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
     }
 }
 

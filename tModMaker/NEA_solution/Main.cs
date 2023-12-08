@@ -475,9 +475,9 @@ namespace NEA_solution
                 //add functionality to enter a version number
                 File.WriteAllText(path + "\\build.txt", "displayName = " + loadedMod.get_name() + "\nauthor = " + loadedMod.get_author() + "\nversion = 0.1");
                 
-                File.WriteAllText(path + "\\" + loadedMod.get_name() + ".csproj", "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<Project Sdk=\"Microsoft.NET.Sdk\">\r\n  <Import Project=\"..\\tModLoader.targets\" />\r\n  <PropertyGroup>\r\n    <AssemblyName>nea</AssemblyName>\r\n    <TargetFramework>net6.0</TargetFramework>\r\n    <PlatformTarget>AnyCPU</PlatformTarget>\r\n    <LangVersion>latest</LangVersion>\r\n  </PropertyGroup>\r\n  <ItemGroup>\r\n    <PackageReference Include=\"tModLoader.CodeAssist\" Version=\"0.1.*\" />\r\n  </ItemGroup>\r\n</Project>");
-
                 File.WriteAllText(path + "\\" + loadedMod.get_name() + ".cs", "using Terraria.ModLoader;\r\n\r\nnamespace " + loadedMod.get_name() + "\r\n{\r\n\tpublic class " + loadedMod.get_name() + " : Mod\r\n\t{\r\n\t}\r\n}");
+
+                File.WriteAllText(path + "\\" + loadedMod.get_name() + ".csproj", File.ReadAllText(@"projectConfig.txt"));
 
                 //save code and sprite for each item
                 Bitmap bmp;
@@ -537,6 +537,11 @@ namespace NEA_solution
         {
             tmpCodeFromBlockly = e.TryGetWebMessageAsString();
             returned = true;
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings();
         }
     }
 }
