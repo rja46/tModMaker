@@ -542,6 +542,11 @@ namespace NEA_solution
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Settings settings = new Settings();
+            DialogResult result = settings.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+
+            }
         }
     }
 }
