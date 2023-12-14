@@ -23,6 +23,7 @@ namespace NEA_solution
         EditItem editItem;
         bool returned;
         string tmpCodeFromBlockly;
+        bool hasExportPath;
 
         public Main()
         {
@@ -35,6 +36,13 @@ namespace NEA_solution
 
             InitWebview();
             wvCodeGetter.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
+
+            if (File.ReadAllText(Environment.CurrentDirectory + "\\userConfig.txt") != "")
+            {
+                hasExportPath = true;
+            }
+            else { hasExportPath = false; }
+            Console.WriteLine(hasExportPath);
 
             initialise_editor();
         }
@@ -449,13 +457,16 @@ namespace NEA_solution
             string tmpCode;
             bool canExport = true;
             List<string> incompleteItems = new List<string>();
+            if (File.ReadAllText(Environment.CurrentDirectory + "\\userConfig.txt") != "")
+            {
+                hasExportPath = true;
+            }
+            else { hasExportPath = false; }
             //get path for output
             //validate if the mod is going to overwrite the editable files: do they have the same name.
-            FolderBrowserDialog fd = new FolderBrowserDialog();
-            DialogResult dialogResult = fd.ShowDialog();
-            if (dialogResult == DialogResult.OK)
+            if (hasExportPath)
             {
-                path = fd.SelectedPath + "\\" + loadedMod.get_name();
+                path = File.ReadAllText(Environment.CurrentDirectory + "\\userConfig.txt") + "\\" + loadedMod.get_name();
                 
                 //create an array of the items
                 Item[] itemsToExport = new Item[loadedMod.get_item_number()];
@@ -529,6 +540,10 @@ namespace NEA_solution
                 }
 
                 await Console.Out.WriteLineAsync("done exporting");
+            }
+            else
+            {
+                MessageBox.Show("Please set an output directory in settings.");
             }
 
         }
