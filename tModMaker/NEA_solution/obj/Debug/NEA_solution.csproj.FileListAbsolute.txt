@@ -73,5 +73,4 @@ C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_s
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.FullscreenEditor.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.NameDialog.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\projectConfig.txt
-C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\userConfig.txt
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.Settings.resources

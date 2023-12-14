@@ -80,6 +80,7 @@
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "NameDialog";
             this.Text = "NameDialog";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NameDialog_FormClosing);

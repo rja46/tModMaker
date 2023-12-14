@@ -66,6 +66,7 @@ namespace NEA_solution
 
         private void btnChangeSprite_Click(object sender, EventArgs e)
         {
+            //this opens a file dialog to let the user select a new sprite, then refreshes the pic box
             if (theItem != null)
             {
                 OpenFileDialog openSpriteDialog = new OpenFileDialog();
@@ -105,7 +106,6 @@ namespace NEA_solution
                 {
                     int height = theItem.get_sprite().Height;
                     int width = theItem.get_sprite().Width;
-                    //there are some serious rendering issues here.
                     if (height > width)
                     {
                         e.Graphics.DrawImage(theImage, 0, 0, pbSprite.Height / height * width, pbSprite.Height);
@@ -145,6 +145,7 @@ namespace NEA_solution
             await wvCode.ExecuteScriptAsync("clear()");
         }
 
+        //these need to lock the controls at certain points where access to the buttons would cause issues
         public void lock_controls()
         {
             btnChangeSprite.Enabled = false;

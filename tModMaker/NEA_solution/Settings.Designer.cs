@@ -32,18 +32,19 @@
             this.btnApply = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnFolderDialog = new System.Windows.Forms.Button();
+            this.lblLocation = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtPath
             // 
-            this.txtPath.Location = new System.Drawing.Point(12, 12);
+            this.txtPath.Location = new System.Drawing.Point(15, 25);
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(297, 20);
             this.txtPath.TabIndex = 0;
             // 
             // btnApply
             // 
-            this.btnApply.Location = new System.Drawing.Point(270, 38);
+            this.btnApply.Location = new System.Drawing.Point(273, 51);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
             this.btnApply.TabIndex = 1;
@@ -54,7 +55,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(189, 38);
+            this.btnCancel.Location = new System.Drawing.Point(192, 51);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -63,7 +64,7 @@
             // 
             // btnFolderDialog
             // 
-            this.btnFolderDialog.Location = new System.Drawing.Point(312, 12);
+            this.btnFolderDialog.Location = new System.Drawing.Point(318, 25);
             this.btnFolderDialog.Name = "btnFolderDialog";
             this.btnFolderDialog.Size = new System.Drawing.Size(30, 20);
             this.btnFolderDialog.TabIndex = 3;
@@ -71,15 +72,26 @@
             this.btnFolderDialog.UseVisualStyleBackColor = true;
             this.btnFolderDialog.Click += new System.EventHandler(this.btnFolderDialog_Click);
             // 
+            // lblLocation
+            // 
+            this.lblLocation.AutoSize = true;
+            this.lblLocation.Location = new System.Drawing.Point(12, 9);
+            this.lblLocation.Name = "lblLocation";
+            this.lblLocation.Size = new System.Drawing.Size(84, 13);
+            this.lblLocation.TabIndex = 4;
+            this.lblLocation.Text = "Export Location:";
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 68);
+            this.ClientSize = new System.Drawing.Size(354, 79);
+            this.Controls.Add(this.lblLocation);
             this.Controls.Add(this.btnFolderDialog);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.txtPath);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Settings";
             this.Text = "Settings";
             this.ResumeLayout(false);
@@ -93,5 +105,6 @@
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnFolderDialog;
+        private System.Windows.Forms.Label lblLocation;
     }
 }

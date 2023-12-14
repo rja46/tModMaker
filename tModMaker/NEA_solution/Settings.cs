@@ -17,15 +17,18 @@ namespace NEA_solution
     public partial class Settings : Form
     {
         string path;
+        string filePath = Environment.CurrentDirectory + "\\userConfig.txt";
         public Settings()
         {
             InitializeComponent();
-            txtPath.Text = File.ReadAllText(@"userConfig.txt");
+            txtPath.Text = File.ReadAllText(filePath);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
         private void btnApply_Click(object sender, EventArgs e)
         {
-            string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"userConfig.txt");
+            Console.WriteLine(filePath);
             File.WriteAllText(filePath, txtPath.Text);
         }
 
@@ -36,9 +39,8 @@ namespace NEA_solution
             if (result == DialogResult.OK)
             {
                 path = folderDialog.SelectedPath;
+                txtPath.Text = path;
             }
-
-            txtPath.Text = path;
         }
     }
 }

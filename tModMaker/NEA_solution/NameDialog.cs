@@ -17,6 +17,8 @@ namespace NEA_solution
         public NameDialog()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
         private void NameDialog_FormClosing(object sender, FormClosingEventArgs e)
