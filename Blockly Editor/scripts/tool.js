@@ -763,6 +763,10 @@ javascript.javascriptGenerator.forBlock['shoot_existing_ammo'] = function(block,
   var number_shoot_speed = block.getFieldValue('shoot_speed');
   // TODO: Assemble javascript into code variable.
   var code = 'Item.shoot = 10;' + 'Item.shootSpeed = ' + number_shoot_speed + ';' + 'Item.useAmmo = AmmoID.' + dropdown_ammo_type + ';';
+  //??????
+  if (dropdown_ammo_type == 'Rocket'){
+	code += 'Item.shoot = ProjectileID.RocketI;';
+  }
   return code;
 };
 

@@ -176,6 +176,11 @@ namespace NEA_solution
             }
             pbSave.Value = 1;
 
+
+            /*
+            if the mod is missing a path i.e. the placeholder is loaded, the save_mod_as(),
+            then returns nothing for this procedure
+            */
             if (thePath == "")
             {
                 save_mod_as();
