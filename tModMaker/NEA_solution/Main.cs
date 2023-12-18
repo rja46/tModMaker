@@ -176,11 +176,10 @@ namespace NEA_solution
             }
             pbSave.Value = 1;
 
-            //this creates the directory for the mod if it doesnt already exist
-            if (!(Directory.Exists(thePath)))
+            if (thePath == "")
             {
-                //save_mod_as();
-                //return;
+                save_mod_as();
+                return;
             }
 
             Directory.CreateDirectory(thePath);
@@ -543,7 +542,7 @@ namespace NEA_solution
             }
             else
             {
-                MessageBox.Show("Please set an output directory in settings.");
+                MessageBox.Show("Please set an export directory in Edit>Settings");
             }
 
         }
