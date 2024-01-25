@@ -96,16 +96,16 @@ function loadData(theData){
       ]
     },
 	{
-	"kind": "category",
-      "name": "Dual Use",
-	  "colour": 290,
-      "contents": [
+		"kind": "category",
+		"name": "Buffs",
+		"colour": 330,
+		"contents": [
 		{
 			"kind": "block",
-			"type": "dual_use_core"
-		},
-	  ]
-	}
+			"type": "change_class_stat"
+		}
+		]
+	},
   ]
 };
 
@@ -490,127 +490,6 @@ Blockly.common.defineBlocksWithJsonArray([
   "helpUrl": ""
 },
 {
-  "type": "dual_use_core",
-  "message0": "Damage:  %1 %2 Use Time:  %3 %4 Animation Time: %5 %6 Use Style:  %7 %8 Knockback:  %9 %10 Crit Chance:  %11",
-  "args0": [
-    {
-      "type": "field_number",
-      "name": "damage",
-      "value": 0,
-      "min": 0
-    },
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "field_number",
-      "name": "use_time",
-      "value": 0,
-      "min": 1
-    },
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "field_number",
-      "name": "animation_time",
-      "value": 0,
-      "min": 1
-    },
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "field_dropdown",
-      "name": "useStyle",
-      "options": [
-        [
-          "None",
-          "0"
-        ],
-        [
-          "Swing",
-          "1"
-        ],
-        [
-          "DrinkOld",
-          "2"
-        ],
-        [
-          "Thrust",
-          "3"
-        ],
-        [
-          "HoldUp",
-          "4"
-        ],
-        [
-          "Shoot",
-          "5"
-        ],
-        [
-          "DrinkLong",
-          "6"
-        ],
-        [
-          "EatFood",
-          "7"
-        ],
-        [
-          "GolfPlay",
-          "8"
-        ],
-        [
-          "DrinkLiquid",
-          "9"
-        ],
-        [
-          "HiddenAnimation",
-          "10"
-        ],
-        [
-          "MowTheLaw",
-          "11"
-        ],
-        [
-          "Guitar",
-          "12"
-        ],
-        [
-          "Rapier",
-          "13"
-        ],
-        [
-          "RaiseLamp",
-          "14"
-        ]
-      ]
-    },
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "field_number",
-      "name": "knockback",
-      "value": 0,
-      "min": 0
-    },
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "field_number",
-      "name": "crit",
-      "value": 0,
-      "min": 0
-    }
-  ],
-  "nextStatement": null,
-  "colour": 290,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
   "type": "shoot_existing_ammo",
   "message0": "Ammo Type:  %1 %2 Shoot Speed:  %3",
   "args0": [
@@ -649,6 +528,74 @@ Blockly.common.defineBlocksWithJsonArray([
   "previousStatement": null,
   "nextStatement": null,
   "colour": 0,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "change_class_stat",
+  "message0": "Increase %1 for %2 by %3",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "stat",
+      "options": [
+        [
+          "Crit Chance",
+          "GetCritChance"
+        ],
+        [
+          "Damage",
+          "GetDamage"
+        ],
+        [
+          "Attack Speed",
+          "GetAttackSpeed"
+        ],
+        [
+          "Armor Penetration",
+          "GetArmorPenetration"
+        ],
+        [
+          "Knockback",
+          "GetKnockback"
+        ]
+      ]
+    },
+    {
+      "type": "field_dropdown",
+      "name": "class",
+      "options": [
+        [
+          "Melee",
+          "Melee"
+        ],
+        [
+          "Ranged",
+          "Ranged"
+        ],
+        [
+          "Magic",
+          "Magic"
+        ],
+        [
+          "Summon",
+          "Summon"
+        ],
+        [
+          "Generic",
+          "Generic"
+        ]
+      ]
+    },
+    {
+      "type": "field_number",
+      "name": "value",
+      "value": 0
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 230,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -770,14 +717,11 @@ javascript.javascriptGenerator.forBlock['shoot_existing_ammo'] = function(block,
   return code;
 };
 
-javascript.javascriptGenerator.forBlock['dual_use_core'] = function(block, generator) {
-  var number_damage = block.getFieldValue('damage');
-  var number_use_time = block.getFieldValue('use_time');
-  var number_animation_time = block.getFieldValue('animation_time');
-  var dropdown_usestyle = block.getFieldValue('useStyle');
-  var number_knockback = block.getFieldValue('knockback');
-  var number_crit = block.getFieldValue('crit');
+javascript.javascriptGenerator.forBlock['change_class_stat'] = function(block, generator) {
+  var dropdown_stat = block.getFieldValue('stat');
+  var dropdown_class = block.getFieldValue('class');
+  var number_value = block.getFieldValue('value');
   // TODO: Assemble javascript into code variable.
-  var code = '...\n';
+  var code = 'public override void UpdateAccessory(Player player, bool hideVisual) {' + 'player.' + dropdown_stat + '(DamageClass.' + dropdown_class + ') +=' + number_value + '};';
   return code;
 };
