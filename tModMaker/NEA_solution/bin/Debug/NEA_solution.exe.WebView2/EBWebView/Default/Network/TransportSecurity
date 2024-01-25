@@ -1,1 +1,5 @@
+<<<<<<< Updated upstream
 {"sts":[{"expiry":1737460291.641732,"host":"e3SziuwfuO2UvuBno+qkR1ObHAzZmSUoJhrc7dbP1Uo=","mode":"force-https","sts_include_subdomains":true,"sts_observed":1705924291.641739}],"version":2}
+=======
+{"sts":[{"expiry":1737749620.407852,"host":"e3SziuwfuO2UvuBno+qkR1ObHAzZmSUoJhrc7dbP1Uo=","mode":"force-https","sts_include_subdomains":true,"sts_observed":1706213620.407855}],"version":2}
+>>>>>>> Stashed changes

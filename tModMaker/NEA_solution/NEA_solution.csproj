@@ -99,6 +99,7 @@
     <Compile Include="CreateModDialog.Designer.cs">
       <DependentUpon>CreateModDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="define_weapon_essential.cs" />
     <Compile Include="EditDetailsDialog.cs">
       <SubType>Form</SubType>
     </Compile>

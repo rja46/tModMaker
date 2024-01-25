@@ -1,3 +1,9 @@
+<<<<<<< Updated upstream
 2024/01/22-11:31:24.817 2ae4 Reusing MANIFEST C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Sync Data\LevelDB/MANIFEST-000001
 2024/01/22-11:31:24.825 2ae4 Recovering log #3
 2024/01/22-11:31:24.829 2ae4 Reusing old log C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Sync Data\LevelDB/000003.log 
+=======
+2023/12/19-10:00:44.464 3584 Reusing MANIFEST C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Sync Data\LevelDB/MANIFEST-000001
+2023/12/19-10:00:44.465 3584 Recovering log #3
+2023/12/19-10:00:44.465 3584 Reusing old log C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Sync Data\LevelDB/000003.log 
+>>>>>>> Stashed changes

@@ -13,8 +13,8 @@ namespace NEA_solution
         public string generate_code(string code, string modName, string itemName, string itemDisplayName)
         {
             string blockType;
-            string[] blocks;
-            GenericBlock block;
+            string[] blocksAsStrings;
+            object[] blocks;
 
             string generatedCode = "using Terraria;" +
                 "\r\nusing Terraria.ID;" +
@@ -24,9 +24,14 @@ namespace NEA_solution
                 "\r\n\tpublic class " + itemName + " : ModItem" +
                 "\r\n\t{";
 
-            blocks = findBlocksInline(code);
+            blocksAsStrings = findBlocksInline(code);
 
-            block = JsonSerializer.Deserialize<GenericBlock>
+            blocks = new object[blocksAsStrings.Length];
+
+            for (int i = 0; i < blocksAsStrings.Length; i++)
+            {
+                blockType = JsonSerializer.Deserialize<GenericBlock>(blocksAsStrings[i]).type;
+            }
 
             return generatedCode;
         }
