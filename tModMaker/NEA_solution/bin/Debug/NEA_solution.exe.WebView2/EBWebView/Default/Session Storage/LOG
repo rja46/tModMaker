@@ -1,8 +1,3 @@
-<<<<<<< Updated upstream
-2024/01/22-11:56:56.572 2b90 Reusing MANIFEST C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Session Storage/MANIFEST-000001
-2024/01/22-11:56:56.574 2b90 Recovering log #3
-2024/01/22-11:56:56.584 2b90 Reusing old log C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Session Storage/000003.log 
-=======
-2024/01/25-20:13:47.618 1b3c Creating DB C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Session Storage since it was missing.
-2024/01/25-20:13:47.632 1b3c Reusing MANIFEST C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Session Storage/MANIFEST-000001
->>>>>>> Stashed changes
+2024/01/26-09:33:06.688 33d4 Reusing MANIFEST C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Session Storage/MANIFEST-000001
+2024/01/26-09:33:06.692 33d4 Recovering log #3
+2024/01/26-09:33:06.701 33d4 Reusing old log C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Session Storage/000003.log 

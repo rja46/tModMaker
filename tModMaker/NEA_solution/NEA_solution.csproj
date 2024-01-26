@@ -99,7 +99,6 @@
     <Compile Include="CreateModDialog.Designer.cs">
       <DependentUpon>CreateModDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="define_weapon_essential.cs" />
     <Compile Include="EditDetailsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,9 +201,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Block Classes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.2045.28\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.2045.28\build\Microsoft.Web.WebView2.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

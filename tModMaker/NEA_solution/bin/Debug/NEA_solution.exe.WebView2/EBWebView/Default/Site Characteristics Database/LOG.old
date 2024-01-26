@@ -1,11 +1,3 @@
-<<<<<<< Updated upstream
-2024/01/22-11:31:24.790 10b0 Reusing MANIFEST C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Site Characteristics Database/MANIFEST-000001
-2024/01/22-11:31:24.792 10b0 Recovering log #6
-2024/01/22-11:31:24.792 10b0 Reusing old log C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Site Characteristics Database/000006.log 
-=======
-2024/01/25-20:13:39.811 2798 Log #6: 0 ops saved to Table #7 OK
-2024/01/25-20:13:39.812 2798 Archiving C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Site Characteristics Database/000006.log: OK
-2024/01/25-20:13:39.813 2798 Table #4: 1 entries OK
-2024/01/25-20:13:39.816 2798 Archiving C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Site Characteristics Database/MANIFEST-000001: OK
-2024/01/25-20:13:39.828 2798 **** Repaired leveldb C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Site Characteristics Database; recovered 1 files; 130 bytes. Some data may have been lost. ****
->>>>>>> Stashed changes
+2024/01/26-09:32:13.279 3698 Reusing MANIFEST C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Site Characteristics Database/MANIFEST-000001
+2024/01/26-09:32:13.280 3698 Recovering log #9
+2024/01/26-09:32:13.280 3698 Reusing old log C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Site Characteristics Database/000009.log 

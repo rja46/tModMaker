@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
+using System.Windows.Forms;
 
 namespace NEA_solution
 {
@@ -14,7 +15,7 @@ namespace NEA_solution
         {
             string blockType;
             string[] blocksAsStrings;
-            object[] blocks;
+            GenericBlock currentBlock = new GenericBlock();
 
             string generatedCode = "using Terraria;" +
                 "\r\nusing Terraria.ID;" +
@@ -26,11 +27,18 @@ namespace NEA_solution
 
             blocksAsStrings = findBlocksInline(code);
 
-            blocks = new object[blocksAsStrings.Length];
+            blocks = new GenericBlock[blocksAsStrings.Length];
 
             for (int i = 0; i < blocksAsStrings.Length; i++)
             {
                 blockType = JsonSerializer.Deserialize<GenericBlock>(blocksAsStrings[i]).type;
+                //MessageBox.Show(blockType);
+                switch (blockType)
+                {
+                    case "define_weapon_essential":
+                        currentBlock = JsonSerializer.Deserialize<define_weapon_essential>(blocksAsStrings[i]);
+                        break;
+                }
             }
 
             return generatedCode;
