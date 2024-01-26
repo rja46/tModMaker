@@ -15,7 +15,7 @@ namespace NEA_solution
         {
             string blockType;
             string[] blocksAsStrings;
-            GenericBlock currentBlock = new GenericBlock();
+            string setDefaults = "";
 
             string generatedCode = "using Terraria;" +
                 "\r\nusing Terraria.ID;" +
@@ -27,20 +27,34 @@ namespace NEA_solution
 
             blocksAsStrings = findBlocksInline(code);
 
-            blocks = new GenericBlock[blocksAsStrings.Length];
-
             for (int i = 0; i < blocksAsStrings.Length; i++)
             {
                 blockType = JsonSerializer.Deserialize<GenericBlock>(blocksAsStrings[i]).type;
-                //MessageBox.Show(blockType);
+                MessageBox.Show(blockType);
                 switch (blockType)
                 {
                     case "define_weapon_essential":
-                        currentBlock = JsonSerializer.Deserialize<define_weapon_essential>(blocksAsStrings[i]);
+
+                        define_weapon_essential currentBlock = JsonSerializer.Deserialize<define_weapon_essential>(blocksAsStrings[i]);
+
+                        setDefaults += "Item.damage = " + currentBlock.damage + ";";
+                        setDefaults += "\r\nItem.DamageType = DamageClass." + currentBlock.damageType + ";";
+                        setDefaults += "\r\nItem.width = " + currentBlock.width + ";";
+                        setDefaults += "\r\nItem.height = " + currentBlock.height + ";";
+                        setDefaults += "\r\nItem.useTime = " + currentBlock.useTime + ";";
+                        setDefaults += "\r\nItem.useAnimation = " + currentBlock.useAnimation + ";";
+                        setDefaults += "\r\nItem.knockBack = " + currentBlock.knockback + ";";
+                        setDefaults += "\r\nItem.value = " + currentBlock.value + ";";
+                        setDefaults += "\r\nItem.rare = " + currentBlock.rare + ";";
+                        setDefaults += "\r\nItem.UseSound = SoundID.Item" + currentBlock.UseSound + ";";
+                        setDefaults += "\r\nItem.autoReuse = " + currentBlock.autoReuse + ";";
+                        setDefaults += "\r\nItem.useStyle = " + currentBlock.useStyle + ";";
+
                         break;
                 }
             }
 
+            generatedCode += "public override void SetDefaults() {" + setDefaults + "}";
             return generatedCode;
         }
 
