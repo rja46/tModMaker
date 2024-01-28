@@ -42,4 +42,9 @@ namespace NEA_solution
     { 
         public int hammer { get; set;}
     }
+
+    internal class is_consumable : GenericBlock
+    {
+        public bool consumable { get; set; }
+    }
 }

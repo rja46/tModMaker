@@ -69,6 +69,12 @@ namespace NEA_solution
                     case "fishing_power":
                         //this needs a class implementation
                         break;
+
+                    case "is_consumable":
+                        //doesnt work
+                        is_consumable is_Consumable = JsonSerializer.Deserialize<is_consumable>(blocksAsStrings[i]);
+                        setDefaults += "\r\nItem.consumable = " + is_Consumable.consumable + ";";
+                        break;
                 }
             }
 
