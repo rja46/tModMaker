@@ -457,6 +457,7 @@ namespace NEA_solution
 
         private async void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CodeGenerator codeGenerator = new CodeGenerator();
             string path;
             string tmpCode;
             bool canExport = true;

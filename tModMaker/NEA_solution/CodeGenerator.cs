@@ -15,46 +15,64 @@ namespace NEA_solution
         {
             string blockType;
             string[] blocksAsStrings;
-            string setDefaults = "";
+            string setDefaults = "Item.SetNameOverride(\"" + itemDisplayName + "\");";
 
             string generatedCode = "using Terraria;" +
                 "\r\nusing Terraria.ID;" +
                 "\r\nusing Terraria.ModLoader;" +
                 "\r\nnamespace " + modName + ".Items" +
                 "\r\n{" +
-                "\r\n\tpublic class " + itemName + " : ModItem" +
-                "\r\n\t{";
+                "\r\npublic class " + itemName + " : ModItem" +
+                "\r\n{";
 
             blocksAsStrings = findBlocksInline(code);
 
             for (int i = 0; i < blocksAsStrings.Length; i++)
             {
                 blockType = JsonSerializer.Deserialize<GenericBlock>(blocksAsStrings[i]).type;
-                MessageBox.Show(blockType);
                 switch (blockType)
                 {
                     case "define_weapon_essential":
 
-                        define_weapon_essential currentBlock = JsonSerializer.Deserialize<define_weapon_essential>(blocksAsStrings[i]);
+                        define_weapon_essential define_Weapon_Essential = JsonSerializer.Deserialize<define_weapon_essential>(blocksAsStrings[i]);
 
-                        setDefaults += "Item.damage = " + currentBlock.damage + ";";
-                        setDefaults += "\r\nItem.DamageType = DamageClass." + currentBlock.damageType + ";";
-                        setDefaults += "\r\nItem.width = " + currentBlock.width + ";";
-                        setDefaults += "\r\nItem.height = " + currentBlock.height + ";";
-                        setDefaults += "\r\nItem.useTime = " + currentBlock.useTime + ";";
-                        setDefaults += "\r\nItem.useAnimation = " + currentBlock.useAnimation + ";";
-                        setDefaults += "\r\nItem.knockBack = " + currentBlock.knockback + ";";
-                        setDefaults += "\r\nItem.value = " + currentBlock.value + ";";
-                        setDefaults += "\r\nItem.rare = " + currentBlock.rare + ";";
-                        setDefaults += "\r\nItem.UseSound = SoundID.Item" + currentBlock.UseSound + ";";
-                        setDefaults += "\r\nItem.autoReuse = " + currentBlock.autoReuse + ";";
-                        setDefaults += "\r\nItem.useStyle = " + currentBlock.useStyle + ";";
+                        setDefaults += "\r\nItem.damage = " + define_Weapon_Essential.damage + ";";
+                        setDefaults += "\r\nItem.DamageType = DamageClass." + define_Weapon_Essential.damageType + ";";
+                        setDefaults += "\r\nItem.width = " + define_Weapon_Essential.width + ";";
+                        setDefaults += "\r\nItem.height = " + define_Weapon_Essential.height + ";";
+                        setDefaults += "\r\nItem.useTime = " + define_Weapon_Essential.useTime + ";";
+                        setDefaults += "\r\nItem.useAnimation = " + define_Weapon_Essential.useAnimation + ";";
+                        setDefaults += "\r\nItem.knockBack = " + define_Weapon_Essential.knockback + ";";
+                        setDefaults += "\r\nItem.value = " + define_Weapon_Essential.value + ";";
+                        setDefaults += "\r\nItem.rare = " + define_Weapon_Essential.rare + ";";
+                        setDefaults += "\r\nItem.UseSound = SoundID.Item" + define_Weapon_Essential.UseSound + ";";
+                        setDefaults += "\r\nItem.autoReuse = " + define_Weapon_Essential.autoReuse + ";";
+                        setDefaults += "\r\nItem.useStyle = " + define_Weapon_Essential.useStyle + ";";
 
+                        break;
+
+                    case "pick":
+                        pick_power pick_Power = JsonSerializer.Deserialize<pick_power>(blocksAsStrings[i]);
+                        setDefaults += "\r\nItem.pick = " + pick_Power + ";";
+                        break;
+
+                    case "axe":
+                        axe_power axe_Power = JsonSerializer.Deserialize<axe_power>(blocksAsStrings[i]);
+                        setDefaults += "\r\nItem.axe = " + axe_Power + ";";
+                        break;
+
+                    case "hammer":
+                        hammer_power hammer_Power = JsonSerializer.Deserialize<hammer_power>(blocksAsStrings[i]);
+                        setDefaults += "\r\nItem.hammer = " + hammer_Power + ";";
+                        break;
+
+                    case "fishing_power":
+                        //this needs a class implementation
                         break;
                 }
             }
 
-            generatedCode += "public override void SetDefaults() {" + setDefaults + "}";
+            generatedCode += "public override void SetDefaults()\r\n{\r\n" + setDefaults + "\r\n}";
             return generatedCode;
         }
 
