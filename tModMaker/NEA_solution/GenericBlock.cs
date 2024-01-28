@@ -45,6 +45,11 @@ namespace NEA_solution
 
     internal class is_consumable : GenericBlock
     {
-        public bool consumable { get; set; }
+        public bool isConsumable { get; set; }
+    }
+
+    internal class no_melee_block : GenericBlock
+    {
+        public bool no_melee { get; set; }
     }
 }

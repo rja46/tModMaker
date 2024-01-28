@@ -46,7 +46,7 @@ namespace NEA_solution
                         setDefaults += "\r\nItem.value = " + define_Weapon_Essential.value + ";";
                         setDefaults += "\r\nItem.rare = " + define_Weapon_Essential.rare + ";";
                         setDefaults += "\r\nItem.UseSound = SoundID.Item" + define_Weapon_Essential.UseSound + ";";
-                        setDefaults += "\r\nItem.autoReuse = " + define_Weapon_Essential.autoReuse + ";";
+                        setDefaults += "\r\nItem.autoReuse = " + define_Weapon_Essential.autoReuse.ToString().ToLower() + ";";
                         setDefaults += "\r\nItem.useStyle = " + define_Weapon_Essential.useStyle + ";";
 
                         break;
@@ -71,9 +71,13 @@ namespace NEA_solution
                         break;
 
                     case "is_consumable":
-                        //doesnt work
                         is_consumable is_Consumable = JsonSerializer.Deserialize<is_consumable>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.consumable = " + is_Consumable.consumable + ";";
+                        setDefaults += "\r\nItem.consumable = " + is_Consumable.isConsumable.ToString().ToLower() + ";";
+                        break;
+
+                    case "no_melee":
+                        no_melee_block no_Melee_Block = JsonSerializer.Deserialize<no_melee_block>(blocksAsStrings[i]);
+                        setDefaults += "\r\nItem.noMelee = " + no_Melee_Block.no_melee.ToString().ToLower() + ";";
                         break;
                 }
             }
@@ -122,7 +126,6 @@ namespace NEA_solution
                     count++;
                 }
             }
-
 
             string[] blocks = blocksList.ToArray();
             return blocks;
