@@ -14,7 +14,6 @@ namespace NEA_solution
         private string displayName;
         private string tooltip;
         private string code;
-        private string exportedCode;
         private string type;
         private Bitmap sprite;
 

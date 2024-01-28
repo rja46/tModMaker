@@ -51,19 +51,19 @@ namespace NEA_solution
 
                         break;
 
-                    case "pick":
+                    case "pick_power":
                         pick_power pick_Power = JsonSerializer.Deserialize<pick_power>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.pick = " + pick_Power + ";";
+                        setDefaults += "\r\nItem.pick = " + pick_Power.pick + ";";
                         break;
 
-                    case "axe":
+                    case "axe_power":
                         axe_power axe_Power = JsonSerializer.Deserialize<axe_power>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.axe = " + axe_Power + ";";
+                        setDefaults += "\r\nItem.axe = " + axe_Power.axe + ";";
                         break;
 
-                    case "hammer":
+                    case "hammer_power":
                         hammer_power hammer_Power = JsonSerializer.Deserialize<hammer_power>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.hammer = " + hammer_Power + ";";
+                        setDefaults += "\r\nItem.hammer = " + hammer_Power.hammer + ";";
                         break;
 
                     case "fishing_power":
@@ -72,7 +72,7 @@ namespace NEA_solution
                 }
             }
 
-            generatedCode += "public override void SetDefaults()\r\n{\r\n" + setDefaults + "\r\n}";
+            generatedCode += "\r\npublic override void SetDefaults()\r\n{\r\n" + setDefaults + "\r\n}";
             return generatedCode;
         }
 

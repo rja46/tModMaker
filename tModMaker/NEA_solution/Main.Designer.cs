@@ -43,7 +43,6 @@
             this.modDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.wvCodeGetter = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.stsBottom = new System.Windows.Forms.StatusStrip();
             this.pbSave = new System.Windows.Forms.ToolStripProgressBar();
             this.pnlItem = new System.Windows.Forms.Panel();
@@ -51,10 +50,8 @@
             this.tbNew = new System.Windows.Forms.ToolStripButton();
             this.tbOpen = new System.Windows.Forms.ToolStripButton();
             this.tbSave = new System.Windows.Forms.ToolStripButton();
-            this.btnTest = new System.Windows.Forms.Button();
             this.msMain.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.wvCodeGetter)).BeginInit();
             this.stsBottom.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -185,20 +182,6 @@
             this.panel1.Size = new System.Drawing.Size(164, 373);
             this.panel1.TabIndex = 13;
             // 
-            // wvCodeGetter
-            // 
-            this.wvCodeGetter.AllowExternalDrop = true;
-            this.wvCodeGetter.CreationProperties = null;
-            this.wvCodeGetter.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.wvCodeGetter.Location = new System.Drawing.Point(624, 14);
-            this.wvCodeGetter.Name = "wvCodeGetter";
-            this.wvCodeGetter.Size = new System.Drawing.Size(159, 36);
-            this.wvCodeGetter.Source = new System.Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor", System.UriKind.Absolute);
-            this.wvCodeGetter.TabIndex = 17;
-            this.wvCodeGetter.Visible = false;
-            this.wvCodeGetter.ZoomFactor = 1D;
-            this.wvCodeGetter.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.wvCodeGetter_WebMessageReceived);
-            // 
             // stsBottom
             // 
             this.stsBottom.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -268,23 +251,11 @@
             this.tbSave.ToolTipText = "Save";
             this.tbSave.Click += new System.EventHandler(this.tbSave_Click);
             // 
-            // btnTest
-            // 
-            this.btnTest.Location = new System.Drawing.Point(348, 38);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(75, 23);
-            this.btnTest.TabIndex = 18;
-            this.btnTest.Text = "Test";
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnTest);
-            this.Controls.Add(this.wvCodeGetter);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pnlItem);
             this.Controls.Add(this.stsBottom);
@@ -297,7 +268,6 @@
             this.msMain.ResumeLayout(false);
             this.msMain.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.wvCodeGetter)).EndInit();
             this.stsBottom.ResumeLayout(false);
             this.stsBottom.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -328,9 +298,7 @@
         private System.Windows.Forms.ToolStripButton tbNew;
         private System.Windows.Forms.ToolStripButton tbSave;
         private System.Windows.Forms.ToolStripButton tbOpen;
-        private Microsoft.Web.WebView2.WinForms.WebView2 wvCodeGetter;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.Button btnTest;
     }
 }
 

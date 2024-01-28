@@ -34,9 +34,6 @@ namespace NEA_solution
             //creates a blank mod
             loadedMod = new Mod("", "");
 
-            InitWebview();
-            wvCodeGetter.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
-
             if (File.ReadAllText(Environment.CurrentDirectory + "\\userConfig.txt") != "")
             {
                 hasExportPath = true;
@@ -450,11 +447,6 @@ namespace NEA_solution
             }
         }
 
-        async void InitWebview()
-        {
-            await wvCodeGetter.EnsureCoreWebView2Async();
-        }
-
         private async void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CodeGenerator codeGenerator = new CodeGenerator();
@@ -499,24 +491,7 @@ namespace NEA_solution
                 Bitmap bmp;
                 for (int i = 0; i < itemsToExport.Length; i++)
                 {
-                    returned = false;
-                    //load code from web component
-                    tmpCodeFromBlockly = "";
-                    await wvCodeGetter.ExecuteScriptAsync("loadData('" + itemsToExport[i].get_code() + "')");
-
-                    await wvCodeGetter.ExecuteScriptAsync("sendTranslatedCode()");
-                    do
-                    {
-                        await Task.Delay(100);
-                    }
-                    while (returned == false);
-
-                    //this works, but i need to prevent the user from using spaces in names.
-                    tmpCode = "using Terraria;\r\nusing Terraria.ID;\r\nusing Terraria.ModLoader;\r\nnamespace " + loadedMod.get_name() + ".Items\r\n{\r\n\tpublic class " + itemsToExport[i].get_name() + " : ModItem\r\n\t{";
-                    tmpCode += tmpCodeFromBlockly;
-                    //this line MUST add a curly bracket to close set defaults.
-                    tmpCode += "Item.SetNameOverride(\"" + itemsToExport[i].get_displayName() + "\");}";
-                    tmpCode += "\r\n}\r\n}";
+                    tmpCode = codeGenerator.generate_code(itemsToExport[i].get_code(), loadedMod.get_name(), itemsToExport[i].get_name(), itemsToExport[i].get_displayName());
                     File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     bmp = itemsToExport[i].get_sprite();
                     if (bmp == null)
