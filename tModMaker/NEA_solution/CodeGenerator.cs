@@ -113,9 +113,14 @@ namespace NEA_solution
                         break;
 
                     case "increase_move_speed":
-                        //this is really broken lmao
                         increase_move_speed increase_Move_Speed = JsonSerializer.Deserialize<increase_move_speed>(blocksAsStrings[i]);
-                        UpdateAccessory += "\r\nplayer.velocity." + increase_Move_Speed.direction + " += " + increase_Move_Speed.value + "f;";
+                        UpdateAccessory += "\r\nplayer.moveSpeed += " + increase_Move_Speed.value + "f;";
+                        setDefaults += "\r\nItem.accessory = true;";
+                        break;
+
+                    case "grant_ability":
+                        grant_ability grant_Ability = JsonSerializer.Deserialize<grant_ability>(blocksAsStrings[i]);
+                        UpdateAccessory += "\r\nplayer." + grant_Ability.ability + " = true;";
                         setDefaults += "\r\nItem.accessory = true;";
                         break;
                 }

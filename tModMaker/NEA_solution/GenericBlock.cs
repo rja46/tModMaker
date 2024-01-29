@@ -82,7 +82,11 @@ namespace NEA_solution
 
     internal class increase_move_speed : GenericBlock
     {
-        public string direction { get; set; }
-        public int value { get; set; }
+        public float value { get; set; }
+    }
+
+    internal class grant_ability : GenericBlock
+    {
+        public string ability { get; set; }
     }
 }

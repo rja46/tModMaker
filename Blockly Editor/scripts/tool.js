@@ -115,6 +115,10 @@ function loadData(theData){
         {
             "kind": "block",
             "type": "increase_move_speed"
+        },
+        {
+            "kind": "block",
+            "type": "grant_ability"
         }
 		]
 	},
@@ -636,22 +640,8 @@ Blockly.common.defineBlocksWithJsonArray([
 },
 {
     "type": "increase_move_speed",
-    "message0": "Increase %1 move speed by %2",
+    "message0": "Increase move speed by %1",
     "args0": [
-        {
-            "type": "field_dropdown",
-            "name": "direction",
-            "options": [
-                [
-                    "horizontal",
-                    "X"
-                ],
-                [
-                    "vertical",
-                    "Y"
-                ]
-            ]
-        },
         {
             "type": "field_number",
             "name": "value",
@@ -662,6 +652,71 @@ Blockly.common.defineBlocksWithJsonArray([
     "nextStatement": null,
     "colour": 330,
     "tooltip": "Increase the player's movement speed.",
+    "helpUrl": ""
+},
+{
+    "type": "grant_ability",
+    "message0": "Grant player %1",
+    "args0": [
+        {
+            "type": "field_dropdown",
+            "name": "ability",
+            "options": [
+                [
+                    "damage immunity",
+                    "immune"
+                ],
+                [
+                    "gravity control",
+                    "gravControl"
+                ],
+                [
+                    "fire block immunity",
+                    "fireWalk"
+                ],
+                [
+                    "fall damage immunity",
+                    "noFallDmg"
+                ],
+                [
+                    "jump boost",
+                    "jumpBoost"
+                ],
+                [
+                    "knockback immunity",
+                    "noKnockback"
+                ],
+                [
+                    "water walking",
+                    "waterWalk"
+                ],
+                [
+                    "thorns",
+                    "thorns"
+                ],
+                [
+                    "lava immunity",
+                    "lavaImmune"
+                ],
+                [
+                    "invisibility",
+                    "invis"
+                ],
+                [
+                    "reduced potion sickness",
+                    "pStone"
+                ],
+                [
+                    "increased invincibility duration",
+                    "longInvince"
+                ]
+            ]
+        }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 330,
+    "tooltip": "Grant the player various abilities.",
     "helpUrl": ""
 },
 {
