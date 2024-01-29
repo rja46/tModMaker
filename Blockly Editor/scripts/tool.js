@@ -107,7 +107,15 @@ function loadData(theData){
 		{
 			"kind": "block",
 			"type": "change_class_stat"
-		}
+		},
+        {
+            "kind": "block",
+            "type": "increase_life"
+        },
+        {
+            "kind": "block",
+            "type": "increase_move_speed"
+        }
 		]
 	},
   ]
@@ -606,9 +614,55 @@ Blockly.common.defineBlocksWithJsonArray([
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": 330,
   "tooltip": "",
   "helpUrl": ""
+},
+{
+    "type": "increase_life",
+    "message0": "Increase life by %1",
+    "args0": [
+        {
+            "type": "field_number",
+            "name": "life",
+            "value": 0,
+        }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 330,
+    "tooltip": "Increase the player's maximum life.",
+    "helpUrl": ""
+},
+{
+    "type": "increase_move_speed",
+    "message0": "Increase %1 move speed by %2",
+    "args0": [
+        {
+            "type": "field_dropdown",
+            "name": "direction",
+            "options": [
+                [
+                    "horizontal",
+                    "X"
+                ],
+                [
+                    "vertical",
+                    "Y"
+                ]
+            ]
+        },
+        {
+            "type": "field_number",
+            "name": "value",
+            "value": 0
+        }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 330,
+    "tooltip": "Increase the player's movement speed.",
+    "helpUrl": ""
 },
 {
   "type": "is_consumable",
@@ -645,12 +699,5 @@ javascript.javascriptGenerator.forBlock['is_boomerang'] = function(block, genera
   var checkbox_isboomerang = block.getFieldValue('isBoomerang') === 'TRUE';
   // TODO: Assemble javascript into code variable.
   var code = 'is_boomerang';
-  return code;
-};
-
-javascript.javascriptGenerator.forBlock['use_mana'] = function(block, generator) {
-  var checkbox_usemana = block.getFieldValue('useMana') === 'TRUE';
-  // TODO: Assemble javascript into code variable.
-  var code = 'use_mana';
   return code;
 };

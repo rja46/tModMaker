@@ -74,4 +74,15 @@ namespace NEA_solution
     {
         public int useMana { get; set; }
     }
+
+    internal class increase_life : GenericBlock
+    {
+        public int life { get; set; }
+    }
+
+    internal class increase_move_speed : GenericBlock
+    {
+        public string direction { get; set; }
+        public int value { get; set; }
+    }
 }

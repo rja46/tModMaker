@@ -105,6 +105,19 @@ namespace NEA_solution
                         use_mana use_Mana = JsonSerializer.Deserialize<use_mana>(blocksAsStrings[i]);
                         setDefaults += "\r\nItem.mana = " + use_Mana.useMana + ";";
                         break;
+
+                    case "increase_life":
+                        increase_life increase_Life = JsonSerializer.Deserialize<increase_life>(blocksAsStrings[i]);
+                        UpdateAccessory += "\r\nplayer.statLifeMax2 += " + increase_Life.life + ";";
+                        setDefaults += "\r\nItem.accessory = true;";
+                        break;
+
+                    case "increase_move_speed":
+                        //this is really broken lmao
+                        increase_move_speed increase_Move_Speed = JsonSerializer.Deserialize<increase_move_speed>(blocksAsStrings[i]);
+                        UpdateAccessory += "\r\nplayer.velocity." + increase_Move_Speed.direction + " += " + increase_Move_Speed.value + "f;";
+                        setDefaults += "\r\nItem.accessory = true;";
+                        break;
                 }
             }
 
