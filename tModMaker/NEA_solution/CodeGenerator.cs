@@ -34,19 +34,22 @@ namespace NEA_solution
                 blockType = JsonSerializer.Deserialize<GenericBlock>(blocksAsStrings[i]).type;
                 switch (blockType)
                 {
-                    case "define_weapon_essential":
+                    case "define_item":
+                        define_item define_Item = JsonSerializer.Deserialize<define_item>(blocksAsStrings[i]);
+                        setDefaults += "\r\nItem.width = " + define_Item.width + ";";
+                        setDefaults += "\r\nItem.height = " + define_Item.height + ";";
+                        setDefaults += "\r\nItem.value = " + define_Item.value + ";";
+                        setDefaults += "\r\nItem.rare = " + define_Item.rare + ";";
+                        break;
 
+                    case "define_weapon_essential":
                         define_weapon_essential define_Weapon_Essential = JsonSerializer.Deserialize<define_weapon_essential>(blocksAsStrings[i]);
 
                         setDefaults += "\r\nItem.damage = " + define_Weapon_Essential.damage + ";";
                         setDefaults += "\r\nItem.DamageType = DamageClass." + define_Weapon_Essential.damageType + ";";
-                        setDefaults += "\r\nItem.width = " + define_Weapon_Essential.width + ";";
-                        setDefaults += "\r\nItem.height = " + define_Weapon_Essential.height + ";";
                         setDefaults += "\r\nItem.useTime = " + define_Weapon_Essential.useTime + ";";
                         setDefaults += "\r\nItem.useAnimation = " + define_Weapon_Essential.useAnimation + ";";
                         setDefaults += "\r\nItem.knockBack = " + define_Weapon_Essential.knockback + ";";
-                        setDefaults += "\r\nItem.value = " + define_Weapon_Essential.value + ";";
-                        setDefaults += "\r\nItem.rare = " + define_Weapon_Essential.rare + ";";
                         setDefaults += "\r\nItem.UseSound = SoundID.Item" + define_Weapon_Essential.UseSound + ";";
                         setDefaults += "\r\nItem.autoReuse = " + define_Weapon_Essential.autoReuse.ToString().ToLower() + ";";
                         setDefaults += "\r\nItem.useStyle = " + define_Weapon_Essential.useStyle + ";";

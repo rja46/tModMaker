@@ -32,11 +32,14 @@ function loadData(theData){
       "name": "Basic",
 	  "colour": 230,
       "contents": [
-        		{
+        {
 		  "kind": "block",
 		  "type": "define_item"
 		},
-
+		{
+		  "kind": "block",
+		  "type": "define_weapon_essential"
+		},
       ]
     },
 	{
@@ -113,7 +116,7 @@ function loadData(theData){
 Blockly.common.defineBlocksWithJsonArray([
 {
   "type": "define_weapon_essential",
-  "message0": "Damage: %1 %2 Damage Type %3 %4 Use Time: %5 %6 Animation Time: %7 %8 Use Style: %9 %10 Knockback: %11 %12 Crit Chance %13",
+  "message0": "Damage: %1 %2 Damage Type %3 %4 Use Time: %5 %6 Animation Time: %7 %8 Use Style: %9 %10 Knockback: %11 %12 Crit Chance %13 %14 Sound ID %15 %16 Auto Reuse %17",
   "args0": [
     {
       "type": "field_number",
@@ -252,7 +255,7 @@ Blockly.common.defineBlocksWithJsonArray([
       "value": 0,
       "min": 0
     },
-	{
+    {
       "type": "input_dummy"
     },
     {
@@ -375,7 +378,6 @@ Blockly.common.defineBlocksWithJsonArray([
       ]
     }
   ],
-  "previousStatement": null,
   "nextStatement": null,
   "colour": 230,
   "tooltip": "Define a basic weapon",

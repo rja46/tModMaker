@@ -11,19 +11,23 @@ namespace NEA_solution
         public string type { get; set; }
     }
 
+    internal class define_item : GenericBlock
+    {
+        public int width { get; set; }
+        public int height { get; set; }
+        public int value { get; set; }
+        public string rare { get; set; }
+    }
+
     internal class define_weapon_essential : GenericBlock 
     {
         public int damage { get; set; }
         public string damageType { get; set; }
-        public int width { get; set; }
-        public int height { get; set; }
         public int useTime { get; set; }
         public int useAnimation { get; set; }
         public string useStyle { get; set; }
         public int knockback { get; set; }
         public int crit { get; set; }
-        public int value { get; set; }
-        public string rare { get; set; }
         public int UseSound { get; set; }
         public bool autoReuse { get; set; }
     }
