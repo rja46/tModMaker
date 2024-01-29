@@ -473,9 +473,9 @@ Blockly.common.defineBlocksWithJsonArray([
   "message0": "Use mana:  %1",
   "args0": [
     {
-      "type": "field_checkbox",
+      "type": "field_number",
       "name": "useMana",
-      "checked": true
+      "value": 0
     }
   ],
   "previousStatement": null,

@@ -69,4 +69,9 @@ namespace NEA_solution
         public string class_name { get; set; }
         public int value { get; set; }
     }
+
+    internal class use_mana : GenericBlock
+    {
+        public int useMana { get; set; }
+    }
 }

@@ -88,6 +88,7 @@ namespace NEA_solution
                     case "shoot_existing_ammo":
                         shoot_existing_ammo shoot_Existing_Ammo = JsonSerializer.Deserialize<shoot_existing_ammo>(blocksAsStrings[i]);
                         setDefaults += "\r\nItem.shoot = 10;" + "\r\nItem.shootSpeed = " + shoot_Existing_Ammo.shoot_speed + ";" + "\r\nItem.useAmmo = AmmoID." + shoot_Existing_Ammo.ammo_type + ";";
+                        //this may need a tider implementation to allow the user to choose the rocket fired
                         if (shoot_Existing_Ammo.ammo_type == "Rocket")
                         {
                             setDefaults += "\r\nItem.shoot = ProjectileID.RocketI;";
@@ -98,6 +99,11 @@ namespace NEA_solution
                         change_class_stat change_Class_Stat = JsonSerializer.Deserialize<change_class_stat>(blocksAsStrings[i]);
                         UpdateAccessory += "player." + change_Class_Stat.stat + "(DamageClass." + change_Class_Stat.class_name + ") += " + change_Class_Stat.value + ";";
                         setDefaults += "\r\nItem.accessory = true;";
+                        break;
+
+                    case "use_mana":
+                        use_mana use_Mana = JsonSerializer.Deserialize<use_mana>(blocksAsStrings[i]);
+                        setDefaults += "\r\nItem.mana = " + use_Mana.useMana + ";";
                         break;
                 }
             }
