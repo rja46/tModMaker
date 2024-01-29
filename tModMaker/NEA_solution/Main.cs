@@ -491,7 +491,7 @@ namespace NEA_solution
                 Bitmap bmp;
                 for (int i = 0; i < itemsToExport.Length; i++)
                 {
-                    tmpCode = codeGenerator.generate_code(itemsToExport[i].get_code(), loadedMod.get_name(), itemsToExport[i].get_name(), itemsToExport[i].get_displayName());
+                    tmpCode = codeGenerator.generate_code(itemsToExport[i].get_code(), loadedMod.get_name(), itemsToExport[i].get_name(), itemsToExport[i].get_displayName(), itemsToExport[i].get_tooltip());
                     File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     bmp = itemsToExport[i].get_sprite();
                     if (bmp == null)
@@ -542,13 +542,6 @@ namespace NEA_solution
             {
 
             }
-        }
-
-        private void btnTest_Click(object sender, EventArgs e)
-        {
-            CodeGenerator codeGenerator = new CodeGenerator();
-            string a = codeGenerator.generate_code("{\"blocks\":{\"languageVersion\":0,\"blocks\":[{\"type\":\"define_weapon_essential\",\"id\":\"XtFq8CZ)Kx{~uyc,`$=b\",\"x\":27,\"y\":0,\"fields\":{\"damage\":390,\"damageType\":\"Melee\",\"width\":32,\"height\":32,\"useTime\":15,\"useAnimation\":15,\"useStyle\":\"1\",\"knockback\":20,\"crit\":100,\"value\":32000,\"rare\":\"-12\",\"UseSound\":1,\"autoReuse\":true},\"next\":{\"block\":{\"type\":\"shoot_existing_ammo\",\"id\":\"$6@Ld(LC:aKj#zYA/r?0\",\"fields\":{\"ammo_type\":\"Rocket\",\"shoot_speed\":10},\"next\":{\"block\":{\"type\":\"change_class_stat\",\"id\":\".cEC`d2/8}O$#fMV^d;I\",\"fields\":{\"stat\":\"GetDamage\",\"class\":\"Melee\",\"value\":1000000}}}}}}]}}", "test", "test", "test");
-            MessageBox.Show(a);
         }
     }
 }

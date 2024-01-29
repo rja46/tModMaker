@@ -12,7 +12,7 @@ namespace NEA_solution
 {
     internal class CodeGenerator
     {
-        public string generate_code(string code, string modName, string itemName, string itemDisplayName)
+        public string generate_code(string code, string modName, string itemName, string itemDisplayName, string toolTip)
         {
             string blockType;
             string[] blocksAsStrings;
