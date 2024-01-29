@@ -52,4 +52,17 @@ namespace NEA_solution
     {
         public bool no_melee { get; set; }
     }
+
+    internal class shoot_existing_ammo : GenericBlock
+    {
+        public string ammo_type { get; set; }
+        public int shoot_speed { get; set; }
+    }
+
+    internal class change_class_stat : GenericBlock
+    {
+        public string stat { get; set; }
+        public string class_name { get; set; }
+        public int value { get; set; }
+    }
 }

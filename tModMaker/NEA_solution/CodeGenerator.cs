@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 using System.Windows.Forms;
+using System.Numerics;
 
 namespace NEA_solution
 {
@@ -16,6 +17,7 @@ namespace NEA_solution
             string blockType;
             string[] blocksAsStrings;
             string setDefaults = "Item.SetNameOverride(\"" + itemDisplayName + "\");";
+            string UpdateAccessory = "";
 
             string generatedCode = "using Terraria;" +
                 "\r\nusing Terraria.ID;" +
@@ -79,10 +81,25 @@ namespace NEA_solution
                         no_melee_block no_Melee_Block = JsonSerializer.Deserialize<no_melee_block>(blocksAsStrings[i]);
                         setDefaults += "\r\nItem.noMelee = " + no_Melee_Block.no_melee.ToString().ToLower() + ";";
                         break;
+
+                    case "shoot_existing_ammo":
+                        shoot_existing_ammo shoot_Existing_Ammo = JsonSerializer.Deserialize<shoot_existing_ammo>(blocksAsStrings[i]);
+                        setDefaults += "\r\nItem.shoot = 10;" + "\r\nItem.shootSpeed = " + shoot_Existing_Ammo.shoot_speed + ";" + "\r\nItem.useAmmo = AmmoID." + shoot_Existing_Ammo.ammo_type + ";";
+                        if (shoot_Existing_Ammo.ammo_type == "Rocket")
+                        {
+                            setDefaults += "\r\nItem.shoot = ProjectileID.RocketI;";
+                        }
+                        break;
+
+                    case "change_class_stat":
+                        change_class_stat change_Class_Stat = JsonSerializer.Deserialize<change_class_stat>(blocksAsStrings[i]);
+                        UpdateAccessory += "player." + change_Class_Stat.stat + "(DamageClass." + change_Class_Stat.class_name + ") += " + change_Class_Stat.value + ";";
+                        setDefaults += "\r\nItem.accessory = true;";
+                        break;
                 }
             }
 
-            generatedCode += "\r\npublic override void SetDefaults()\r\n{\r\n" + setDefaults + "\r\n}";
+            generatedCode += "\r\npublic override void SetDefaults()\r\n{\r\n" + setDefaults + "\r\n}" + "\r\npublic override void UpdateAccessory(Player player, bool hideVisual)\r\n{\r\n" + UpdateAccessory + "\r\n}\r\n}\r\n}";
             return generatedCode;
         }
 

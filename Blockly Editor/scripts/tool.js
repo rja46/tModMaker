@@ -32,10 +32,11 @@ function loadData(theData){
       "name": "Basic",
 	  "colour": 230,
       "contents": [
-        {
-          "kind": "block",
-          "type": "define_weapon_essential"
-        },
+        		{
+		  "kind": "block",
+		  "type": "define_item"
+		},
+
       ]
     },
 	{
@@ -112,7 +113,7 @@ function loadData(theData){
 Blockly.common.defineBlocksWithJsonArray([
 {
   "type": "define_weapon_essential",
-  "message0": "Damage: %1 %2 Damage Type %3 %4 Width: %5 Height: %6 %7 Use Time: %8 %9 Animation Time: %10 %11 Use Style: %12 %13 Knockback: %14 %15 Crit Chance: %16 %17 Value: %18 %19 Rarity: %20 %21 Sound ID: %22 %23 Auto Reuse: %24",
+  "message0": "Damage: %1 %2 Damage Type %3 %4 Use Time: %5 %6 Animation Time: %7 %8 Use Style: %9 %10 Knockback: %11 %12 Crit Chance %13",
   "args0": [
     {
       "type": "field_number",
@@ -154,24 +155,8 @@ Blockly.common.defineBlocksWithJsonArray([
     },
     {
       "type": "field_number",
-      "name": "width",
-      "value": 0,
-      "min": 0
-    },
-    {
-      "type": "field_number",
-      "name": "height",
-      "value": 0,
-      "min": 0
-    },
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "field_number",
       "name": "useTime",
-      "value": 1,
-	  "min": 1
+      "value": 0
     },
     {
       "type": "input_dummy"
@@ -179,8 +164,7 @@ Blockly.common.defineBlocksWithJsonArray([
     {
       "type": "field_number",
       "name": "useAnimation",
-      "value": 1,
-	  "min": 1
+      "value": 0
     },
     {
       "type": "input_dummy"
@@ -268,6 +252,47 @@ Blockly.common.defineBlocksWithJsonArray([
       "value": 0,
       "min": 0
     },
+	{
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_number",
+      "name": "UseSound",
+      "value": 0,
+      "min": 0,
+      "max": 172
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_checkbox",
+      "name": "autoReuse",
+      "checked": true
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 230,
+  "tooltip": "Define a basic weapon",
+  "helpUrl": "no"
+},
+{
+  "type": "define_item",
+  "message0": "Width: %1 Height: %2 %3 Value %4 %5 Rarity %6",
+  "args0": [
+    {
+      "type": "field_number",
+      "name": "width",
+      "value": 0,
+      "min": 0
+    },
+    {
+      "type": "field_number",
+      "name": "height",
+      "value": 0,
+      "min": 0
+    },
     {
       "type": "input_dummy"
     },
@@ -348,26 +373,9 @@ Blockly.common.defineBlocksWithJsonArray([
           "-11"
         ]
       ]
-    },
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "field_number",
-      "name": "UseSound",
-      "value": 1,
-      "min": 1,
-      "max": 172
-    },
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "field_checkbox",
-      "name": "autoReuse",
-      "checked": true
     }
   ],
+  "previousStatement": null,
   "nextStatement": null,
   "colour": 230,
   "tooltip": "Define a basic weapon",
@@ -390,6 +398,7 @@ Blockly.common.defineBlocksWithJsonArray([
   "tooltip": "Defines the item's power as a pickaxe",
   "helpUrl": ""
 },
+
 {
   "type": "axe_power",
   "message0": "Axe power:  %1",
@@ -563,7 +572,7 @@ Blockly.common.defineBlocksWithJsonArray([
     },
     {
       "type": "field_dropdown",
-      "name": "class",
+      "name": "class_name",
       "options": [
         [
           "Melee",
@@ -641,40 +650,5 @@ javascript.javascriptGenerator.forBlock['use_mana'] = function(block, generator)
   var checkbox_usemana = block.getFieldValue('useMana') === 'TRUE';
   // TODO: Assemble javascript into code variable.
   var code = 'use_mana';
-  return code;
-};
-
-javascript.javascriptGenerator.forBlock['use_ammo'] = function(block, generator) {
-  var text_ammoname = block.getFieldValue('ammoName');
-  // TODO: Assemble javascript into code variable.
-  var code = 'use_ammo';
-  return code;
-};
-
-javascript.javascriptGenerator.forBlock['no_melee'] = function(block, generator) {
-  var checkbox_noMelee = block.getFieldValue('no_melee') === 'TRUE';
-  // TODO: Assemble javascript into code variable.
-  var code = 'Item.noMelee = ' + checkbox_noMelee + ';';
-  return code;
-};
-
-javascript.javascriptGenerator.forBlock['shoot_existing_ammo'] = function(block, generator) {
-  var dropdown_ammo_type = block.getFieldValue('ammo_type');
-  var number_shoot_speed = block.getFieldValue('shoot_speed');
-  // TODO: Assemble javascript into code variable.
-  var code = 'Item.shoot = 10;' + 'Item.shootSpeed = ' + number_shoot_speed + ';' + 'Item.useAmmo = AmmoID.' + dropdown_ammo_type + ';';
-  //??????
-  if (dropdown_ammo_type == 'Rocket'){
-	code += 'Item.shoot = ProjectileID.RocketI;';
-  }
-  return code;
-};
-
-javascript.javascriptGenerator.forBlock['change_class_stat'] = function(block, generator) {
-  var dropdown_stat = block.getFieldValue('stat');
-  var dropdown_class = block.getFieldValue('class');
-  var number_value = block.getFieldValue('value');
-  // TODO: Assemble javascript into code variable.
-  var code = 'public override void UpdateAccessory(Player player, bool hideVisual) {' + 'player.' + dropdown_stat + '(DamageClass.' + dropdown_class + ') +=' + number_value + '};';
   return code;
 };
