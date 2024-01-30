@@ -104,15 +104,18 @@ namespace NEA_solution
                 e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
                 if (theItem.get_sprite() != null)
                 {
-                    int height = theItem.get_sprite().Height;
-                    int width = theItem.get_sprite().Width;
+                    double picBoxWidth = pbSprite.Width;
+                    double picBoxHeight = pbSprite.Height;
+                    double height = theItem.get_sprite().Height;
+                    double width = theItem.get_sprite().Width;
                     if (height > width)
                     {
-                        e.Graphics.DrawImage(theImage, 0, 0, pbSprite.Height / height * width, pbSprite.Height);
+                        e.Graphics.DrawImage(theImage, (int)(picBoxWidth - (picBoxHeight / height * width)) / 2, 0, (int)(picBoxHeight / height * width), (int)(picBoxHeight));
+                        Console.WriteLine("{0}, {1}, {2}",pbSprite.Height, height, width);
                     }
                     else if (height < width)
                     {
-                        e.Graphics.DrawImage(theImage, 0, pbSprite.Height/2 - height, pbSprite.Width, pbSprite.Width / width * height);
+                        e.Graphics.DrawImage(theImage, 0, (int)(picBoxHeight - (picBoxWidth / width * height)) / 2, (int)picBoxWidth, (int)(picBoxWidth / width * height));
                     }
                     else
                     {

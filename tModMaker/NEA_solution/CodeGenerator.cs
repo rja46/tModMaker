@@ -18,6 +18,7 @@ namespace NEA_solution
             string[] blocksAsStrings;
             string setDefaults = "Item.SetNameOverride(\"" + itemDisplayName + "\");";
             string UpdateAccessory = "";
+            bool isEquipable = false;
 
             string generatedCode = "using Terraria;" +
                 "\r\nusing Terraria.ID;" +
@@ -98,7 +99,7 @@ namespace NEA_solution
                     case "change_class_stat":
                         change_class_stat change_Class_Stat = JsonSerializer.Deserialize<change_class_stat>(blocksAsStrings[i]);
                         UpdateAccessory += "player." + change_Class_Stat.stat + "(DamageClass." + change_Class_Stat.class_name + ") += " + change_Class_Stat.value + ";";
-                        setDefaults += "\r\nItem.accessory = true;";
+                        isEquipable = true;
                         break;
 
                     case "use_mana":
@@ -109,21 +110,26 @@ namespace NEA_solution
                     case "increase_life":
                         increase_life increase_Life = JsonSerializer.Deserialize<increase_life>(blocksAsStrings[i]);
                         UpdateAccessory += "\r\nplayer.statLifeMax2 += " + increase_Life.life + ";";
-                        setDefaults += "\r\nItem.accessory = true;";
+                        isEquipable = true;
                         break;
 
                     case "increase_move_speed":
                         increase_move_speed increase_Move_Speed = JsonSerializer.Deserialize<increase_move_speed>(blocksAsStrings[i]);
                         UpdateAccessory += "\r\nplayer.moveSpeed += " + increase_Move_Speed.value + "f;";
-                        setDefaults += "\r\nItem.accessory = true;";
+                        isEquipable = true;
                         break;
 
                     case "grant_ability":
                         grant_ability grant_Ability = JsonSerializer.Deserialize<grant_ability>(blocksAsStrings[i]);
                         UpdateAccessory += "\r\nplayer." + grant_Ability.ability + " = true;";
-                        setDefaults += "\r\nItem.accessory = true;";
+                        isEquipable = true;
                         break;
                 }
+            }
+
+            if (isEquipable)
+            {
+                setDefaults += "\r\nItem.accessory = true;";
             }
 
             generatedCode += "\r\npublic override void SetDefaults()\r\n{\r\n" + setDefaults + "\r\n}" + "\r\npublic override void UpdateAccessory(Player player, bool hideVisual)\r\n{\r\n" + UpdateAccessory + "\r\n}\r\n}\r\n}";
