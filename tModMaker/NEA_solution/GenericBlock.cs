@@ -32,19 +32,10 @@ namespace NEA_solution
         public bool autoReuse { get; set; }
     }
 
-    internal class pick_power : GenericBlock
+    internal class tool_power : GenericBlock
     {
-        public int pick { get; set; }
-    }
-
-    internal class axe_power : GenericBlock
-    {
-        public int axe { get; set;}
-    }
-
-    internal class hammer_power : GenericBlock
-    { 
-        public int hammer { get; set;}
+        public string tool_type { get; set; }
+        public int power { get; set; }
     }
 
     internal class is_consumable : GenericBlock

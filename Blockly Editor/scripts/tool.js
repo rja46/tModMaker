@@ -49,19 +49,7 @@ function loadData(theData){
       "contents": [
         {
           "kind": "block",
-          "type": "pick_power"
-        },
-		{
-          "kind": "block",
-          "type": "axe_power"
-        },
-		{
-          "kind": "block",
-          "type": "hammer_power"
-        },
-		{
-          "kind": "block",
-          "type": "fishing_power"
+          "type": "tool_power"
         },
       ]
     },
@@ -396,72 +384,42 @@ Blockly.common.defineBlocksWithJsonArray([
   "helpUrl": "no"
 },
 {
-  "type": "pick_power",
-  "message0": "Pickaxe power:  %1",
+  "type": "tool_power",
+  "message0": "Set %2 power to %1",
   "args0": [
-    {
-      "type": "field_number",
-      "name": "pick",
-      "value": 0,
-      "min": 0
+      {
+          "type": "field_number",
+          "name": "power",
+          "value": 0,
+          "min": 0
+      },
+      {
+          "type": "field_dropdown",
+          "name": "tool_type",
+          "options": [
+              [
+                  "pickaxe",
+                  "pick"
+              ],
+              [
+                  "axe",
+                  "axe"
+              ],
+              [
+                  "hammer",
+                  "hammer"
+              ],
+              [
+                  "fishing",
+                  "fishing"
+              ],
+          ]
     }
   ],
   "previousStatement": null,
   "nextStatement": null,
   "colour": 60,
-  "tooltip": "Defines the item's power as a pickaxe",
-  "helpUrl": ""
-},
-
-{
-  "type": "axe_power",
-  "message0": "Axe power:  %1",
-  "args0": [
-    {
-      "type": "field_number",
-      "name": "axe",
-      "value": 0,
-      "min": 0
-    }
-  ],
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": 60,
-  "tooltip": "Defines the item's power as an axe",
-  "helpUrl": ""
-},
-{
-  "type": "hammer_power",
-  "message0": "Hammer power:  %1",
-  "args0": [
-    {
-      "type": "field_number",
-      "name": "hammer",
-      "value": 0,
-      "min": 0
-    }
-  ],
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": 60,
-  "tooltip": "Defines the item's power as a hammer",
-  "helpUrl": ""
-},
-{
-  "type": "fishing_power",
-  "message0": "Fishing power:  %1",
-  "args0": [
-    {
-      "type": "field_number",
-      "name": "NAME",
-      "value": 0,
-      "min": 0
-    }
-  ],
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": 60,
-  "tooltip": "Defines the item's power as a fishing rod",
+  "tooltip": "Defines the item's power as a tool",
   "helpUrl": ""
 },
 {

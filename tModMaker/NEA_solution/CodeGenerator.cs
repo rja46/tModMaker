@@ -57,23 +57,9 @@ namespace NEA_solution
 
                         break;
 
-                    case "pick_power":
-                        pick_power pick_Power = JsonSerializer.Deserialize<pick_power>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.pick = " + pick_Power.pick + ";";
-                        break;
-
-                    case "axe_power":
-                        axe_power axe_Power = JsonSerializer.Deserialize<axe_power>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.axe = " + axe_Power.axe + ";";
-                        break;
-
-                    case "hammer_power":
-                        hammer_power hammer_Power = JsonSerializer.Deserialize<hammer_power>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.hammer = " + hammer_Power.hammer + ";";
-                        break;
-
-                    case "fishing_power":
-                        //this needs a class implementation
+                    case "tool_power":
+                        tool_power tool_Power = JsonSerializer.Deserialize<tool_power>(blocksAsStrings[i]);
+                        setDefaults += "\r\nItem." + tool_Power.tool_type + " = " + tool_Power.power + ";";
                         break;
 
                     case "is_consumable":
@@ -171,8 +157,9 @@ namespace NEA_solution
 
                 if (reader.Contains("}") && reading)
                 {
+                    Console.WriteLine(count);
                     reading = false;
-                    blocksList[count] += (reader);
+                    blocksList[count] += reader;
                     count++;
                 }
             }
