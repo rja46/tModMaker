@@ -11,6 +11,27 @@ const code = 'public override void SetDefaults() {' + JSON.stringify(Blockly.Jav
 
 }
 
+function changeThemeDefault() {
+    workspace.dispose();
+    workspace = Blockly.inject('blocklyDiv', {
+        toolbox: toolbox,
+        scrollbars: false,
+        horizontalLayout: false,
+        toolboxPosition: "left",
+    });
+}
+
+function changeThemeDark() {
+    workspace.dispose();
+    workspace = Blockly.inject('blocklyDiv', {
+        toolbox: toolbox,
+        scrollbars: false,
+        horizontalLayout: false,
+        toolboxPosition: "left",
+        theme: dark,
+    });
+}
+
 function clear(){
 	workspace.clear();
 }
@@ -694,23 +715,29 @@ Blockly.common.defineBlocksWithJsonArray([
   "helpUrl": ""
 }]);
 
- workspace = Blockly.inject('blocklyDiv', {
-  toolbox: toolbox,
-  scrollbars: false,
-  horizontalLayout: false,
-  toolboxPosition: "left",
+var dark = Blockly.Theme.defineTheme('dark', {
+
+    base: Blockly.Themes.Classic,
+
+    componentStyles: {
+        workspaceBackgroundColour: '#1e1e1e',
+        toolboxBackgroundColour: 'blackBackground',
+        toolboxForegroundColour: '#fff',
+        flyoutBackgroundColour: '#252526',
+        flyoutForegroundColour: '#ccc',
+        flyoutOpacity: 1,
+        scrollbarColour: '#797979',
+        insertionMarkerColour: '#fff',
+        insertionMarkerOpacity: 0.3,
+        scrollbarOpacity: 0.4,
+        cursorColour: '#d0d0d0',
+        blackBackground: '#333',
+    },
 });
 
-javascript.javascriptGenerator.forBlock['fishing_power'] = function(block, generator) {
-  var number_name = block.getFieldValue('NAME');
-  // TODO: Assemble javascript into code variable.
-  var code = 'fishing_power';
-  return code;
-};
-
-javascript.javascriptGenerator.forBlock['is_boomerang'] = function(block, generator) {
-  var checkbox_isboomerang = block.getFieldValue('isBoomerang') === 'TRUE';
-  // TODO: Assemble javascript into code variable.
-  var code = 'is_boomerang';
-  return code;
-};
+workspace = Blockly.inject('blocklyDiv', {
+    toolbox: toolbox,
+    scrollbars: false,
+    horizontalLayout: false,
+    toolboxPosition: "left",
+});

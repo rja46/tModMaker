@@ -50,6 +50,7 @@
             this.tbNew = new System.Windows.Forms.ToolStripButton();
             this.tbOpen = new System.Windows.Forms.ToolStripButton();
             this.tbSave = new System.Windows.Forms.ToolStripButton();
+            this.cb_theme = new System.Windows.Forms.CheckBox();
             this.msMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.stsBottom.SuspendLayout();
@@ -70,10 +71,11 @@
             // lbItems
             // 
             this.lbItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbItems.FormattingEnabled = true;
             this.lbItems.Location = new System.Drawing.Point(3, 4);
             this.lbItems.Name = "lbItems";
-            this.lbItems.Size = new System.Drawing.Size(156, 342);
+            this.lbItems.Size = new System.Drawing.Size(156, 325);
             this.lbItems.TabIndex = 7;
             this.lbItems.SelectedIndexChanged += new System.EventHandler(this.lbItems_SelectedIndexChanged);
             this.lbItems.DoubleClick += new System.EventHandler(this.lbItems_DoubleClick);
@@ -81,6 +83,7 @@
             // btnDeleteItem
             // 
             this.btnDeleteItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnDeleteItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnDeleteItem.Location = new System.Drawing.Point(84, 350);
             this.btnDeleteItem.Name = "btnDeleteItem";
             this.btnDeleteItem.Size = new System.Drawing.Size(75, 23);
@@ -251,11 +254,24 @@
             this.tbSave.ToolTipText = "Save";
             this.tbSave.Click += new System.EventHandler(this.tbSave_Click);
             // 
+            // cb_theme
+            // 
+            this.cb_theme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_theme.AutoSize = true;
+            this.cb_theme.Location = new System.Drawing.Point(703, 33);
+            this.cb_theme.Name = "cb_theme";
+            this.cb_theme.Size = new System.Drawing.Size(79, 17);
+            this.cb_theme.TabIndex = 17;
+            this.cb_theme.Text = "Dark Mode";
+            this.cb_theme.UseVisualStyleBackColor = true;
+            this.cb_theme.CheckStateChanged += new System.EventHandler(this.cb_theme_CheckStateChanged);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cb_theme);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pnlItem);
             this.Controls.Add(this.stsBottom);
@@ -299,6 +315,7 @@
         private System.Windows.Forms.ToolStripButton tbSave;
         private System.Windows.Forms.ToolStripButton tbOpen;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.CheckBox cb_theme;
     }
 }
 

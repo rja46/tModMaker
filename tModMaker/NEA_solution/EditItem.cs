@@ -166,5 +166,15 @@ namespace NEA_solution
             txtTooltip.Enabled = true;
             wvCode.Enabled = true;
         }
+
+        public async void changeThemeDark()
+        {
+            await wvCode.ExecuteScriptAsync("changeThemeDark()");
+        }
+
+        public async void changeThemeDefault()
+        {
+            await wvCode.ExecuteScriptAsync("changeThemeDefault()");
+        }
     }
 }

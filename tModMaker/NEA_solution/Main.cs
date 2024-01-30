@@ -543,5 +543,32 @@ namespace NEA_solution
 
             }
         }
+
+        private void cb_theme_CheckStateChanged(object sender, EventArgs e)
+        {
+            Color grey = Color.FromArgb(56, 56, 56);
+            if (cb_theme.Checked)
+            {
+                editItem.changeThemeDark();
+
+                cb_theme.BackColor = Color.White;
+
+                BackColor = Color.Black;
+
+                lbItems.BackColor = grey;
+                lbItems.ForeColor = Color.White;
+            }
+            else
+            {
+                editItem.changeThemeDefault();
+
+                cb_theme.BackColor = Color.Black;
+
+                BackColor = Color.White;
+
+                lbItems.BackColor = Color.White;
+                lbItems.ForeColor = Color.Black;
+            }
+        }
     }
 }
