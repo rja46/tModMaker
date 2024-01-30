@@ -205,7 +205,6 @@
             this.pnlItem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlItem.Location = new System.Drawing.Point(12, 56);
             this.pnlItem.Name = "pnlItem";
             this.pnlItem.Size = new System.Drawing.Size(606, 369);

@@ -169,12 +169,26 @@ namespace NEA_solution
 
         public async void changeThemeDark()
         {
+            Color grey = Color.FromArgb(56, 56, 56);
+
             await wvCode.ExecuteScriptAsync("changeThemeDark()");
+            BackColor = Color.Black;
+            lblDisplayName.ForeColor = Color.White;
+            lblTooltip.ForeColor = Color.White;
+            lblType.ForeColor = Color.White;
+            btnChangeSprite.BackColor = grey;
+            btnChangeSprite.ForeColor = Color.White;
         }
 
         public async void changeThemeDefault()
         {
             await wvCode.ExecuteScriptAsync("changeThemeDefault()");
+            BackColor = SystemColors.Control;
+            lblDisplayName.ForeColor = Color.Black;
+            lblTooltip.ForeColor = Color.Black;
+            lblType.ForeColor = Color.Black;
+            btnChangeSprite.BackColor = Color.White;
+            btnChangeSprite.ForeColor = Color.Black;
         }
     }
 }

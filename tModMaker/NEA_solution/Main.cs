@@ -564,7 +564,7 @@ namespace NEA_solution
 
                 cb_theme.BackColor = Color.Black;
 
-                BackColor = Color.White;
+                BackColor = SystemColors.Control;
 
                 lbItems.BackColor = Color.White;
                 lbItems.ForeColor = Color.Black;

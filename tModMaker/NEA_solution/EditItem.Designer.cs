@@ -85,6 +85,7 @@
             // 
             this.txtTooltip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtTooltip.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTooltip.Location = new System.Drawing.Point(47, 252);
             this.txtTooltip.Multiline = true;
             this.txtTooltip.Name = "txtTooltip";
@@ -93,9 +94,10 @@
             // 
             // txtDisplayName
             // 
+            this.txtDisplayName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDisplayName.Location = new System.Drawing.Point(47, 199);
             this.txtDisplayName.Name = "txtDisplayName";
-            this.txtDisplayName.Size = new System.Drawing.Size(190, 20);
+            this.txtDisplayName.Size = new System.Drawing.Size(190, 13);
             this.txtDisplayName.TabIndex = 12;
             // 
             // lblDisplayName
