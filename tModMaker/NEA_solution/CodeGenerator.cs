@@ -63,13 +63,11 @@ namespace NEA_solution
                         break;
 
                     case "is_consumable":
-                        is_consumable is_Consumable = JsonSerializer.Deserialize<is_consumable>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.consumable = " + is_Consumable.isConsumable.ToString().ToLower() + ";";
+                        setDefaults += "\r\nItem.consumable = true;";
                         break;
 
                     case "no_melee":
-                        no_melee_block no_Melee_Block = JsonSerializer.Deserialize<no_melee_block>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.noMelee = " + no_Melee_Block.no_melee.ToString().ToLower() + ";";
+                        setDefaults += "\r\nItem.noMelee = true;";
                         break;
 
                     case "shoot_existing_ammo":

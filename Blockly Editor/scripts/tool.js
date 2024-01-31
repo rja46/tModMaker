@@ -461,7 +461,7 @@ Blockly.common.defineBlocksWithJsonArray([
 },
 {
   "type": "use_mana",
-  "message0": "Use mana:  %1",
+  "message0": "Consume %1 mana per use",
   "args0": [
     {
       "type": "field_number",
@@ -477,14 +477,7 @@ Blockly.common.defineBlocksWithJsonArray([
 },
 {
   "type": "no_melee",
-  "message0": "No melee:  %1",
-  "args0": [
-    {
-      "type": "field_checkbox",
-      "name": "no_melee",
-      "checked": true
-    }
-  ],
+  "message0": "Nullify contact damage",
   "previousStatement": null,
   "nextStatement": null,
   "colour": 120,
@@ -493,32 +486,29 @@ Blockly.common.defineBlocksWithJsonArray([
 },
 {
   "type": "shoot_existing_ammo",
-  "message0": "Ammo Type:  %1 %2 Shoot Speed:  %3",
+  "message0": "Fire %1 with %2 additional velocity",
   "args0": [
     {
       "type": "field_dropdown",
       "name": "ammo_type",
       "options": [
         [
-          "Bullet",
+          "bullets",
           "Bullet"
         ],
         [
-          "Arrow",
+          "arrows",
           "Arrow"
         ],
         [
-          "Rocket",
+          "rockets",
           "Rocket"
         ],
         [
-          "Dart",
+          "darts",
           "Dart"
         ]
       ]
-    },
-    {
-      "type": "input_dummy"
     },
     {
       "type": "field_number",
@@ -700,14 +690,7 @@ Blockly.common.defineBlocksWithJsonArray([
 },
 {
   "type": "is_consumable",
-  "message0": "Is consumable:  %1",
-  "args0": [
-    {
-      "type": "field_checkbox",
-      "name": "isConsumable",
-      "checked": true
-    }
-  ],
+  "message0": "Consume on use",
   "previousStatement": null,
   "nextStatement": null,
   "colour": 120,

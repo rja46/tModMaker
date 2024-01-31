@@ -176,8 +176,11 @@ namespace NEA_solution
             lblDisplayName.ForeColor = Color.White;
             lblTooltip.ForeColor = Color.White;
             lblType.ForeColor = Color.White;
-            btnChangeSprite.BackColor = grey;
-            btnChangeSprite.ForeColor = Color.White;
+            txtDisplayName.BackColor = grey;
+            txtDisplayName.ForeColor = Color.White;
+            txtTooltip.BackColor = grey;
+            txtTooltip.ForeColor = Color.White;
+            wvCode.DefaultBackgroundColor = grey;
         }
 
         public async void changeThemeDefault()
@@ -187,8 +190,11 @@ namespace NEA_solution
             lblDisplayName.ForeColor = Color.Black;
             lblTooltip.ForeColor = Color.Black;
             lblType.ForeColor = Color.Black;
-            btnChangeSprite.BackColor = Color.White;
-            btnChangeSprite.ForeColor = Color.Black;
+            txtDisplayName.BackColor = SystemColors.Control;
+            txtDisplayName.ForeColor = Color.Black ;
+            txtTooltip.BackColor = SystemColors.Control;
+            txtTooltip.ForeColor = Color.Black ;
+            wvCode.DefaultBackgroundColor = Color.White;
         }
     }
 }

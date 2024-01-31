@@ -38,16 +38,6 @@ namespace NEA_solution
         public int power { get; set; }
     }
 
-    internal class is_consumable : GenericBlock
-    {
-        public bool isConsumable { get; set; }
-    }
-
-    internal class no_melee_block : GenericBlock
-    {
-        public bool no_melee { get; set; }
-    }
-
     internal class shoot_existing_ammo : GenericBlock
     {
         public string ammo_type { get; set; }
