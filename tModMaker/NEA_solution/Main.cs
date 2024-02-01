@@ -274,22 +274,22 @@ namespace NEA_solution
                         lbItems.Items.Clear();
                         for (int i = 0; i < existingItems.Length; i++)
                         {
-                            //the contents of each path in the array are read
+                            //The contents of each path in the array are read.
                             tmpFile = File.ReadAllText(existingItems[i]);
 
-                            //the details are split by the dividing symbol
+                            //The details are split by the dividing symbol.
                             tmpProperties = tmpFile.Split('|');
                             
-                            //the properties in the array created are used to assemble the item
+                            //The properties in the array created are used to assemble the item.
                             currentItem = new Item(tmpProperties[0], tmpProperties[3]);
                             currentItem.set_display_name(tmpProperties[1]);
                             currentItem.set_tooltip(tmpProperties[2]);
                             currentItem.set_code(File.ReadAllText(existingCode[i]));
 
                             /*
-                            sprites are assigned to their item by sharing a file name,
-                            so this checks if a sprite corresponds to the item that has been loaded
-                            */
+                             * Sprites are assigned to their item by sharing a file name,
+                             * so this checks if a sprite corresponds to the item that has been loaded.
+                             */
                             for (int j = 0; j < existingSprites.Length; j++)
                             {
                                 if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + ".png" == existingSprites[j])
@@ -299,13 +299,13 @@ namespace NEA_solution
                                     fileHandler.Close();
                                 }
                             }
-                            //the item is added to the list, then the displayed list is updated
+                            //The item is added to the list, then the displayed list is updated.
                             loadedMod.add_item(currentItem);
                             update_item_list();
                         }
                     }
                 }
-                //this is triggered if the directory does not have the right structure
+                //This is reached if the directory does not have the right structure.
                 else
                 {
                     MessageBox.Show("Please select a valid folder");
@@ -315,7 +315,7 @@ namespace NEA_solution
 
         private void modDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //this opens a dialog where the user can edit the details of the mod
+            //This opens a dialog where the user can edit the details of the mod.
             EditDetailsDialog editDetailsDialog = new EditDetailsDialog(loadedMod.get_name(), loadedMod.get_author(), loadedMod.get_description());
             DialogResult result = editDetailsDialog.ShowDialog();
             if (result == DialogResult.OK)
@@ -329,17 +329,17 @@ namespace NEA_solution
 
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {
-            //a confirmation dialog will appear
+            //A confirmation dialog will appear.
             DialogResult result = MessageBox.Show("Are you sure?", "Confirm action", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                //this ensures they have selected a valid item to delete
+                //This ensures they have selected a valid item to delete.
                 if (lbItems.SelectedIndex != -1)
                 {
                     /*
-                    a list one shorter than the current one is created,
-                     and every item except the deleted one is written to it
-                    */
+                     * A list one shorter than the current one is created,
+                     * and every item except the deleted one is written to it.s
+                     */
                     Item[] tmpItems = new Item[loadedMod.get_item_number() - 1];
                     int indexToDelete = lbItems.SelectedIndex;
                     int count = 0;
@@ -351,7 +351,7 @@ namespace NEA_solution
                             count++;
                         }
                     }
-                    //the files for the item are deleted, and the list of items is overwritten
+                    //The files for the item are deleted, and the list of items is overwritten.
                     File.Delete(loadedMod.get_modPath() + "\\Items\\" + loadedItem.get_name() + ".item");
                     File.Delete(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedItem.get_name() + "_code.code");
                     loadedMod.set_items(tmpItems);
@@ -372,17 +372,17 @@ namespace NEA_solution
 
         private void new_project()
         {
-            //a confirmation dialog will appear
+            //A confirmation dialog will appear.
             DialogResult result = MessageBox.Show("Are you sure? Unsaved work will be lost.", "Confirm action", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (result == DialogResult.OK)
             {
-                //a blank mod is created
+                //A blank mod is created.
                 loadedMod = new Mod("", "");
                 editItem.displayItem(new Item("", ""));
                 editItem.clearBlockly();
                 editItem.lock_controls();
                 
-                //the ui is reset
+                //The ui is reset.
                 update_item_list();
                 update_loaded_item(-1);
             }
@@ -400,14 +400,13 @@ namespace NEA_solution
             string[] modDetailsSplit;
             string[] existingFiles;
             
-            //this opens a folder browser for the user to select the folder
             FolderBrowserDialog folderDialog = new FolderBrowserDialog();
             DialogResult result = folderDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
                 existingFiles = Directory.GetFiles(folderDialog.SelectedPath);
 
-                //ensures that the is only one directory (\\Items) in the directory selected
+                //This ensures the directory is the correct structure.
                 if (existingFiles.Length != 1)
                 {
                     MessageBox.Show("Please select a valid folder");
@@ -415,8 +414,7 @@ namespace NEA_solution
                 }   
                 else
                 {
-                    //loads the details for the mod from the folder
-                    //pnlItem.Controls.Clear();
+                    //The details of the mod are loaded for the files.
                     modDetails = File.ReadAllText(existingFiles[0]);
                     modDetailsSplit = modDetails.Split('|');
                     theMod = new Mod(modDetailsSplit[0], folderDialog.SelectedPath);
@@ -428,7 +426,7 @@ namespace NEA_solution
                     editItem.clearBlockly();
                     editItem.lock_controls();
                 }
-                //calls the procedure to load the items
+                //The procedure to load the items is called.
                 load_items_for_mod();
             }
         }
@@ -447,7 +445,7 @@ namespace NEA_solution
             }
         }
 
-        private async void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CodeGenerator codeGenerator = new CodeGenerator();
             string path;
@@ -459,23 +457,22 @@ namespace NEA_solution
                 hasExportPath = true;
             }
             else { hasExportPath = false; }
-            //get path for output
+            //This checks for the export directory being set. If not, the user is prompted to set one.
             //validate if the mod is going to overwrite the editable files: do they have the same name.
             if (hasExportPath)
             {
                 path = File.ReadAllText(Environment.CurrentDirectory + "\\userConfig.txt") + "\\" + loadedMod.get_name();
                 
-                //create an array of the items
+                //An array is created containing all the items to export.
                 Item[] itemsToExport = new Item[loadedMod.get_item_number()];
                 for (int i = 0; i < itemsToExport.Length; i++)
                 {
                     itemsToExport[i] = loadedMod.get_item(i);
                 }
 
-                //create the necessary directories
+                //The necessary directories are created.
                 Directory.CreateDirectory(path);
                 Directory.CreateDirectory(path + "\\Items");
-                //need to get the files for these 2
                 Directory.CreateDirectory(path + "\\Localization");
                 Directory.CreateDirectory(path + "\\Properties");
 
@@ -487,7 +484,10 @@ namespace NEA_solution
 
                 File.WriteAllText(path + "\\" + loadedMod.get_name() + ".csproj", File.ReadAllText(@"projectConfig.txt"));
 
-                //save code and sprite for each item
+                /*
+                 * The code is generated by the code generator, then the correctly named code and sprite
+                 * are saved to the export directory.
+                 */
                 Bitmap bmp;
                 for (int i = 0; i < itemsToExport.Length; i++)
                 {
@@ -519,19 +519,13 @@ namespace NEA_solution
                     MessageBox.Show(tmpString);
                 }
 
-                await Console.Out.WriteLineAsync("done exporting");
+                MessageBox.Show("Export complete");
             }
             else
             {
                 MessageBox.Show("Please set an export directory in Edit>Settings");
             }
 
-        }
-
-        private void wvCodeGetter_WebMessageReceived(object sender, Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs e)
-        {
-            tmpCodeFromBlockly = e.TryGetWebMessageAsString();
-            returned = true;
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)

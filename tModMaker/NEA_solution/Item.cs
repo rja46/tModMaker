@@ -19,6 +19,7 @@ namespace NEA_solution
 
         public Item(string name, string type)
         {
+            //The spaces in the name must be replaced with underscores to make it a valid class name.
             this.name = name.Replace('\u0020', '_');
             this.type = type;
             displayName = name;
