@@ -108,6 +108,20 @@ namespace NEA_solution
                         UpdateAccessory += "\r\nplayer." + grant_Ability.ability + " = true;";
                         isEquipable = true;
                         break;
+
+                    case "change_player_stat":
+                        //meleeSpeed does not work
+                        change_player_stat change_Player_Stat = JsonSerializer.Deserialize<change_player_stat>(blocksAsStrings[i]);
+                        UpdateAccessory += "\r\nplayer." + change_Player_Stat.stat + " += " + change_Player_Stat.value + ";";
+                        isEquipable = true;
+                        break;
+
+                    case "set_player_stat":
+                        //defence doesnt work
+                        set_player_stat set_Player_Stat = JsonSerializer.Deserialize<set_player_stat>(blocksAsStrings[i]);
+                        UpdateAccessory += "\r\nplayer." + set_Player_Stat.stat + " = " + set_Player_Stat.value + ";";
+                        isEquipable = true;
+                        break;
                 }
             }
 

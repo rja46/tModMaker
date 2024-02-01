@@ -70,4 +70,16 @@ namespace NEA_solution
     {
         public string ability { get; set; }
     }
+
+    internal class change_player_stat : GenericBlock
+    {
+        public string stat { get; set; }
+        public int value { get; set; }
+    }
+
+    internal class set_player_stat : GenericBlock
+    {
+        public string stat { get; set; }
+        public int value { get; set; }
+    }
 }

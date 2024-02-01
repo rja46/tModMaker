@@ -557,8 +557,6 @@ namespace NEA_solution
                 lbItems.ForeColor = Color.White;
 
                 cb_theme.ForeColor = Color.White;
-
-                toolStrip1.BackColor = Color.Black;
             }
             else
             {

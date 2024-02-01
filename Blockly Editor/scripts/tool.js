@@ -119,15 +119,15 @@ function loadData(theData){
 		},
         {
             "kind": "block",
-            "type": "increase_life"
-        },
-        {
-            "kind": "block",
-            "type": "increase_move_speed"
-        },
-        {
-            "kind": "block",
             "type": "grant_ability"
+        },
+        {
+            "kind": "block",
+            "type": "change_player_stat"
+        },
+        {
+            "kind": "block",
+            "type": "set_player_stat"
         }
 		]
 	},
@@ -592,38 +592,6 @@ Blockly.common.defineBlocksWithJsonArray([
   "helpUrl": ""
 },
 {
-    "type": "increase_life",
-    "message0": "Increase life by %1",
-    "args0": [
-        {
-            "type": "field_number",
-            "name": "life",
-            "value": 0,
-        }
-    ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": 330,
-    "tooltip": "Increase the player's maximum life.",
-    "helpUrl": ""
-},
-{
-    "type": "increase_move_speed",
-    "message0": "Increase move speed by %1",
-    "args0": [
-        {
-            "type": "field_number",
-            "name": "value",
-            "value": 0
-        }
-    ],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": 330,
-    "tooltip": "Increase the player's movement speed.",
-    "helpUrl": ""
-},
-{
     "type": "grant_ability",
     "message0": "Grant player %1",
     "args0": [
@@ -686,6 +654,130 @@ Blockly.common.defineBlocksWithJsonArray([
     "nextStatement": null,
     "colour": 330,
     "tooltip": "Grant the player various abilities.",
+    "helpUrl": ""
+},
+{
+    "type": "change_player_stat",
+    "message0": "Increase %1 by %2",
+    "args0": [
+        {
+            "type": "field_dropdown",
+            "name": "stat",
+            "options": [
+                [
+                    "defence",
+                    "statDefense"
+                ],
+                [
+                    "maximum life",
+                    "statLifeMax2"
+                ],
+                [
+                    "movement speed",
+                    "moveSpeed"
+                ],
+                [
+                    "mana costs",
+                    "manaCost"
+                ],
+                [
+                    "melee attack speed",
+                    "meleeSpeed"
+                ],
+                [
+                    "maximum mana",
+                    "statManaMax2"
+                ],
+                [
+                    "mining time",
+                    "pickSpeed"
+                ],
+                [
+                    "rocket boot flight time",
+                    "rocketTime"
+                ],
+                [
+                    "wing flight time",
+                    "wingTime"
+                ],
+                [
+                    "immunity time",
+                    "immuneTime"
+                ]
+            ]
+        },
+        {
+            "type": "field_number",
+            "name": "value",
+            "value": 0
+        }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 330,
+    "tooltip": "Change various stats for the player",
+    "helpUrl": ""
+},
+{
+    "type": "set_player_stat",
+    "message0": "Set %1 to %2",
+    "args0": [
+        {
+            "type": "field_dropdown",
+            "name": "stat",
+            "options": [
+                [
+                    "defence",
+                    "statDefense"
+                ],
+                [
+                    "maximum life",
+                    "statLifeMax2"
+                ],
+                [
+                    "movement speed",
+                    "moveSpeed"
+                ],
+                [
+                    "mana costs",
+                    "manaCost"
+                ],
+                [
+                    "melee attack speed",
+                    "meleeSpeed"
+                ],
+                [
+                    "maximum mana",
+                    "statManaMax2"
+                ],
+                [
+                    "mining time",
+                    "pickSpeed"
+                ],
+                [
+                    "rocket boot flight time",
+                    "rocketTime"
+                ],
+                [
+                    "wing flight time",
+                    "wingTime"
+                ],
+                [
+                    "immunity time",
+                    "immuneTime"
+                ]
+            ]
+        },
+        {
+            "type": "field_number",
+            "name": "value",
+            "value": 0
+        }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 330,
+    "tooltip": "Change various stats for the player",
     "helpUrl": ""
 },
 {
