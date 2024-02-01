@@ -137,6 +137,12 @@ namespace NEA_solution
                         UpdateAccessory += "player." + set_Class_Stat.stat + "(DamageClass." + set_Class_Stat.class_name + ") = " + set_Class_Stat.value + ";";
                         isEquipable = true;
                         break;
+
+                    case "set_all_player_bools":
+                        set_all_player_bools set_All_Player_Bools = JsonSerializer.Deserialize<set_all_player_bools>(blocksAsStrings[i]);
+                        UpdateAccessory += "\r\nplayer." + set_All_Player_Bools.property + " = true;";
+                        isEquipable = true;
+                        break;
                 }
             }
 

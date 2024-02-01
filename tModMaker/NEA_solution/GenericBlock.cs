@@ -89,4 +89,9 @@ namespace NEA_solution
         public string class_name { get; set; }
         public int value { get; set; }
     }
+
+    internal class set_all_player_bools : GenericBlock
+    {
+        public string property { get; set; }
+    }
 }
