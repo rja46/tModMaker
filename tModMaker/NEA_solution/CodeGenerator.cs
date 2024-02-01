@@ -91,18 +91,6 @@ namespace NEA_solution
                         setDefaults += "\r\nItem.mana = " + use_Mana.useMana + ";";
                         break;
 
-                    case "increase_life":
-                        increase_life increase_Life = JsonSerializer.Deserialize<increase_life>(blocksAsStrings[i]);
-                        UpdateAccessory += "\r\nplayer.statLifeMax2 += " + increase_Life.life + ";";
-                        isEquipable = true;
-                        break;
-
-                    case "increase_move_speed":
-                        increase_move_speed increase_Move_Speed = JsonSerializer.Deserialize<increase_move_speed>(blocksAsStrings[i]);
-                        UpdateAccessory += "\r\nplayer.moveSpeed += " + increase_Move_Speed.value + "f;";
-                        isEquipable = true;
-                        break;
-
                     case "grant_ability":
                         grant_ability grant_Ability = JsonSerializer.Deserialize<grant_ability>(blocksAsStrings[i]);
                         UpdateAccessory += "\r\nplayer." + grant_Ability.ability + " = true;";
@@ -110,7 +98,6 @@ namespace NEA_solution
                         break;
 
                     case "change_player_stat":
-                        //meleeSpeed does not work
                         change_player_stat change_Player_Stat = JsonSerializer.Deserialize<change_player_stat>(blocksAsStrings[i]);
                         UpdateAccessory += "\r\nplayer." + change_Player_Stat.stat + " += " + change_Player_Stat.value + ";";
                         isEquipable = true;
@@ -120,6 +107,12 @@ namespace NEA_solution
                         //defence doesnt work
                         set_player_stat set_Player_Stat = JsonSerializer.Deserialize<set_player_stat>(blocksAsStrings[i]);
                         UpdateAccessory += "\r\nplayer." + set_Player_Stat.stat + " = " + set_Player_Stat.value + ";";
+                        isEquipable = true;
+                        break;
+
+                    case "set_class_stat":
+                        set_class_stat set_Class_Stat = JsonSerializer.Deserialize<set_class_stat>(blocksAsStrings[i]);
+                        UpdateAccessory += "player." + set_Class_Stat.stat + "(DamageClass." + set_Class_Stat.class_name + ") = " + set_Class_Stat.value + ";";
                         isEquipable = true;
                         break;
                 }

@@ -112,14 +112,18 @@ function loadData(theData){
 		"kind": "category",
 		"name": "Buffs",
 		"colour": 330,
-		"contents": [
+        "contents": [
+        {
+            "kind": "block",
+            "type": "grant_ability"
+        },
 		{
 			"kind": "block",
 			"type": "change_class_stat"
 		},
         {
             "kind": "block",
-            "type": "grant_ability"
+            "type": "set_class_stat"
         },
         {
             "kind": "block",
@@ -592,6 +596,74 @@ Blockly.common.defineBlocksWithJsonArray([
   "helpUrl": ""
 },
 {
+    "type": "set_class_stat",
+    "message0": "Set %1 for %2 to %3",
+    "args0": [
+        {
+            "type": "field_dropdown",
+            "name": "stat",
+            "options": [
+                [
+                    "Crit Chance",
+                    "GetCritChance"
+                ],
+                [
+                    "Damage",
+                    "GetDamage"
+                ],
+                [
+                    "Attack Speed",
+                    "GetAttackSpeed"
+                ],
+                [
+                    "Armor Penetration",
+                    "GetArmorPenetration"
+                ],
+                [
+                    "Knockback",
+                    "GetKnockback"
+                ]
+            ]
+        },
+        {
+            "type": "field_dropdown",
+            "name": "class_name",
+            "options": [
+                [
+                    "Melee",
+                    "Melee"
+                ],
+                [
+                    "Ranged",
+                    "Ranged"
+                ],
+                [
+                    "Magic",
+                    "Magic"
+                ],
+                [
+                    "Summon",
+                    "Summon"
+                ],
+                [
+                    "Generic",
+                    "Generic"
+                ]
+            ]
+        },
+        {
+            "type": "field_number",
+            "name": "value",
+            "value": 0
+        }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 330,
+    "tooltip": "",
+    "helpUrl": ""
+},
+{
     "type": "grant_ability",
     "message0": "Grant player %1",
     "args0": [
@@ -681,10 +753,6 @@ Blockly.common.defineBlocksWithJsonArray([
                     "manaCost"
                 ],
                 [
-                    "melee attack speed",
-                    "meleeSpeed"
-                ],
-                [
                     "maximum mana",
                     "statManaMax2"
                 ],
@@ -741,10 +809,6 @@ Blockly.common.defineBlocksWithJsonArray([
                 [
                     "mana costs",
                     "manaCost"
-                ],
-                [
-                    "melee attack speed",
-                    "meleeSpeed"
                 ],
                 [
                     "maximum mana",

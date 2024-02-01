@@ -82,4 +82,11 @@ namespace NEA_solution
         public string stat { get; set; }
         public int value { get; set; }
     }
+
+    internal class set_class_stat : GenericBlock
+    {
+        public string stat { get; set; }
+        public string class_name { get; set; }
+        public int value { get; set; }
+    }
 }
