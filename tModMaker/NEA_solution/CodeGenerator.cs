@@ -19,6 +19,9 @@ namespace NEA_solution
             string setDefaults = "Item.SetNameOverride(\"" + itemDisplayName + "\");";
             string UpdateAccessory = "";
             bool isEquipable = false;
+            bool isWing = false;
+            string SetStaticDefaults = "";
+            string verticalWingsSpeeds;
 
 
             /*
@@ -143,6 +146,12 @@ namespace NEA_solution
                         UpdateAccessory += "\r\nplayer." + set_All_Player_Bools.property + " = true;";
                         isEquipable = true;
                         break;
+
+                    case "create_wings":
+                        create_wings create_Wings = JsonSerializer.Deserialize<create_wings>(blocksAsStrings[i]); ;
+                        SetStaticDefaults = "\r\nArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(" + create_Wings.flight_time + ", 9f, 2.5f);";
+                        isWing = true;
+                        break;
                 }
             }
 
@@ -151,6 +160,13 @@ namespace NEA_solution
                 setDefaults += "\r\nItem.accessory = true;";
             }
 
+            if (isWing)
+            {
+                generatedCode += "\r\npublic override void SetStaticDefaults()\r\n{\r\n" + SetStaticDefaults + "\r\n}\r\n";
+            }
+
+            verticalWingsSpeeds = "public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,\r\n\t\t\tref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend) {\r\n\t\t\tascentWhenFalling = 0.85f; // Falling glide speed\r\n\t\t\tascentWhenRising = 0.15f; // Rising speed\r\n\t\t\tmaxCanAscendMultiplier = 1f;\r\n\t\t\tmaxAscentMultiplier = 3f;\r\n\t\t\tconstantAscend = 0.135f;\r\n\t\t}";
+            generatedCode += verticalWingsSpeeds;
             //The generated methods are compiled into one string here.
             generatedCode += "\r\npublic override void SetDefaults()\r\n{\r\n" + setDefaults + "\r\n}" + "\r\npublic override void UpdateAccessory(Player player, bool hideVisual)\r\n{\r\n" + UpdateAccessory + "\r\n}\r\n}\r\n}";
             return generatedCode;

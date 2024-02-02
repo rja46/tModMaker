@@ -94,4 +94,9 @@ namespace NEA_solution
     {
         public string property { get; set; }
     }
+
+    internal class create_wings : GenericBlock
+    {
+        public int flight_time { get; set; }
+    }
 }
