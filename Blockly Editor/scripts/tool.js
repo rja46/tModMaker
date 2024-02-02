@@ -133,12 +133,19 @@ function loadData(theData){
             "kind": "block",
             "type": "set_player_stat"
         },
+		]
+    },
+    {
+        "kind": "category",
+        "name": "Advanced",
+        "colour": 45,
+        "contents": [
         {
             "kind": "block",
             "type": "set_all_player_bools"
         }
-		]
-	},
+        ]
+    },
   ]
 };
 
@@ -2834,8 +2841,8 @@ Blockly.common.defineBlocksWithJsonArray([
         ],
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 330,
-        "tooltip": "",
+        "colour": 45,
+        "tooltip": "Allows the value of any boolean field of the player class to be set.",
         "helpUrl": ""
     }
 ]);

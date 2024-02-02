@@ -1,3 +1,9 @@
+<<<<<<< Updated upstream
 2024/02/01-21:19:03.753 3c7c Reusing MANIFEST C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Session Storage/MANIFEST-000001
 2024/02/01-21:19:03.754 3c7c Recovering log #3
 2024/02/01-21:19:03.758 3c7c Reusing old log C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Session Storage/000003.log 
+=======
+2024/02/02-09:01:24.179 b98 Reusing MANIFEST C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Session Storage/MANIFEST-000001
+2024/02/02-09:01:24.181 b98 Recovering log #3
+2024/02/02-09:01:24.186 b98 Reusing old log C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Session Storage/000003.log 
+>>>>>>> Stashed changes
