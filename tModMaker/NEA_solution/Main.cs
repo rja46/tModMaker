@@ -31,7 +31,7 @@ namespace NEA_solution
             InitializeComponent();
             this.Text = "tModMaker";
 
-            //creates a blank mod
+            //Loads an empty mod.
             loadedMod = new Mod("", "");
 
             if (File.ReadAllText(Environment.CurrentDirectory + "\\userConfig.txt") != "")
@@ -58,15 +58,15 @@ namespace NEA_solution
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            //loads dialog to get the details for the new item
+            //Loads the dialog to get the details for the new item.
             CreateItemDialog createItemDialog = new CreateItemDialog();
             DialogResult result = createItemDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                //get new item from CreateItem form
+                //Gets the new item from CreateItem form.
                 loadedMod.add_item(createItemDialog.newItem);
 
-                //updates the list of items in the mod
+                //Updates the list of items in the mod.
                 update_item_list();
             }
         }
