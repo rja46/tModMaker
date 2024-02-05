@@ -30,12 +30,16 @@ namespace NEA_solution
              * Everything is on a new line to aid readability for test and the end user.
              */
             string generatedCode = "using Terraria;" +
+                "\r\nusing System.Linq;" +
+                "\r\nusing Terraria;" +
+                "\r\nusing Terraria.DataStructures;" +
+                "\r\nusing Terraria.ID;" +
+                "\r\nusing Terraria.ModLoader;" +
                 "\r\nusing Terraria.ID;" +
                 "\r\nusing Terraria.ModLoader;" +
                 "\r\nnamespace " + modName + ".Items" +
-                "\r\n{" +
-                "\r\npublic class " + itemName + " : ModItem" +
                 "\r\n{";
+                
 
             //Each block is found in the code, and put in an array of strings.
             blocksAsStrings = findBlocksInline(code);
@@ -149,11 +153,20 @@ namespace NEA_solution
 
                     case "create_wings":
                         create_wings create_Wings = JsonSerializer.Deserialize<create_wings>(blocksAsStrings[i]); ;
-                        SetStaticDefaults = "\r\nArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(" + create_Wings.flight_time + ", 9f, 2.5f);";
+                        SetStaticDefaults = "\r\nArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(" + create_Wings.flight_time + ","+ create_Wings.flight_speed + "f," + create_Wings.acceleration + "f);";
                         isWing = true;
                         break;
                 }
             }
+
+            if (isWing)
+            {
+                generatedCode += "\r\n[AutoloadEquip(EquipType.Wings)]";
+            }
+
+            generatedCode +=
+                "\r\npublic class " + itemName + " : ModItem" +
+                "\r\n{";
 
             if (isEquipable)
             {
@@ -165,7 +178,13 @@ namespace NEA_solution
                 generatedCode += "\r\npublic override void SetStaticDefaults()\r\n{\r\n" + SetStaticDefaults + "\r\n}\r\n";
             }
 
-            verticalWingsSpeeds = "public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,\r\n\t\t\tref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend) {\r\n\t\t\tascentWhenFalling = 0.85f; // Falling glide speed\r\n\t\t\tascentWhenRising = 0.15f; // Rising speed\r\n\t\t\tmaxCanAscendMultiplier = 1f;\r\n\t\t\tmaxAscentMultiplier = 3f;\r\n\t\t\tconstantAscend = 0.135f;\r\n\t\t}";
+            verticalWingsSpeeds = "public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,\r\nref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend) {\r\nascentWhenFalling = 0.85f;" +
+                "\r\nascentWhenRising = 0.15f;" +
+                "\r\nmaxCanAscendMultiplier = 1f;" +
+                "\r\nmaxAscentMultiplier = 3f;" +
+                "\r\nconstantAscend = 0.135f;" +
+                "\r\n}";
+
             generatedCode += verticalWingsSpeeds;
             //The generated methods are compiled into one string here.
             generatedCode += "\r\npublic override void SetDefaults()\r\n{\r\n" + setDefaults + "\r\n}" + "\r\npublic override void UpdateAccessory(Player player, bool hideVisual)\r\n{\r\n" + UpdateAccessory + "\r\n}\r\n}\r\n}";

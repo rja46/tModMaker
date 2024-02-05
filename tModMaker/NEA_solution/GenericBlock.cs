@@ -98,5 +98,7 @@ namespace NEA_solution
     internal class create_wings : GenericBlock
     {
         public int flight_time { get; set; }
+        public int flight_speed { get; set; }
+        public int acceleration { get; set; }
     }
 }

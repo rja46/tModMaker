@@ -870,11 +870,64 @@ Blockly.common.defineBlocksWithJsonArray([
 },
 {
     "type": "create_wings",
-    "message0": "Create wings with flight time %1",
+    "message0": "Create wings with flight time %1 %2 flight speed %3 , %4 and acceleration %5",
     "args0": [
         {
             "type": "field_number",
             "name": "flight_time",
+            "value": 0,
+            "min": 0
+        },
+        {
+            "type": "input_dummy"
+        },
+        {
+            "type": "field_number",
+            "name": "flight_speed",
+            "value": 0,
+            "min": 0
+        },
+        {
+            "type": "input_dummy"
+        },
+        {
+            "type": "field_number",
+            "name": "acceleration",
+            "value": 0,
+            "min": 0
+        }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 330,
+    "tooltip": "",
+    "helpUrl": ""
+},
+{
+    "type": "create_wings",
+    "message0": "Create wings with flight time %1 %2 flight speed %3 , %4 and acceleration %5",
+    "args0": [
+        {
+            "type": "field_number",
+            "name": "flight_time",
+            "value": 0,
+            "min": 0
+        },
+        {
+            "type": "input_dummy"
+        },
+        {
+            "type": "field_number",
+            "name": "flight_speed",
+            "value": 0,
+            "min": 0
+        },
+        {
+            "type": "input_dummy"
+        },
+        {
+            "type": "field_number",
+            "name": "acceleration",
             "value": 0,
             "min": 0
         }
