@@ -197,6 +197,7 @@ namespace NEA_solution
                 generatedCode += "\r\npublic override void SetStaticDefaults()\r\n{\r\n" + SetStaticDefaults + "\r\n}\r\n";
             }
 
+            //I need to make it possible to add the second sprite for wings.
             verticalWingsSpeeds = "public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising," +
                 "\r\nref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)" +
                 "\r\n{" +

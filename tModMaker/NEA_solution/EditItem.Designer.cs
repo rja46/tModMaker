@@ -30,12 +30,10 @@
         {
             this.pbSprite = new System.Windows.Forms.PictureBox();
             this.btnChangeSprite = new System.Windows.Forms.Button();
-            this.lblType = new System.Windows.Forms.Label();
             this.lblTooltip = new System.Windows.Forms.Label();
             this.txtTooltip = new System.Windows.Forms.TextBox();
             this.txtDisplayName = new System.Windows.Forms.TextBox();
             this.lblDisplayName = new System.Windows.Forms.Label();
-            this.cbType = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.wvCode = new Microsoft.Web.WebView2.WinForms.WebView2();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
@@ -63,19 +61,10 @@
             this.btnChangeSprite.UseVisualStyleBackColor = true;
             this.btnChangeSprite.Click += new System.EventHandler(this.btnChangeSprite_Click);
             // 
-            // lblType
-            // 
-            this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(3, 228);
-            this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(34, 13);
-            this.lblType.TabIndex = 4;
-            this.lblType.Text = "Type:";
-            // 
             // lblTooltip
             // 
             this.lblTooltip.AutoSize = true;
-            this.lblTooltip.Location = new System.Drawing.Point(3, 255);
+            this.lblTooltip.Location = new System.Drawing.Point(3, 223);
             this.lblTooltip.Name = "lblTooltip";
             this.lblTooltip.Size = new System.Drawing.Size(42, 13);
             this.lblTooltip.TabIndex = 5;
@@ -86,10 +75,10 @@
             this.txtTooltip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtTooltip.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTooltip.Location = new System.Drawing.Point(47, 252);
+            this.txtTooltip.Location = new System.Drawing.Point(47, 218);
             this.txtTooltip.Multiline = true;
             this.txtTooltip.Name = "txtTooltip";
-            this.txtTooltip.Size = new System.Drawing.Size(190, 171);
+            this.txtTooltip.Size = new System.Drawing.Size(190, 205);
             this.txtTooltip.TabIndex = 8;
             // 
             // txtDisplayName
@@ -108,31 +97,12 @@
             this.lblDisplayName.TabIndex = 11;
             this.lblDisplayName.Text = "Display Name:";
             // 
-            // cbType
-            // 
-            this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbType.FormattingEnabled = true;
-            this.cbType.Items.AddRange(new object[] {
-            "Tool",
-            "Accessory",
-            "Tile",
-            "Consumable",
-            "Projectile",
-            "NPC",
-            "AI"});
-            this.cbType.Location = new System.Drawing.Point(47, 225);
-            this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(190, 21);
-            this.cbType.TabIndex = 13;
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.Controls.Add(this.pbSprite);
             this.panel1.Controls.Add(this.btnChangeSprite);
-            this.panel1.Controls.Add(this.cbType);
-            this.panel1.Controls.Add(this.lblType);
             this.panel1.Controls.Add(this.txtDisplayName);
             this.panel1.Controls.Add(this.lblTooltip);
             this.panel1.Controls.Add(this.lblDisplayName);
@@ -180,12 +150,10 @@
         #endregion
         private System.Windows.Forms.PictureBox pbSprite;
         private System.Windows.Forms.Button btnChangeSprite;
-        private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblTooltip;
         private System.Windows.Forms.TextBox txtTooltip;
         private System.Windows.Forms.TextBox txtDisplayName;
         private System.Windows.Forms.Label lblDisplayName;
-        private System.Windows.Forms.ComboBox cbType;
         private System.Windows.Forms.Panel panel1;
         private Microsoft.Web.WebView2.WinForms.WebView2 wvCode;
     }

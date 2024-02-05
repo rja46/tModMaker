@@ -39,12 +39,23 @@ namespace NEA_solution
         {
             if (wvready)
             {
+                if (loadedItem.get_type() == "Item")
+                {
+                    wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
+                }
+                else if (loadedItem.get_type() == "NPC/Projectile")
+                {
+                    wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\npc_editor.html");
+                }
+                else
+                {
+                    Console.WriteLine("please update type");
+                }
                 //loads the details of the item onto the screen
                 clearBlockly();
                 theItem = loadedItem;
                 txtDisplayName.Text = theItem.get_displayName();
                 txtTooltip.Text = theItem.get_tooltip();
-                cbType.Text = theItem.get_type();
                 pbSprite.Refresh();
                 sendData();
 
@@ -86,7 +97,6 @@ namespace NEA_solution
             returned = false;
             theItem.set_display_name(txtDisplayName.Text);
             theItem.set_tooltip(txtTooltip.Text);
-            theItem.set_type(cbType.Text);
             do
             {
                 await Task.Delay(100);
@@ -127,9 +137,12 @@ namespace NEA_solution
 
         private void wvCode_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
-            wvready = true;
-            displayItem(new Item("", ""));
-            lock_controls();
+            if (wvready == false)
+            {
+                wvready = true;
+                displayItem(new Item("", ""));
+                lock_controls();
+            }
         }
 
         private void wvCode_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
@@ -153,7 +166,6 @@ namespace NEA_solution
         {
             btnChangeSprite.Enabled = false;
             txtDisplayName.Enabled = false;
-            cbType.Enabled = false;
             txtTooltip.Enabled = false;
             wvCode.Enabled = false;
         }
@@ -162,7 +174,6 @@ namespace NEA_solution
         {
             btnChangeSprite.Enabled = true;
             txtDisplayName.Enabled = true;
-            cbType.Enabled = true;
             txtTooltip.Enabled = true;
             wvCode.Enabled = true;
         }
@@ -175,7 +186,6 @@ namespace NEA_solution
             BackColor = Color.Black;
             lblDisplayName.ForeColor = Color.White;
             lblTooltip.ForeColor = Color.White;
-            lblType.ForeColor = Color.White;
             txtDisplayName.BackColor = grey;
             txtDisplayName.ForeColor = Color.White;
             txtTooltip.BackColor = grey;
@@ -189,7 +199,6 @@ namespace NEA_solution
             BackColor = SystemColors.Control;
             lblDisplayName.ForeColor = Color.Black;
             lblTooltip.ForeColor = Color.Black;
-            lblType.ForeColor = Color.Black;
             txtDisplayName.BackColor = SystemColors.Control;
             txtDisplayName.ForeColor = Color.Black ;
             txtTooltip.BackColor = SystemColors.Control;

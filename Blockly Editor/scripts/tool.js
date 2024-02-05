@@ -143,17 +143,6 @@ function loadData(theData){
         }
 		]
     },
-    {
-        "kind": "category",
-        "name": "Advanced",
-        "colour": 45,
-        "contents": [
-        {
-            "kind": "block",
-            "type": "set_all_player_bools"
-        }
-        ]
-    },
   ]
 };
 
@@ -813,10 +802,6 @@ Blockly.common.defineBlocksWithJsonArray([
             "type": "field_dropdown",
             "name": "stat",
             "options": [
-                [
-                    "defence",
-                    "statDefense"
-                ],
                 [
                     "maximum life",
                     "statLifeMax2"

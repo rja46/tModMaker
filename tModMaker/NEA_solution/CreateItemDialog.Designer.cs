@@ -53,12 +53,8 @@
             this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbType.FormattingEnabled = true;
             this.cbType.Items.AddRange(new object[] {
-            "Tool",
-            "Accessory",
-            "Tile",
-            "Consumable",
-            "Projectile",
-            "NPC",
+            "Item",
+            "NPC/Projectile",
             "AI"});
             this.cbType.Location = new System.Drawing.Point(93, 58);
             this.cbType.Name = "cbType";
