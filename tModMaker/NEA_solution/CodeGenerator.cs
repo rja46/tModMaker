@@ -22,6 +22,8 @@ namespace NEA_solution
             bool isWing = false;
             string SetStaticDefaults = "";
             string verticalWingsSpeeds;
+            float[] wingStats = new float[5];
+            bool canHover = false;
 
 
             /*
@@ -153,8 +155,17 @@ namespace NEA_solution
 
                     case "create_wings":
                         create_wings create_Wings = JsonSerializer.Deserialize<create_wings>(blocksAsStrings[i]); ;
-                        SetStaticDefaults = "\r\nArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(" + create_Wings.flight_time + ","+ create_Wings.flight_speed + "f," + create_Wings.acceleration + "f);";
+                        wingStats[0] = create_Wings.flight_time;
+                        wingStats[1] = create_Wings.flight_speed;
+                        wingStats[2] = create_Wings.acceleration;
                         isWing = true;
+                        break;
+
+                    case "wing_hover":
+                        wing_hover wing_Hover = JsonSerializer.Deserialize<wing_hover>(blocksAsStrings[i]);
+                        wingStats[3] = wing_Hover.hover_speed;
+                        wingStats[4] = wing_Hover.acceleration;
+                        canHover = true;
                         break;
                 }
             }
@@ -175,10 +186,21 @@ namespace NEA_solution
 
             if (isWing)
             {
+                if (canHover)
+                {
+                    SetStaticDefaults = "\r\nArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(" + (int)wingStats[0] + ", " + wingStats[1] + "f, " + wingStats[2] + "f, true, "+ wingStats[3] +"f, " + wingStats[4] +"f);";
+                }
+                else
+                {
+                    SetStaticDefaults = "\r\nArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(" + (int)wingStats[0] + "," + wingStats[1] + "f," + wingStats[2] + "f);";
+                }
                 generatedCode += "\r\npublic override void SetStaticDefaults()\r\n{\r\n" + SetStaticDefaults + "\r\n}\r\n";
             }
 
-            verticalWingsSpeeds = "public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,\r\nref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend) {\r\nascentWhenFalling = 0.85f;" +
+            verticalWingsSpeeds = "public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising," +
+                "\r\nref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)" +
+                "\r\n{" +
+                "\r\nascentWhenFalling = 0.85f;" +
                 "\r\nascentWhenRising = 0.15f;" +
                 "\r\nmaxCanAscendMultiplier = 1f;" +
                 "\r\nmaxAscentMultiplier = 3f;" +

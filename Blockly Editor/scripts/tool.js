@@ -136,6 +136,10 @@ function loadData(theData){
         {
             "kind": "block",
             "type": "create_wings"
+        },
+        {
+            "kind": "block",
+            "type": "wing_hover"
         }
 		]
     },
@@ -875,7 +879,7 @@ Blockly.common.defineBlocksWithJsonArray([
         {
             "type": "field_number",
             "name": "flight_time",
-            "value": 0,
+            "value": 180,
             "min": 0
         },
         {
@@ -884,7 +888,7 @@ Blockly.common.defineBlocksWithJsonArray([
         {
             "type": "field_number",
             "name": "flight_speed",
-            "value": 0,
+            "value": 9,
             "min": 0
         },
         {
@@ -893,7 +897,7 @@ Blockly.common.defineBlocksWithJsonArray([
         {
             "type": "field_number",
             "name": "acceleration",
-            "value": 0,
+            "value": 2.5,
             "min": 0
         }
     ],
@@ -904,22 +908,13 @@ Blockly.common.defineBlocksWithJsonArray([
     "helpUrl": ""
 },
 {
-    "type": "create_wings",
-    "message0": "Create wings with flight time %1 %2 flight speed %3 , %4 and acceleration %5",
+    "type": "wing_hover",
+    "message0": "Allow player to hover with hover speed %1 %2 and hover acceleration %3",
     "args0": [
         {
             "type": "field_number",
-            "name": "flight_time",
-            "value": 0,
-            "min": 0
-        },
-        {
-            "type": "input_dummy"
-        },
-        {
-            "type": "field_number",
-            "name": "flight_speed",
-            "value": 0,
+            "name": "hover_speed",
+            "value": 9,
             "min": 0
         },
         {
@@ -928,7 +923,7 @@ Blockly.common.defineBlocksWithJsonArray([
         {
             "type": "field_number",
             "name": "acceleration",
-            "value": 0,
+            "value": 2.5,
             "min": 0
         }
     ],

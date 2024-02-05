@@ -101,4 +101,10 @@ namespace NEA_solution
         public int flight_speed { get; set; }
         public int acceleration { get; set; }
     }
+
+    internal class wing_hover : GenericBlock
+    {
+        public int hover_speed { get; set; }
+        public int acceleration { get; set;}
+    }
 }
