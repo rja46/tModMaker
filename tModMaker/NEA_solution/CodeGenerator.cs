@@ -254,7 +254,6 @@ namespace NEA_solution
 
                 if (reader.Contains("}") && reading)
                 {
-                    Console.WriteLine(count);
                     reading = false;
                     blocksList[count] += reader;
                     count++;

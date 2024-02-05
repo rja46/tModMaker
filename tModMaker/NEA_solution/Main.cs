@@ -39,7 +39,6 @@ namespace NEA_solution
                 hasExportPath = true;
             }
             else { hasExportPath = false; }
-            Console.WriteLine(hasExportPath);
 
             initialise_editor();
         }
