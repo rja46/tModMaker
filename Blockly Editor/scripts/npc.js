@@ -58,6 +58,10 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "projectile_basic"
+                },
+                {
+                    "kind": "block",
+                    "type": "use_ai"
                 }
             ]
         },
@@ -78,7 +82,7 @@ const toolbox = {
 Blockly.common.defineBlocksWithJsonArray([
     {
         "type": "projectile_basic",
-        "message0": "Width: %1 %2 Height: %3 %4 Name: %5 %6 Collide with tiles: %7 %8 Display scale: %9 %10 Time left %11",
+        "message0": "Width: %1 %2 Height: %3 %4 Collide with tiles: %5 %6 Display scale: %7 %8 Time left %9",
         "args0": [
             {
                 "type": "field_number",
@@ -94,14 +98,6 @@ Blockly.common.defineBlocksWithJsonArray([
                 "name": "height",
                 "value": 0,
                 "min": 0
-            },
-            {
-                "type": "input_dummy"
-            },
-            {
-                "type": "field_input",
-                "name": "name",
-                "text": "name"
             },
             {
                 "type": "input_dummy"
@@ -129,6 +125,71 @@ Blockly.common.defineBlocksWithJsonArray([
                 "min": 0
             }
         ],
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "use_ai",
+        "message0": "Use %1 AI style",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "style",
+                "options": [
+                    [
+                        "bullet",
+                        "0"
+                    ],
+                    [
+                        "arrow",
+                        "1"
+                    ],
+                    [
+                        "thrown",
+                        "2"
+                    ],
+                    [
+                        "boomerang",
+                        "3"
+                    ],
+                    [
+                        "progressive fading",
+                        "4"
+                    ],
+                    [
+                        "falling star",
+                        "5"
+                    ],
+                    [
+                        "powder",
+                        "6"
+                    ],
+                    [
+                        "grapple",
+                        "7"
+                    ],
+                    [
+                        "magic bounce",
+                        "8"
+                    ],
+                    [
+                        "controlled bolt",
+                        "9"
+                    ],
+                    [
+                        "falling block",
+                        "10"
+                    ],
+                    [
+                        "follow player",
+                        "11"
+                    ]
+                ]
+            }
+        ],
+        "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
         "tooltip": "",

@@ -298,8 +298,8 @@ Blockly.common.defineBlocksWithJsonArray([
     {
       "type": "field_number",
       "name": "UseSound",
-      "value": 0,
-      "min": 0,
+      "value": 1,
+      "min": 1,
       "max": 172
     },
     {

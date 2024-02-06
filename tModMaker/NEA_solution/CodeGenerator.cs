@@ -12,11 +12,11 @@ namespace NEA_solution
 {
     internal class CodeGenerator
     {
-        public string generate_code(string code, string modName, string itemName, string itemDisplayName, string toolTip, string type)
+        public string generate_code(string code, string modName, string itemName, string itemDisplayName, string toolTip, string itemType)
         {
+            string setDefaults = "";
             string blockType;
             string[] blocksAsStrings;
-            string setDefaults = "Item.SetNameOverride(\"" + itemDisplayName + "\");";
             string UpdateAccessory = "";
             bool isEquipable = false;
             bool isWing = false;
@@ -24,6 +24,12 @@ namespace NEA_solution
             string verticalWingsSpeeds;
             float[] wingStats = new float[5];
             bool canHover = false;
+
+            if (itemType == "Item")
+            {
+                setDefaults = "Item.SetNameOverride(\"" + itemDisplayName + "\");";
+            }
+
 
 
             /*
@@ -39,11 +45,12 @@ namespace NEA_solution
                 "\r\nusing Terraria.ModLoader;" +
                 "\r\nusing Terraria.ID;" +
                 "\r\nusing Terraria.ModLoader;";
-            if (type == "Item")
+            Console.WriteLine(itemType);
+            if (itemType == "Item")
             {
                 generatedCode += "\r\nnamespace " + modName + ".Items";
             }
-            else if (type == "NPC/Projectile")
+            else if (itemType == "NPC/Projectile")
             {
                 generatedCode += "\r\nnamespace " + modName + ".Projectiles";
             }
@@ -192,7 +199,11 @@ namespace NEA_solution
                         setDefaults += "\r\nProjectile.tileCollide = " + projectile_Basic.collide.ToString().ToLower() + ";";
                         setDefaults += "\r\nProjectile.scale = " + projectile_Basic.scale + "f;";
                         setDefaults += "\r\nProjectile.timeLeft = " + projectile_Basic.time_left + ";";
-                        setDefaults += "\r\nProjectile.name = \"" + projectile_Basic.name + "\";";
+                        break;
+
+                    case "use_ai":
+                        use_ai use_Ai = JsonSerializer.Deserialize<use_ai>(blocksAsStrings[i]);
+                        setDefaults += "\r\nProjectile.aiStyle = " + use_Ai.style + ";";
                         break;
                 }
             }
@@ -202,9 +213,22 @@ namespace NEA_solution
                 generatedCode += "\r\n[AutoloadEquip(EquipType.Wings)]";
             }
 
-            generatedCode +=
-                "\r\npublic class " + itemName + " : ModItem" +
-                "\r\n{";
+            if (itemType == "Item")
+            {
+                generatedCode +=
+                    "\r\npublic class " + itemName + " : ModItem" +
+                    "\r\n{";
+            }
+            else if (itemType == "NPC/Projectile")
+            {
+                generatedCode +=
+                    "\r\npublic class " + itemName + " : ModProjectile" +
+                    "\r\n{";
+            }
+            else
+            {
+                MessageBox.Show("Fatal error: item type invalid. Exported code will not run.");
+            }
 
             if (isEquipable)
             {
@@ -221,7 +245,7 @@ namespace NEA_solution
                 {
                     SetStaticDefaults = "\r\nArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(" + (int)wingStats[0] + "," + wingStats[1] + "f," + wingStats[2] + "f);";
                 }
-                generatedCode += "\r\npublic override void SetStaticDefaults()\r\n{\r\n" + SetStaticDefaults + "\r\n}\r\n";
+                generatedCode += "\r\npublic override void SetStaticDefaults()\r\n{\r\n" + SetStaticDefaults + "}\r\n}\r\n";
             }
 
             //I need to make it possible to add the second sprite for wings.
@@ -240,7 +264,14 @@ namespace NEA_solution
                 generatedCode += verticalWingsSpeeds;
             }
             //The generated methods are compiled into one string here.
-            generatedCode += "\r\npublic override void SetDefaults()\r\n{\r\n" + setDefaults + "\r\n}" + "\r\npublic override void UpdateAccessory(Player player, bool hideVisual)\r\n{\r\n" + UpdateAccessory + "\r\n}\r\n}\r\n}";
+            generatedCode += "\r\npublic override void SetDefaults()\r\n{\r\n" + setDefaults;
+            if (isEquipable)
+            {
+                generatedCode += "\r\npublic override void UpdateAccessory(Player player, bool hideVisual)\r\n{\r\n" + UpdateAccessory + "\r\n}";
+            }
+
+            generatedCode += "\r\n}\r\n}\r\n}";
+            
             return generatedCode;
         }
 
