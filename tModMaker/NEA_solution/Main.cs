@@ -491,7 +491,7 @@ namespace NEA_solution
                 Bitmap bmp;
                 for (int i = 0; i < itemsToExport.Length; i++)
                 {
-                    tmpCode = codeGenerator.generate_code(itemsToExport[i].get_code(), loadedMod.get_name(), itemsToExport[i].get_name(), itemsToExport[i].get_displayName(), itemsToExport[i].get_tooltip());
+                    tmpCode = codeGenerator.generate_code(itemsToExport[i].get_code(), loadedMod.get_name(), itemsToExport[i].get_name(), itemsToExport[i].get_displayName(), itemsToExport[i].get_tooltip(), itemsToExport[i].get_code());
                     if (itemsToExport[i].get_type() == "Item")
                     {
                         File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);

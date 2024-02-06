@@ -112,4 +112,14 @@ namespace NEA_solution
     {
         public string projectile { get; set; }
     }
+
+    internal class projectile_basic : GenericBlock
+    {
+        public int width { get; set; }
+        public int height { get; set; }
+        public string name { get; set; }
+        public bool collide { get; set; }
+        public int scale { get; set; }
+        public int time_left { get; set; }
+    }
 }

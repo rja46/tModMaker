@@ -12,7 +12,7 @@ namespace NEA_solution
 {
     internal class CodeGenerator
     {
-        public string generate_code(string code, string modName, string itemName, string itemDisplayName, string toolTip)
+        public string generate_code(string code, string modName, string itemName, string itemDisplayName, string toolTip, string type)
         {
             string blockType;
             string[] blocksAsStrings;
@@ -38,9 +38,16 @@ namespace NEA_solution
                 "\r\nusing Terraria.ID;" +
                 "\r\nusing Terraria.ModLoader;" +
                 "\r\nusing Terraria.ID;" +
-                "\r\nusing Terraria.ModLoader;" +
-                "\r\nnamespace " + modName + ".Items" +
-                "\r\n{";
+                "\r\nusing Terraria.ModLoader;";
+            if (type == "Item")
+            {
+                generatedCode += "\r\nnamespace " + modName + ".Items";
+            }
+            else if (type == "NPC/Projectile")
+            {
+                generatedCode += "\r\nnamespace " + modName + ".Projectiles";
+            }
+            generatedCode += "\r\n{";
                 
 
             //Each block is found in the code, and put in an array of strings.
@@ -66,6 +73,7 @@ namespace NEA_solution
                  */
                 switch (blockType)
                 {
+                    //Item class blocks
                     case "define_item":
                         define_item define_Item = JsonSerializer.Deserialize<define_item>(blocksAsStrings[i]);
                         setDefaults += "\r\nItem.width = " + define_Item.width + ";";
@@ -172,6 +180,20 @@ namespace NEA_solution
                         use_custom_projectile use_Custom_Projectile = JsonSerializer.Deserialize<use_custom_projectile>(blocksAsStrings[i]);
                         setDefaults += "Item.shoot = ModContent.ProjectileType<Projectiles." + use_Custom_Projectile.projectile + ">();";
                         break;
+
+
+
+
+                    //NPC/Projectile class blocks
+                    case "projectile_basic":
+                        projectile_basic projectile_Basic = JsonSerializer.Deserialize<projectile_basic>(blocksAsStrings[i]);
+                        setDefaults += "\r\nProjectile.width = " + projectile_Basic.width + ";";
+                        setDefaults += "\r\nProjectile.height = " + projectile_Basic.height + ";";
+                        setDefaults += "\r\nProjectile.tileCollide = " + projectile_Basic.collide.ToString().ToLower() + ";";
+                        setDefaults += "\r\nProjectile.scale = " + projectile_Basic.scale + "f;";
+                        setDefaults += "\r\nProjectile.timeLeft = " + projectile_Basic.time_left + ";";
+                        setDefaults += "\r\nProjectile.name = \"" + projectile_Basic.name + "\";";
+                        break;
                 }
             }
 
@@ -213,7 +235,10 @@ namespace NEA_solution
                 "\r\nconstantAscend = 0.135f;" +
                 "\r\n}";
 
-            generatedCode += verticalWingsSpeeds;
+            if (isWing)
+            {
+                generatedCode += verticalWingsSpeeds;
+            }
             //The generated methods are compiled into one string here.
             generatedCode += "\r\npublic override void SetDefaults()\r\n{\r\n" + setDefaults + "\r\n}" + "\r\npublic override void UpdateAccessory(Player player, bool hideVisual)\r\n{\r\n" + UpdateAccessory + "\r\n}\r\n}\r\n}";
             return generatedCode;
