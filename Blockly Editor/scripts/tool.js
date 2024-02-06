@@ -87,6 +87,10 @@ function loadData(theData){
           "kind": "block",
           "type": "is_boomerang"
         },
+        {
+          "kind": "block",
+          "type": "use_custom_projectile"
+        }
       ]
     },
 	{
@@ -917,6 +921,22 @@ Blockly.common.defineBlocksWithJsonArray([
     "colour": 330,
     "tooltip": "",
     "helpUrl": ""
+},
+{
+  "type": "use_custom_projectile",
+  "message0": "Fire custom projectile called %1",
+  "args0": [
+    {
+      "type": "field_input",
+      "name": "projectile",
+      "text": "projectile"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 0,
+  "tooltip": "",
+  "helpUrl": ""
 }
 ]);
 

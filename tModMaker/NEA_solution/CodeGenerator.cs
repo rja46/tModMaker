@@ -167,6 +167,11 @@ namespace NEA_solution
                         wingStats[4] = wing_Hover.acceleration;
                         canHover = true;
                         break;
+
+                    case "use_custom_projectile":
+                        use_custom_projectile use_Custom_Projectile = JsonSerializer.Deserialize<use_custom_projectile>(blocksAsStrings[i]);
+                        setDefaults += "Item.shoot = ModContent.ProjectileType<Projectiles." + use_Custom_Projectile.projectile + ">();";
+                        break;
                 }
             }
 

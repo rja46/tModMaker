@@ -35,22 +35,27 @@ namespace NEA_solution
             wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
         }
 
-        public void displayItem(Item loadedItem)
+        public async void displayItem(Item loadedItem)
         {
+            if (loadedItem.get_type() == "Item")
+            {
+                wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
+            }
+            else if (loadedItem.get_type() == "NPC/Projectile")
+            {
+                wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\npc_editor.html");
+            }
+            else
+            {
+                Console.WriteLine("please update type");
+            }
+            /* Tidy this up. The constant delay works, but isn't a good way of doing it. Make it wait
+             * on a value being true.
+             */
+
+            await Task.Delay(100);
             if (wvready)
             {
-                if (loadedItem.get_type() == "Item")
-                {
-                    wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
-                }
-                else if (loadedItem.get_type() == "NPC/Projectile")
-                {
-                    wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\npc_editor.html");
-                }
-                else
-                {
-                    Console.WriteLine("please update type");
-                }
                 //loads the details of the item onto the screen
                 clearBlockly();
                 theItem = loadedItem;
@@ -136,9 +141,9 @@ namespace NEA_solution
 
         private void wvCode_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
+            wvready = true;
             if (wvready == false)
             {
-                wvready = true;
                 displayItem(new Item("", ""));
                 lock_controls();
             }

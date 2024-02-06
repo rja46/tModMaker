@@ -107,4 +107,9 @@ namespace NEA_solution
         public int hover_speed { get; set; }
         public int acceleration { get; set;}
     }
+
+    internal class use_custom_projectile : GenericBlock
+    {
+        public string projectile { get; set; }
+    }
 }

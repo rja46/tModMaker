@@ -55,7 +55,10 @@ const toolbox = {
             "name": "Projectile",
             "colour": 250,
             contents: [
-
+                {
+                    "kind": "block",
+                    "type": "projectile_basic"
+                }
             ]
         },
         {
@@ -72,7 +75,66 @@ const toolbox = {
 
 
 
-//blocks here
+Blockly.common.defineBlocksWithJsonArray([
+    {
+        "type": "projectile_basic",
+        "message0": "Width: %1 %2 Height: %3 %4 Name: %5 %6 Collide with tiles: %7 %8 Display scale: %9 %10 Time left %11",
+        "args0": [
+            {
+                "type": "field_number",
+                "name": "width",
+                "value": 0,
+                "min": 0
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "field_number",
+                "name": "height",
+                "value": 0,
+                "min": 0
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "field_input",
+                "name": "name",
+                "text": "name"
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "field_checkbox",
+                "name": "collide",
+                "checked": true
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "field_number",
+                "name": "scale",
+                "value": 0
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "field_number",
+                "name": "time_left",
+                "value": 0,
+                "min": 0
+            }
+        ],
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    }
+])
 
 
 

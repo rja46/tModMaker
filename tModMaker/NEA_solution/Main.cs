@@ -474,6 +474,7 @@ namespace NEA_solution
                 Directory.CreateDirectory(path + "\\Items");
                 Directory.CreateDirectory(path + "\\Localization");
                 Directory.CreateDirectory(path + "\\Properties");
+                Directory.CreateDirectory(path + "\\Projectiles");
 
                 File.WriteAllText(path + "\\description.txt", loadedMod.get_description());
                 //add functionality to enter a version number
@@ -491,7 +492,14 @@ namespace NEA_solution
                 for (int i = 0; i < itemsToExport.Length; i++)
                 {
                     tmpCode = codeGenerator.generate_code(itemsToExport[i].get_code(), loadedMod.get_name(), itemsToExport[i].get_name(), itemsToExport[i].get_displayName(), itemsToExport[i].get_tooltip());
-                    File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
+                    if (itemsToExport[i].get_type() == "Item")
+                    {
+                        File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
+                    }
+                    else if (itemsToExport[i].get_type() == "NPC/Projectile")
+                    {
+                        File.WriteAllText(path + "\\Projectiles\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
+                    }
                     bmp = itemsToExport[i].get_sprite();
                     if (bmp == null)
                     {
@@ -500,7 +508,14 @@ namespace NEA_solution
                     }
                     else
                     {
-                        bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                        if (itemsToExport[i].get_type() == "Item")
+                        {
+                            bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                        }
+                        else if (itemsToExport[i].get_type() == "NPC/Projectile")
+                        {
+                            bmp.Save(path + "\\Projectiles\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                        }
                     }
                 }
 
