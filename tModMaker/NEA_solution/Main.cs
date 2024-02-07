@@ -219,7 +219,7 @@ namespace NEA_solution
                     File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + "_code.code", loadedMod.get_item(i).get_code());
                     
                     Bitmap bmp = loadedMod.get_item(i).get_sprite();
-                    File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + ".png");
+                    //File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + ".png");
                     //if a sprite exists for the item, it is saved as a .png
                     if (bmp != null)
                     {

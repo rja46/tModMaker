@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnTemplate = new System.Windows.Forms.Button();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
@@ -38,15 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtDisplayName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // btnTemplate
-            // 
-            this.btnTemplate.Location = new System.Drawing.Point(12, 85);
-            this.btnTemplate.Name = "btnTemplate";
-            this.btnTemplate.Size = new System.Drawing.Size(87, 23);
-            this.btnTemplate.TabIndex = 1;
-            this.btnTemplate.Text = "Load Template";
-            this.btnTemplate.UseVisualStyleBackColor = true;
             // 
             // cbType
             // 
@@ -88,7 +78,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(136, 114);
+            this.btnOK.Location = new System.Drawing.Point(139, 85);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 6;
@@ -99,7 +89,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(217, 114);
+            this.btnCancel.Location = new System.Drawing.Point(217, 85);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 7;
@@ -126,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 144);
+            this.ClientSize = new System.Drawing.Size(304, 115);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDisplayName);
             this.Controls.Add(this.btnCancel);
@@ -135,7 +125,6 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.cbType);
-            this.Controls.Add(this.btnTemplate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CreateItemDialog";
             this.Text = "CreateItem";
@@ -145,7 +134,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnTemplate;
         private System.Windows.Forms.ComboBox cbType;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblName;

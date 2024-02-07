@@ -186,14 +186,9 @@ namespace NEA_solution
         {
             if (theItem != null)
             {
-                OpenFileDialog openSpriteDialog = new OpenFileDialog();
-                openSpriteDialog.Title = "Select wing sprite";
-                openSpriteDialog.InitialDirectory = "c:\\";
-                openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
-                if (openSpriteDialog.ShowDialog() == DialogResult.OK)
-                {
-                    theItem.set_wingSprite(new Bitmap(@openSpriteDialog.FileName));
-                }
+                OtherSprites otherSprites = new OtherSprites(theItem);
+                otherSprites.Show();
+                theItem = otherSprites.theItem;
             }
         }
     }
