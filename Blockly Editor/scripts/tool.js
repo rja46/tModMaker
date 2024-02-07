@@ -83,10 +83,6 @@ function loadData(theData){
           "kind": "block",
           "type": "shoot_existing_ammo"
         },
-		{
-          "kind": "block",
-          "type": "is_boomerang"
-        },
         {
           "kind": "block",
           "type": "use_custom_projectile"
@@ -457,22 +453,6 @@ Blockly.common.defineBlocksWithJsonArray([
   "nextStatement": null,
   "colour": 60,
   "tooltip": "Defines the item's power as a tool",
-  "helpUrl": ""
-},
-{
-  "type": "is_boomerang",
-  "message0": "Return to player:  %1",
-  "args0": [
-    {
-      "type": "field_checkbox",
-      "name": "isBoomerang",
-      "checked": true
-    }
-  ],
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": 0,
-  "tooltip": "Defines whether an item returns when throw",
   "helpUrl": ""
 },
 {
