@@ -104,8 +104,8 @@ namespace NEA_solution
 
     internal class wing_hover : GenericBlock
     {
-        public int hover_speed { get; set; }
-        public int acceleration { get; set;}
+        public float hover_speed { get; set; }
+        public float acceleration { get; set;}
     }
 
     internal class use_custom_projectile : GenericBlock

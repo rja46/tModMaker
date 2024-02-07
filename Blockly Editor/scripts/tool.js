@@ -155,7 +155,8 @@ Blockly.common.defineBlocksWithJsonArray([
       "type": "field_number",
       "name": "damage",
       "value": 0,
-      "min": 0
+      "min": 0,
+      "precision": 1
     },
     {
       "type": "input_dummy"
@@ -192,7 +193,9 @@ Blockly.common.defineBlocksWithJsonArray([
     {
       "type": "field_number",
       "name": "useTime",
-      "value": 0
+      "value": 1,
+      "min": 1,
+      "precision": 1
     },
     {
       "type": "input_dummy"
@@ -200,7 +203,9 @@ Blockly.common.defineBlocksWithJsonArray([
     {
       "type": "field_number",
       "name": "useAnimation",
-      "value": 0
+      "value": 1,
+      "min": 1,
+      "precision": 1
     },
     {
       "type": "input_dummy"
@@ -277,7 +282,9 @@ Blockly.common.defineBlocksWithJsonArray([
     {
       "type": "field_number",
       "name": "knockback",
-      "value": 0
+      "value": 0,
+      "min": 0,
+      "precision": 1
     },
     {
       "type": "input_dummy"
@@ -286,7 +293,8 @@ Blockly.common.defineBlocksWithJsonArray([
       "type": "field_number",
       "name": "crit",
       "value": 0,
-      "min": 0
+      "min": 0,
+      "precision": 1
     },
     {
       "type": "input_dummy"
@@ -296,7 +304,8 @@ Blockly.common.defineBlocksWithJsonArray([
       "name": "UseSound",
       "value": 1,
       "min": 1,
-      "max": 172
+      "max": 172,
+      "precision": 1
     },
     {
       "type": "input_dummy"
@@ -320,14 +329,16 @@ Blockly.common.defineBlocksWithJsonArray([
     {
       "type": "field_number",
       "name": "width",
-      "value": 0,
-      "min": 0
+      "value": 32,
+      "min": 0,
+      "precision": 1
     },
     {
       "type": "field_number",
       "name": "height",
-      "value": 0,
-      "min": 0
+      "value": 32,
+      "min": 0,
+      "precision": 1
     },
     {
       "type": "input_dummy"
@@ -335,7 +346,9 @@ Blockly.common.defineBlocksWithJsonArray([
     {
       "type": "field_number",
       "name": "value",
-      "value": 0
+      "value": 0,
+      "min": 0,
+      "precision": 1
     },
     {
       "type": "input_dummy"
@@ -424,7 +437,8 @@ Blockly.common.defineBlocksWithJsonArray([
           "type": "field_number",
           "name": "power",
           "value": 0,
-          "min": 0
+          "min": 0,
+          "precision": 1
       },
       {
           "type": "field_dropdown",
@@ -462,7 +476,9 @@ Blockly.common.defineBlocksWithJsonArray([
     {
       "type": "field_number",
       "name": "useMana",
-      "value": 0
+      "value": 0,
+      "min": 0,
+      "precision": 1
     }
   ],
   "previousStatement": null,
@@ -510,7 +526,8 @@ Blockly.common.defineBlocksWithJsonArray([
       "type": "field_number",
       "name": "shoot_speed",
       "value": 0,
-      "min": 0
+      "min": 0,
+      "precision": 1
     }
   ],
   "previousStatement": null,
@@ -578,7 +595,8 @@ Blockly.common.defineBlocksWithJsonArray([
     {
       "type": "field_number",
       "name": "value",
-      "value": 0
+      "value": 0,
+      "precision": 1
     }
   ],
   "previousStatement": null,
@@ -646,7 +664,8 @@ Blockly.common.defineBlocksWithJsonArray([
         {
             "type": "field_number",
             "name": "value",
-            "value": 0
+            "value": 0,
+            "precision": 1
         }
     ],
     "previousStatement": null,
@@ -769,7 +788,8 @@ Blockly.common.defineBlocksWithJsonArray([
         {
             "type": "field_number",
             "name": "value",
-            "value": 0
+            "value": 0,
+            "precision": 1
         }
     ],
     "previousStatement": null,
@@ -823,7 +843,8 @@ Blockly.common.defineBlocksWithJsonArray([
         {
             "type": "field_number",
             "name": "value",
-            "value": 0
+            "value": 0,
+            "precision": 1
         }
     ],
     "previousStatement": null,
@@ -849,7 +870,8 @@ Blockly.common.defineBlocksWithJsonArray([
             "type": "field_number",
             "name": "flight_time",
             "value": 180,
-            "min": 0
+            "min": 0,
+            "precision": 1
         },
         {
             "type": "input_dummy"
@@ -858,7 +880,8 @@ Blockly.common.defineBlocksWithJsonArray([
             "type": "field_number",
             "name": "flight_speed",
             "value": 9,
-            "min": 0
+            "min": 0,
+            "precision": 1
         },
         {
             "type": "input_dummy"
@@ -867,7 +890,7 @@ Blockly.common.defineBlocksWithJsonArray([
             "type": "field_number",
             "name": "acceleration",
             "value": 2.5,
-            "min": 0
+            "min": 0,
         }
     ],
     "previousStatement": null,
@@ -884,7 +907,8 @@ Blockly.common.defineBlocksWithJsonArray([
             "type": "field_number",
             "name": "hover_speed",
             "value": 9,
-            "min": 0
+            "min": 0,
+            "precision": 1
         },
         {
             "type": "input_dummy"
