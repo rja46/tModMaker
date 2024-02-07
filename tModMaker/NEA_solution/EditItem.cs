@@ -209,5 +209,19 @@ namespace NEA_solution
             txtTooltip.ForeColor = Color.Black ;
             wvCode.DefaultBackgroundColor = Color.White;
         }
+
+        private void btnAdditionalSprites_Click(object sender, EventArgs e)
+        {
+            if (theItem != null)
+            {
+                OpenFileDialog openSpriteDialog = new OpenFileDialog();
+                openSpriteDialog.InitialDirectory = "c:\\";
+                openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
+                if (openSpriteDialog.ShowDialog() == DialogResult.OK)
+                {
+                    theItem.set_wingSprite(new Bitmap(@openSpriteDialog.FileName));
+                }
+            }
+        }
     }
 }

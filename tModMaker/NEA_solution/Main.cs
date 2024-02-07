@@ -226,6 +226,13 @@ namespace NEA_solution
                         bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + ".png", ImageFormat.Png);
                     }
 
+                    bmp = loadedMod.get_item(i).get_wingSprite();
+                    File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Wings.png");
+                    if (bmp != null)
+                    {
+                        bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Wings.png", ImageFormat.Png);
+                    }
+
                     //the step for the progress bar is performed
                     pbSave.PerformStep();
                 }
@@ -296,6 +303,13 @@ namespace NEA_solution
                                     FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
                                     currentItem.set_sprite(new Bitmap(fileHandler));
                                     fileHandler.Close();
+                                }
+                                else if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + "_Wings.png" == existingSprites[j])
+                                {
+                                    FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
+                                    currentItem.set_wingSprite(new Bitmap(fileHandler));
+                                    fileHandler.Close();
+                                    Console.WriteLine(currentItem.get_name());
                                 }
                             }
                             //The item is added to the list, then the displayed list is updated.
@@ -470,6 +484,7 @@ namespace NEA_solution
                 }
 
                 //The necessary directories are created.
+                Directory.Delete(path, true);
                 Directory.CreateDirectory(path);
                 Directory.CreateDirectory(path + "\\Items");
                 Directory.CreateDirectory(path + "\\Localization");
@@ -515,6 +530,18 @@ namespace NEA_solution
                         else if (itemsToExport[i].get_type() == "NPC/Projectile")
                         {
                             bmp.Save(path + "\\Projectiles\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                        }
+                    }
+                    bmp = itemsToExport[i].get_wingSprite();
+                    if (bmp != null)
+                    {
+                        if (itemsToExport[i].get_type() == "Item")
+                        {
+                            bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + "_Wings.png", ImageFormat.Png);
+                        }
+                        else if (itemsToExport[i].get_type() == "NPC/Projectile")
+                        {
+                            bmp.Save(path + "\\Projectiles\\" + itemsToExport[i].get_name() + "_Wings.png", ImageFormat.Png);
                         }
                     }
                 }

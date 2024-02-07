@@ -16,6 +16,7 @@ namespace NEA_solution
         private string code;
         private string type;
         private Bitmap sprite;
+        private Bitmap wingSprite;
 
         public Item(string name, string type)
         {
@@ -54,6 +55,14 @@ namespace NEA_solution
         public void set_sprite(Bitmap sprite)
         {
             this.sprite = sprite;
+        }
+        public Bitmap get_wingSprite()
+        {
+            return wingSprite;
+        }
+        public void set_wingSprite(Bitmap wingSprite)
+        {
+            this.wingSprite = wingSprite;
         }
     }
 }

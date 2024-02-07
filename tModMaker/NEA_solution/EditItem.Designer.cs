@@ -36,6 +36,7 @@
             this.lblDisplayName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.wvCode = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.btnAdditionalSprites = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wvCode)).BeginInit();
@@ -55,7 +56,7 @@
             // 
             this.btnChangeSprite.Location = new System.Drawing.Point(6, 170);
             this.btnChangeSprite.Name = "btnChangeSprite";
-            this.btnChangeSprite.Size = new System.Drawing.Size(231, 23);
+            this.btnChangeSprite.Size = new System.Drawing.Size(201, 23);
             this.btnChangeSprite.TabIndex = 2;
             this.btnChangeSprite.Text = "Change Sprite";
             this.btnChangeSprite.UseVisualStyleBackColor = true;
@@ -101,6 +102,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Controls.Add(this.btnAdditionalSprites);
             this.panel1.Controls.Add(this.pbSprite);
             this.panel1.Controls.Add(this.btnChangeSprite);
             this.panel1.Controls.Add(this.txtDisplayName);
@@ -129,6 +131,16 @@
             this.wvCode.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.wvCode_NavigationCompleted);
             this.wvCode.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.wvCode_WebMessageReceived);
             // 
+            // btnAdditionalSprites
+            // 
+            this.btnAdditionalSprites.Location = new System.Drawing.Point(213, 170);
+            this.btnAdditionalSprites.Name = "btnAdditionalSprites";
+            this.btnAdditionalSprites.Size = new System.Drawing.Size(24, 23);
+            this.btnAdditionalSprites.TabIndex = 18;
+            this.btnAdditionalSprites.Text = "...";
+            this.btnAdditionalSprites.UseVisualStyleBackColor = true;
+            this.btnAdditionalSprites.Click += new System.EventHandler(this.btnAdditionalSprites_Click);
+            // 
             // EditItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,5 +168,6 @@
         private System.Windows.Forms.Label lblDisplayName;
         private System.Windows.Forms.Panel panel1;
         private Microsoft.Web.WebView2.WinForms.WebView2 wvCode;
+        private System.Windows.Forms.Button btnAdditionalSprites;
     }
 }
