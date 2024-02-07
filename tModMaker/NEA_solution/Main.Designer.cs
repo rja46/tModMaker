@@ -50,7 +50,6 @@
             this.tbNew = new System.Windows.Forms.ToolStripButton();
             this.tbOpen = new System.Windows.Forms.ToolStripButton();
             this.tbSave = new System.Windows.Forms.ToolStripButton();
-            this.cb_theme = new System.Windows.Forms.CheckBox();
             this.msMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.stsBottom.SuspendLayout();
@@ -60,7 +59,7 @@
             // btnAddItem
             // 
             this.btnAddItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAddItem.Location = new System.Drawing.Point(3, 350);
+            this.btnAddItem.Location = new System.Drawing.Point(3, 346);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(75, 23);
             this.btnAddItem.TabIndex = 4;
@@ -71,11 +70,11 @@
             // lbItems
             // 
             this.lbItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbItems.FormattingEnabled = true;
-            this.lbItems.Location = new System.Drawing.Point(3, 30);
+            this.lbItems.Location = new System.Drawing.Point(3, 4);
             this.lbItems.Name = "lbItems";
-            this.lbItems.Size = new System.Drawing.Size(156, 312);
+            this.lbItems.Size = new System.Drawing.Size(156, 301);
             this.lbItems.TabIndex = 7;
             this.lbItems.SelectedIndexChanged += new System.EventHandler(this.lbItems_SelectedIndexChanged);
             this.lbItems.DoubleClick += new System.EventHandler(this.lbItems_DoubleClick);
@@ -84,7 +83,7 @@
             // 
             this.btnDeleteItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnDeleteItem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDeleteItem.Location = new System.Drawing.Point(84, 350);
+            this.btnDeleteItem.Location = new System.Drawing.Point(84, 346);
             this.btnDeleteItem.Name = "btnDeleteItem";
             this.btnDeleteItem.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteItem.TabIndex = 10;
@@ -177,13 +176,12 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.cb_theme);
             this.panel1.Controls.Add(this.lbItems);
             this.panel1.Controls.Add(this.btnAddItem);
             this.panel1.Controls.Add(this.btnDeleteItem);
-            this.panel1.Location = new System.Drawing.Point(624, 52);
+            this.panel1.Location = new System.Drawing.Point(624, 56);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(164, 373);
+            this.panel1.Size = new System.Drawing.Size(164, 369);
             this.panel1.TabIndex = 13;
             // 
             // stsBottom
@@ -206,6 +204,7 @@
             this.pnlItem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlItem.BackColor = System.Drawing.SystemColors.Control;
             this.pnlItem.Location = new System.Drawing.Point(12, 56);
             this.pnlItem.Name = "pnlItem";
             this.pnlItem.Size = new System.Drawing.Size(606, 369);
@@ -254,17 +253,6 @@
             this.tbSave.ToolTipText = "Save";
             this.tbSave.Click += new System.EventHandler(this.tbSave_Click);
             // 
-            // cb_theme
-            // 
-            this.cb_theme.AutoSize = true;
-            this.cb_theme.Location = new System.Drawing.Point(81, 7);
-            this.cb_theme.Name = "cb_theme";
-            this.cb_theme.Size = new System.Drawing.Size(79, 17);
-            this.cb_theme.TabIndex = 17;
-            this.cb_theme.Text = "Dark Mode";
-            this.cb_theme.UseVisualStyleBackColor = true;
-            this.cb_theme.CheckedChanged += new System.EventHandler(this.cb_theme_CheckedChanged);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -282,7 +270,6 @@
             this.msMain.ResumeLayout(false);
             this.msMain.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.stsBottom.ResumeLayout(false);
             this.stsBottom.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -314,7 +301,6 @@
         private System.Windows.Forms.ToolStripButton tbSave;
         private System.Windows.Forms.ToolStripButton tbOpen;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.CheckBox cb_theme;
     }
 }
 

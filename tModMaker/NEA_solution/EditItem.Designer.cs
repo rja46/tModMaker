@@ -35,8 +35,8 @@
             this.txtDisplayName = new System.Windows.Forms.TextBox();
             this.lblDisplayName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.wvCode = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.btnAdditionalSprites = new System.Windows.Forms.Button();
+            this.wvCode = new Microsoft.Web.WebView2.WinForms.WebView2();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wvCode)).BeginInit();
@@ -75,19 +75,19 @@
             // 
             this.txtTooltip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtTooltip.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTooltip.Location = new System.Drawing.Point(47, 218);
+            this.txtTooltip.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTooltip.Location = new System.Drawing.Point(47, 225);
             this.txtTooltip.Multiline = true;
             this.txtTooltip.Name = "txtTooltip";
-            this.txtTooltip.Size = new System.Drawing.Size(190, 205);
+            this.txtTooltip.Size = new System.Drawing.Size(190, 198);
             this.txtTooltip.TabIndex = 8;
             // 
             // txtDisplayName
             // 
-            this.txtDisplayName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDisplayName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDisplayName.Location = new System.Drawing.Point(47, 199);
             this.txtDisplayName.Name = "txtDisplayName";
-            this.txtDisplayName.Size = new System.Drawing.Size(190, 13);
+            this.txtDisplayName.Size = new System.Drawing.Size(190, 20);
             this.txtDisplayName.TabIndex = 12;
             // 
             // lblDisplayName
@@ -114,6 +114,16 @@
             this.panel1.Size = new System.Drawing.Size(242, 426);
             this.panel1.TabIndex = 16;
             // 
+            // btnAdditionalSprites
+            // 
+            this.btnAdditionalSprites.Location = new System.Drawing.Point(213, 170);
+            this.btnAdditionalSprites.Name = "btnAdditionalSprites";
+            this.btnAdditionalSprites.Size = new System.Drawing.Size(24, 23);
+            this.btnAdditionalSprites.TabIndex = 18;
+            this.btnAdditionalSprites.Text = "...";
+            this.btnAdditionalSprites.UseVisualStyleBackColor = true;
+            this.btnAdditionalSprites.Click += new System.EventHandler(this.btnAdditionalSprites_Click);
+            // 
             // wvCode
             // 
             this.wvCode.AllowExternalDrop = true;
@@ -130,16 +140,6 @@
             this.wvCode.ZoomFactor = 1D;
             this.wvCode.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.wvCode_NavigationCompleted);
             this.wvCode.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.wvCode_WebMessageReceived);
-            // 
-            // btnAdditionalSprites
-            // 
-            this.btnAdditionalSprites.Location = new System.Drawing.Point(213, 170);
-            this.btnAdditionalSprites.Name = "btnAdditionalSprites";
-            this.btnAdditionalSprites.Size = new System.Drawing.Size(24, 23);
-            this.btnAdditionalSprites.TabIndex = 18;
-            this.btnAdditionalSprites.Text = "...";
-            this.btnAdditionalSprites.UseVisualStyleBackColor = true;
-            this.btnAdditionalSprites.Click += new System.EventHandler(this.btnAdditionalSprites_Click);
             // 
             // EditItem
             // 

@@ -578,32 +578,5 @@ namespace NEA_solution
 
             }
         }
-
-        private void cb_theme_CheckedChanged(object sender, EventArgs e)
-        {
-            Color grey = Color.FromArgb(56, 56, 56);
-            if (cb_theme.Checked)
-            {
-                editItem.changeThemeDark();
-
-                BackColor = Color.Black;
-
-                lbItems.BackColor = grey;
-                lbItems.ForeColor = Color.White;
-
-                cb_theme.ForeColor = Color.White;
-            }
-            else
-            {
-                editItem.changeThemeDefault();
-
-                BackColor = SystemColors.Control;
-
-                lbItems.BackColor = Color.White;
-                lbItems.ForeColor = Color.Black;
-
-                cb_theme.ForeColor = Color.Black;
-            }
-        }
     }
 }

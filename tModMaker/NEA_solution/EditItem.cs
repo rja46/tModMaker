@@ -182,39 +182,12 @@ namespace NEA_solution
             wvCode.Enabled = true;
         }
 
-        public async void changeThemeDark()
-        {
-            Color grey = Color.FromArgb(56, 56, 56);
-
-            await wvCode.ExecuteScriptAsync("changeThemeDark()");
-            BackColor = Color.Black;
-            lblDisplayName.ForeColor = Color.White;
-            lblTooltip.ForeColor = Color.White;
-            txtDisplayName.BackColor = grey;
-            txtDisplayName.ForeColor = Color.White;
-            txtTooltip.BackColor = grey;
-            txtTooltip.ForeColor = Color.White;
-            wvCode.DefaultBackgroundColor = grey;
-        }
-
-        public async void changeThemeDefault()
-        {
-            await wvCode.ExecuteScriptAsync("changeThemeDefault()");
-            BackColor = SystemColors.Control;
-            lblDisplayName.ForeColor = Color.Black;
-            lblTooltip.ForeColor = Color.Black;
-            txtDisplayName.BackColor = SystemColors.Control;
-            txtDisplayName.ForeColor = Color.Black ;
-            txtTooltip.BackColor = SystemColors.Control;
-            txtTooltip.ForeColor = Color.Black ;
-            wvCode.DefaultBackgroundColor = Color.White;
-        }
-
         private void btnAdditionalSprites_Click(object sender, EventArgs e)
         {
             if (theItem != null)
             {
                 OpenFileDialog openSpriteDialog = new OpenFileDialog();
+                openSpriteDialog.Title = "Select wing sprite";
                 openSpriteDialog.InitialDirectory = "c:\\";
                 openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
                 if (openSpriteDialog.ShowDialog() == DialogResult.OK)
