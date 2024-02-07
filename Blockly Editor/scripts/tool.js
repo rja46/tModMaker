@@ -426,7 +426,7 @@ Blockly.common.defineBlocksWithJsonArray([
   ],
   "nextStatement": null,
   "colour": 230,
-  "tooltip": "Define a basic weapon",
+  "tooltip": "Define a basic item",
   "helpUrl": "no"
 },
 {
@@ -533,7 +533,7 @@ Blockly.common.defineBlocksWithJsonArray([
   "previousStatement": null,
   "nextStatement": null,
   "colour": 0,
-  "tooltip": "",
+  "tooltip": "Allows the item to fire an existing ammo type",
   "helpUrl": ""
 },
 {
@@ -602,7 +602,7 @@ Blockly.common.defineBlocksWithJsonArray([
   "previousStatement": null,
   "nextStatement": null,
   "colour": 330,
-  "tooltip": "",
+  "tooltip": "Increases a specific class' stat by the given value",
   "helpUrl": ""
 },
 {
@@ -671,7 +671,7 @@ Blockly.common.defineBlocksWithJsonArray([
     "previousStatement": null,
     "nextStatement": null,
     "colour": 330,
-    "tooltip": "",
+    "tooltip": "Sets a specific class' stat to the given value",
     "helpUrl": ""
 },
 {
@@ -736,7 +736,7 @@ Blockly.common.defineBlocksWithJsonArray([
     "previousStatement": null,
     "nextStatement": null,
     "colour": 330,
-    "tooltip": "Grant the player various abilities.",
+    "tooltip": "Grant the player various abilities",
     "helpUrl": ""
 },
 {
@@ -850,7 +850,7 @@ Blockly.common.defineBlocksWithJsonArray([
     "previousStatement": null,
     "nextStatement": null,
     "colour": 330,
-    "tooltip": "Change various stats for the player",
+    "tooltip": "Sets various stats for the player",
     "helpUrl": ""
 },
 {
@@ -896,7 +896,7 @@ Blockly.common.defineBlocksWithJsonArray([
     "previousStatement": null,
     "nextStatement": null,
     "colour": 330,
-    "tooltip": "",
+    "tooltip": "Sets the flight properties of the item when equipped",
     "helpUrl": ""
 },
 {
@@ -923,7 +923,7 @@ Blockly.common.defineBlocksWithJsonArray([
     "previousStatement": null,
     "nextStatement": null,
     "colour": 330,
-    "tooltip": "",
+    "tooltip": "Allows the player to hover",
     "helpUrl": ""
 },
 {
@@ -939,7 +939,7 @@ Blockly.common.defineBlocksWithJsonArray([
   "previousStatement": null,
   "nextStatement": null,
   "colour": 0,
-  "tooltip": "",
+  "tooltip": "Uses a custom projectile created by the user",
   "helpUrl": ""
 }
 ]);
