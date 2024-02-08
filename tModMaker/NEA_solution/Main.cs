@@ -135,7 +135,7 @@ namespace NEA_solution
         private async void save_mod()
         {
             //if an item is loaded, it is saved
-            if (editItem != null)
+            if (editItem.theItem != null)
             {
                await editItem.save_item();
             }

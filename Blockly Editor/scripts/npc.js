@@ -41,6 +41,10 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "use_ai"
+                },
+                {
+                    "kind": "block",
+                    "type": "set_value"
                 }
             ]
         },
@@ -166,6 +170,48 @@ Blockly.common.defineBlocksWithJsonArray([
                         "11"
                     ]
                 ]
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "set_value",
+        "message0": "Set %1 to %2",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "property",
+                "options": [
+                    [
+                        "damage",
+                        "damage"
+                    ],
+                    [
+                        "knockback",
+                        "knockBack"
+                    ],
+                    [
+                        "sound delay",
+                        "soundDelay"
+                    ],
+                    [
+                        "penetration",
+                        "penetrate"
+                    ],
+                    [
+                        "alpha",
+                        "alpha"
+                    ]
+                ]
+            },
+            {
+                "type": "field_number",
+                "name": "value",
+                "value": 0
             }
         ],
         "previousStatement": null,
