@@ -907,12 +907,19 @@ Blockly.common.defineBlocksWithJsonArray([
 },
 {
   "type": "use_custom_projectile",
-  "message0": "Fire custom projectile called %1",
+  "message0": "Fire custom projectile called %1 with %2 additional velocity",
   "args0": [
     {
       "type": "field_input",
       "name": "projectile",
       "text": "projectile"
+    },
+    {
+         "type": "field_number",
+         "name": "shoot_speed",
+         "value": 0,
+         "min": 0,
+         "precision": 1
     }
   ],
   "previousStatement": null,

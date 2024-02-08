@@ -185,7 +185,7 @@ namespace NEA_solution
 
                     case "use_custom_projectile":
                         use_custom_projectile use_Custom_Projectile = JsonSerializer.Deserialize<use_custom_projectile>(blocksAsStrings[i]);
-                        setDefaults += "Item.shoot = ModContent.ProjectileType<Projectiles." + use_Custom_Projectile.projectile + ">();";
+                        setDefaults += "\r\nItem.shoot = 10;" + "\r\nItem.shootSpeed = " + use_Custom_Projectile.shoot_speed +";" + "\r\nItem.shoot = ModContent.ProjectileType<Projectiles." + use_Custom_Projectile.projectile + ">();";
                         break;
 
 
@@ -245,7 +245,7 @@ namespace NEA_solution
                 {
                     SetStaticDefaults = "\r\nArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(" + (int)wingStats[0] + "," + wingStats[1] + "f," + wingStats[2] + "f);";
                 }
-                generatedCode += "\r\npublic override void SetStaticDefaults()\r\n{\r\n" + SetStaticDefaults + "}\r\n}\r\n";
+                generatedCode += "\r\npublic override void SetStaticDefaults()\r\n{\r\n" + SetStaticDefaults + "\r\n}\r\n";
             }
 
             //I need to make it possible to add the second sprite for wings.

@@ -111,6 +111,8 @@ namespace NEA_solution
     internal class use_custom_projectile : GenericBlock
     {
         public string projectile { get; set; }
+        public int shoot_speed { get; set; }
+
     }
 
     internal class projectile_basic : GenericBlock
