@@ -321,7 +321,22 @@ namespace NEA_solution
                 }
             }
 
+            for (int i = 0; i < blocksList.Count; i++)
+            {
+                blocksList[i].Trim();
+                if (blocksList[i][blocksList[i].Length - 1] != '}')
+                {
+                    blocksList[i] = blocksList[i].Trim(',');
+                    blocksList[i] += '}';
+                    Console.WriteLine(blocksList[i]);
+                }
+            }
+
             string[] blocks = blocksList.ToArray();
+            foreach (string block in blocks)
+            {
+                Console.WriteLine(block);
+            }
             return blocks;
         }
     }
