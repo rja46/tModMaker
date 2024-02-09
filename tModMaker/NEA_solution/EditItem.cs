@@ -32,7 +32,7 @@ namespace NEA_solution
             
             //sets up the webview component running the editor
             InitWebview();
-            wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
+            wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\start.html");
         }
 
         public async void displayItem(Item loadedItem)

@@ -368,6 +368,7 @@ namespace NEA_solution
                     File.Delete(loadedMod.get_modPath() + "\\Items\\" + loadedItem.get_name() + ".item");
                     File.Delete(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedItem.get_name() + "_code.code");
                     loadedMod.set_items(tmpItems);
+                    editItem.displayItem(new Item("", ""));
                     update_item_list();
                 }
             }
