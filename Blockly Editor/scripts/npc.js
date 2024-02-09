@@ -45,6 +45,14 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "set_value"
+                },
+                {
+                    "kind": "block",
+                    "type": "declare_friendly"
+                },
+                {
+                    "kind": "block",
+                    "type": "declare_hostile"
                 }
             ]
         },
@@ -214,6 +222,24 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0
             }
         ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "declare_friendly",
+        "message0": "Make projectile friendly",
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "declare_hostile",
+        "message0": "Make projectile hostile",
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,

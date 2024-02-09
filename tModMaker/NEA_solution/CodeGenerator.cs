@@ -205,6 +205,19 @@ namespace NEA_solution
                         use_ai use_Ai = JsonSerializer.Deserialize<use_ai>(blocksAsStrings[i]);
                         setDefaults += "\r\nProjectile.aiStyle = " + use_Ai.style + ";";
                         break;
+
+                    case "set_value":
+                        Set_value set_Value = JsonSerializer.Deserialize<Set_value>(blocksAsStrings[i]);
+                        setDefaults += "\r\nProjectile." + set_Value.property + " = " + set_Value.value + ";";
+                        break;
+
+                    case "declare_friendly":
+                        setDefaults += "\r\nProjectile.friendly = true;";
+                        break;
+
+                    case "declare_hostile":
+                        setDefaults += "\r\nProjectile.hostile = true;";
+                        break;
                 }
             }
 

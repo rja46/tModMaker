@@ -128,4 +128,10 @@ namespace NEA_solution
     {
         public string style { get; set; }
     }
+
+    internal class Set_value : GenericBlock
+    {
+        public string property { get; set; }
+        public int value { get; set; }
+    }
 }
