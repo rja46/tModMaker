@@ -468,7 +468,14 @@ Blockly.common.defineBlocksWithJsonArray([
 },
 {
   "type": "no_melee",
-  "message0": "Nullify contact damage",
+    "message0": "Deal contact damage %1",
+    "args0": [
+        {
+            "type": "field_checkbox",
+            "name": "melee",
+            "checked": true
+        }
+    ],
   "previousStatement": null,
   "nextStatement": null,
   "colour": 120,
@@ -834,7 +841,13 @@ Blockly.common.defineBlocksWithJsonArray([
 },
 {
   "type": "is_consumable",
-  "message0": "Consume on use",
+    "message0": "Consume on use %1",
+    "args0": [
+        {
+            "type": "field_checkbox",
+            "name": "consumable",
+            "checked": true
+        }],
   "previousStatement": null,
   "nextStatement": null,
   "colour": 120,

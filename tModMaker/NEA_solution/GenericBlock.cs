@@ -134,4 +134,24 @@ namespace NEA_solution
         public string property { get; set; }
         public int value { get; set; }
     }
+
+    internal class declare_friendly : GenericBlock
+    {
+        public bool friendly { get; set; }
+    }
+
+    internal class declare_hostile : GenericBlock
+    {
+        public bool hostile { get; set; }
+    }
+
+    internal class no_melee : GenericBlock
+    {
+        public bool melee { get; set; }
+    }
+
+    internal class is_consumable : GenericBlock
+    {
+        public bool consumable { get; set; }
+    }
 }

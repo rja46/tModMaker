@@ -109,11 +109,13 @@ namespace NEA_solution
                         break;
 
                     case "is_consumable":
-                        setDefaults += "\r\nItem.consumable = true;";
+                        is_consumable is_Consumable = JsonSerializer.Deserialize<is_consumable>(blocksAsStrings[i]);
+                        setDefaults += "\r\nItem.consumable = " + is_Consumable.consumable + ";";
                         break;
 
                     case "no_melee":
-                        setDefaults += "\r\nItem.noMelee = true;";
+                        no_melee no_Melee = JsonSerializer.Deserialize<no_melee>(blocksAsStrings[i]);
+                        setDefaults += "\r\nItem.noMelee = " + (!no_Melee.melee).ToString().ToLower() + ";";
                         break;
 
                     case "shoot_existing_ammo":
@@ -212,11 +214,13 @@ namespace NEA_solution
                         break;
 
                     case "declare_friendly":
-                        setDefaults += "\r\nProjectile.friendly = true;";
+                        declare_friendly declare_Friendly = JsonSerializer.Deserialize<declare_friendly>(blocksAsStrings[i]);
+                        setDefaults += "\r\nProjectile.friendly = " + declare_Friendly.friendly.ToString().ToLower() + ";";
                         break;
 
                     case "declare_hostile":
-                        setDefaults += "\r\nProjectile.hostile = true;";
+                        declare_hostile declare_Hostile = JsonSerializer.Deserialize<declare_hostile>(blocksAsStrings[i]);
+                        setDefaults += "\r\nProjectile.hostile = " + declare_Hostile.hostile.ToString().ToLower() + ";";
                         break;
                 }
             }

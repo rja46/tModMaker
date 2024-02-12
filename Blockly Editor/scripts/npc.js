@@ -230,7 +230,14 @@ Blockly.common.defineBlocksWithJsonArray([
     },
     {
         "type": "declare_friendly",
-        "message0": "Make projectile friendly",
+        "message0": "Make projectile friendly %1",
+        "args0": [
+            {
+            "type": "field_checkbox",
+            "name": "friendly",
+            "checked": true
+            }
+        ],
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
@@ -239,7 +246,14 @@ Blockly.common.defineBlocksWithJsonArray([
     },
     {
         "type": "declare_hostile",
-        "message0": "Make projectile hostile",
+        "message0": "Make projectile hostile %1",
+        "args0": [
+            {
+                "type": "field_checkbox",
+                "name": "hostile",
+                "checked": true
+            }
+        ],
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
