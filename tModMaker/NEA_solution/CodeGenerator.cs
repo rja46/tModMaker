@@ -222,6 +222,11 @@ namespace NEA_solution
                         declare_hostile declare_Hostile = JsonSerializer.Deserialize<declare_hostile>(blocksAsStrings[i]);
                         setDefaults += "\r\nProjectile.hostile = " + declare_Hostile.hostile.ToString().ToLower() + ";";
                         break;
+
+                    case "damage_type":
+                        damage_type damage_Type = JsonSerializer.Deserialize<damage_type>(blocksAsStrings[i]);
+                        setDefaults += "\r\nProjectile." + damage_Type.type + " = true;";
+                        break;
                 }
             }
 

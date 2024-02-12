@@ -154,4 +154,9 @@ namespace NEA_solution
     {
         public bool consumable { get; set; }
     }
+
+    internal class damage_type : GenericBlock
+    {
+        public string type { get; set; }
+    }
 }
