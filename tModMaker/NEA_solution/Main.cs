@@ -485,7 +485,10 @@ namespace NEA_solution
                 }
 
                 //The necessary directories are created.
-                Directory.Delete(path, true);
+                if (Directory.Exists(path))
+                {
+                    Directory.Delete(path, true);
+                }
                 Directory.CreateDirectory(path);
                 Directory.CreateDirectory(path + "\\Items");
                 Directory.CreateDirectory(path + "\\Localization");
