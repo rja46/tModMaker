@@ -55,7 +55,7 @@ namespace NEA_solution
                 generatedCode += "\r\nnamespace " + modName + ".Projectiles";
             }
             generatedCode += "\r\n{";
-                
+
 
             //Each block is found in the code, and put in an array of strings.
             blocksAsStrings = findBlocksInline(code);
@@ -187,7 +187,7 @@ namespace NEA_solution
 
                     case "use_custom_projectile":
                         use_custom_projectile use_Custom_Projectile = JsonSerializer.Deserialize<use_custom_projectile>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.shoot = 10;" + "\r\nItem.shootSpeed = " + use_Custom_Projectile.shoot_speed +";" + "\r\nItem.shoot = ModContent.ProjectileType<Projectiles." + use_Custom_Projectile.projectile + ">();";
+                        setDefaults += "\r\nItem.shoot = 10;" + "\r\nItem.shootSpeed = " + use_Custom_Projectile.shoot_speed + ";" + "\r\nItem.shoot = ModContent.ProjectileType<Projectiles." + use_Custom_Projectile.projectile + ">();";
                         break;
 
 
@@ -225,7 +225,12 @@ namespace NEA_solution
 
                     case "damage_type":
                         damage_type damage_Type = JsonSerializer.Deserialize<damage_type>(blocksAsStrings[i]);
-                        setDefaults += "\r\nProjectile." + damage_Type.type + " = true;";
+                        setDefaults += "\r\nProjectile." + damage_Type.dmg_type + " = true;";
+                        break;
+
+                    case "hide_projectile":
+                        hide_projectile hide_Projectile = JsonSerializer.Deserialize<hide_projectile>(blocksAsStrings[i]);
+                        setDefaults += "\r\nProjectile.hide = " + hide_Projectile.hide.ToString().ToLower() + ";";
                         break;
                 }
             }
@@ -261,7 +266,7 @@ namespace NEA_solution
             {
                 if (canHover)
                 {
-                    SetStaticDefaults = "\r\nArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(" + (int)wingStats[0] + ", " + wingStats[1] + "f, " + wingStats[2] + "f, true, "+ wingStats[3] +"f, " + wingStats[4] +"f);";
+                    SetStaticDefaults = "\r\nArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(" + (int)wingStats[0] + ", " + wingStats[1] + "f, " + wingStats[2] + "f, true, " + wingStats[3] + "f, " + wingStats[4] + "f);";
                 }
                 else
                 {
@@ -286,13 +291,13 @@ namespace NEA_solution
                 generatedCode += verticalWingsSpeeds;
             }
             //The generated methods are compiled into one string here.
-            generatedCode += "\r\npublic override void SetDefaults()\r\n{\r\n" + setDefaults;
+            generatedCode += "\r\npublic override void SetDefaults()\r\n{\r\n" + setDefaults + "\r\n}";
             if (isEquipable)
             {
                 generatedCode += "\r\npublic override void UpdateAccessory(Player player, bool hideVisual)\r\n{\r\n" + UpdateAccessory + "\r\n}";
             }
 
-            generatedCode += "\r\n}\r\n}\r\n}";
+            generatedCode += "\r\n}\r\n}";
             
             return generatedCode;
         }

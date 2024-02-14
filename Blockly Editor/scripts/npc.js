@@ -57,6 +57,10 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "damage_type"
+                },
+                {
+                    "kind": "block",
+                    "type": "hide_projectile"
                 }
             ]
         },
@@ -266,7 +270,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "args0": [
             {
                 "type": "field_dropdown",
-                "name": "type",
+                "name": "dmg_type",
                 "options": [
                     [
                         "melee",
@@ -281,6 +285,22 @@ Blockly.common.defineBlocksWithJsonArray([
                         "magic"
                     ]
                 ]
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "hide_projectile",
+        "message0": "Hide projectile %1",
+        "args0": [
+            {
+                "type": "field_checkbox",
+                "name": "hide",
+                "checked": true
             }
         ],
         "previousStatement": null,

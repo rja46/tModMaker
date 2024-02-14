@@ -157,6 +157,11 @@ namespace NEA_solution
 
     internal class damage_type : GenericBlock
     {
-        public string type { get; set; }
+        public string dmg_type { get; set; }
+    }
+
+    internal class hide_projectile : GenericBlock
+    {
+        public bool hide { get; set; }
     }
 }
