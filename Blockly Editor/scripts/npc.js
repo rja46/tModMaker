@@ -56,11 +56,19 @@ const toolbox = {
                 },
                 {
                     "kind": "block",
-                    "type": "damage_type"
+                    "type": "hide_projectile"
                 },
                 {
                     "kind": "block",
-                    "type": "hide_projectile"
+                    "type": "collide_with_tiles"
+                },
+                {
+                    "kind": "block",
+                    "type": "ignore_water"
+                },
+                {
+                    "kind": "block",
+                    "type": "emit_light"
                 }
             ]
         },
@@ -265,26 +273,13 @@ Blockly.common.defineBlocksWithJsonArray([
         "helpUrl": ""
     },
     {
-        "type": "damage_type",
-        "message0": "Deal %1 damage",
+        "type": "hide_projectile",
+        "message0": "Hide projectile %1",
         "args0": [
             {
-                "type": "field_dropdown",
-                "name": "dmg_type",
-                "options": [
-                    [
-                        "melee",
-                        "melee"
-                    ],
-                    [
-                        "ranged",
-                        "ranged"
-                    ],
-                    [
-                        "magic",
-                        "magic"
-                    ]
-                ]
+                "type": "field_checkbox",
+                "name": "hide",
+                "checked": true
             }
         ],
         "previousStatement": null,
@@ -294,13 +289,45 @@ Blockly.common.defineBlocksWithJsonArray([
         "helpUrl": ""
     },
     {
-        "type": "hide_projectile",
-        "message0": "Hide projectile %1",
+        "type": "collide_with_tiles",
+        "message0": "Collide with tiles %1",
         "args0": [
             {
                 "type": "field_checkbox",
-                "name": "hide",
+                "name": "collide",
                 "checked": true
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "ignore_water",
+        "message0": "Slow in water %1",
+        "args0": [
+            {
+                "type": "field_checkbox",
+                "name": "ignore",
+                "checked": true
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "emit_light",
+        "message0": "Emit %1 light while active",
+        "args0": [
+            {
+                "type": "field_number",
+                "name": "light",
+                "value": 0
             }
         ],
         "previousStatement": null,

@@ -484,7 +484,7 @@ Blockly.common.defineBlocksWithJsonArray([
 },
 {
   "type": "shoot_existing_ammo",
-  "message0": "Fire %1 with %2 additional velocity",
+  "message0": "Fire %1 with %2 velocity",
   "args0": [
     {
       "type": "field_dropdown",
@@ -920,7 +920,7 @@ Blockly.common.defineBlocksWithJsonArray([
 },
 {
   "type": "use_custom_projectile",
-  "message0": "Fire custom projectile called %1 with %2 additional velocity",
+  "message0": "Fire custom projectile called %1 with %2 velocity",
   "args0": [
     {
       "type": "field_input",

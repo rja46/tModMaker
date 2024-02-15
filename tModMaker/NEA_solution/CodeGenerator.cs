@@ -223,14 +223,24 @@ namespace NEA_solution
                         setDefaults += "\r\nProjectile.hostile = " + declare_Hostile.hostile.ToString().ToLower() + ";";
                         break;
 
-                    case "damage_type":
-                        damage_type damage_Type = JsonSerializer.Deserialize<damage_type>(blocksAsStrings[i]);
-                        setDefaults += "\r\nProjectile." + damage_Type.dmg_type + " = true;";
-                        break;
-
                     case "hide_projectile":
                         hide_projectile hide_Projectile = JsonSerializer.Deserialize<hide_projectile>(blocksAsStrings[i]);
                         setDefaults += "\r\nProjectile.hide = " + hide_Projectile.hide.ToString().ToLower() + ";";
+                        break;
+
+                    case "collide_with_tiles":
+                        collide_with_tiles collide_With_Tiles = JsonSerializer.Deserialize<collide_with_tiles>(blocksAsStrings[i]);
+                        setDefaults += "\r\nProjectile.tileCollide = " + collide_With_Tiles.collide.ToString().ToLower() + ";";
+                        break;
+
+                    case "ignore_water":
+                        ignore_water ignore_Water = JsonSerializer.Deserialize<ignore_water>(blocksAsStrings[i]);
+                        setDefaults += "\r\nProjectile.ignoreWater = " + (!ignore_Water.ignore).ToString().ToLower() + ";";
+                        break;
+
+                    case "emit_light":
+                        emit_light emit_Light = JsonSerializer.Deserialize<emit_light>(blocksAsStrings[i]);
+                        setDefaults += "\r\nProjectile.light = " + emit_Light.light + "f;";
                         break;
                 }
             }

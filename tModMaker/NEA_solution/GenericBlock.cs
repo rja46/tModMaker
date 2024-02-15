@@ -155,13 +155,23 @@ namespace NEA_solution
         public bool consumable { get; set; }
     }
 
-    internal class damage_type : GenericBlock
-    {
-        public string dmg_type { get; set; }
-    }
-
     internal class hide_projectile : GenericBlock
     {
         public bool hide { get; set; }
+    }
+
+    internal class collide_with_tiles : GenericBlock
+    {
+        public bool collide { get; set; }
+    }
+
+    internal class ignore_water : GenericBlock
+    {
+        public bool ignore { get; set; }
+    }
+
+    internal class emit_light : GenericBlock
+    {
+        public int light { get; set; }
     }
 }
