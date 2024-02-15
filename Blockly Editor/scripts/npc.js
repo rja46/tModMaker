@@ -192,6 +192,42 @@ Blockly.common.defineBlocksWithJsonArray([
                     [
                         "follow player",
                         "11"
+                    ],
+                    [
+                        "water stream",
+                        "12"
+                    ],
+                    [
+                        "harpoon",
+                        "13"
+                    ],
+                    [
+                        "bounce",
+                        "14"
+                    ],
+                    [
+                        "flail",
+                        "15"
+                    ],
+                    [
+                        "bounce & explode",
+                        "16"
+                    ],
+                    [
+                        "stationary",
+                        "17"
+                    ],
+                    [
+                        "exponential acceleration (with sparkles)",
+                        "18"
+                    ],
+                    [
+                        "spear",
+                        "19"
+                    ],
+                    [
+                        "motorised tool",
+                        "20"
                     ]
                 ]
             }
