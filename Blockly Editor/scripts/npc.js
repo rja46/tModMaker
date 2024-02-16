@@ -89,7 +89,7 @@ const toolbox = {
 Blockly.common.defineBlocksWithJsonArray([
     {
         "type": "projectile_basic",
-        "message0": "Width: %1 %2 Height: %3 %4 Collide with tiles: %5 %6 Display scale: %7 %8 Time left %9",
+        "message0": "Hitbox width: %1 %2 Hitbox height: %3 %4 Time left %5",
         "args0": [
             {
                 "type": "field_number",
@@ -105,22 +105,6 @@ Blockly.common.defineBlocksWithJsonArray([
                 "name": "height",
                 "value": 0,
                 "min": 0
-            },
-            {
-                "type": "input_dummy"
-            },
-            {
-                "type": "field_checkbox",
-                "name": "collide",
-                "checked": true
-            },
-            {
-                "type": "input_dummy"
-            },
-            {
-                "type": "field_number",
-                "name": "scale",
-                "value": 0
             },
             {
                 "type": "input_dummy"
@@ -228,7 +212,221 @@ Blockly.common.defineBlocksWithJsonArray([
                     [
                         "motorised tool",
                         "20"
+                    ],
+                    [
+                        "no gravity",
+                        "21"
+                    ],
+                    [
+                        "blue trail",
+                        "22"
+                    ],
+                    [
+                        "fiery",
+                        "23"
+                    ],
+                    [
+                        "shard",
+                        "24"
+                    ],
+                    [
+                        "boulder",
+                        "25"
+                    ],
+                    [
+                        "fly to player",
+                        "26"
+                    ],
+                    [
+                        "demon trident",
+                        "27"
+                    ],
+                    [
+                        "ice bolt",
+                        "28"
+                    ],
+                    [
+                        "amethyst bolt",
+                        "29"
+                    ],
+                    [
+                        "mushroom",
+                        "30"
+                    ],
+                    [
+                        "solution spray",
+                        "31"
+                    ],
+                    [
+                        "beach ball",
+                        "32"
+                    ],
+                    [
+                        "flare",
+                        "33"
+                    ],
+                    [
+                        "rocket",
+                        "34"
+                    ],
+                    [
+                        "rope idk",
+                        "35"
+                    ],
+                    [
+                        "bee",
+                        "36"
+                    ],
+                    [
+                        "spear",
+                        "37"
+                    ],
+                    [
+                        "stationary flame turret",
+                        "38"
+                    ],
+                    [
+                        "mechanical pirahna",
+                        "39"
+                    ],
+                    [
+                        "leaf",
+                        "40"
+                    ],
+                    [
+                        "flower petal",
+                        "41"
+                    ],
+                    [
+                        "crystal leaf A",
+                        "42"
+                    ],
+                    [
+                        "crystal leaf B",
+                        "43"
+                    ],
+                    [
+                        "spore cloud",
+                        "44"
+                    ],
+                    [
+                        "rain cloud",
+                        "45"
+                    ],
+                    [
+                        "rain cloud",
+                        "46"
+                    ],
+                    [
+                        "magnet sphere",
+                        "47"
+                    ],
+                    [
+                        "heat ray",
+                        "48"
+                    ],
+                    [
+                        "explosive bunny",
+                        "49"
+                    ],
+                    [
+                        "inferno",
+                        "50"
+                    ],
+                    [
+                        "lost soul",
+                        "51"
+                    ],
+                    [
+                        "spirit heal",
+                        "52"
+                    ],
+                    [
+                        "frost hydra",
+                        "53"
+                    ],
+                    [
+                        "raven",
+                        "54"
+                    ],
+                    [
+                        "flaming jack",
+                        "55"
+                    ],
+                    [
+                        "flaming scythe",
+                        "56"
+                    ],
+                    [
+                        "north pole",
+                        "57"
+                    ],
+                    [
+                        "present",
+                        "58"
+                    ],
+                    [
+                        "spectre wraith",
+                        "59"
+                    ],
+                    [
+                        "water gun",
+                        "60"
+                    ],
+                    [
+                        "bobber",
+                        "61"
+                    ],
+                    [
+                        "loop around player",
+                        "62"
+                    ],
+                    [
+                        "baby spider",
+                        "63"
+                    ],
+                    [
+                        "sharknado A",
+                        "64"
+                    ],
+                    [
+                        "sharknado B",
+                        "65"
+                    ],
+                    [
+                        "big loop",
+                        "66"
+                    ],
+                    [
+                        "return to player",
+                        "67"
+                    ],
+                    [
+                        "molotov cocktail",
+                        "68"
+                    ],
+                    [
+                        "flairon",
+                        "69"
+                    ],
+                    [
+                        "flairon bubble",
+                        "70"
+                    ],
+                    [
+                        "typhoon",
+                        "71"
+                    ],
+                    [
+                        "bubble",
+                        "72"
+                    ],
+                    [
+                        "lightning orb",
+                        "88"
                     ]
+                    
+
                 ]
             }
         ],

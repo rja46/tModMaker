@@ -119,8 +119,6 @@ namespace NEA_solution
     {
         public int width { get; set; }
         public int height { get; set; }
-        public bool collide { get; set; }
-        public int scale { get; set; }
         public int time_left { get; set; }
     }
 

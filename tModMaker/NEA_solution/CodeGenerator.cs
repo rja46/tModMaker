@@ -198,8 +198,6 @@ namespace NEA_solution
                         projectile_basic projectile_Basic = JsonSerializer.Deserialize<projectile_basic>(blocksAsStrings[i]);
                         setDefaults += "\r\nProjectile.width = " + projectile_Basic.width + ";";
                         setDefaults += "\r\nProjectile.height = " + projectile_Basic.height + ";";
-                        setDefaults += "\r\nProjectile.tileCollide = " + projectile_Basic.collide.ToString().ToLower() + ";";
-                        setDefaults += "\r\nProjectile.scale = " + projectile_Basic.scale + "f;";
                         setDefaults += "\r\nProjectile.timeLeft = " + projectile_Basic.time_left + ";";
                         break;
 
