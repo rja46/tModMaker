@@ -26,102 +26,113 @@ function loadData(theData){
 
  const toolbox = {
   "kind": "categoryToolbox",
-    "contents": [
-      {
-      "kind": "category",
-      "name": "Basic",
-	  "colour": 230,
-      "contents": [
-        {
-		  "kind": "block",
-		  "type": "define_item"
-		},
-		{
-		  "kind": "block",
-		  "type": "define_weapon_essential"
-		},
-      ]
-    },
-	{
-      "kind": "category",
-      "name": "Tool",
-	  "colour": 60,
-      "contents": [
-        {
-          "kind": "block",
-          "type": "tool_power"
-        },
-      ]
-    },
-	{
-      "kind": "category",
-      "name": "Projectile",
-	  "colour": 360,
-      "contents": [
-	  	{
-          "kind": "block",
-          "type": "shoot_existing_ammo"
-        },
-        {
-          "kind": "block",
-          "type": "use_custom_projectile"
+     "contents": [
+         {
+             "kind": "category",
+             "name": "Basic",
+             "colour": 230,
+             "contents": [
+                 {
+                     "kind": "block",
+                     "type": "define_item"
+                 },
+                 {
+                     "kind": "block",
+                     "type": "define_weapon_essential"
+                 },
+             ]
+         },
+         {
+             "kind": "category",
+             "name": "Tool",
+             "colour": 60,
+             "contents": [
+                 {
+                     "kind": "block",
+                     "type": "tool_power"
+                 },
+             ]
+         },
+         {
+             "kind": "category",
+             "name": "Projectile",
+             "colour": 360,
+             "contents": [
+                 {
+                     "kind": "block",
+                     "type": "shoot_existing_ammo"
+                 },
+                 {
+                     "kind": "block",
+                     "type": "use_custom_projectile"
+                 }
+             ]
+         },
+         {
+             "kind": "category",
+             "name": "Other",
+             "colour": 120,
+             "contents": [
+                 {
+                     "kind": "block",
+                     "type": "use_mana"
+                 },
+                 {
+                     "kind": "block",
+                     "type": "is_consumable"
+                 },
+                 {
+                     "kind": "block",
+                     "type": "no_melee"
+                 },
+             ]
+         },
+         {
+             "kind": "category",
+             "name": "Buffs",
+             "colour": 330,
+             "contents": [
+                 {
+                     "kind": "block",
+                     "type": "grant_ability"
+                 },
+                 {
+                     "kind": "block",
+                     "type": "change_class_stat"
+                 },
+                 {
+                     "kind": "block",
+                     "type": "set_class_stat"
+                 },
+                 {
+                     "kind": "block",
+                     "type": "change_player_stat"
+                 },
+                 {
+                     "kind": "block",
+                     "type": "set_player_stat"
+                 },
+                 {
+                     "kind": "block",
+                     "type": "create_wings"
+                 },
+                 {
+                     "kind": "block",
+                     "type": "wing_hover"
+                 }
+             ]
+         },
+         {
+             "kind": "category",
+             "name": "Clothes",
+             "colour": 165,
+             "contents": [
+                 {
+                     "kind": "block",
+                     "type": "equip_slot"
+                 }
+             ]
         }
-      ]
-    },
-	{
-      "kind": "category",
-      "name": "Other",
-	  "colour": 120,
-      "contents": [
-        {
-          "kind": "block",
-          "type": "use_mana"
-        },
-		{
-          "kind": "block",
-          "type": "is_consumable"
-        },
-				{
-          "kind": "block",
-          "type": "no_melee"
-        },
-      ]
-    },
-	{
-		"kind": "category",
-		"name": "Buffs",
-		"colour": 330,
-        "contents": [
-        {
-            "kind": "block",
-            "type": "grant_ability"
-        },
-		{
-			"kind": "block",
-			"type": "change_class_stat"
-		},
-        {
-            "kind": "block",
-            "type": "set_class_stat"
-        },
-        {
-            "kind": "block",
-            "type": "change_player_stat"
-        },
-        {
-            "kind": "block",
-            "type": "set_player_stat"
-        },
-        {
-            "kind": "block",
-            "type": "create_wings"
-        },
-        {
-            "kind": "block",
-            "type": "wing_hover"
-        }
-		]
-    },
   ]
 };
 
@@ -940,7 +951,36 @@ Blockly.common.defineBlocksWithJsonArray([
   "colour": 0,
   "tooltip": "Uses a custom projectile created by the user",
   "helpUrl": ""
-}
+    },
+    {
+        "type": "equip_slot",
+        "message0": "Equip to %1",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "slot",
+                "options": [
+                    [
+                        "head",
+                        "Head"
+                    ],
+                    [
+                        "body",
+                        "Body"
+                    ],
+                    [
+                        "legs",
+                        "Legs"
+                    ]
+                ]
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 165,
+        "tooltip": "",
+        "helpUrl": ""
+    }
 ]);
 
 workspace = Blockly.inject('blocklyDiv', {

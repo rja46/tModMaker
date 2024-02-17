@@ -24,6 +24,7 @@ namespace NEA_solution
             string verticalWingsSpeeds;
             float[] wingStats = new float[5];
             bool canHover = false;
+            string slot = null;
 
             if (itemType == "Item")
             {
@@ -175,7 +176,9 @@ namespace NEA_solution
                         wingStats[0] = create_Wings.flight_time;
                         wingStats[1] = create_Wings.flight_speed;
                         wingStats[2] = create_Wings.acceleration;
+                        isEquipable = true;
                         isWing = true;
+                        slot = "Wings";
                         break;
 
                     case "wing_hover":
@@ -188,6 +191,11 @@ namespace NEA_solution
                     case "use_custom_projectile":
                         use_custom_projectile use_Custom_Projectile = JsonSerializer.Deserialize<use_custom_projectile>(blocksAsStrings[i]);
                         setDefaults += "\r\nItem.shoot = 10;" + "\r\nItem.shootSpeed = " + use_Custom_Projectile.shoot_speed + ";" + "\r\nItem.shoot = ModContent.ProjectileType<Projectiles." + use_Custom_Projectile.projectile + ">();";
+                        break;
+
+                    case "equip_slot":
+                        equip_slot equip_Slot = JsonSerializer.Deserialize<equip_slot>(blocksAsStrings[i]);
+                        slot = equip_Slot.slot;
                         break;
 
 
@@ -240,12 +248,13 @@ namespace NEA_solution
                         emit_light emit_Light = JsonSerializer.Deserialize<emit_light>(blocksAsStrings[i]);
                         setDefaults += "\r\nProjectile.light = " + emit_Light.light + "f;";
                         break;
+
                 }
             }
 
-            if (isWing)
+            if (slot != null)
             {
-                generatedCode += "\r\n[AutoloadEquip(EquipType.Wings)]";
+                generatedCode += "\r\n[AutoloadEquip(EquipType." + slot + ")]";
             }
 
             if (itemType == "Item")

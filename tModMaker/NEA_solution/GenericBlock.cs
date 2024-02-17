@@ -172,4 +172,9 @@ namespace NEA_solution
     {
         public int light { get; set; }
     }
+
+    internal class equip_slot : GenericBlock
+    {
+        public string slot { get; set;}
+    }
 }
