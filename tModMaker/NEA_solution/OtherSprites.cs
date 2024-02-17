@@ -66,5 +66,137 @@ namespace NEA_solution
                 }
             }
         }
+
+        private void btnChangeHeadSprite_Click(object sender, EventArgs e)
+        {
+            if (theItem != null)
+            {
+                OpenFileDialog openSpriteDialog = new OpenFileDialog();
+                openSpriteDialog.InitialDirectory = "c:\\";
+                openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
+                if (openSpriteDialog.ShowDialog() == DialogResult.OK)
+                {
+                    theItem.set_headSprite(new Bitmap(@openSpriteDialog.FileName));
+                    pbHeadSprite.Refresh();
+                }
+            }
+        }
+
+        private void btnChangeBodySprite_Click(object sender, EventArgs e)
+        {
+            if (theItem != null)
+            {
+                OpenFileDialog openSpriteDialog = new OpenFileDialog();
+                openSpriteDialog.InitialDirectory = "c:\\";
+                openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
+                if (openSpriteDialog.ShowDialog() == DialogResult.OK)
+                {
+                    theItem.set_bodySprite(new Bitmap(@openSpriteDialog.FileName));
+                    pbBodySprite.Refresh();
+                }
+            }
+        }
+
+        private void btnChangeLegsSprite_Click(object sender, EventArgs e)
+        {
+            if (theItem != null)
+            {
+                OpenFileDialog openSpriteDialog = new OpenFileDialog();
+                openSpriteDialog.InitialDirectory = "c:\\";
+                openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
+                if (openSpriteDialog.ShowDialog() == DialogResult.OK)
+                {
+                    theItem.set_legsSprite(new Bitmap(@openSpriteDialog.FileName));
+                    pbLegsSprite.Refresh();
+                }
+            }
+        }
+
+        private void pbHeadSprite_Paint(object sender, PaintEventArgs e)
+        {
+            if (theItem != null)
+            {
+                Bitmap theImage = theItem.get_headSprite();
+                Graphics g = e.Graphics;
+                e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+                if (theItem.get_headSprite() != null)
+                {
+                    double picBoxWidth = pbHeadSprite.Width;
+                    double picBoxHeight = pbHeadSprite.Height;
+                    double height = theItem.get_headSprite().Height;
+                    double width = theItem.get_headSprite().Width;
+                    if (height > width)
+                    {
+                        e.Graphics.DrawImage(theImage, (int)(picBoxWidth - (picBoxHeight / height * width)) / 2, 0, (int)(picBoxHeight / height * width), (int)(picBoxHeight));
+                    }
+                    else if (height < width)
+                    {
+                        e.Graphics.DrawImage(theImage, 0, (int)(picBoxHeight - (picBoxWidth / width * height)) / 2, (int)picBoxWidth, (int)(picBoxWidth / width * height));
+                    }
+                    else
+                    {
+                        e.Graphics.DrawImage(theImage, 0, 0, pbHeadSprite.Width, pbHeadSprite.Height);
+                    }
+                }
+            }
+        }
+
+        private void pbBodySprite_Paint(object sender, PaintEventArgs e)
+        {
+            if (theItem != null)
+            {
+                Bitmap theImage = theItem.get_bodySprite();
+                Graphics g = e.Graphics;
+                e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+                if (theItem.get_bodySprite() != null)
+                {
+                    double picBoxWidth = pbBodySprite.Width;
+                    double picBoxHeight = pbBodySprite.Height;
+                    double height = theItem.get_bodySprite().Height;
+                    double width = theItem.get_bodySprite().Width;
+                    if (height > width)
+                    {
+                        e.Graphics.DrawImage(theImage, (int)(picBoxWidth - (picBoxHeight / height * width)) / 2, 0, (int)(picBoxHeight / height * width), (int)(picBoxHeight));
+                    }
+                    else if (height < width)
+                    {
+                        e.Graphics.DrawImage(theImage, 0, (int)(picBoxHeight - (picBoxWidth / width * height)) / 2, (int)picBoxWidth, (int)(picBoxWidth / width * height));
+                    }
+                    else
+                    {
+                        e.Graphics.DrawImage(theImage, 0, 0, pbBodySprite.Width, pbBodySprite.Height);
+                    }
+                }
+            }
+        }
+
+        private void pbLegsSprite_Paint(object sender, PaintEventArgs e)
+        {
+            if (theItem != null)
+            {
+                Bitmap theImage = theItem.get_legsSprite();
+                Graphics g = e.Graphics;
+                e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+                if (theItem.get_legsSprite() != null)
+                {
+                    double picBoxWidth = pbLegsSprite.Width;
+                    double picBoxHeight = pbLegsSprite.Height;
+                    double height = theItem.get_legsSprite().Height;
+                    double width = theItem.get_legsSprite().Width;
+                    if (height > width)
+                    {
+                        e.Graphics.DrawImage(theImage, (int)(picBoxWidth - (picBoxHeight / height * width)) / 2, 0, (int)(picBoxHeight / height * width), (int)(picBoxHeight));
+                    }
+                    else if (height < width)
+                    {
+                        e.Graphics.DrawImage(theImage, 0, (int)(picBoxHeight - (picBoxWidth / width * height)) / 2, (int)picBoxWidth, (int)(picBoxWidth / width * height));
+                    }
+                    else
+                    {
+                        e.Graphics.DrawImage(theImage, 0, 0, pbLegsSprite.Width, pbLegsSprite.Height);
+                    }
+                }
+            }
+        }
     }
 }

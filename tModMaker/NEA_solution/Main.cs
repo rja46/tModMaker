@@ -233,6 +233,27 @@ namespace NEA_solution
                         bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Wings.png", ImageFormat.Png);
                     }
 
+                    bmp = loadedMod.get_item(i).get_headSprite();
+                    File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Head.png");
+                    if (bmp != null)
+                    {
+                        bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Head.png", ImageFormat.Png);
+                    }
+
+                    bmp = loadedMod.get_item(i).get_bodySprite();
+                    File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Body.png");
+                    if (bmp != null)
+                    {
+                        bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Body.png", ImageFormat.Png);
+                    }
+
+                    bmp = loadedMod.get_item(i).get_legsSprite();
+                    File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Legs.png");
+                    if (bmp != null)
+                    {
+                        bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Legs.png", ImageFormat.Png);
+                    }
+
                     //the step for the progress bar is performed
                     pbSave.PerformStep();
                 }
@@ -308,6 +329,27 @@ namespace NEA_solution
                                 {
                                     FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
                                     currentItem.set_wingSprite(new Bitmap(fileHandler));
+                                    fileHandler.Close();
+                                    Console.WriteLine(currentItem.get_name());
+                                }
+                                else if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + "_Head.png" == existingSprites[j])
+                                {
+                                    FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
+                                    currentItem.set_headSprite(new Bitmap(fileHandler));
+                                    fileHandler.Close();
+                                    Console.WriteLine(currentItem.get_name());
+                                }
+                                else if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + "_Body.png" == existingSprites[j])
+                                {
+                                    FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
+                                    currentItem.set_bodySprite(new Bitmap(fileHandler));
+                                    fileHandler.Close();
+                                    Console.WriteLine(currentItem.get_name());
+                                }
+                                else if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + "_Legs.png" == existingSprites[j])
+                                {
+                                    FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
+                                    currentItem.set_legsSprite(new Bitmap(fileHandler));
                                     fileHandler.Close();
                                     Console.WriteLine(currentItem.get_name());
                                 }
@@ -543,9 +585,29 @@ namespace NEA_solution
                         {
                             bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + "_Wings.png", ImageFormat.Png);
                         }
-                        else if (itemsToExport[i].get_type() == "NPC/Projectile")
+                    }
+                    bmp = itemsToExport[i].get_headSprite();
+                    if (bmp != null)
+                    {
+                        if (itemsToExport[i].get_type() == "Item")
                         {
-                            bmp.Save(path + "\\Projectiles\\" + itemsToExport[i].get_name() + "_Wings.png", ImageFormat.Png);
+                            bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + "_Head.png", ImageFormat.Png);
+                        }
+                    }
+                    bmp = itemsToExport[i].get_bodySprite();
+                    if (bmp != null)
+                    {
+                        if (itemsToExport[i].get_type() == "Item")
+                        {
+                            bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + "_Body.png", ImageFormat.Png);
+                        }
+                    }
+                    bmp = itemsToExport[i].get_legsSprite();
+                    if (bmp != null)
+                    {
+                        if (itemsToExport[i].get_type() == "Item")
+                        {
+                            bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + "_Legs.png", ImageFormat.Png);
                         }
                     }
                 }

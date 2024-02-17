@@ -70,6 +70,7 @@
             this.pbHeadSprite.Size = new System.Drawing.Size(154, 154);
             this.pbHeadSprite.TabIndex = 2;
             this.pbHeadSprite.TabStop = false;
+            this.pbHeadSprite.Paint += new System.Windows.Forms.PaintEventHandler(this.pbHeadSprite_Paint);
             // 
             // pbBodySprite
             // 
@@ -79,6 +80,7 @@
             this.pbBodySprite.Size = new System.Drawing.Size(154, 154);
             this.pbBodySprite.TabIndex = 3;
             this.pbBodySprite.TabStop = false;
+            this.pbBodySprite.Paint += new System.Windows.Forms.PaintEventHandler(this.pbBodySprite_Paint);
             // 
             // pbLegsSprite
             // 
@@ -88,6 +90,7 @@
             this.pbLegsSprite.Size = new System.Drawing.Size(154, 154);
             this.pbLegsSprite.TabIndex = 4;
             this.pbLegsSprite.TabStop = false;
+            this.pbLegsSprite.Paint += new System.Windows.Forms.PaintEventHandler(this.pbLegsSprite_Paint);
             // 
             // btnChangeHeadSprite
             // 
@@ -97,6 +100,7 @@
             this.btnChangeHeadSprite.TabIndex = 5;
             this.btnChangeHeadSprite.Text = "Change Head Sprite";
             this.btnChangeHeadSprite.UseVisualStyleBackColor = true;
+            this.btnChangeHeadSprite.Click += new System.EventHandler(this.btnChangeHeadSprite_Click);
             // 
             // btnChangeBodySprite
             // 
@@ -106,6 +110,7 @@
             this.btnChangeBodySprite.TabIndex = 6;
             this.btnChangeBodySprite.Text = "Change Body Sprite";
             this.btnChangeBodySprite.UseVisualStyleBackColor = true;
+            this.btnChangeBodySprite.Click += new System.EventHandler(this.btnChangeBodySprite_Click);
             // 
             // btnChangeLegsSprite
             // 
@@ -115,12 +120,13 @@
             this.btnChangeLegsSprite.TabIndex = 7;
             this.btnChangeLegsSprite.Text = "Change Legs Sprite";
             this.btnChangeLegsSprite.UseVisualStyleBackColor = true;
+            this.btnChangeLegsSprite.Click += new System.EventHandler(this.btnChangeLegsSprite_Click);
             // 
             // OtherSprites
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(835, 204);
+            this.ClientSize = new System.Drawing.Size(658, 204);
             this.Controls.Add(this.btnChangeLegsSprite);
             this.Controls.Add(this.btnChangeBodySprite);
             this.Controls.Add(this.btnChangeHeadSprite);

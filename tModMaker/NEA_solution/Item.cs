@@ -17,6 +17,9 @@ namespace NEA_solution
         private string type;
         private Bitmap sprite;
         private Bitmap wingSprite;
+        private Bitmap headSprite;
+        private Bitmap bodySprite;
+        private Bitmap legsSprite;
 
         public Item(string name, string type)
         {
@@ -63,6 +66,30 @@ namespace NEA_solution
         public void set_wingSprite(Bitmap wingSprite)
         {
             this.wingSprite = wingSprite;
+        }
+        public Bitmap get_headSprite()
+        {
+            return headSprite;
+        }
+        public void set_headSprite(Bitmap headSprite)
+        {
+            this.headSprite = headSprite;
+        }
+        public Bitmap get_bodySprite()
+        {
+            return bodySprite;
+        }
+        public void set_bodySprite(Bitmap bodySprite)
+        {
+            this.bodySprite = bodySprite;
+        }
+        public Bitmap get_legsSprite()
+        {
+            return legsSprite;
+        }
+        public void set_legsSprite(Bitmap legsSprite)
+        {
+            this.legsSprite = legsSprite;
         }
     }
 }
