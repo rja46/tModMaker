@@ -93,32 +93,14 @@
     <Compile Include="CreateItemDialog.Designer.cs">
       <DependentUpon>CreateItemDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateModDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreateModDialog.Designer.cs">
-      <DependentUpon>CreateModDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="EditDetailsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditDetailsDialog.Designer.cs">
       <DependentUpon>EditDetailsDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="FullscreenEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FullscreenEditor.Designer.cs">
-      <DependentUpon>FullscreenEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="GenericBlock.cs" />
     <Compile Include="Item.cs" />
-    <Compile Include="loadCreateModDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="loadCreateModDialog.Designer.cs">
-      <DependentUpon>loadCreateModDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Mod.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -149,17 +131,8 @@
     <EmbeddedResource Include="CreateItemDialog.resx">
       <DependentUpon>CreateItemDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateModDialog.resx">
-      <DependentUpon>CreateModDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="EditDetailsDialog.resx">
       <DependentUpon>EditDetailsDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FullscreenEditor.resx">
-      <DependentUpon>FullscreenEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="loadCreateModDialog.resx">
-      <DependentUpon>loadCreateModDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

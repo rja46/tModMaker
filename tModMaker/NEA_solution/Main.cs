@@ -555,7 +555,7 @@ namespace NEA_solution
                     {
                         File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     }
-                    else if (itemsToExport[i].get_type() == "NPC/Projectile")
+                    else if (itemsToExport[i].get_type() == "Projectile")
                     {
                         File.WriteAllText(path + "\\Projectiles\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     }
@@ -571,7 +571,7 @@ namespace NEA_solution
                         {
                             bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
                         }
-                        else if (itemsToExport[i].get_type() == "NPC/Projectile")
+                        else if (itemsToExport[i].get_type() == "Projectile")
                         {
                             bmp.Save(path + "\\Projectiles\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
                         }
@@ -649,9 +649,9 @@ namespace NEA_solution
             {
                 wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
             }
-            else if (loadedItem.get_type() == "NPC/Projectile")
+            else if (loadedItem.get_type() == "Projectile")
             {
-                wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\npc_editor.html");
+                wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\projectile_editor.html");
             }
             else
             {

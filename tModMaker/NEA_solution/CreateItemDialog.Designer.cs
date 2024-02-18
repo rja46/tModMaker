@@ -44,7 +44,8 @@
             this.cbType.FormattingEnabled = true;
             this.cbType.Items.AddRange(new object[] {
             "Item",
-            "NPC/Projectile",
+            "NPC",
+            "Projectile",
             "AI"});
             this.cbType.Location = new System.Drawing.Point(93, 58);
             this.cbType.Name = "cbType";

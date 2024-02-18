@@ -42,7 +42,6 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.stsBottom = new System.Windows.Forms.StatusStrip();
             this.pbSave = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -58,7 +57,6 @@
             this.pbSprite = new System.Windows.Forms.PictureBox();
             this.btnAdditionalSprites = new System.Windows.Forms.Button();
             this.msMain.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.stsBottom.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wvCode)).BeginInit();
@@ -68,7 +66,7 @@
             // btnAddItem
             // 
             this.btnAddItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAddItem.Location = new System.Drawing.Point(3, 346);
+            this.btnAddItem.Location = new System.Drawing.Point(624, 400);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(75, 23);
             this.btnAddItem.TabIndex = 4;
@@ -81,9 +79,9 @@
             this.lbItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbItems.FormattingEnabled = true;
-            this.lbItems.Location = new System.Drawing.Point(3, 4);
+            this.lbItems.Location = new System.Drawing.Point(624, 58);
             this.lbItems.Name = "lbItems";
-            this.lbItems.Size = new System.Drawing.Size(156, 301);
+            this.lbItems.Size = new System.Drawing.Size(156, 340);
             this.lbItems.TabIndex = 7;
             this.lbItems.SelectedIndexChanged += new System.EventHandler(this.lbItems_SelectedIndexChanged);
             this.lbItems.DoubleClick += new System.EventHandler(this.lbItems_DoubleClick);
@@ -92,7 +90,7 @@
             // 
             this.btnDeleteItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnDeleteItem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDeleteItem.Location = new System.Drawing.Point(84, 346);
+            this.btnDeleteItem.Location = new System.Drawing.Point(705, 400);
             this.btnDeleteItem.Name = "btnDeleteItem";
             this.btnDeleteItem.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteItem.TabIndex = 10;
@@ -181,18 +179,6 @@
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.lbItems);
-            this.panel1.Controls.Add(this.btnAddItem);
-            this.panel1.Controls.Add(this.btnDeleteItem);
-            this.panel1.Location = new System.Drawing.Point(624, 56);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(164, 369);
-            this.panel1.TabIndex = 13;
-            // 
             // stsBottom
             // 
             this.stsBottom.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -259,9 +245,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.wvCode.CreationProperties = null;
             this.wvCode.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.wvCode.Location = new System.Drawing.Point(275, 60);
+            this.wvCode.Location = new System.Drawing.Point(247, 58);
             this.wvCode.Name = "wvCode";
-            this.wvCode.Size = new System.Drawing.Size(343, 362);
+            this.wvCode.Size = new System.Drawing.Size(371, 367);
             this.wvCode.Source = new System.Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor", System.UriKind.Absolute);
             this.wvCode.TabIndex = 25;
             this.wvCode.ZoomFactor = 1D;
@@ -273,15 +259,15 @@
             this.txtTooltip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtTooltip.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTooltip.Location = new System.Drawing.Point(62, 273);
+            this.txtTooltip.Location = new System.Drawing.Point(51, 273);
             this.txtTooltip.Multiline = true;
             this.txtTooltip.Name = "txtTooltip";
-            this.txtTooltip.Size = new System.Drawing.Size(190, 149);
+            this.txtTooltip.Size = new System.Drawing.Size(190, 152);
             this.txtTooltip.TabIndex = 22;
             // 
             // lblDisplayName
             // 
-            this.lblDisplayName.Location = new System.Drawing.Point(18, 242);
+            this.lblDisplayName.Location = new System.Drawing.Point(7, 242);
             this.lblDisplayName.Name = "lblDisplayName";
             this.lblDisplayName.Size = new System.Drawing.Size(42, 29);
             this.lblDisplayName.TabIndex = 23;
@@ -290,7 +276,7 @@
             // lblTooltip
             // 
             this.lblTooltip.AutoSize = true;
-            this.lblTooltip.Location = new System.Drawing.Point(18, 271);
+            this.lblTooltip.Location = new System.Drawing.Point(7, 271);
             this.lblTooltip.Name = "lblTooltip";
             this.lblTooltip.Size = new System.Drawing.Size(42, 13);
             this.lblTooltip.TabIndex = 21;
@@ -299,14 +285,14 @@
             // txtDisplayName
             // 
             this.txtDisplayName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDisplayName.Location = new System.Drawing.Point(62, 247);
+            this.txtDisplayName.Location = new System.Drawing.Point(51, 247);
             this.txtDisplayName.Name = "txtDisplayName";
             this.txtDisplayName.Size = new System.Drawing.Size(190, 20);
             this.txtDisplayName.TabIndex = 24;
             // 
             // btnChangeSprite
             // 
-            this.btnChangeSprite.Location = new System.Drawing.Point(21, 218);
+            this.btnChangeSprite.Location = new System.Drawing.Point(10, 218);
             this.btnChangeSprite.Name = "btnChangeSprite";
             this.btnChangeSprite.Size = new System.Drawing.Size(201, 23);
             this.btnChangeSprite.TabIndex = 20;
@@ -317,7 +303,7 @@
             // pbSprite
             // 
             this.pbSprite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbSprite.Location = new System.Drawing.Point(62, 58);
+            this.pbSprite.Location = new System.Drawing.Point(51, 58);
             this.pbSprite.Name = "pbSprite";
             this.pbSprite.Size = new System.Drawing.Size(154, 154);
             this.pbSprite.TabIndex = 19;
@@ -326,7 +312,7 @@
             // 
             // btnAdditionalSprites
             // 
-            this.btnAdditionalSprites.Location = new System.Drawing.Point(228, 218);
+            this.btnAdditionalSprites.Location = new System.Drawing.Point(217, 218);
             this.btnAdditionalSprites.Name = "btnAdditionalSprites";
             this.btnAdditionalSprites.Size = new System.Drawing.Size(24, 23);
             this.btnAdditionalSprites.TabIndex = 26;
@@ -339,13 +325,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbItems);
+            this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.btnAdditionalSprites);
+            this.Controls.Add(this.btnDeleteItem);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pbSprite);
             this.Controls.Add(this.btnChangeSprite);
             this.Controls.Add(this.stsBottom);
             this.Controls.Add(this.txtDisplayName);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTooltip);
             this.Controls.Add(this.msMain);
             this.Controls.Add(this.lblDisplayName);
@@ -357,7 +345,6 @@
             this.Text = "Form1";
             this.msMain.ResumeLayout(false);
             this.msMain.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.stsBottom.ResumeLayout(false);
             this.stsBottom.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -380,7 +367,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileOpenMod;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modDetailsToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
         private System.Windows.Forms.StatusStrip stsBottom;
         private System.Windows.Forms.ToolStripProgressBar pbSave;

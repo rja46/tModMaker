@@ -59,9 +59,7 @@ C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Micro
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.csproj.AssemblyReference.cache
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.CreateItemDialog.resources
-C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.CreateModDialog.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.EditDetailsDialog.resources
-C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.loadCreateModDialog.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.Properties.Resources.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.csproj.GenerateResource.cache
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.csproj.CoreCompileInputs.cache
