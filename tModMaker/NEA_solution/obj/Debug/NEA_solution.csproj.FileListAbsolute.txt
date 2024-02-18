@@ -61,7 +61,6 @@ C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_s
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.CreateItemDialog.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.CreateModDialog.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.EditDetailsDialog.resources
-C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.EditItem.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.loadCreateModDialog.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.Properties.Resources.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.csproj.GenerateResource.cache

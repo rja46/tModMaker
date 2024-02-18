@@ -105,12 +105,6 @@
     <Compile Include="EditDetailsDialog.Designer.cs">
       <DependentUpon>EditDetailsDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditItem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditItem.Designer.cs">
-      <DependentUpon>EditItem.cs</DependentUpon>
-    </Compile>
     <Compile Include="FullscreenEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,9 +154,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditDetailsDialog.resx">
       <DependentUpon>EditDetailsDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EditItem.resx">
-      <DependentUpon>EditItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FullscreenEditor.resx">
       <DependentUpon>FullscreenEditor.cs</DependentUpon>

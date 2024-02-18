@@ -1,7 +1,5 @@
 let workspace = null;
 
-var projectiles;
-
 function sendDataToWinForm(){
 	const state = JSON.stringify(Blockly.serialization.workspaces.save(workspace));
 	window.chrome.webview.postMessage(state);
@@ -24,10 +22,6 @@ function loadData(theData){
 	Blockly.serialization.workspaces.load(json, workspace);
 	}
 	catch{}
-}
-
-function loadProjectiles(projectilesList) {
-    projectiles = projectilesList;
 }
 
  const toolbox = {
@@ -940,9 +934,9 @@ Blockly.common.defineBlocksWithJsonArray([
   "message0": "Fire custom projectile called %1 with %2 velocity",
   "args0": [
     {
-          "type": "field_dropdown",
+          "type": "field_input",
           "name": "projectile",
-          "options": [projectiles]
+          "text": "projectile name"
     },
     {
          "type": "field_number",
