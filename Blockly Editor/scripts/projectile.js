@@ -566,7 +566,7 @@ Blockly.common.defineBlocksWithJsonArray([
 
 workspace = Blockly.inject('blocklyDiv', {
     toolbox: toolbox,
-    scrollbars: false,
+    scrollbars: true,
     horizontalLayout: false,
     toolboxPosition: "left",
 });

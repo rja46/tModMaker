@@ -51,7 +51,7 @@ namespace NEA_solution
             {
                 generatedCode += "\r\nnamespace " + modName + ".Items";
             }
-            else if (itemType == "NPC/Projectile")
+            else if (itemType == "Projectile")
             {
                 generatedCode += "\r\nnamespace " + modName + ".Projectiles";
             }
@@ -263,7 +263,7 @@ namespace NEA_solution
                     "\r\npublic class " + itemName + " : ModItem" +
                     "\r\n{";
             }
-            else if (itemType == "NPC/Projectile")
+            else if (itemType == "Projectile")
             {
                 generatedCode +=
                     "\r\npublic class " + itemName + " : ModProjectile" +

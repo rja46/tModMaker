@@ -688,8 +688,6 @@ namespace NEA_solution
             await wvCode.ExecuteScriptAsync("sendDataToWinForm()");
         }
 
-
-
         public async Task save_item()
         {
             requestData();
@@ -703,8 +701,6 @@ namespace NEA_solution
             while (returned == false);
             theItem.set_code(workspace);
         }
-
-
 
         async void sendData()
         {

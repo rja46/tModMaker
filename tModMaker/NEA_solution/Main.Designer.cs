@@ -65,7 +65,7 @@
             // 
             // btnAddItem
             // 
-            this.btnAddItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnAddItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddItem.Location = new System.Drawing.Point(624, 400);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(75, 23);
@@ -76,7 +76,8 @@
             // 
             // lbItems
             // 
-            this.lbItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbItems.FormattingEnabled = true;
             this.lbItems.Location = new System.Drawing.Point(624, 58);
@@ -88,7 +89,7 @@
             // 
             // btnDeleteItem
             // 
-            this.btnDeleteItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnDeleteItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnDeleteItem.Location = new System.Drawing.Point(705, 400);
             this.btnDeleteItem.Name = "btnDeleteItem";
