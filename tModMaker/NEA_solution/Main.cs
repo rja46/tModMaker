@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.Web.WebView2.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
@@ -20,10 +22,11 @@ namespace NEA_solution
     {
         Mod loadedMod;
         Item loadedItem;
-        EditItem editItem;
-        bool returned;
-        string tmpCodeFromBlockly;
         bool hasExportPath;
+        private string workspace;
+        public Item theItem;
+        bool returned;
+        public bool wvready = false;
 
         public Main()
         {
@@ -45,14 +48,9 @@ namespace NEA_solution
 
         private void initialise_editor()
         {
-            pnlItem.Controls.Clear();
-            editItem = new EditItem(loadedItem);
-            editItem.TopLevel = false;
-            pnlItem.Controls.Add(editItem);
-            editItem.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            editItem.Dock = DockStyle.Fill;
-            editItem.Size = new Size(pnlItem.Size.Width, pnlItem.Size.Height);
-            editItem.Show();
+            //sets up the webview component running the editor
+            InitWebview();
+            wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\start.html");
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
@@ -135,9 +133,9 @@ namespace NEA_solution
         private async void save_mod()
         {
             //if an item is loaded, it is saved
-            if (editItem.theItem != null)
+            if (theItem != null)
             {
-               await editItem.save_item();
+               await save_item();
             }
 
             string thePath = loadedMod.get_modPath();
@@ -410,7 +408,7 @@ namespace NEA_solution
                     File.Delete(loadedMod.get_modPath() + "\\Items\\" + loadedItem.get_name() + ".item");
                     File.Delete(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedItem.get_name() + "_code.code");
                     loadedMod.set_items(tmpItems);
-                    editItem.displayItem(new Item("", ""));
+                    displayItem(new Item("", ""));
                     update_item_list();
                 }
             }
@@ -434,9 +432,9 @@ namespace NEA_solution
             {
                 //A blank mod is created.
                 loadedMod = new Mod("", "");
-                editItem.displayItem(new Item("", ""));
-                editItem.clearBlockly();
-                editItem.lock_controls();
+                displayItem(new Item("", ""));
+                clearBlockly();
+                lock_controls();
                 
                 //The ui is reset.
                 update_item_list();
@@ -478,9 +476,9 @@ namespace NEA_solution
                     theMod.set_author(modDetailsSplit[2]);
                     loadedMod = theMod;
                     Text = "tModMaker - " + loadedMod.get_name();
-                    editItem.displayItem(new Item("", ""));
-                    editItem.clearBlockly();
-                    editItem.lock_controls();
+                    displayItem(new Item("", ""));
+                    clearBlockly();
+                    lock_controls();
                 }
                 //The procedure to load the items is called.
                 load_items_for_mod();
@@ -496,7 +494,7 @@ namespace NEA_solution
         {
             if (loadedItem != null)
             {
-                editItem.displayItem(loadedItem);
+                displayItem(loadedItem);
                 update_item_list();
             }
         }
@@ -642,6 +640,167 @@ namespace NEA_solution
             if (result == DialogResult.OK)
             {
 
+            }
+        }
+
+        public async void displayItem(Item loadedItem)
+        {
+            if (loadedItem.get_type() == "Item")
+            {
+                wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
+            }
+            else if (loadedItem.get_type() == "NPC/Projectile")
+            {
+                wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\npc_editor.html");
+            }
+            else
+            {
+                Console.WriteLine("please update type");
+            }
+            /* Tidy this up. The constant delay works, but isn't a good way of doing it. Make it wait
+             * on a value being true.
+             */
+
+            await Task.Delay(100);
+            if (wvready)
+            {
+                //loads the details of the item onto the screen
+                clearBlockly();
+                theItem = loadedItem;
+                txtDisplayName.Text = theItem.get_displayName();
+                txtTooltip.Text = theItem.get_tooltip();
+                pbSprite.Refresh();
+                sendData();
+
+                unlock_controls();
+            }
+        }
+
+        async void InitWebview()
+        {
+            Controls.Add(wvCode);
+            wvCode.Enabled = true;
+            await wvCode.EnsureCoreWebView2Async(null);
+        }
+
+        async void requestData()
+        {
+            await wvCode.ExecuteScriptAsync("sendDataToWinForm()");
+        }
+
+
+
+        public async Task save_item()
+        {
+            requestData();
+            returned = false;
+            theItem.set_display_name(txtDisplayName.Text);
+            theItem.set_tooltip(txtTooltip.Text);
+            do
+            {
+                await Task.Delay(100);
+            }
+            while (returned == false);
+            theItem.set_code(workspace);
+        }
+
+
+
+        async void sendData()
+        {
+            await wvCode.ExecuteScriptAsync("loadData('" + theItem.get_code() + "')");
+        }
+
+        public async void clearBlockly()
+        {
+            await wvCode.ExecuteScriptAsync("clear()");
+        }
+
+        //these need to lock the controls at certain points where access to the buttons would cause issues
+        public void lock_controls()
+        {
+            btnChangeSprite.Enabled = false;
+            txtDisplayName.Enabled = false;
+            txtTooltip.Enabled = false;
+            wvCode.Enabled = false;
+        }
+
+        public void unlock_controls()
+        {
+            btnChangeSprite.Enabled = true;
+            txtDisplayName.Enabled = true;
+            txtTooltip.Enabled = true;
+            wvCode.Enabled = true;
+        }
+
+        private void pbSprite_Paint(object sender, PaintEventArgs e)
+        {
+            if (theItem != null)
+            {
+                Bitmap theImage = theItem.get_sprite();
+                Graphics g = e.Graphics;
+                e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+                if (theItem.get_sprite() != null)
+                {
+                    double picBoxWidth = pbSprite.Width;
+                    double picBoxHeight = pbSprite.Height;
+                    double height = theItem.get_sprite().Height;
+                    double width = theItem.get_sprite().Width;
+                    if (height > width)
+                    {
+                        e.Graphics.DrawImage(theImage, (int)(picBoxWidth - (picBoxHeight / height * width)) / 2, 0, (int)(picBoxHeight / height * width), (int)(picBoxHeight));
+                    }
+                    else if (height < width)
+                    {
+                        e.Graphics.DrawImage(theImage, 0, (int)(picBoxHeight - (picBoxWidth / width * height)) / 2, (int)picBoxWidth, (int)(picBoxWidth / width * height));
+                    }
+                    else
+                    {
+                        e.Graphics.DrawImage(theImage, 0, 0, pbSprite.Width, pbSprite.Height);
+                    }
+                }
+            }
+        }
+
+        private void btnAdditionalSprites_Click(object sender, EventArgs e)
+        {
+            if (theItem != null)
+            {
+                OtherSprites otherSprites = new OtherSprites(theItem);
+                otherSprites.Show();
+                theItem = otherSprites.theItem;
+            }
+        }
+
+        private void wvCode_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
+        {
+            workspace = e.TryGetWebMessageAsString();
+            returned = true;
+        }
+
+        private void wvCode_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        {
+            wvready = true;
+            if (wvready == false)
+            {
+                displayItem(new Item("", ""));
+                lock_controls();
+            }
+        }
+
+        private void btnChangeSprite_Click(object sender, EventArgs e)
+        {
+            //this opens a file dialog to let the user select a new sprite, then refreshes the pic box
+            if (theItem != null)
+            {
+                OpenFileDialog openSpriteDialog = new OpenFileDialog();
+                openSpriteDialog.InitialDirectory = "c:\\";
+                openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
+                if (openSpriteDialog.ShowDialog() == DialogResult.OK)
+                {
+                    theItem.set_sprite(new Bitmap(@openSpriteDialog.FileName));
+                    pbSprite.Refresh();
+                }
             }
         }
     }

@@ -45,15 +45,24 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.stsBottom = new System.Windows.Forms.StatusStrip();
             this.pbSave = new System.Windows.Forms.ToolStripProgressBar();
-            this.pnlItem = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tbNew = new System.Windows.Forms.ToolStripButton();
             this.tbOpen = new System.Windows.Forms.ToolStripButton();
             this.tbSave = new System.Windows.Forms.ToolStripButton();
+            this.wvCode = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.txtTooltip = new System.Windows.Forms.TextBox();
+            this.lblDisplayName = new System.Windows.Forms.Label();
+            this.lblTooltip = new System.Windows.Forms.Label();
+            this.txtDisplayName = new System.Windows.Forms.TextBox();
+            this.btnChangeSprite = new System.Windows.Forms.Button();
+            this.pbSprite = new System.Windows.Forms.PictureBox();
+            this.btnAdditionalSprites = new System.Windows.Forms.Button();
             this.msMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.stsBottom.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wvCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddItem
@@ -199,17 +208,6 @@
             this.pbSave.Name = "pbSave";
             this.pbSave.Size = new System.Drawing.Size(100, 16);
             // 
-            // pnlItem
-            // 
-            this.pnlItem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlItem.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlItem.Location = new System.Drawing.Point(12, 56);
-            this.pnlItem.Name = "pnlItem";
-            this.pnlItem.Size = new System.Drawing.Size(606, 369);
-            this.pnlItem.TabIndex = 15;
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -253,16 +251,106 @@
             this.tbSave.ToolTipText = "Save";
             this.tbSave.Click += new System.EventHandler(this.tbSave_Click);
             // 
+            // wvCode
+            // 
+            this.wvCode.AllowExternalDrop = true;
+            this.wvCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.wvCode.CreationProperties = null;
+            this.wvCode.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.wvCode.Location = new System.Drawing.Point(275, 60);
+            this.wvCode.Name = "wvCode";
+            this.wvCode.Size = new System.Drawing.Size(343, 362);
+            this.wvCode.Source = new System.Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor", System.UriKind.Absolute);
+            this.wvCode.TabIndex = 25;
+            this.wvCode.ZoomFactor = 1D;
+            this.wvCode.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.wvCode_NavigationCompleted);
+            this.wvCode.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.wvCode_WebMessageReceived);
+            // 
+            // txtTooltip
+            // 
+            this.txtTooltip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtTooltip.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTooltip.Location = new System.Drawing.Point(62, 273);
+            this.txtTooltip.Multiline = true;
+            this.txtTooltip.Name = "txtTooltip";
+            this.txtTooltip.Size = new System.Drawing.Size(190, 149);
+            this.txtTooltip.TabIndex = 22;
+            // 
+            // lblDisplayName
+            // 
+            this.lblDisplayName.Location = new System.Drawing.Point(18, 242);
+            this.lblDisplayName.Name = "lblDisplayName";
+            this.lblDisplayName.Size = new System.Drawing.Size(42, 29);
+            this.lblDisplayName.TabIndex = 23;
+            this.lblDisplayName.Text = "Display Name:";
+            // 
+            // lblTooltip
+            // 
+            this.lblTooltip.AutoSize = true;
+            this.lblTooltip.Location = new System.Drawing.Point(18, 271);
+            this.lblTooltip.Name = "lblTooltip";
+            this.lblTooltip.Size = new System.Drawing.Size(42, 13);
+            this.lblTooltip.TabIndex = 21;
+            this.lblTooltip.Text = "Tooltip:";
+            // 
+            // txtDisplayName
+            // 
+            this.txtDisplayName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDisplayName.Location = new System.Drawing.Point(62, 247);
+            this.txtDisplayName.Name = "txtDisplayName";
+            this.txtDisplayName.Size = new System.Drawing.Size(190, 20);
+            this.txtDisplayName.TabIndex = 24;
+            // 
+            // btnChangeSprite
+            // 
+            this.btnChangeSprite.Location = new System.Drawing.Point(21, 218);
+            this.btnChangeSprite.Name = "btnChangeSprite";
+            this.btnChangeSprite.Size = new System.Drawing.Size(201, 23);
+            this.btnChangeSprite.TabIndex = 20;
+            this.btnChangeSprite.Text = "Change Sprite";
+            this.btnChangeSprite.UseVisualStyleBackColor = true;
+            this.btnChangeSprite.Click += new System.EventHandler(this.btnChangeSprite_Click);
+            // 
+            // pbSprite
+            // 
+            this.pbSprite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSprite.Location = new System.Drawing.Point(62, 58);
+            this.pbSprite.Name = "pbSprite";
+            this.pbSprite.Size = new System.Drawing.Size(154, 154);
+            this.pbSprite.TabIndex = 19;
+            this.pbSprite.TabStop = false;
+            this.pbSprite.Paint += new System.Windows.Forms.PaintEventHandler(this.pbSprite_Paint);
+            // 
+            // btnAdditionalSprites
+            // 
+            this.btnAdditionalSprites.Location = new System.Drawing.Point(228, 218);
+            this.btnAdditionalSprites.Name = "btnAdditionalSprites";
+            this.btnAdditionalSprites.Size = new System.Drawing.Size(24, 23);
+            this.btnAdditionalSprites.TabIndex = 26;
+            this.btnAdditionalSprites.Text = "...";
+            this.btnAdditionalSprites.UseVisualStyleBackColor = true;
+            this.btnAdditionalSprites.Click += new System.EventHandler(this.btnAdditionalSprites_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAdditionalSprites);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.pnlItem);
+            this.Controls.Add(this.pbSprite);
+            this.Controls.Add(this.btnChangeSprite);
             this.Controls.Add(this.stsBottom);
+            this.Controls.Add(this.txtDisplayName);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.lblTooltip);
             this.Controls.Add(this.msMain);
+            this.Controls.Add(this.lblDisplayName);
+            this.Controls.Add(this.wvCode);
+            this.Controls.Add(this.txtTooltip);
             this.MainMenuStrip = this.msMain;
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Main";
@@ -274,6 +362,8 @@
             this.stsBottom.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wvCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,12 +385,19 @@
         private System.Windows.Forms.StatusStrip stsBottom;
         private System.Windows.Forms.ToolStripProgressBar pbSave;
         private System.Windows.Forms.ToolStripMenuItem btnNew;
-        private System.Windows.Forms.Panel pnlItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tbNew;
         private System.Windows.Forms.ToolStripButton tbSave;
         private System.Windows.Forms.ToolStripButton tbOpen;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private Microsoft.Web.WebView2.WinForms.WebView2 wvCode;
+        private System.Windows.Forms.TextBox txtTooltip;
+        private System.Windows.Forms.Label lblDisplayName;
+        private System.Windows.Forms.Label lblTooltip;
+        private System.Windows.Forms.TextBox txtDisplayName;
+        private System.Windows.Forms.Button btnChangeSprite;
+        private System.Windows.Forms.PictureBox pbSprite;
+        private System.Windows.Forms.Button btnAdditionalSprites;
     }
 }
 
