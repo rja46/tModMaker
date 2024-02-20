@@ -534,6 +534,7 @@ namespace NEA_solution
                 Directory.CreateDirectory(path + "\\Localization");
                 Directory.CreateDirectory(path + "\\Properties");
                 Directory.CreateDirectory(path + "\\Projectiles");
+                Directory.CreateDirectory(path + "\\NPCs");
 
                 File.WriteAllText(path + "\\description.txt", loadedMod.get_description());
                 //add functionality to enter a version number
@@ -559,6 +560,10 @@ namespace NEA_solution
                     {
                         File.WriteAllText(path + "\\Projectiles\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     }
+                    else if (itemsToExport[i].get_type() == "NPC")
+                    {
+                        File.WriteAllText(path + "\\NPCs\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
+                    }
                     bmp = itemsToExport[i].get_sprite();
                     if (bmp == null)
                     {
@@ -574,6 +579,10 @@ namespace NEA_solution
                         else if (itemsToExport[i].get_type() == "Projectile")
                         {
                             bmp.Save(path + "\\Projectiles\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                        }
+                        else if (itemsToExport[i].get_type() == "NPC")
+                        {
+                            bmp.Save(path + "\\NPCs\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
                         }
                     }
                     bmp = itemsToExport[i].get_wingSprite();
@@ -645,6 +654,7 @@ namespace NEA_solution
 
         public async void displayItem(Item loadedItem)
         {
+            //these paths need to be made relative to the programs location
             if (loadedItem.get_type() == "Item")
             {
                 wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
@@ -652,6 +662,14 @@ namespace NEA_solution
             else if (loadedItem.get_type() == "Projectile")
             {
                 wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\projectile_editor.html");
+            }
+            else if (loadedItem.get_type() == "NPC")
+            {
+                wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\npc_editor.html");
+            }
+            else if (loadedItem.get_type() == "AI")
+            {
+                wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\ai_editor.html");
             }
             else
             {

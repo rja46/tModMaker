@@ -1,0 +1,1 @@
+{"blocks":{"languageVersion":0,"blocks":[{"type":"npc_basic","id":".X`O,~!8Ou-.R,Ky0x!L","x":108,"y":48,"fields":{"width":745,"height":1040,"damage":100,"defense":100,"life":100,"knockResist":100},"next":{"block":{"type":"use_npc_ai","id":"v4$XCq~bo4/Vo,b^EF!Z","fields":{"style":"23"}}}}]}}

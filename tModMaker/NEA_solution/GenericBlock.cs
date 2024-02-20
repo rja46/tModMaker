@@ -177,4 +177,14 @@ namespace NEA_solution
     {
         public string slot { get; set;}
     }
+
+    internal class npc_basic : GenericBlock
+    {
+        public int width { get; set; }
+        public int height { get; set; }
+        public int damage { get; set; }
+        public int defense { get; set;}
+        public int life { get; set; }
+        public int knockResist { get; set; }
+    }
 }

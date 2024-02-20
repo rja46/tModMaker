@@ -945,7 +945,7 @@ var dark = Blockly.Theme.defineTheme('dark', {
 
 workspace = Blockly.inject('blocklyDiv', {
     toolbox: toolbox,
-    scrollbars: false,
+    scrollbars: true,
     horizontalLayout: false,
     toolboxPosition: "left",
 });

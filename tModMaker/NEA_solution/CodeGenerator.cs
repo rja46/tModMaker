@@ -55,6 +55,10 @@ namespace NEA_solution
             {
                 generatedCode += "\r\nnamespace " + modName + ".Projectiles";
             }
+            else if (itemType == "NPC")
+            {
+                generatedCode += "\r\nnamespace " + modName + ".NPCs";
+            }
             generatedCode += "\r\n{";
 
 
@@ -201,7 +205,7 @@ namespace NEA_solution
 
 
 
-                    //NPC/Projectile class blocks
+                    //Projectile class blocks
                     case "projectile_basic":
                         projectile_basic projectile_Basic = JsonSerializer.Deserialize<projectile_basic>(blocksAsStrings[i]);
                         setDefaults += "\r\nProjectile.width = " + projectile_Basic.width + ";";
@@ -249,6 +253,25 @@ namespace NEA_solution
                         setDefaults += "\r\nProjectile.light = " + emit_Light.light + "f;";
                         break;
 
+
+
+                    //NPC Class Blocks
+                    case "npc_basic":
+                        npc_basic npc_Basic = JsonSerializer.Deserialize<npc_basic>(blocksAsStrings[i]);
+                        setDefaults += "\r\nNPC.width = " + npc_Basic.width + ";";
+                        setDefaults += "\r\nNPC.height = " + npc_Basic.height + ";";
+                        setDefaults += "\r\nNPC.height = " + npc_Basic.height + ";";
+                        setDefaults += "\r\nNPC.damage = " + npc_Basic.damage + ";";
+                        setDefaults += "\r\nNPC.defense = " + npc_Basic.defense + ";";
+                        setDefaults += "\r\nNPC.lifeMax = " + npc_Basic.life + ";";
+                        setDefaults += "\r\nNPC.knockBackResist = " + npc_Basic.knockResist + ";";
+                        break;
+
+                    case "use_npc_ai":
+                        use_ai use_Npc_Ai = JsonSerializer.Deserialize<use_ai>(blocksAsStrings[i]);
+                        setDefaults += "\r\nNPC.aiStyle = " + use_Npc_Ai.style + ";";
+                        break;
+
                 }
             }
 
@@ -267,6 +290,12 @@ namespace NEA_solution
             {
                 generatedCode +=
                     "\r\npublic class " + itemName + " : ModProjectile" +
+                    "\r\n{";
+            }
+            else if (itemType == "NPC")
+            {
+                generatedCode +=
+                    "\r\npublic class " + itemName + " : ModNPC" +
                     "\r\n{";
             }
             else
