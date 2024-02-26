@@ -43,6 +43,17 @@ const toolbox = {
                     "type": "use_npc_ai"
                 }
             ]
+        },
+        {
+            "kind": "category",
+            "name": "Friendly",
+            "colour": 250,
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "chat_option"
+                }
+            ]
         }
     ]
 }
@@ -280,6 +291,22 @@ Blockly.common.defineBlocksWithJsonArray([
         "nextStatement": null,
         "previousStatement": null,
         "colour": 300,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "chat_option",
+        "message0": "Add chat option: %1",
+        "args0": [
+            {
+                "type": "field_input",
+                "name": "chat",
+                "text": "Hello World!"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 250,
         "tooltip": "",
         "helpUrl": ""
     }

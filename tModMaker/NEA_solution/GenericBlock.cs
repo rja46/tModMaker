@@ -187,4 +187,9 @@ namespace NEA_solution
         public int life { get; set; }
         public int knockResist { get; set; }
     }
+    
+    internal class chat_options : GenericBlock
+    {
+        public string chat { get; set; }
+    }
 }

@@ -25,6 +25,7 @@ namespace NEA_solution
             float[] wingStats = new float[5];
             bool canHover = false;
             string slot = null;
+            List<string> chatOptions = new List<string>();
 
             if (itemType == "Item")
             {
@@ -45,7 +46,8 @@ namespace NEA_solution
                 "\r\nusing Terraria.ID;" +
                 "\r\nusing Terraria.ModLoader;" +
                 "\r\nusing Terraria.ID;" +
-                "\r\nusing Terraria.ModLoader;";
+                "\r\nusing Terraria.ModLoader;" +
+                "\r\nusing System;";
             Console.WriteLine(itemType);
             if (itemType == "Item")
             {
@@ -272,6 +274,11 @@ namespace NEA_solution
                         setDefaults += "\r\nNPC.aiStyle = " + use_Npc_Ai.style + ";";
                         break;
 
+                    case "chat_option":
+                        chat_options chat_Options = JsonSerializer.Deserialize<chat_options>(blocksAsStrings[i]);
+                        chatOptions.Add(chat_Options.chat);
+                        break;
+
                 }
             }
 
@@ -336,12 +343,29 @@ namespace NEA_solution
             {
                 generatedCode += verticalWingsSpeeds;
             }
+
+            if (chatOptions.Count > 0)
+            {
+                generatedCode += "\r\npublic static string Chat() {";
+                generatedCode += "\r\nRandom rand = new Random();";
+                generatedCode += "\r\nint result = rand.Next(" + chatOptions.Count + ");";
+                for (int i = 0; i < chatOptions.Count; i++)
+                {
+                    generatedCode += "\r\nif (result == " + i + ") { return \"" + chatOptions[i] + "\"; }";
+                }
+                generatedCode += "\r\nelse { return \"oh no\"; }";
+                generatedCode += "\r\n}";
+                setDefaults += "\r\nNPC.townNPC = true;";
+            }
+
             //The generated methods are compiled into one string here.
             generatedCode += "\r\npublic override void SetDefaults()\r\n{\r\n" + setDefaults + "\r\n}";
             if (isEquipable)
             {
                 generatedCode += "\r\npublic override void UpdateAccessory(Player player, bool hideVisual)\r\n{\r\n" + UpdateAccessory + "\r\n}";
             }
+
+            
 
             generatedCode += "\r\n}\r\n}";
             
