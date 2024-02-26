@@ -26,6 +26,10 @@ namespace NEA_solution
             bool canHover = false;
             string slot = null;
             List<string> chatOptions = new List<string>();
+            List<string> nameOptions = new List<string>();
+            string button1 = "";
+            string button2 = "";
+
 
             if (itemType == "Item")
             {
@@ -279,6 +283,11 @@ namespace NEA_solution
                         chatOptions.Add(chat_Options.chat);
                         break;
 
+                    case "add_buttons":
+                        add_buttons add_Buttons = JsonSerializer.Deserialize<add_buttons>(blocksAsStrings[i]);
+                        button1 = add_Buttons.button1;
+                        button2 = add_Buttons.button2;
+                        break;
                 }
             }
 
@@ -356,6 +365,20 @@ namespace NEA_solution
                 generatedCode += "\r\nelse { return \"oh no\"; }";
                 generatedCode += "\r\n}";
                 setDefaults += "\r\nNPC.townNPC = true;";
+            }
+
+            if (button1 != "" || button2 != "")
+            {
+                generatedCode += "public override void SetChatButtons(ref string button, ref string button2) {";
+                    
+                if (button1 != "")
+                {
+                    generatedCode += "\r\ntbutton = \"" + button1 + "\";";
+                }
+                if (button2 != "")
+                {
+                    generatedCode += "\r\ntbutton2 = \"" + button2 + "\";";
+                }
             }
 
             //The generated methods are compiled into one string here.

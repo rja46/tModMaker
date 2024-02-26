@@ -192,4 +192,11 @@ namespace NEA_solution
     {
         public string chat { get; set; }
     }
+
+    internal class add_buttons : GenericBlock
+    {
+        public string button1 { get; set; }
+        public string button2 { get; set; }
+
+    }
 }

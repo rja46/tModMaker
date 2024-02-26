@@ -52,6 +52,10 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "chat_option"
+                },
+                {
+                    "kind": "block",
+                    "type": "add_buttons"
                 }
             ]
         }
@@ -302,6 +306,35 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_input",
                 "name": "chat",
                 "text": "Hello World!"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 250,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "add_buttons",
+        "implicitAlign0": "RIGHT",
+        "message0": "Add buttons: %1 %2 %3 %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "field_input",
+                "name": "button1",
+                "text": "button1"
+            },
+            {
+                "type": "input_dummy",
+                "align": "RIGHT"
+            },
+            {
+                "type": "field_input",
+                "name": "button2",
+                "text": "button2"
             }
         ],
         "previousStatement": null,
