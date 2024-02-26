@@ -346,7 +346,7 @@ namespace NEA_solution
 
             if (chatOptions.Count > 0)
             {
-                generatedCode += "\r\npublic static string Chat() {";
+                generatedCode += "\r\npublic override string GetChat() {";
                 generatedCode += "\r\nRandom rand = new Random();";
                 generatedCode += "\r\nint result = rand.Next(" + chatOptions.Count + ");";
                 for (int i = 0; i < chatOptions.Count; i++)
