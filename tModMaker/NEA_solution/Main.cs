@@ -654,6 +654,7 @@ namespace NEA_solution
 
         public async void displayItem(Item loadedItem)
         {
+            string prevSource = wvCode.Source.ToString();
             //these paths need to be made relative to the programs location
             if (loadedItem.get_type() == "Item")
             {
@@ -679,19 +680,28 @@ namespace NEA_solution
              * on a value being true.
              */
 
-            await Task.Delay(100);
-            if (wvready)
-            {
-                //loads the details of the item onto the screen
-                clearBlockly();
-                theItem = loadedItem;
-                txtDisplayName.Text = theItem.get_displayName();
-                txtTooltip.Text = theItem.get_tooltip();
-                pbSprite.Refresh();
-                sendData();
+            //loads the details of the item onto the screen
 
-                unlock_controls();
+
+            if (prevSource != wvCode.Source.ToString())
+            {
+                wvready = false;
+
             }
+
+            while (!wvready)
+            {
+                await Task.Delay(100);
+            }
+            
+            clearBlockly();
+            theItem = loadedItem;
+            txtDisplayName.Text = theItem.get_displayName();
+            txtTooltip.Text = theItem.get_tooltip();
+            pbSprite.Refresh();
+            sendData();
+
+            unlock_controls();
         }
 
         async void InitWebview()
@@ -780,7 +790,7 @@ namespace NEA_solution
         {
             if (theItem != null)
             {
-                OtherSprites otherSprites = new OtherSprites(theItem);
+                OtherSprites otherSprites = new OtherSprites(theItem, GetTypeOfItem(theItem));
                 otherSprites.Show();
                 theItem = otherSprites.theItem;
             }
@@ -816,6 +826,30 @@ namespace NEA_solution
                     pbSprite.Refresh();
                 }
             }
+        }
+
+        private string GetTypeOfItem(Item item)
+        {
+            //If the below strings were entered as a value, problems would occur.
+
+            if (item.get_code().Contains("{\"slot\":\"Body\"}"))
+            {
+                return "body";
+            }
+            else if (item.get_code().Contains("\"slot\":\"Head\""))
+            {
+                return "head";
+            }
+            else if (item.get_code().Contains("\"slot\":\"Legs\""))
+            {
+                return "legs";
+            }
+            else if (item.get_code().Contains("\"type\":\"create_wings\""))
+            {
+                return "wings";
+            }
+
+            return "null";
         }
     }
 }

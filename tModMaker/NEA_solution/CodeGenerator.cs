@@ -283,6 +283,12 @@ namespace NEA_solution
                         chatOptions.Add(chat_Options.chat);
                         break;
 
+
+                    case "name_option":
+                        name_options name_Options = JsonSerializer.Deserialize<name_options>(blocksAsStrings[i]);
+                        nameOptions.Add(name_Options.name);
+                        break;
+
                     case "add_buttons":
                         add_buttons add_Buttons = JsonSerializer.Deserialize<add_buttons>(blocksAsStrings[i]);
                         button1 = add_Buttons.button1;
@@ -367,18 +373,33 @@ namespace NEA_solution
                 setDefaults += "\r\nNPC.townNPC = true;";
             }
 
+            if (nameOptions.Count > 0)
+            {
+                generatedCode += "\r\npublic override List<string> SetNPCNameList() {" +
+                    "\r\nreturn new List<string> {";
+
+                for (int i = 0; i < nameOptions.Count - 1;i++)
+                {
+                    generatedCode += "\r\n\"" + nameOptions[i] + "\",";
+                }
+                generatedCode += "\r\n\"" + nameOptions[nameOptions.Count - 1] + "\"";
+
+                generatedCode += "\r\n};\r\n}";
+            }
+
             if (button1 != "" || button2 != "")
             {
-                generatedCode += "public override void SetChatButtons(ref string button, ref string button2) {";
+                generatedCode += "\r\npublic override void SetChatButtons(ref string button, ref string button2) {";
                     
                 if (button1 != "")
                 {
-                    generatedCode += "\r\ntbutton = \"" + button1 + "\";";
+                    generatedCode += "\r\nbutton = \"" + button1 + "\";";
                 }
                 if (button2 != "")
                 {
-                    generatedCode += "\r\ntbutton2 = \"" + button2 + "\";";
+                    generatedCode += "\r\nbutton2 = \"" + button2 + "\";";
                 }
+                generatedCode += "\r\n}";
             }
 
             //The generated methods are compiled into one string here.

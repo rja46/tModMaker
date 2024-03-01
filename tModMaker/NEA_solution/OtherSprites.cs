@@ -15,15 +15,33 @@ namespace NEA_solution
     public partial class OtherSprites : Form
     {
         public Item theItem;
-        public OtherSprites(Item item)
+        string type;
+        public OtherSprites(Item item, string type)
         {
             InitializeComponent();
             theItem = item;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.type = type;
+            if (type == "body")
+            {
+                btnChangeSprite.Text = "Change Body Sprite";
+            }
+            else if (type == "head")
+            {
+                btnChangeSprite.Text = "Change Head Sprite";
+            }
+            else if (type == "legs")
+            {
+                btnChangeSprite.Text = "Change Legs Sprite";
+            }
+            else if (type == "wings")
+            {
+                btnChangeSprite.Text = "Change Wings Sprite";
+            }
         }
 
-        private void btnChangeWingSprite_Click(object sender, EventArgs e)
+        private void btnChangeSprite_Click(object sender, EventArgs e)
         {
             if (theItem != null)
             {
@@ -32,25 +50,61 @@ namespace NEA_solution
                 openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
                 if (openSpriteDialog.ShowDialog() == DialogResult.OK)
                 {
-                    theItem.set_wingSprite(new Bitmap(@openSpriteDialog.FileName));
-                    pbWingSprite.Refresh();
+                    if (type == "body")
+                    {
+                        theItem.set_bodySprite(new Bitmap(@openSpriteDialog.FileName));
+                    }
+                    else if (type == "head")
+                    {
+                        theItem.set_headSprite(new Bitmap(@openSpriteDialog.FileName));
+                    }
+                    else if (type == "legs")
+                    {
+                        theItem.set_legsSprite(new Bitmap(@openSpriteDialog.FileName));
+                    }
+                    else if (type == "wings")
+                    {
+                        theItem.set_wingSprite(new Bitmap(@openSpriteDialog.FileName));
+                    }
+                    
+                    pbSprite.Refresh();
                 }
             }
         }
 
-        private void pbWingSprite_Paint(object sender, PaintEventArgs e)
+        private void pbSprite_Paint(object sender, PaintEventArgs e)
         {
             if (theItem != null)
             {
-                Bitmap theImage = theItem.get_wingSprite();
+                Bitmap theImage = null;
+                if (type == "body")
+                {
+                    theImage = theItem.get_bodySprite();
+                }
+                else if (type == "head")
+                {
+                    theImage = theItem.get_headSprite();
+                }
+                else if (type == "legs")
+                {
+                    theImage = theItem.get_legsSprite();
+                }
+                else if (type == "wings")
+                {
+                    theImage = theItem.get_wingSprite();
+                }
+                else
+                {
+                    this.Close();
+                }
                 Graphics g = e.Graphics;
                 e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
-                if (theItem.get_wingSprite() != null)
+                if (theImage != null)
                 {
-                    double picBoxWidth = pbWingSprite.Width;
-                    double picBoxHeight = pbWingSprite.Height;
-                    double height = theItem.get_wingSprite().Height;
-                    double width = theItem.get_wingSprite().Width;
+                    double picBoxWidth = pbSprite.Width;
+                    double picBoxHeight = pbSprite.Height;
+                    double height = theImage.Height;
+                    double width = theImage.Width;
                     if (height > width)
                     {
                         e.Graphics.DrawImage(theImage, (int)(picBoxWidth - (picBoxHeight / height * width)) / 2, 0, (int)(picBoxHeight / height * width), (int)(picBoxHeight));
@@ -61,139 +115,7 @@ namespace NEA_solution
                     }
                     else
                     {
-                        e.Graphics.DrawImage(theImage, 0, 0, pbWingSprite.Width, pbWingSprite.Height);
-                    }
-                }
-            }
-        }
-
-        private void btnChangeHeadSprite_Click(object sender, EventArgs e)
-        {
-            if (theItem != null)
-            {
-                OpenFileDialog openSpriteDialog = new OpenFileDialog();
-                openSpriteDialog.InitialDirectory = "c:\\";
-                openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
-                if (openSpriteDialog.ShowDialog() == DialogResult.OK)
-                {
-                    theItem.set_headSprite(new Bitmap(@openSpriteDialog.FileName));
-                    pbHeadSprite.Refresh();
-                }
-            }
-        }
-
-        private void btnChangeBodySprite_Click(object sender, EventArgs e)
-        {
-            if (theItem != null)
-            {
-                OpenFileDialog openSpriteDialog = new OpenFileDialog();
-                openSpriteDialog.InitialDirectory = "c:\\";
-                openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
-                if (openSpriteDialog.ShowDialog() == DialogResult.OK)
-                {
-                    theItem.set_bodySprite(new Bitmap(@openSpriteDialog.FileName));
-                    pbBodySprite.Refresh();
-                }
-            }
-        }
-
-        private void btnChangeLegsSprite_Click(object sender, EventArgs e)
-        {
-            if (theItem != null)
-            {
-                OpenFileDialog openSpriteDialog = new OpenFileDialog();
-                openSpriteDialog.InitialDirectory = "c:\\";
-                openSpriteDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
-                if (openSpriteDialog.ShowDialog() == DialogResult.OK)
-                {
-                    theItem.set_legsSprite(new Bitmap(@openSpriteDialog.FileName));
-                    pbLegsSprite.Refresh();
-                }
-            }
-        }
-
-        private void pbHeadSprite_Paint(object sender, PaintEventArgs e)
-        {
-            if (theItem != null)
-            {
-                Bitmap theImage = theItem.get_headSprite();
-                Graphics g = e.Graphics;
-                e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
-                if (theItem.get_headSprite() != null)
-                {
-                    double picBoxWidth = pbHeadSprite.Width;
-                    double picBoxHeight = pbHeadSprite.Height;
-                    double height = theItem.get_headSprite().Height;
-                    double width = theItem.get_headSprite().Width;
-                    if (height > width)
-                    {
-                        e.Graphics.DrawImage(theImage, (int)(picBoxWidth - (picBoxHeight / height * width)) / 2, 0, (int)(picBoxHeight / height * width), (int)(picBoxHeight));
-                    }
-                    else if (height < width)
-                    {
-                        e.Graphics.DrawImage(theImage, 0, (int)(picBoxHeight - (picBoxWidth / width * height)) / 2, (int)picBoxWidth, (int)(picBoxWidth / width * height));
-                    }
-                    else
-                    {
-                        e.Graphics.DrawImage(theImage, 0, 0, pbHeadSprite.Width, pbHeadSprite.Height);
-                    }
-                }
-            }
-        }
-
-        private void pbBodySprite_Paint(object sender, PaintEventArgs e)
-        {
-            if (theItem != null)
-            {
-                Bitmap theImage = theItem.get_bodySprite();
-                Graphics g = e.Graphics;
-                e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
-                if (theItem.get_bodySprite() != null)
-                {
-                    double picBoxWidth = pbBodySprite.Width;
-                    double picBoxHeight = pbBodySprite.Height;
-                    double height = theItem.get_bodySprite().Height;
-                    double width = theItem.get_bodySprite().Width;
-                    if (height > width)
-                    {
-                        e.Graphics.DrawImage(theImage, (int)(picBoxWidth - (picBoxHeight / height * width)) / 2, 0, (int)(picBoxHeight / height * width), (int)(picBoxHeight));
-                    }
-                    else if (height < width)
-                    {
-                        e.Graphics.DrawImage(theImage, 0, (int)(picBoxHeight - (picBoxWidth / width * height)) / 2, (int)picBoxWidth, (int)(picBoxWidth / width * height));
-                    }
-                    else
-                    {
-                        e.Graphics.DrawImage(theImage, 0, 0, pbBodySprite.Width, pbBodySprite.Height);
-                    }
-                }
-            }
-        }
-
-        private void pbLegsSprite_Paint(object sender, PaintEventArgs e)
-        {
-            if (theItem != null)
-            {
-                Bitmap theImage = theItem.get_legsSprite();
-                Graphics g = e.Graphics;
-                e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
-                if (theItem.get_legsSprite() != null)
-                {
-                    double picBoxWidth = pbLegsSprite.Width;
-                    double picBoxHeight = pbLegsSprite.Height;
-                    double height = theItem.get_legsSprite().Height;
-                    double width = theItem.get_legsSprite().Width;
-                    if (height > width)
-                    {
-                        e.Graphics.DrawImage(theImage, (int)(picBoxWidth - (picBoxHeight / height * width)) / 2, 0, (int)(picBoxHeight / height * width), (int)(picBoxHeight));
-                    }
-                    else if (height < width)
-                    {
-                        e.Graphics.DrawImage(theImage, 0, (int)(picBoxHeight - (picBoxWidth / width * height)) / 2, (int)picBoxWidth, (int)(picBoxWidth / width * height));
-                    }
-                    else
-                    {
-                        e.Graphics.DrawImage(theImage, 0, 0, pbLegsSprite.Width, pbLegsSprite.Height);
+                        e.Graphics.DrawImage(theImage, 0, 0, pbSprite.Width, pbSprite.Height);
                     }
                 }
             }

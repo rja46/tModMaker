@@ -28,133 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pbWingSprite = new System.Windows.Forms.PictureBox();
-            this.btnChangeWingSprite = new System.Windows.Forms.Button();
-            this.pbHeadSprite = new System.Windows.Forms.PictureBox();
-            this.pbBodySprite = new System.Windows.Forms.PictureBox();
-            this.pbLegsSprite = new System.Windows.Forms.PictureBox();
-            this.btnChangeHeadSprite = new System.Windows.Forms.Button();
-            this.btnChangeBodySprite = new System.Windows.Forms.Button();
-            this.btnChangeLegsSprite = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pbWingSprite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHeadSprite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBodySprite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLegsSprite)).BeginInit();
+            this.pbSprite = new System.Windows.Forms.PictureBox();
+            this.btnChangeSprite = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
             this.SuspendLayout();
             // 
-            // pbWingSprite
+            // pbSprite
             // 
-            this.pbWingSprite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbWingSprite.Location = new System.Drawing.Point(12, 12);
-            this.pbWingSprite.Name = "pbWingSprite";
-            this.pbWingSprite.Size = new System.Drawing.Size(154, 154);
-            this.pbWingSprite.TabIndex = 0;
-            this.pbWingSprite.TabStop = false;
-            this.pbWingSprite.Paint += new System.Windows.Forms.PaintEventHandler(this.pbWingSprite_Paint);
+            this.pbSprite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSprite.Location = new System.Drawing.Point(12, 12);
+            this.pbSprite.Name = "pbSprite";
+            this.pbSprite.Size = new System.Drawing.Size(154, 154);
+            this.pbSprite.TabIndex = 0;
+            this.pbSprite.TabStop = false;
+            this.pbSprite.Paint += new System.Windows.Forms.PaintEventHandler(this.pbSprite_Paint);
             // 
-            // btnChangeWingSprite
+            // btnChangeSprite
             // 
-            this.btnChangeWingSprite.Location = new System.Drawing.Point(12, 172);
-            this.btnChangeWingSprite.Name = "btnChangeWingSprite";
-            this.btnChangeWingSprite.Size = new System.Drawing.Size(154, 23);
-            this.btnChangeWingSprite.TabIndex = 1;
-            this.btnChangeWingSprite.Text = "Change Wing Sprite";
-            this.btnChangeWingSprite.UseVisualStyleBackColor = true;
-            this.btnChangeWingSprite.Click += new System.EventHandler(this.btnChangeWingSprite_Click);
-            // 
-            // pbHeadSprite
-            // 
-            this.pbHeadSprite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbHeadSprite.Location = new System.Drawing.Point(172, 12);
-            this.pbHeadSprite.Name = "pbHeadSprite";
-            this.pbHeadSprite.Size = new System.Drawing.Size(154, 154);
-            this.pbHeadSprite.TabIndex = 2;
-            this.pbHeadSprite.TabStop = false;
-            this.pbHeadSprite.Paint += new System.Windows.Forms.PaintEventHandler(this.pbHeadSprite_Paint);
-            // 
-            // pbBodySprite
-            // 
-            this.pbBodySprite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbBodySprite.Location = new System.Drawing.Point(332, 12);
-            this.pbBodySprite.Name = "pbBodySprite";
-            this.pbBodySprite.Size = new System.Drawing.Size(154, 154);
-            this.pbBodySprite.TabIndex = 3;
-            this.pbBodySprite.TabStop = false;
-            this.pbBodySprite.Paint += new System.Windows.Forms.PaintEventHandler(this.pbBodySprite_Paint);
-            // 
-            // pbLegsSprite
-            // 
-            this.pbLegsSprite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbLegsSprite.Location = new System.Drawing.Point(492, 12);
-            this.pbLegsSprite.Name = "pbLegsSprite";
-            this.pbLegsSprite.Size = new System.Drawing.Size(154, 154);
-            this.pbLegsSprite.TabIndex = 4;
-            this.pbLegsSprite.TabStop = false;
-            this.pbLegsSprite.Paint += new System.Windows.Forms.PaintEventHandler(this.pbLegsSprite_Paint);
-            // 
-            // btnChangeHeadSprite
-            // 
-            this.btnChangeHeadSprite.Location = new System.Drawing.Point(172, 172);
-            this.btnChangeHeadSprite.Name = "btnChangeHeadSprite";
-            this.btnChangeHeadSprite.Size = new System.Drawing.Size(154, 23);
-            this.btnChangeHeadSprite.TabIndex = 5;
-            this.btnChangeHeadSprite.Text = "Change Head Sprite";
-            this.btnChangeHeadSprite.UseVisualStyleBackColor = true;
-            this.btnChangeHeadSprite.Click += new System.EventHandler(this.btnChangeHeadSprite_Click);
-            // 
-            // btnChangeBodySprite
-            // 
-            this.btnChangeBodySprite.Location = new System.Drawing.Point(332, 172);
-            this.btnChangeBodySprite.Name = "btnChangeBodySprite";
-            this.btnChangeBodySprite.Size = new System.Drawing.Size(154, 23);
-            this.btnChangeBodySprite.TabIndex = 6;
-            this.btnChangeBodySprite.Text = "Change Body Sprite";
-            this.btnChangeBodySprite.UseVisualStyleBackColor = true;
-            this.btnChangeBodySprite.Click += new System.EventHandler(this.btnChangeBodySprite_Click);
-            // 
-            // btnChangeLegsSprite
-            // 
-            this.btnChangeLegsSprite.Location = new System.Drawing.Point(492, 172);
-            this.btnChangeLegsSprite.Name = "btnChangeLegsSprite";
-            this.btnChangeLegsSprite.Size = new System.Drawing.Size(154, 23);
-            this.btnChangeLegsSprite.TabIndex = 7;
-            this.btnChangeLegsSprite.Text = "Change Legs Sprite";
-            this.btnChangeLegsSprite.UseVisualStyleBackColor = true;
-            this.btnChangeLegsSprite.Click += new System.EventHandler(this.btnChangeLegsSprite_Click);
+            this.btnChangeSprite.Location = new System.Drawing.Point(12, 172);
+            this.btnChangeSprite.Name = "btnChangeSprite";
+            this.btnChangeSprite.Size = new System.Drawing.Size(154, 23);
+            this.btnChangeSprite.TabIndex = 1;
+            this.btnChangeSprite.Text = "Change Wing Sprite";
+            this.btnChangeSprite.UseVisualStyleBackColor = true;
+            this.btnChangeSprite.Click += new System.EventHandler(this.btnChangeSprite_Click);
             // 
             // OtherSprites
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(658, 204);
-            this.Controls.Add(this.btnChangeLegsSprite);
-            this.Controls.Add(this.btnChangeBodySprite);
-            this.Controls.Add(this.btnChangeHeadSprite);
-            this.Controls.Add(this.pbLegsSprite);
-            this.Controls.Add(this.pbBodySprite);
-            this.Controls.Add(this.pbHeadSprite);
-            this.Controls.Add(this.btnChangeWingSprite);
-            this.Controls.Add(this.pbWingSprite);
+            this.ClientSize = new System.Drawing.Size(182, 204);
+            this.Controls.Add(this.btnChangeSprite);
+            this.Controls.Add(this.pbSprite);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "OtherSprites";
             this.Text = "OtherSprites";
-            ((System.ComponentModel.ISupportInitialize)(this.pbWingSprite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHeadSprite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBodySprite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLegsSprite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pbWingSprite;
-        private System.Windows.Forms.Button btnChangeWingSprite;
-        private System.Windows.Forms.PictureBox pbHeadSprite;
-        private System.Windows.Forms.PictureBox pbBodySprite;
-        private System.Windows.Forms.PictureBox pbLegsSprite;
-        private System.Windows.Forms.Button btnChangeHeadSprite;
-        private System.Windows.Forms.Button btnChangeBodySprite;
-        private System.Windows.Forms.Button btnChangeLegsSprite;
+        private System.Windows.Forms.PictureBox pbSprite;
+        private System.Windows.Forms.Button btnChangeSprite;
     }
 }
