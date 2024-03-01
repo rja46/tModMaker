@@ -682,6 +682,29 @@ namespace NEA_solution
 
             //loads the details of the item onto the screen
 
+            string type = GetTypeOfItem(loadedItem);
+
+            if (type == "body")
+            {
+                btnAdditionalSprites.Enabled = true;
+            }
+            else if (type == "head")
+            {
+                btnAdditionalSprites.Enabled = true;
+            }
+            else if (type == "legs")
+            {
+                btnAdditionalSprites.Enabled = true;
+            }
+            else if (type == "wings")
+            {
+                btnAdditionalSprites.Enabled = true;
+            }
+            else
+            {
+                btnAdditionalSprites.Enabled = false;
+            }
+
 
             if (prevSource != wvCode.Source.ToString())
             {
