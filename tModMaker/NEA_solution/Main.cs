@@ -32,7 +32,7 @@ namespace NEA_solution
         {
             //MessageBox.Show("Hi Sir, please do not click one item 4 times in a short space of time.");
             InitializeComponent();
-            this.Text = "tModMaker";
+            Text = "tModMaker";
 
             //Loads an empty mod.
             loadedMod = new Mod("", "");
@@ -44,6 +44,22 @@ namespace NEA_solution
             else { hasExportPath = false; }
 
             initialise_editor();
+            load_recents();
+        }
+
+        private void load_recents()
+        {
+            string[] recents = File.ReadAllLines(Environment.CurrentDirectory + "\\recents.txt");
+            for (int i = 0;i < recents.Length; i++)
+            {
+                openRecentToolStripMenuItem.DropDownItems.Add(recents[i]);
+                openRecentToolStripMenuItem.DropDownItems[i].Click += recent_click;
+            }
+        }
+
+        private void recent_click(object sender, EventArgs e)
+        {
+            open_mod(sender.ToString());
         }
 
         private void initialise_editor()
@@ -482,6 +498,7 @@ namespace NEA_solution
                 }
                 //The procedure to load the items is called.
                 load_items_for_mod();
+                add_recent_path(folderDialog.SelectedPath);
             }
         }
 
@@ -515,11 +532,26 @@ namespace NEA_solution
             }
             //The procedure to load the items is called.
             load_items_for_mod();
+            add_recent_path(path);
         }
 
         private void add_recent_path(string path)
         {
+            string[] recents = File.ReadAllLines(Environment.CurrentDirectory + "\\recents.txt");
+            string pathsToWrite = path;
 
+            int count = 0;
+            int checkPaths = 0;
+            while (count < 4 && checkPaths < recents.Length)
+            {
+                if (recents[checkPaths] != path)
+                {
+                    pathsToWrite += "\r\n" + recents[checkPaths];
+                    checkPaths++;
+                }
+                count++;
+            }
+            File.WriteAllText(Environment.CurrentDirectory + "\\recents.txt", pathsToWrite);
         }
 
         private void tbSave_Click(object sender, EventArgs e)

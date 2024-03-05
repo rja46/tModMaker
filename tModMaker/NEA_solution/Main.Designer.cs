@@ -38,6 +38,7 @@
             this.fileSaveMod = new System.Windows.Forms.ToolStripMenuItem();
             this.fileSaveModAs = new System.Windows.Forms.ToolStripMenuItem();
             this.fileOpenMod = new System.Windows.Forms.ToolStripMenuItem();
+            this.openRecentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,6 @@
             this.btnChangeSprite = new System.Windows.Forms.Button();
             this.pbSprite = new System.Windows.Forms.PictureBox();
             this.btnAdditionalSprites = new System.Windows.Forms.Button();
-            this.openRecentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMain.SuspendLayout();
             this.stsBottom.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -151,6 +151,12 @@
             this.fileOpenMod.Size = new System.Drawing.Size(180, 22);
             this.fileOpenMod.Text = "Open";
             this.fileOpenMod.Click += new System.EventHandler(this.fileOpenMod_Click);
+            // 
+            // openRecentToolStripMenuItem
+            // 
+            this.openRecentToolStripMenuItem.Name = "openRecentToolStripMenuItem";
+            this.openRecentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openRecentToolStripMenuItem.Text = "Open Recent";
             // 
             // exportToolStripMenuItem
             // 
@@ -322,12 +328,6 @@
             this.btnAdditionalSprites.Text = "...";
             this.btnAdditionalSprites.UseVisualStyleBackColor = true;
             this.btnAdditionalSprites.Click += new System.EventHandler(this.btnAdditionalSprites_Click);
-            // 
-            // openRecentToolStripMenuItem
-            // 
-            this.openRecentToolStripMenuItem.Name = "openRecentToolStripMenuItem";
-            this.openRecentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.openRecentToolStripMenuItem.Text = "Open Recent";
             // 
             // Main
             // 
