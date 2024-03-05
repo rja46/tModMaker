@@ -51,7 +51,8 @@ namespace NEA_solution
                 "\r\nusing Terraria.ModLoader;" +
                 "\r\nusing Terraria.ID;" +
                 "\r\nusing Terraria.ModLoader;" +
-                "\r\nusing System;";
+                "\r\nusing System;" +
+                "\r\nusing System.Collections.Generic;";
             Console.WriteLine(itemType);
             if (itemType == "Item")
             {

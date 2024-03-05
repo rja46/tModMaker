@@ -485,6 +485,43 @@ namespace NEA_solution
             }
         }
 
+        private void open_mod(string path)
+        {
+            Mod theMod;
+            string modDetails;
+            string[] modDetailsSplit;
+            string[] existingFiles;
+            existingFiles = Directory.GetFiles(path);
+            
+            //This ensures the directory is the correct structure.
+            if (existingFiles.Length != 1)
+            {
+                MessageBox.Show("Please select a valid folder");
+                return;
+            }
+            else
+            {
+                //The details of the mod are loaded for the files.
+                modDetails = File.ReadAllText(existingFiles[0]);
+                modDetailsSplit = modDetails.Split('|');
+                theMod = new Mod(modDetailsSplit[0], path);
+                theMod.set_description(modDetailsSplit[1]);
+                theMod.set_author(modDetailsSplit[2]);
+                loadedMod = theMod;
+                Text = "tModMaker - " + loadedMod.get_name();
+                displayItem(new Item("", ""));
+                clearBlockly();
+                lock_controls();
+            }
+            //The procedure to load the items is called.
+            load_items_for_mod();
+        }
+
+        private void add_recent_path(string path)
+        {
+
+        }
+
         private void tbSave_Click(object sender, EventArgs e)
         {
             save_mod();
