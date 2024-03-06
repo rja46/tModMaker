@@ -50,6 +50,7 @@ namespace NEA_solution
         private void load_recents()
         {
             string[] recents = File.ReadAllLines(Environment.CurrentDirectory + "\\recents.txt");
+            openRecentToolStripMenuItem.DropDownItems.Clear();
             for (int i = 0;i < recents.Length; i++)
             {
                 openRecentToolStripMenuItem.DropDownItems.Add(recents[i]);
@@ -552,6 +553,7 @@ namespace NEA_solution
                 count++;
             }
             File.WriteAllText(Environment.CurrentDirectory + "\\recents.txt", pathsToWrite);
+            load_recents();
         }
 
         private void tbSave_Click(object sender, EventArgs e)
