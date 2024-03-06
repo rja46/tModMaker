@@ -627,7 +627,15 @@ namespace NEA_solution
                         localizationString += itemsToExport[i].get_name() + ": {\r\nTooltip: "+ itemsToExport[i].get_tooltip() +"\r\nDisplayName: " + itemsToExport[i].get_displayName() + "\r\n}\r\n";
                     }
                 }
-                localizationString += "\r\n}\r\n}\r\n}";
+                localizationString += "}\r\n";
+                for (int i = 0; i < itemsToExport.Length; i++)
+                {
+                    if (itemsToExport[i].get_type() == "Projectile")
+                    {
+                        localizationString += "Projectiles." + itemsToExport[i].get_name() + ".DisplayName: " + itemsToExport[i].get_displayName() + "\r\n";
+                    }
+                }
+                localizationString += "\r\n}\r\n}";
                 File.WriteAllText(path + "\\Localization\\en-US.hjson", localizationString);
 
                 /*
