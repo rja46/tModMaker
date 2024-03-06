@@ -31,13 +31,6 @@ namespace NEA_solution
             string button2 = "";
 
 
-            if (itemType == "Item")
-            {
-                setDefaults = "Item.SetNameOverride(\"" + itemDisplayName + "\");";
-            }
-
-
-
             /*
              * Sets the string to be retuned to the namespace setup, with the correct names in place.
              * 

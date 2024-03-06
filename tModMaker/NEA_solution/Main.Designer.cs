@@ -57,6 +57,7 @@
             this.btnChangeSprite = new System.Windows.Forms.Button();
             this.pbSprite = new System.Windows.Forms.PictureBox();
             this.btnAdditionalSprites = new System.Windows.Forms.Button();
+            this.openExportDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMain.SuspendLayout();
             this.stsBottom.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -119,7 +120,8 @@
             this.fileSaveModAs,
             this.fileOpenMod,
             this.openRecentToolStripMenuItem,
-            this.exportToolStripMenuItem});
+            this.exportToolStripMenuItem,
+            this.openExportDirectoryToolStripMenuItem});
             this.msMainFile.Name = "msMainFile";
             this.msMainFile.Size = new System.Drawing.Size(37, 20);
             this.msMainFile.Text = "File";
@@ -127,41 +129,41 @@
             // btnNew
             // 
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(180, 22);
+            this.btnNew.Size = new System.Drawing.Size(191, 22);
             this.btnNew.Text = "New";
             this.btnNew.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // fileSaveMod
             // 
             this.fileSaveMod.Name = "fileSaveMod";
-            this.fileSaveMod.Size = new System.Drawing.Size(180, 22);
+            this.fileSaveMod.Size = new System.Drawing.Size(191, 22);
             this.fileSaveMod.Text = "Save Mod";
             this.fileSaveMod.Click += new System.EventHandler(this.fileSaveMod_Click);
             // 
             // fileSaveModAs
             // 
             this.fileSaveModAs.Name = "fileSaveModAs";
-            this.fileSaveModAs.Size = new System.Drawing.Size(180, 22);
+            this.fileSaveModAs.Size = new System.Drawing.Size(191, 22);
             this.fileSaveModAs.Text = "Save Mod As";
             this.fileSaveModAs.Click += new System.EventHandler(this.fileSaveModAs_Click);
             // 
             // fileOpenMod
             // 
             this.fileOpenMod.Name = "fileOpenMod";
-            this.fileOpenMod.Size = new System.Drawing.Size(180, 22);
+            this.fileOpenMod.Size = new System.Drawing.Size(191, 22);
             this.fileOpenMod.Text = "Open";
             this.fileOpenMod.Click += new System.EventHandler(this.fileOpenMod_Click);
             // 
             // openRecentToolStripMenuItem
             // 
             this.openRecentToolStripMenuItem.Name = "openRecentToolStripMenuItem";
-            this.openRecentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openRecentToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.openRecentToolStripMenuItem.Text = "Open Recent";
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
@@ -329,6 +331,13 @@
             this.btnAdditionalSprites.UseVisualStyleBackColor = true;
             this.btnAdditionalSprites.Click += new System.EventHandler(this.btnAdditionalSprites_Click);
             // 
+            // openExportDirectoryToolStripMenuItem
+            // 
+            this.openExportDirectoryToolStripMenuItem.Name = "openExportDirectoryToolStripMenuItem";
+            this.openExportDirectoryToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.openExportDirectoryToolStripMenuItem.Text = "Open Export Directory";
+            this.openExportDirectoryToolStripMenuItem.Click += new System.EventHandler(this.openExportDirectoryToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,6 +403,7 @@
         private System.Windows.Forms.PictureBox pbSprite;
         private System.Windows.Forms.Button btnAdditionalSprites;
         private System.Windows.Forms.ToolStripMenuItem openRecentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openExportDirectoryToolStripMenuItem;
     }
 }
 
