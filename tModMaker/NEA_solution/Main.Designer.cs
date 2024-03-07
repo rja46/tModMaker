@@ -40,6 +40,7 @@
             this.fileOpenMod = new System.Windows.Forms.ToolStripMenuItem();
             this.openRecentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openExportDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +58,7 @@
             this.btnChangeSprite = new System.Windows.Forms.Button();
             this.pbSprite = new System.Windows.Forms.PictureBox();
             this.btnAdditionalSprites = new System.Windows.Forms.Button();
-            this.openExportDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRecipe = new System.Windows.Forms.Button();
             this.msMain.SuspendLayout();
             this.stsBottom.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -167,6 +168,13 @@
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
+            // openExportDirectoryToolStripMenuItem
+            // 
+            this.openExportDirectoryToolStripMenuItem.Name = "openExportDirectoryToolStripMenuItem";
+            this.openExportDirectoryToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.openExportDirectoryToolStripMenuItem.Text = "Open Export Directory";
+            this.openExportDirectoryToolStripMenuItem.Click += new System.EventHandler(this.openExportDirectoryToolStripMenuItem_Click);
+            // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -273,7 +281,7 @@
             this.txtTooltip.Location = new System.Drawing.Point(51, 273);
             this.txtTooltip.Multiline = true;
             this.txtTooltip.Name = "txtTooltip";
-            this.txtTooltip.Size = new System.Drawing.Size(190, 152);
+            this.txtTooltip.Size = new System.Drawing.Size(190, 125);
             this.txtTooltip.TabIndex = 22;
             // 
             // lblDisplayName
@@ -331,18 +339,22 @@
             this.btnAdditionalSprites.UseVisualStyleBackColor = true;
             this.btnAdditionalSprites.Click += new System.EventHandler(this.btnAdditionalSprites_Click);
             // 
-            // openExportDirectoryToolStripMenuItem
+            // btnRecipe
             // 
-            this.openExportDirectoryToolStripMenuItem.Name = "openExportDirectoryToolStripMenuItem";
-            this.openExportDirectoryToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.openExportDirectoryToolStripMenuItem.Text = "Open Export Directory";
-            this.openExportDirectoryToolStripMenuItem.Click += new System.EventHandler(this.openExportDirectoryToolStripMenuItem_Click);
+            this.btnRecipe.Location = new System.Drawing.Point(51, 402);
+            this.btnRecipe.Name = "btnRecipe";
+            this.btnRecipe.Size = new System.Drawing.Size(190, 23);
+            this.btnRecipe.TabIndex = 27;
+            this.btnRecipe.Text = "Edit Recipe";
+            this.btnRecipe.UseVisualStyleBackColor = true;
+            this.btnRecipe.Click += new System.EventHandler(this.btnRecipe_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRecipe);
             this.Controls.Add(this.lbItems);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.btnAdditionalSprites);
@@ -404,6 +416,7 @@
         private System.Windows.Forms.Button btnAdditionalSprites;
         private System.Windows.Forms.ToolStripMenuItem openRecentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openExportDirectoryToolStripMenuItem;
+        private System.Windows.Forms.Button btnRecipe;
     }
 }
 

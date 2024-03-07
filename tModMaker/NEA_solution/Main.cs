@@ -28,6 +28,7 @@ namespace NEA_solution
         public Item theItem;
         bool returned;
         public bool wvready = false;
+        RecipeEditor recipeEditor = new RecipeEditor();
 
         public Main()
         {
@@ -635,7 +636,16 @@ namespace NEA_solution
                         localizationString += "Projectiles." + itemsToExport[i].get_name() + ".DisplayName: " + itemsToExport[i].get_displayName() + "\r\n";
                     }
                 }
-                localizationString += "\r\n}\r\n}";
+                localizationString += "NPCs: {\r\n";
+                for (int i = 0; i < itemsToExport.Length; i++)
+                {
+                    if (itemsToExport[i].get_type() == "NPC")
+                    {
+                        localizationString += "\r\n" + itemsToExport[i].get_name() + ": {\r\nDisplayName: " + itemsToExport[i].get_displayName() + "\r\n}";
+                    }
+                }
+                localizationString += "\r\n}";
+                localizationString += "\r\n}\r\n";
                 File.WriteAllText(path + "\\Localization\\en-US.hjson", localizationString);
 
                 /*
@@ -976,6 +986,16 @@ namespace NEA_solution
         {
             string path = File.ReadAllText(Environment.CurrentDirectory + "\\userConfig.txt") + "\\" + loadedMod.get_name();
             Process.Start("explorer.exe", @path);
+        }
+
+        private void btnRecipe_Click(object sender, EventArgs e)
+        {
+            if (!recipeEditor.Visible)
+            {
+                recipeEditor.Show();
+            }
+            recipeEditor.BringToFront();
+
         }
     }
 }

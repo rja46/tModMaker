@@ -1,5 +1,0 @@
-ai requirements
-
--target player
--do something when player dies
--have stage events
