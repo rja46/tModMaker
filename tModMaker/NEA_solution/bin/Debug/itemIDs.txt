@@ -223,7 +223,7 @@ ClayPot
 NaturesGift
 Bed
 Silk
-skull emoji
+
 RestorationPotion
 JungleHat
 JungleShirt

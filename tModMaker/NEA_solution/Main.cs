@@ -151,11 +151,14 @@ namespace NEA_solution
         //this procedure is asynchronous as it waits to recieve the data from the web component
         private async void save_mod()
         {
+            //fix this shit
             //if an item is loaded, it is saved
-            if (theItem != null)
+            for (int i = 0; i < loadedMod.get_item_number(); i++)
             {
-               await save_item();
+                displayItem(loadedMod.get_item(i));
+                await save_item();
             }
+
 
             string thePath = loadedMod.get_modPath();
             string modFile = "";
@@ -685,7 +688,7 @@ namespace NEA_solution
                 Bitmap bmp;
                 for (int i = 0; i < itemsToExport.Length; i++)
                 {
-                    tmpCode = codeGenerator.generate_code(itemsToExport[i].get_code(), loadedMod.get_name(), itemsToExport[i].get_name(), itemsToExport[i].get_displayName(), itemsToExport[i].get_tooltip(), itemsToExport[i].get_type());
+                    tmpCode = codeGenerator.generate_code(itemsToExport[i], loadedMod.get_name());
                     if (itemsToExport[i].get_type() == "Item")
                     {
                         File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
@@ -790,21 +793,25 @@ namespace NEA_solution
             {
                 wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
                 txtTooltip.Enabled = true;
+                btnRecipe.Enabled = true;
             }
             else if (loadedItem.get_type() == "Projectile")
             {
                 wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\projectile_editor.html");
                 txtTooltip.Enabled = false;
+                btnRecipe.Enabled = false;
             }
             else if (loadedItem.get_type() == "NPC")
             {
                 wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\npc_editor.html");
                 txtTooltip.Enabled = false;
+                btnRecipe.Enabled = false;
             }
             else if (loadedItem.get_type() == "AI")
             {
                 wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\ai_editor.html");
                 txtTooltip.Enabled = false;
+                btnRecipe.Enabled = false;
             }
             else
             {

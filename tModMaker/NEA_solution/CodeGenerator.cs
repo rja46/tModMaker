@@ -12,7 +12,7 @@ namespace NEA_solution
 {
     internal class CodeGenerator
     {
-        public string generate_code(string code, string modName, string itemName, string itemDisplayName, string toolTip, string itemType)
+        public string generate_code(Item item, string modName)
         {
             string setDefaults = "";
             string blockType;
@@ -46,6 +46,8 @@ namespace NEA_solution
                 "\r\nusing Terraria.ModLoader;" +
                 "\r\nusing System;" +
                 "\r\nusing System.Collections.Generic;";
+
+            string itemType = item.get_type();
             Console.WriteLine(itemType);
             if (itemType == "Item")
             {
@@ -63,7 +65,7 @@ namespace NEA_solution
 
 
             //Each block is found in the code, and put in an array of strings.
-            blocksAsStrings = findBlocksInline(code);
+            blocksAsStrings = findBlocksInline(item.get_code());
 
             for (int i = 0; i < blocksAsStrings.Length; i++)
             {
@@ -299,19 +301,19 @@ namespace NEA_solution
             if (itemType == "Item")
             {
                 generatedCode +=
-                    "\r\npublic class " + itemName + " : ModItem" +
+                    "\r\npublic class " + item.get_name() + " : ModItem" +
                     "\r\n{";
             }
             else if (itemType == "Projectile")
             {
                 generatedCode +=
-                    "\r\npublic class " + itemName + " : ModProjectile" +
+                    "\r\npublic class " + item.get_name() + " : ModProjectile" +
                     "\r\n{";
             }
             else if (itemType == "NPC")
             {
                 generatedCode +=
-                    "\r\npublic class " + itemName + " : ModNPC" +
+                    "\r\npublic class " + item.get_name() + " : ModNPC" +
                     "\r\n{";
             }
             else
@@ -403,7 +405,18 @@ namespace NEA_solution
                 generatedCode += "\r\npublic override void UpdateAccessory(Player player, bool hideVisual)\r\n{\r\n" + UpdateAccessory + "\r\n}";
             }
 
-            
+            //adds recipes
+            if (itemType == "Item")
+            {
+                generatedCode += "\r\npublic override void AddRecipes() {" +
+                    "\r\nRecipe recipe = CreateRecipe();";
+                for (int i = 0; i < item.get_ingredients().Length; i++)
+                {
+                    generatedCode += "\r\nrecipe.AddIngredient(ItemID." + item.get_ingredients()[i].itemName + "," + item.get_ingredients()[i].quantity + ");";
+                }
+                generatedCode += "\r\nrecipe.AddTile(TileID.WorkBenches);\r\nrecipe.Register();";
+                generatedCode += "\r\n}";
+            }
 
             generatedCode += "\r\n}\r\n}";
             
