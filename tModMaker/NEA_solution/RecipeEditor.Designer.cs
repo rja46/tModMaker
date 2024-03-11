@@ -62,6 +62,7 @@
             this.lbIngredients.Size = new System.Drawing.Size(120, 147);
             this.lbIngredients.TabIndex = 3;
             this.lbIngredients.SelectedIndexChanged += new System.EventHandler(this.lbIngredients_SelectedIndexChanged);
+            this.lbIngredients.SelectedValueChanged += new System.EventHandler(this.lbIngredients_SelectedValueChanged);
             // 
             // btnAdd
             // 
@@ -107,6 +108,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RecipeEditor";
             this.Text = "\\";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RecipeEditor_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pbItemSprite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
             this.ResumeLayout(false);

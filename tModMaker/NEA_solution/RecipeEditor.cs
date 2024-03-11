@@ -13,15 +13,14 @@ namespace NEA_solution
 {
     public partial class RecipeEditor : Form
     {
-        Item item;
+        RecipeItem currentItem;
         List<RecipeItem> IngredientsList = new List<RecipeItem>();
-        int index = -1;
+        public RecipeItem[] outputArray;
         public RecipeEditor(Item item)
         {
             InitializeComponent();
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.item = item;
             string[] items = File.ReadAllLines(Environment.CurrentDirectory + "\\itemIDs.txt");
             for (int i = 0; i < items.Length; i++)
             {
@@ -43,10 +42,10 @@ namespace NEA_solution
         {
             if (lbIngredients.SelectedIndex != -1)
             {
-                index = lbIngredients.SelectedIndex;
+                currentItem = IngredientsList[lbIngredients.SelectedIndex];
+                cbIngredient.Text = currentItem.itemName;
+                numQuantity.Value = currentItem.quantity;
             }
-            cbIngredient.Text = IngredientsList[index].itemName;
-            numQuantity.Value = IngredientsList[index].quantity;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -58,14 +57,24 @@ namespace NEA_solution
 
         private void cbIngredient_TextChanged(object sender, EventArgs e)
         {
-            IngredientsList[index].itemName = cbIngredient.Text;
-            lbIngredients.Items[index] = cbIngredient.Text;
+            currentItem.itemName = cbIngredient.Text;
+            lbIngredients.Items[lbIngredients.SelectedIndex] = cbIngredient.Text;
             lbIngredients.Refresh();
         }
 
         private void numQuantity_ValueChanged(object sender, EventArgs e)
         {
-            IngredientsList[index].quantity = (int)numQuantity.Value;
+            currentItem.quantity = (int)numQuantity.Value;
+        }
+
+        private void lbIngredients_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine(lbIngredients.SelectedIndex);
+        }
+
+        private void RecipeEditor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            outputArray = IngredientsList.ToArray();
         }
     }
 }

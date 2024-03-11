@@ -1018,6 +1018,7 @@ namespace NEA_solution
         {
             RecipeEditor recipeEditor = new RecipeEditor(loadedItem);
             recipeEditor.ShowDialog();
+            loadedItem.set_ingredients(recipeEditor.outputArray);
         }
     }
 }
