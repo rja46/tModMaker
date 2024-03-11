@@ -28,38 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.pbItemSprite = new System.Windows.Forms.PictureBox();
+            this.numQuantity = new System.Windows.Forms.NumericUpDown();
+            this.lbIngredients = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.cbIngredient = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbItemSprite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pbItemSprite
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(147, 147);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pbItemSprite.Location = new System.Drawing.Point(12, 12);
+            this.pbItemSprite.Name = "pbItemSprite";
+            this.pbItemSprite.Size = new System.Drawing.Size(147, 147);
+            this.pbItemSprite.TabIndex = 0;
+            this.pbItemSprite.TabStop = false;
             // 
-            // numericUpDown1
+            // numQuantity
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(12, 194);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(147, 20);
-            this.numericUpDown1.TabIndex = 2;
+            this.numQuantity.Location = new System.Drawing.Point(12, 194);
+            this.numQuantity.Name = "numQuantity";
+            this.numQuantity.Size = new System.Drawing.Size(147, 20);
+            this.numQuantity.TabIndex = 2;
+            this.numQuantity.ValueChanged += new System.EventHandler(this.numQuantity_ValueChanged);
             // 
-            // listBox1
+            // lbIngredients
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(165, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 147);
-            this.listBox1.TabIndex = 3;
+            this.lbIngredients.FormattingEnabled = true;
+            this.lbIngredients.Location = new System.Drawing.Point(165, 12);
+            this.lbIngredients.Name = "lbIngredients";
+            this.lbIngredients.Size = new System.Drawing.Size(120, 147);
+            this.lbIngredients.TabIndex = 3;
+            this.lbIngredients.SelectedIndexChanged += new System.EventHandler(this.lbIngredients_SelectedIndexChanged);
             // 
             // btnAdd
             // 
@@ -69,6 +71,7 @@
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add Ingredient";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnRemove
             // 
@@ -88,6 +91,7 @@
             this.cbIngredient.Name = "cbIngredient";
             this.cbIngredient.Size = new System.Drawing.Size(147, 21);
             this.cbIngredient.TabIndex = 6;
+            this.cbIngredient.TextChanged += new System.EventHandler(this.cbIngredient_TextChanged);
             // 
             // RecipeEditor
             // 
@@ -97,22 +101,23 @@
             this.Controls.Add(this.cbIngredient);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lbIngredients);
+            this.Controls.Add(this.numQuantity);
+            this.Controls.Add(this.pbItemSprite);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RecipeEditor";
             this.Text = "\\";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbItemSprite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.PictureBox pbItemSprite;
+        private System.Windows.Forms.NumericUpDown numQuantity;
+        private System.Windows.Forms.ListBox lbIngredients;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.ComboBox cbIngredient;

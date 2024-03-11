@@ -28,7 +28,6 @@ namespace NEA_solution
         public Item theItem;
         bool returned;
         public bool wvready = false;
-        RecipeEditor recipeEditor = new RecipeEditor();
 
         public Main()
         {
@@ -161,6 +160,7 @@ namespace NEA_solution
             string thePath = loadedMod.get_modPath();
             string modFile = "";
             string tempItem;
+            string recipeItems;
             
             /*
             the details of the mod are compiled into one string, seperated with pipes,
@@ -221,6 +221,10 @@ namespace NEA_solution
                 {
                     Directory.CreateDirectory(thePath + "\\Items\\Sprites");
                 }
+                if (!Directory.Exists(thePath + "\\Items\\Recipes"))
+                {
+                    Directory.CreateDirectory(thePath + "\\Items\\Recipes");
+                }
 
                 //this loops through and saves each item
                 for (int i = 0; i < loadedMod.get_item_number(); i++)
@@ -235,6 +239,13 @@ namespace NEA_solution
                     
                     //the code is written to a seperate file
                     File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + "_code.code", loadedMod.get_item(i).get_code());
+
+                    recipeItems = "";
+                    for (int j = 0; j < loadedMod.get_item(i).get_ingredients().Length; j++)
+                    {
+                        recipeItems += loadedMod.get_item(i).get_ingredients()[j].itemName + "|" + loadedMod.get_item(i).get_ingredients()[j].quantity + "\r\n";
+                    }
+                    File.WriteAllText(thePath + "\\Items\\Recipes\\" + loadedMod.get_item(i).get_name() + "_recipe.recipe", recipeItems);
                     
                     Bitmap bmp = loadedMod.get_item(i).get_sprite();
                     //File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + ".png");
@@ -295,6 +306,9 @@ namespace NEA_solution
             string[] existingItems;
             string[] existingCode;
             string[] existingSprites;
+            string[] existingRecipes;
+            string[] recipeItems;
+            List<RecipeItem> tmpRecipe;
             Item currentItem;
             string[] tmpProperties;
             string tmpFile;
@@ -302,12 +316,14 @@ namespace NEA_solution
                 //this ensures the correct structure exists in the specified directory
                 if (Directory.Exists(loadedMod.get_modPath() + "\\Items") 
                     && Directory.Exists(loadedMod.get_modPath() + "\\Items\\Code") 
-                    && Directory.Exists(loadedMod.get_modPath() + "\\Items\\Sprites"))
+                    && Directory.Exists(loadedMod.get_modPath() + "\\Items\\Sprites")
+                    && Directory.Exists(loadedMod.get_modPath() + "\\Items\\Recipes"))
                 {
                     //if it does, arrays of paths are created for each item, sprite, and code
                     existingItems = Directory.GetFiles(loadedMod.get_modPath() + "\\Items");
                     existingCode = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Code");
                     existingSprites = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Sprites");
+                    existingRecipes = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Recipes");
                     
                     //this stops and item with no items from loading - it needs to be removed
                     if (existingItems.Length == 0)
@@ -372,6 +388,20 @@ namespace NEA_solution
                                     Console.WriteLine(currentItem.get_name());
                                 }
                             }
+
+                            for (int j = 0; j < existingRecipes.Length; j++)
+                            {
+                                if (loadedMod.get_modPath() + "\\Items\\Recipes\\" + currentItem.get_name() + "_recipe.recipe" == existingRecipes[j])
+                                {
+                                    tmpRecipe = new List<RecipeItem>();
+                                    recipeItems = File.ReadAllLines(existingRecipes[j]);
+                                    for (int k = 0; k < recipeItems.Length; k++)
+                                    {
+                                        tmpRecipe.Add(new RecipeItem(recipeItems[k].Split('|')[0],Convert.ToInt32(recipeItems[k].Split('|')[1])));
+                                    }
+                                    currentItem.set_ingredients(tmpRecipe.ToArray());
+                                }
+                            }
                             //The item is added to the list, then the displayed list is updated.
                             loadedMod.add_item(currentItem);
                             update_item_list();
@@ -411,7 +441,7 @@ namespace NEA_solution
                 {
                     /*
                      * A list one shorter than the current one is created,
-                     * and every item except the deleted one is written to it.s
+                     * and every item except the deleted one is written to it.
                      */
                     Item[] tmpItems = new Item[loadedMod.get_item_number() - 1];
                     int indexToDelete = lbItems.SelectedIndex;
@@ -749,11 +779,7 @@ namespace NEA_solution
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Settings settings = new Settings();
-            DialogResult result = settings.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-
-            }
+            settings.ShowDialog();
         }
 
         public async void displayItem(Item loadedItem)
@@ -990,12 +1016,8 @@ namespace NEA_solution
 
         private void btnRecipe_Click(object sender, EventArgs e)
         {
-            if (!recipeEditor.Visible)
-            {
-                recipeEditor.Show();
-            }
-            recipeEditor.BringToFront();
-
+            RecipeEditor recipeEditor = new RecipeEditor(loadedItem);
+            recipeEditor.ShowDialog();
         }
     }
 }

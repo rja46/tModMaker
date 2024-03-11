@@ -20,6 +20,7 @@ namespace NEA_solution
         private Bitmap headSprite;
         private Bitmap bodySprite;
         private Bitmap legsSprite;
+        private RecipeItem[] ingredients;
 
         public Item(string name, string type)
         {
@@ -39,6 +40,7 @@ namespace NEA_solution
         public string get_type() { return type;}
         public string get_code() { return code;}     
         public Bitmap get_sprite() { return sprite;}
+        public RecipeItem[] get_ingredients() { return ingredients; }
         public void set_tooltip(string tooltip)
         {
             this.tooltip = tooltip;
@@ -90,6 +92,11 @@ namespace NEA_solution
         public void set_legsSprite(Bitmap legsSprite)
         {
             this.legsSprite = legsSprite;
+        }
+
+        public void set_ingredients(RecipeItem[] ingredients)
+        {
+            this.ingredients = ingredients;
         }
     }
 }
