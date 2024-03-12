@@ -24,11 +24,11 @@ namespace NEA_solution
         Mod loadedMod;
         Item loadedItem;
         bool hasExportPath;
-        private string workspace;
-        public Item theItem;
+        string workspace;
+        Item theItem;
         bool returned;
         bool saveReturned;
-        public bool wvready = false;
+        bool wvready = false;
 
         public Main()
         {
@@ -157,7 +157,35 @@ namespace NEA_solution
             theItem.set_tooltip(txtTooltip.Text);
             for (int i = 0; i < loadedMod.get_item_number(); i++)
             {
-                await save_item(loadedMod.get_item(i));
+                MessageBox.Show(GetTypeOfItem(loadedMod.get_item(i)));
+                switch (GetTypeOfItem(loadedMod.get_item(i)))
+                {
+                    case "Item":
+                        wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
+                        break;
+
+                    case "Projectile":
+                        wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\projectile_editor.html");
+                        break;
+
+
+                    case "NPC":
+                        wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\npc_editor.html");
+                        break;
+
+                    case "AI":
+                        wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\ai_editor.html");
+                        break;
+                }
+                await wvSave.ExecuteScriptAsync("loadData('" + theItem.get_code() + "')");
+                requestSaveData();
+                saveReturned = false;
+                do
+                {
+                    await Task.Delay(100);
+                }
+                while (saveReturned == false);
+                theItem.set_code(workspace);
             }
 
 
@@ -884,36 +912,6 @@ namespace NEA_solution
         async void requestSaveData()
         {
             await wvSave.ExecuteScriptAsync("sendDataToWinForm()");
-        }
-
-        public async Task save_item(Item item)
-        {
-            if (item.get_type() == "Item")
-            {
-                wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
-            }
-            else if (item.get_type() == "Projectile")
-            {
-                wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\projectile_editor.html");
-            }
-            else if (item.get_type() == "NPC")
-            {
-                wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\npc_editor.html");
-            }
-            else if (item.get_type() == "AI")
-            {
-                wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\ai_editor.html");
-            }
-            await wvSave.ExecuteScriptAsync("loadData('" + item.get_code() + "')");
-            requestSaveData();
-            saveReturned = false;
-            do
-            {
-                await Task.Delay(100);
-            }
-            while (saveReturned == false);
-            theItem.set_code(workspace);
-            //MessageBox.Show(":)");
         }
 
         async void sendData()

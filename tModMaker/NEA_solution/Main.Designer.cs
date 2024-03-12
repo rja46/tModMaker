@@ -359,12 +359,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.wvSave.CreationProperties = null;
             this.wvSave.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.wvSave.Location = new System.Drawing.Point(624, 12);
+            this.wvSave.Location = new System.Drawing.Point(366, 12);
             this.wvSave.Name = "wvSave";
-            this.wvSave.Size = new System.Drawing.Size(156, 40);
+            this.wvSave.Size = new System.Drawing.Size(414, 174);
             this.wvSave.Source = new System.Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor", System.UriKind.Absolute);
             this.wvSave.TabIndex = 28;
-            this.wvSave.Visible = false;
             this.wvSave.ZoomFactor = 1D;
             this.wvSave.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.wvSave_WebMessageReceived);
             // 
