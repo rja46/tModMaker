@@ -27,6 +27,7 @@ namespace NEA_solution
         private string workspace;
         public Item theItem;
         bool returned;
+        bool saveReturned;
         public bool wvready = false;
 
         public Main()
@@ -151,12 +152,12 @@ namespace NEA_solution
         //this procedure is asynchronous as it waits to recieve the data from the web component
         private async void save_mod()
         {
-            //fix this shit
             //if an item is loaded, it is saved
+            theItem.set_display_name(txtDisplayName.Text);
+            theItem.set_tooltip(txtTooltip.Text);
             for (int i = 0; i < loadedMod.get_item_number(); i++)
             {
-                displayItem(loadedMod.get_item(i));
-                await save_item();
+                await save_item(loadedMod.get_item(i));
             }
 
 
@@ -880,18 +881,39 @@ namespace NEA_solution
             await wvCode.ExecuteScriptAsync("sendDataToWinForm()");
         }
 
-        public async Task save_item()
+        async void requestSaveData()
         {
-            requestData();
-            returned = false;
-            theItem.set_display_name(txtDisplayName.Text);
-            theItem.set_tooltip(txtTooltip.Text);
+            await wvSave.ExecuteScriptAsync("sendDataToWinForm()");
+        }
+
+        public async Task save_item(Item item)
+        {
+            if (item.get_type() == "Item")
+            {
+                wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
+            }
+            else if (item.get_type() == "Projectile")
+            {
+                wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\projectile_editor.html");
+            }
+            else if (item.get_type() == "NPC")
+            {
+                wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\npc_editor.html");
+            }
+            else if (item.get_type() == "AI")
+            {
+                wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\ai_editor.html");
+            }
+            await wvSave.ExecuteScriptAsync("loadData('" + item.get_code() + "')");
+            requestSaveData();
+            saveReturned = false;
             do
             {
                 await Task.Delay(100);
             }
-            while (returned == false);
+            while (saveReturned == false);
             theItem.set_code(workspace);
+            //MessageBox.Show(":)");
         }
 
         async void sendData()
@@ -1026,6 +1048,12 @@ namespace NEA_solution
             RecipeEditor recipeEditor = new RecipeEditor(loadedItem);
             recipeEditor.ShowDialog();
             loadedItem.set_ingredients(recipeEditor.outputArray);
+        }
+
+        private void wvSave_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
+        {
+            workspace = e.TryGetWebMessageAsString();
+            saveReturned = true;
         }
     }
 }

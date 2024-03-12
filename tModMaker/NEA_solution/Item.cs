@@ -20,11 +20,13 @@ namespace NEA_solution
         private Bitmap headSprite;
         private Bitmap bodySprite;
         private Bitmap legsSprite;
-        private RecipeItem[] ingredients;
+        private RecipeItem[] ingredients = new RecipeItem[1];
+
 
         public Item(string name, string type)
         {
             //The spaces in the name must be replaced with underscores to make it a valid class name.
+            ingredients[0] = new RecipeItem("DirtBlock", 10);
             this.name = name.Replace('\u0020', '_');
             this.type = type;
             displayName = name;
