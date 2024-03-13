@@ -364,6 +364,7 @@
             this.wvSave.Size = new System.Drawing.Size(156, 40);
             this.wvSave.Source = new System.Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor", System.UriKind.Absolute);
             this.wvSave.TabIndex = 28;
+            this.wvSave.Visible = false;
             this.wvSave.ZoomFactor = 1D;
             this.wvSave.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.wvSave_NavigationCompleted);
             this.wvSave.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.wvSave_WebMessageReceived);

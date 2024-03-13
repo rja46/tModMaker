@@ -105,9 +105,21 @@ namespace NEA_solution
             update_loaded_item(lbItems.SelectedIndex);
         }
 
-        private void update_loaded_item(int index)
+        private async void update_loaded_item(int index)
         {
             //loads the item specified by the index from the list of items in the mod
+            if (loadedItem != null)
+            {
+                requestData();
+                returned = false;
+                do
+                {
+                    await Task.Delay(100);
+
+                }
+                while (returned == false);
+                loadedItem.set_code(workspace);
+            }
             loadedItem = loadedMod.get_item(index);
         }
 
@@ -156,6 +168,18 @@ namespace NEA_solution
             //if an item is loaded, it is saved
             theItem.set_display_name(txtDisplayName.Text);
             theItem.set_tooltip(txtTooltip.Text);
+            if (loadedItem != null)
+            {
+                requestData();
+                returned = false;
+                do
+                {
+                    await Task.Delay(100);
+
+                }
+                while (returned == false);
+                loadedItem.set_code(workspace);
+            }
             for (int i = 0; i < loadedMod.get_item_number(); i++)
             {
                 await Console.Out.WriteLineAsync(i.ToString());
@@ -222,6 +246,7 @@ namespace NEA_solution
                 loadedMod.get_item(i).set_code(workspace);
 
                 await Console.Out.WriteLineAsync("code set");
+                await Console.Out.WriteLineAsync(loadedMod.get_item(i).get_code());
             }
 
 
@@ -663,6 +688,7 @@ namespace NEA_solution
         {
             if (loadedItem != null)
             {
+
                 displayItem(loadedItem);
                 update_item_list();
             }
