@@ -165,6 +165,17 @@ namespace NEA_solution
         //this procedure is asynchronous as it waits to recieve the data from the web component
         private async void save_mod()
         {
+            pbSave.Step = 1;
+            pbSave.Minimum = 1;
+            if (loadedMod.get_item_number() > 0)
+            {
+                pbSave.Maximum = loadedMod.get_item_number() * 2;
+            }
+            else
+            {
+                pbSave.Maximum = 1;
+            }
+            pbSave.Value = 1;
             //if an item is loaded, it is saved
             theItem.set_display_name(txtDisplayName.Text);
             theItem.set_tooltip(txtTooltip.Text);
@@ -185,7 +196,6 @@ namespace NEA_solution
                 await Console.Out.WriteLineAsync(i.ToString());
                 string prevSource = wvSave.Source.ToString();
 
-                MessageBox.Show(loadedMod.get_item(i).get_name());
                 switch (loadedMod.get_item(i).get_type())
                 {
                     case "Item":
@@ -247,6 +257,7 @@ namespace NEA_solution
 
                 await Console.Out.WriteLineAsync("code set");
                 await Console.Out.WriteLineAsync(loadedMod.get_item(i).get_code());
+                pbSave.PerformStep();
             }
 
 
@@ -271,17 +282,7 @@ namespace NEA_solution
             it is worth noting that the progress bar doesnt appear to work on 
             windows 11
             */
-            pbSave.Step = 1;
-            pbSave.Minimum = 1;
-            if (loadedMod.get_item_number() > 0)
-            {
-                pbSave.Maximum = loadedMod.get_item_number();
-            }
-            else
-            {
-                pbSave.Maximum = 1;
-            }
-            pbSave.Value = 1;
+            
 
 
             /*
