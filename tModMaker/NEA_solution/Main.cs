@@ -29,6 +29,7 @@ namespace NEA_solution
         bool returned;
         bool saveReturned;
         bool wvready = false;
+        bool wvSaveReady = false;
 
         public Main()
         {
@@ -157,8 +158,11 @@ namespace NEA_solution
             theItem.set_tooltip(txtTooltip.Text);
             for (int i = 0; i < loadedMod.get_item_number(); i++)
             {
-                MessageBox.Show(GetTypeOfItem(loadedMod.get_item(i)));
-                switch (GetTypeOfItem(loadedMod.get_item(i)))
+                await Console.Out.WriteLineAsync(i.ToString());
+                string prevSource = wvSave.Source.ToString();
+
+                MessageBox.Show(loadedMod.get_item(i).get_name());
+                switch (loadedMod.get_item(i).get_type())
                 {
                     case "Item":
                         wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
@@ -168,7 +172,6 @@ namespace NEA_solution
                         wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\projectile_editor.html");
                         break;
 
-
                     case "NPC":
                         wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\npc_editor.html");
                         break;
@@ -177,15 +180,48 @@ namespace NEA_solution
                         wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\ai_editor.html");
                         break;
                 }
-                await wvSave.ExecuteScriptAsync("loadData('" + theItem.get_code() + "')");
+                
+                await Console.Out.WriteLineAsync("type found");
+
+                if (prevSource != wvSave.Source.ToString())
+                {
+                    await Console.Out.WriteLineAsync(prevSource);
+                    await Console.Out.WriteLineAsync(wvSave.Source.ToString());
+                    wvSaveReady = false;
+                    do
+                    {
+                        await Task.Delay(100);
+
+                        await Console.Out.WriteLineAsync("waiting for uri");
+                    }
+                    while (wvSaveReady == false);
+                }
+
+
+                await Console.Out.WriteLineAsync("blockly loaded");
+                
+                await wvSave.ExecuteScriptAsync("loadData('" + loadedMod.get_item(i).get_code() + "')");
+                
+                await Console.Out.WriteLineAsync("data sent");
+                
                 requestSaveData();
+
+                await Console.Out.WriteLineAsync("data request sent");
+                
                 saveReturned = false;
                 do
                 {
                     await Task.Delay(100);
+
+                    await Console.Out.WriteLineAsync("waiting for data");
                 }
                 while (saveReturned == false);
-                theItem.set_code(workspace);
+
+                await Console.Out.WriteLineAsync("data recieved");
+
+                loadedMod.get_item(i).set_code(workspace);
+
+                await Console.Out.WriteLineAsync("code set");
             }
 
 
@@ -263,9 +299,9 @@ namespace NEA_solution
                 {
                     //the details of the item and put into a string, then saved
                     tempItem = "";
-                    tempItem += loadedMod.get_item(i).get_name() + "|";
-                    tempItem += loadedMod.get_item(i).get_displayName() + "|";
-                    tempItem += loadedMod.get_item(i).get_tooltip() + "|";
+                    tempItem += loadedMod.get_item(i).get_name() + "\r\n";
+                    tempItem += loadedMod.get_item(i).get_displayName() + "\r\n";
+                    tempItem += loadedMod.get_item(i).get_tooltip() + "\r\n";
                     tempItem += loadedMod.get_item(i).get_type();
                     File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + ".item", tempItem);
                     
@@ -343,7 +379,6 @@ namespace NEA_solution
             List<RecipeItem> tmpRecipe;
             Item currentItem;
             string[] tmpProperties;
-            string tmpFile;
             {
                 //this ensures the correct structure exists in the specified directory
                 if (Directory.Exists(loadedMod.get_modPath() + "\\Items") 
@@ -367,11 +402,9 @@ namespace NEA_solution
                         lbItems.Items.Clear();
                         for (int i = 0; i < existingItems.Length; i++)
                         {
-                            //The contents of each path in the array are read.
-                            tmpFile = File.ReadAllText(existingItems[i]);
 
                             //The details are split by the dividing symbol.
-                            tmpProperties = tmpFile.Split('|');
+                            tmpProperties = File.ReadAllLines(existingItems[i]);
                             
                             //The properties in the array created are used to assemble the item.
                             currentItem = new Item(tmpProperties[0], tmpProperties[3]);
@@ -899,8 +932,7 @@ namespace NEA_solution
 
         async void InitWebview()
         {
-            Controls.Add(wvCode);
-            wvCode.Enabled = true;
+            await wvCode.EnsureCoreWebView2Async(null);
             await wvCode.EnsureCoreWebView2Async(null);
         }
 
@@ -1052,6 +1084,11 @@ namespace NEA_solution
         {
             workspace = e.TryGetWebMessageAsString();
             saveReturned = true;
+        }
+
+        private void wvSave_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        {
+            wvSaveReady = true;
         }
     }
 }
