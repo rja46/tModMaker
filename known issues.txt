@@ -1,0 +1,2 @@
+-When changing where an item can be equipped to the body, the alternate sprite editor does not update accordingly.
+-Set mood text is the wrong block colour.

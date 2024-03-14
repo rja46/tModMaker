@@ -82,6 +82,7 @@
             this.btnRemove.TabIndex = 5;
             this.btnRemove.Text = "Remove Ingredient";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // cbIngredient
             // 

@@ -21,6 +21,7 @@ namespace NEA_solution
         private Bitmap bodySprite;
         private Bitmap legsSprite;
         private RecipeItem[] ingredients = new RecipeItem[1];
+        private string[] moods = new string[6];
 
 
         public Item(string name, string type)

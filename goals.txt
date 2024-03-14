@@ -1,0 +1,9 @@
+Must:
+Recipes - DO THIS NEXT!
+NPC Shops
+Complete NPC messages
+NPC and Projectile AIs - very basic following player
+
+Nice-to-haves:
+Multi-phase boss fights
+Boss music

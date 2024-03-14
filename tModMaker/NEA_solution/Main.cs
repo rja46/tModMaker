@@ -714,7 +714,7 @@ namespace NEA_solution
             if (hasExportPath)
             {
                 path = File.ReadAllText(Environment.CurrentDirectory + "\\userConfig.txt") + "\\" + loadedMod.get_name();
-                
+
                 //An array is created containing all the items to export.
                 Item[] itemsToExport = new Item[loadedMod.get_item_number()];
                 for (int i = 0; i < itemsToExport.Length; i++)
@@ -767,7 +767,7 @@ namespace NEA_solution
                     }
                 }
                 localizationString += "\r\n}";
-                localizationString += "\r\n}\r\n";
+                localizationString += "\r\n}\r\n}";
                 File.WriteAllText(path + "\\Localization\\en-US.hjson", localizationString);
 
                 /*

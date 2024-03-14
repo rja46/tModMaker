@@ -76,5 +76,10 @@ namespace NEA_solution
         {
             outputArray = IngredientsList.ToArray();
         }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

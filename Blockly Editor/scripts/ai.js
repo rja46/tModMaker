@@ -949,3 +949,5 @@ workspace = Blockly.inject('blocklyDiv', {
     horizontalLayout: false,
     toolboxPosition: "left",
 });
+
+workspace.createVariable('testVar');
