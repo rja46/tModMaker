@@ -356,23 +356,25 @@ namespace NEA_solution
                         bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Wings.png", ImageFormat.Png);
                     }
 
+                    string itemType = GetTypeOfItem(loadedMod.get_item(i));
+
                     bmp = loadedMod.get_item(i).get_headSprite();
                     File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Head.png");
-                    if (bmp != null)
+                    if (bmp != null && itemType == "head")
                     {
                         bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Head.png", ImageFormat.Png);
                     }
 
                     bmp = loadedMod.get_item(i).get_bodySprite();
                     File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Body.png");
-                    if (bmp != null)
+                    if (bmp != null && itemType == "body")
                     {
                         bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Body.png", ImageFormat.Png);
                     }
 
                     bmp = loadedMod.get_item(i).get_legsSprite();
                     File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Legs.png");
-                    if (bmp != null)
+                    if (bmp != null && itemType == "legs")
                     {
                         bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Legs.png", ImageFormat.Png);
                     }

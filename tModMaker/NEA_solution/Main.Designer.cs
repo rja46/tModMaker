@@ -343,6 +343,7 @@
             // 
             // btnRecipe
             // 
+            this.btnRecipe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRecipe.Location = new System.Drawing.Point(51, 402);
             this.btnRecipe.Name = "btnRecipe";
             this.btnRecipe.Size = new System.Drawing.Size(190, 23);
