@@ -1,6 +1,5 @@
 let workspace = null;
-
-workspace.createVariable("test");
+var test = workspace.createVariable("test");
 
 function sendDataToWinForm() {
     const state = JSON.stringify(Blockly.serialization.workspaces.save(workspace));
@@ -949,5 +948,6 @@ workspace = Blockly.inject('blocklyDiv', {
     toolbox: toolbox,
     scrollbars: true,
     horizontalLayout: false,
-    toolboxPosition: "left",
+    toolboxPosition: "left"
+
 });
