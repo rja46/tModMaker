@@ -1,5 +1,7 @@
 let workspace = null;
 
+workspace.createVariable("test");
+
 function sendDataToWinForm() {
     const state = JSON.stringify(Blockly.serialization.workspaces.save(workspace));
     window.chrome.webview.postMessage(state);
