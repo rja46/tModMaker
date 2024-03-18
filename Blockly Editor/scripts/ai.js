@@ -834,82 +834,14 @@ const toolbox = {
             ],
         },
         {
-            kind: 'category',
-            categorystyle: 'colour_category',
-            name: 'Colour',
-            contents: [
+            "kind": "category",
+            "name": "Game",
+            "contents": [
                 {
-                    type: 'colour_picker',
-                    kind: 'block',
-                    fields: {
-                        COLOUR: '#ff0000',
-                    },
-                },
-                {
-                    type: 'colour_random',
-                    kind: 'block',
-                },
-                {
-                    type: 'colour_rgb',
-                    kind: 'block',
-                    inputs: {
-                        RED: {
-                            shadow: {
-                                type: 'math_number',
-                                fields: {
-                                    NUM: 100,
-                                },
-                            },
-                        },
-                        GREEN: {
-                            shadow: {
-                                type: 'math_number',
-                                fields: {
-                                    NUM: 50,
-                                },
-                            },
-                        },
-                        BLUE: {
-                            shadow: {
-                                type: 'math_number',
-                                fields: {
-                                    NUM: 0,
-                                },
-                            },
-                        },
-                    },
-                },
-                {
-                    type: 'colour_blend',
-                    kind: 'block',
-                    inputs: {
-                        COLOUR1: {
-                            shadow: {
-                                type: 'colour_picker',
-                                fields: {
-                                    COLOUR: '#ff0000',
-                                },
-                            },
-                        },
-                        COLOUR2: {
-                            shadow: {
-                                type: 'colour_picker',
-                                fields: {
-                                    COLOUR: '#3333ff',
-                                },
-                            },
-                        },
-                        RATIO: {
-                            shadow: {
-                                type: 'math_number',
-                                fields: {
-                                    NUM: 0.5,
-                                },
-                            },
-                        },
-                    },
-                },
-            ],
+                    "kind": "block",
+                    "type": "target_player"
+                }
+            ]
         },
         {
             kind: 'sep',
@@ -929,7 +861,17 @@ const toolbox = {
     ],
 };
 
-
+Blockly.common.defineBlocksWithJsonArray([
+     {
+        "type": "target_player",
+        "message0": "Target Player",
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    }
+])
 
 
 //blocks here

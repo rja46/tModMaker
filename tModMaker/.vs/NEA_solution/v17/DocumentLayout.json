@@ -6,7 +6,7 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\scripts\\ai.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\scripts\\npc.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\scripts\\tool.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\nea_solution\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -70,14 +70,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "npc.js",
-              "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\scripts\\npc.js",
-              "RelativeDocumentMoniker": "..\\Blockly Editor\\scripts\\npc.js",
-              "ToolTip": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\scripts\\npc.js",
-              "RelativeToolTip": "..\\Blockly Editor\\scripts\\npc.js",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAAB8AAAAIAAAA",
+              "Title": "tool.js",
+              "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\scripts\\tool.js",
+              "RelativeDocumentMoniker": "..\\Blockly Editor\\scripts\\tool.js",
+              "ToolTip": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\scripts\\tool.js",
+              "RelativeToolTip": "..\\Blockly Editor\\scripts\\tool.js",
+              "ViewState": "AQIAAIEAAAAAAAAAAAAAAIoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-03-17T12:39:02.414Z"
+              "WhenOpened": "2024-03-18T16:57:51.161Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -87,7 +88,7 @@
               "RelativeDocumentMoniker": "..\\Blockly Editor\\scripts\\ai.js",
               "ToolTip": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\scripts\\ai.js",
               "RelativeToolTip": "..\\Blockly Editor\\scripts\\ai.js",
-              "ViewState": "AQIAAJ8DAAAAAAAAAAAAALEDAAAAAAAA",
+              "ViewState": "AQIAADADAAAAAAAAAAAAAEkDAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-03-14T10:36:17.33Z",
               "EditorCaption": ""
