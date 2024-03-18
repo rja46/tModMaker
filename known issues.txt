@@ -1,3 +1,4 @@
 -When changing where an item can be equipped to the body, the alternate sprite editor does not update accordingly.
 -Saving can break and remove all the code.
 -Set mood text is the wrong block colour.
+-The recent projects menu does not work as intended,

@@ -45,3 +45,11 @@ if (npc.ai[1] == 1)
 
 flipping sprite
 npc.spriteDirection = 1
+
+Variables
+
+targetPosition
+npcPosition
+npcVelocity (x and y)
+timer
+phase

@@ -1,5 +1,4 @@
 let workspace = null;
-var test = workspace.createVariable("test");
 
 function sendDataToWinForm() {
     const state = JSON.stringify(Blockly.serialization.workspaces.save(workspace));
@@ -12,29 +11,42 @@ function sendTranslatedCode() {
 
 }
 
-function changeThemeDefault() {
-    workspace.dispose();
-    workspace = Blockly.inject('blocklyDiv', {
-        toolbox: toolbox,
-        scrollbars: false,
-        horizontalLayout: false,
-        toolboxPosition: "left",
-    });
-}
-
-function changeThemeDark() {
-    workspace.dispose();
-    workspace = Blockly.inject('blocklyDiv', {
-        toolbox: toolbox,
-        scrollbars: false,
-        horizontalLayout: false,
-        toolboxPosition: "left",
-        theme: dark,
-    });
-}
-
 function clear() {
     workspace.clear();
+    Blockly.serialization.workspaces.load({
+        "blocks": {
+            "languageVersion": 0,
+            "blocks": [
+
+            ]
+        },
+        "variables": [
+            {
+                "name": "targetPosition",
+                "id": "UA9(!IdVzK({OKS9K{cG"
+            },
+            {
+                "name": "npcPosition",
+                "id": "xPL.?7[CsNSy`vE^`Q@e"
+            },
+            {
+                "name": "npcVelocityX",
+                "id": "=qJLLnYn!MFm#ZRyL]8P"
+            },
+            {
+                "name": "npcVelocityY",
+                "id": "J@r2PhFwz4/t`[Fw9LY3"
+            },
+            {
+                "name": "timer",
+                "id": "9*WRnT-s]$;ps7c9=rz9"
+            },
+            {
+                "name": "phase",
+                "id": "z#UbUNTotP7R:a~zket6"
+            }
+        ]
+    }, workspace);
 }
 
 function loadData(theData) {
@@ -923,31 +935,10 @@ const toolbox = {
 //blocks here
 
 
-
-var dark = Blockly.Theme.defineTheme('dark', {
-
-    base: Blockly.Themes.Classic,
-
-    componentStyles: {
-        workspaceBackgroundColour: '#1e1e1e',
-        toolboxBackgroundColour: 'blackBackground',
-        toolboxForegroundColour: '#fff',
-        flyoutBackgroundColour: '#252526',
-        flyoutForegroundColour: '#ccc',
-        flyoutOpacity: 1,
-        scrollbarColour: '#797979',
-        insertionMarkerColour: '#fff',
-        insertionMarkerOpacity: 0.3,
-        scrollbarOpacity: 0.4,
-        cursorColour: '#d0d0d0',
-        blackBackground: '#333',
-    },
-});
-
 workspace = Blockly.inject('blocklyDiv', {
     toolbox: toolbox,
     scrollbars: true,
     horizontalLayout: false,
-    toolboxPosition: "left"
+    toolboxPosition: "left",
 
 });
