@@ -22,12 +22,20 @@ function clear() {
         },
         "variables": [
             {
-                "name": "targetPosition",
+                "name": "targetPositionX",
                 "id": "UA9(!IdVzK({OKS9K{cG"
             },
             {
-                "name": "npcPosition",
+                "name": "targetPositionY",
+                "id": "UA9(!IdVzK({OKS9K{cm"
+            },
+            {
+                "name": "npcPositionX",
                 "id": "xPL.?7[CsNSy`vE^`Q@e"
+            },
+            {
+                "name": "npcPositionY",
+                "id": "xPL.?7[CsNSy`vE^`Q@a"
             },
             {
                 "name": "npcVelocityX",
@@ -840,6 +848,14 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "target_player"
+                },
+                {
+                    "kind": "block",
+                    "type": "flip_sprite"
+                },
+                {
+                    "kind": "block",
+                    "type": "fire_projectile"
                 }
             ]
         },
@@ -864,7 +880,32 @@ const toolbox = {
 Blockly.common.defineBlocksWithJsonArray([
      {
         "type": "target_player",
-        "message0": "Target Player",
+        "message0": "Target player",
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "flip_sprite",
+        "message0": "Flip sprite direction",
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "fire_projectile",
+        "message0": "Fire projectile called %1",
+        "args0": [
+            {
+                "type": "field_input",
+                "name": "projectile",
+                "text": "default"
+            }
+        ],
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,

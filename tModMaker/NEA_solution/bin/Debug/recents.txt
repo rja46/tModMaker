@@ -1,2 +1,1 @@
-C:\Users\rjand\Desktop\aiTest
-C:\Users\rjand\Documents\GitHub\tModMaker\AnotherTestMod
+C:\Users\rjand\Desktop\testAI
