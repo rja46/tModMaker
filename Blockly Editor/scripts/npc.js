@@ -422,6 +422,24 @@ Blockly.common.defineBlocksWithJsonArray([
         "colour": 230,
         "tooltip": "",
         "helpUrl": ""
+    },
+    {
+        {
+        "type": "customAI",
+        "message0": "Use custom AI called %1",
+        "args0": [
+            {
+                "type": "field_input",
+                "name": "aiName",
+                "text": "default"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    }
     }
 ]);
 
