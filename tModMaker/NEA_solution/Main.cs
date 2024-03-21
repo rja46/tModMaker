@@ -697,7 +697,7 @@ namespace NEA_solution
             }
         }
 
-        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CodeGenerator codeGenerator = new CodeGenerator();
             string path;
@@ -780,6 +780,7 @@ namespace NEA_solution
                 for (int i = 0; i < itemsToExport.Length; i++)
                 {
                     tmpCode = codeGenerator.generate_code(itemsToExport[i], loadedMod.get_name());
+                    
                     if (itemsToExport[i].get_type() == "Item")
                     {
                         File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
@@ -973,6 +974,11 @@ namespace NEA_solution
         async void requestSaveData()
         {
             await wvSave.ExecuteScriptAsync("sendDataToWinForm()");
+        }
+
+        async void requestTranslatedCode()
+        {
+            await wvSave.ExecuteScriptAsync("sendTranslatedCode()");
         }
 
         async void sendData()

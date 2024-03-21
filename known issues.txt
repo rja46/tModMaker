@@ -3,3 +3,4 @@
 -Set mood text is the wrong block colour.
 -The recent projects menu does not work as intended.
 -Items cannot be removed from a recipe, only added.
+-If an item is marked as not being able to be exported, it is still exported.
