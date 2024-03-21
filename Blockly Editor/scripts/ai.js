@@ -101,24 +101,6 @@ const toolbox = {
 };
 
 Blockly.common.defineBlocksWithJsonArray([
-     {
-        "type": "target_player",
-        "message0": "Target player",
-        "previousStatement": null,
-        "nextStatement": null,
-        "colour": 230,
-        "tooltip": "",
-        "helpUrl": ""
-    },
-    {
-        "type": "flip_sprite",
-        "message0": "Flip sprite direction",
-        "previousStatement": null,
-        "nextStatement": null,
-        "colour": 230,
-        "tooltip": "",
-        "helpUrl": ""
-    },
     {
         "type": "fire_projectile",
         "message0": "Fire projectile called %1",
@@ -137,13 +119,19 @@ Blockly.common.defineBlocksWithJsonArray([
     },
     {
         "type": "chase_player_x",
-        "message0": "Chase player horizontally with %1 velocity",
+        "message0": "Chase player horizontally with %1 velocity and %2 acceleration",
         "args0": [
             {
                 "type": "field_number",
                 "name": "xVelocity",
                 "value": 0,
                 "precision": 1
+            },
+            {
+                "type": "field_number",
+                "name": "xAcceleration",
+                "value": 0,
+                "precision": 0
             }
         ],
         "previousStatement": null,
@@ -154,13 +142,19 @@ Blockly.common.defineBlocksWithJsonArray([
     },
     {
         "type": "chase_player_y",
-        "message0": "Chase player vertically with %1 velocity if player is within %2 blocks",
+        "message0": "Chase player vertically with %1 velocity and %2 acceleration if player is within %3 blocks",
         "args0": [
             {
                 "type": "field_number",
-                "name": "xVelocity",
+                "name": "yVelocity",
                 "value": 0,
                 "precision": 1
+            },
+            {
+                "type": "field_number",
+                "name": "yAcceleration",
+                "value": 0,
+                "precision": 0
             },
             {
                 "type": "field_number",

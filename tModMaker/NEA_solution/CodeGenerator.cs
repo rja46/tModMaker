@@ -29,6 +29,8 @@ namespace NEA_solution
             List<string> nameOptions = new List<string>();
             string button1 = "";
             string button2 = "";
+            string AI = "";
+            bool chasePlayer = false;
 
 
             /*
@@ -290,6 +292,20 @@ namespace NEA_solution
                         button1 = add_Buttons.button1;
                         button2 = add_Buttons.button2;
                         break;
+
+
+                    //AI Class Blocks
+                    case "chase_player_x":
+                        chase_player_X chase_Player_X = JsonSerializer.Deserialize<chase_player_X>(blocksAsStrings[i]);
+                        AI +=   "if (targetPosition.X < npc.position.X && npc.velocity.X > " + chase_Player_X.xVelocity + ")" +
+                            "\r\n{" +
+                            "\r\nnpc.velocity.X -= " + chase_Player_X.xAcceleration + ";" +
+                            "\r\n}" +
+                            "\r\nif (targetPosition.X > npc.position.X && npc.velocity.X < " + chase_Player_X.xVelocity + ")" +
+                            "\r\n{" +
+                            "\r\nnpc.velocity.X += " + chase_Player_X.xAcceleration + ";" +
+                            "\r\n}";
+                        break;
                 }
             }
 
@@ -315,10 +331,6 @@ namespace NEA_solution
                 generatedCode +=
                     "\r\npublic class " + item.get_name() + " : ModNPC" +
                     "\r\n{";
-            }
-            else
-            {
-                MessageBox.Show("Fatal error: item type invalid. Exported code will not run.");
             }
 
             if (isEquipable)

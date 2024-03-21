@@ -202,6 +202,18 @@ namespace NEA_solution
     {
         public string button1 { get; set; }
         public string button2 { get; set; }
+    }
 
+    internal class chase_player_X : GenericBlock
+    {
+        public int xVelocity { get; set; }
+        public float xAcceleration { get; set; }
+    }
+
+    internal class chase_player_Y : GenericBlock
+    {
+        public int yVelocity { get; set; }
+        public float yAcceleration { get; set; }
+        public int distance { get; set; }
     }
 }

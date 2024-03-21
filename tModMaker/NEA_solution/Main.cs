@@ -697,7 +697,7 @@ namespace NEA_solution
             }
         }
 
-        private async void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CodeGenerator codeGenerator = new CodeGenerator();
             string path;
@@ -794,7 +794,7 @@ namespace NEA_solution
                         File.WriteAllText(path + "\\NPCs\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     }
                     bmp = itemsToExport[i].get_sprite();
-                    if (bmp == null)
+                    if (bmp == null && itemsToExport[i].get_type() != "AI")
                     {
                         incompleteItems.Add(itemsToExport[i].get_name());
                         canExport = false;
