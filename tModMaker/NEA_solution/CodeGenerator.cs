@@ -297,6 +297,7 @@ namespace NEA_solution
                     //AI Class Blocks
                     case "chase_player_x":
                         chase_player_X chase_Player_X = JsonSerializer.Deserialize<chase_player_X>(blocksAsStrings[i]);
+                        chasePlayer = true;
                         AI +=   "if (targetPosition.X < npc.position.X && npc.velocity.X > " + chase_Player_X.xVelocity + ")" +
                             "\r\n{" +
                             "\r\nnpc.velocity.X -= " + chase_Player_X.xAcceleration + ";" +
@@ -427,6 +428,21 @@ namespace NEA_solution
                     generatedCode += "\r\nrecipe.AddIngredient(ItemID." + item.get_ingredients()[i].itemName + "," + item.get_ingredients()[i].quantity + ");";
                 }
                 generatedCode += "\r\nrecipe.AddTile(TileID.WorkBenches);\r\nrecipe.Register();";
+                generatedCode += "\r\n}";
+            }
+
+            if (AI != "")
+            {
+                generatedCode += "public void AI\r\n{";
+
+                if (chasePlayer)
+                {
+                    generatedCode += "\r\nnpc.TargetClosest(true);";
+                    generatedCode += "\r\nVector2 targetPosition = Main.player[npc.target].position;";
+                }
+
+                generatedCode += AI;
+
                 generatedCode += "\r\n}";
             }
 

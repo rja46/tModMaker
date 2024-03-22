@@ -66,6 +66,25 @@ const toolbox = {
                     "type": "set_mood_text"
                 }
             ]
+        },
+        {
+            "kind": "category",
+            "name": "AI",
+            "colour": 170,
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "fire_projectile"
+                },
+                {
+                    "kind": "block",
+                    "type": "chase_player_x"
+                },
+                {
+                    "kind": "block",
+                    "type": "chase_player_y"
+                }
+            ]
         }
     ]
 }
@@ -423,7 +442,6 @@ Blockly.common.defineBlocksWithJsonArray([
         "tooltip": "",
         "helpUrl": ""
     },
-    {
         {
         "type": "customAI",
         "message0": "Use custom AI called %1",
@@ -439,7 +457,90 @@ Blockly.common.defineBlocksWithJsonArray([
         "colour": 230,
         "tooltip": "",
         "helpUrl": ""
-    }
+    },
+    {
+        "type": "use_custom_ai",
+        "message0": "Use custom AI called %1",
+        "args0": [
+            {
+                "type": "field_input",
+                "name": "aiName",
+                "text": "default"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 170,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "fire_projectile",
+        "message0": "Fire projectile called %1",
+        "args0": [
+            {
+                "type": "field_input",
+                "name": "projectile",
+                "text": "default"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "chase_player_x",
+        "message0": "Chase player horizontally with %1 velocity and %2 acceleration",
+        "args0": [
+            {
+                "type": "field_number",
+                "name": "xVelocity",
+                "value": 0,
+                "precision": 1
+            },
+            {
+                "type": "field_number",
+                "name": "xAcceleration",
+                "value": 0,
+                "precision": 0
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "chase_player_y",
+        "message0": "Chase player vertically with %1 velocity and %2 acceleration if player is within %3 blocks",
+        "args0": [
+            {
+                "type": "field_number",
+                "name": "yVelocity",
+                "value": 0,
+                "precision": 1
+            },
+            {
+                "type": "field_number",
+                "name": "yAcceleration",
+                "value": 0,
+                "precision": 0
+            },
+            {
+                "type": "field_number",
+                "name": "distance",
+                "value": 0,
+                "precision": 1
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
     }
 ]);
 

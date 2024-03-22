@@ -177,8 +177,14 @@ namespace NEA_solution
             }
             pbSave.Value = 1;
             //if an item is loaded, it is saved
-            theItem.set_display_name(txtDisplayName.Text);
-            theItem.set_tooltip(txtTooltip.Text);
+            if (txtDisplayName.Text != "")
+            {
+                theItem.set_display_name(txtDisplayName.Text);
+            }
+            if (txtTooltip.Text != "")
+            {
+                theItem.set_tooltip(txtTooltip.Text);
+            }
             if (loadedItem != null)
             {
                 requestData();
@@ -208,10 +214,6 @@ namespace NEA_solution
 
                     case "NPC":
                         wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\npc_editor.html");
-                        break;
-
-                    case "AI":
-                        wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\ai_editor.html");
                         break;
                 }
                 
@@ -794,7 +796,7 @@ namespace NEA_solution
                         File.WriteAllText(path + "\\NPCs\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     }
                     bmp = itemsToExport[i].get_sprite();
-                    if (bmp == null && itemsToExport[i].get_type() != "AI")
+                    if (bmp == null)
                     {
                         incompleteItems.Add(itemsToExport[i].get_name());
                         canExport = false;
@@ -899,12 +901,6 @@ namespace NEA_solution
                 txtTooltip.Enabled = false;
                 btnRecipe.Enabled = false;
             }
-            else if (loadedItem.get_type() == "AI")
-            {
-                wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\ai_editor.html");
-                txtTooltip.Enabled = false;
-                btnRecipe.Enabled = false;
-            }
             else
             {
                 Console.WriteLine("please update type");
@@ -974,11 +970,6 @@ namespace NEA_solution
         async void requestSaveData()
         {
             await wvSave.ExecuteScriptAsync("sendDataToWinForm()");
-        }
-
-        async void requestTranslatedCode()
-        {
-            await wvSave.ExecuteScriptAsync("sendTranslatedCode()");
         }
 
         async void sendData()

@@ -204,6 +204,12 @@ namespace NEA_solution
         public string button2 { get; set; }
     }
 
+    internal class use_custom_ai : GenericBlock
+    {
+        public string aiName { get; set; }
+    }
+    
+    //AI Blocks
     internal class chase_player_X : GenericBlock
     {
         public int xVelocity { get; set; }
