@@ -5,3 +5,4 @@
 -Items cannot be removed from a recipe, only added.
 -If an item is marked as not being able to be exported, it is still exported.
 -Some pieces of code reference specific paths and must be changed.
+-Opening a not existent mod causes a crash.

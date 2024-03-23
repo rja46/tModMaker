@@ -41,6 +41,10 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "use_npc_ai"
+                },
+                {
+                    "kind": "block",
+                    "type": "set_spawn_rate"
                 }
             ]
         },
@@ -539,6 +543,22 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "set_spawn_rate",
+        "message0": "Set spawn rate to %1",
+        "args0": [
+            {
+                "type": "field_number",
+                "name": "rate",
+                "value": 0
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 300,
         "tooltip": "",
         "helpUrl": ""
     }

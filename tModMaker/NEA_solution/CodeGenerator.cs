@@ -31,6 +31,7 @@ namespace NEA_solution
             string button2 = "";
             string AI = "";
             bool chasePlayer = false;
+            string spawnrate = "";
 
 
             /*
@@ -293,6 +294,11 @@ namespace NEA_solution
                         button2 = add_Buttons.button2;
                         break;
 
+                    case "set_spawn_rate":
+                        set_spawn_rate set_Spawn_Rate = JsonSerializer.Deserialize<set_spawn_rate>(blocksAsStrings[i]);
+                        spawnrate += "spawnChance = " + set_Spawn_Rate.rate + "f;";
+                        break;
+
 
                     //AI Class Blocks
                     case "chase_player_x":
@@ -409,6 +415,14 @@ namespace NEA_solution
                     generatedCode += "\r\nbutton2 = \"" + button2 + "\";";
                 }
                 generatedCode += "\r\n}";
+            }
+
+            if (spawnrate != "")
+            {
+                generatedCode += "\r\npublic override float SpawnChance(NPCSpawnInfo spawnInfo)";
+                generatedCode += "\r\n{\r\nfloat spawnChance;";
+                generatedCode += spawnrate;
+                generatedCode += "\r\nreturn spawnChance;\r\n}";
             }
 
             //The generated methods are compiled into one string here.

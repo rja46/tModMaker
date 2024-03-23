@@ -222,4 +222,9 @@ namespace NEA_solution
         public float yAcceleration { get; set; }
         public int distance { get; set; }
     }
+
+    internal class set_spawn_rate: GenericBlock
+    {
+        public float rate { get; set; }
+    }
 }
