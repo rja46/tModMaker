@@ -227,4 +227,9 @@ namespace NEA_solution
     {
         public float rate { get; set; }
     }
+
+    internal class set_spawn_condition : GenericBlock
+    {
+        public string condition { get; set; }
+    }
 }

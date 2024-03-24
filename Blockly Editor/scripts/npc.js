@@ -45,6 +45,10 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "set_spawn_rate"
+                },
+                {
+                    "kind": "block",
+                    "type": "set_spawn_condition"
                 }
             ]
         },
@@ -554,6 +558,95 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "rate",
                 "value": 0
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 300,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "set_spawn_condition",
+        "message0": "Use %1 spawn condition",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "condition",
+                "options": [
+                    [
+                        "BoundCaveNPC",
+                        "BoundCaveNPC"
+                    ],
+                    [
+                        "Cavern",
+                        "Cavern"
+                    ],
+                    [
+                        "Corruption",
+                        "Corruption"
+                    ],
+                    [
+                        "Crimson",
+                        "Crimson"
+                    ],
+                    [
+                        "Default Water Critter",
+                        "DefaultWaterCritter"
+                    ],
+                    [
+                        "Desert Cave",
+                        "DesertCave"
+                    ],
+                    [
+                        "Dungeon",
+                        "Dungeon"
+                    ],
+                    [
+                        "Jungle Temple",
+                        "JungleTemple"
+                    ],
+                    [
+                        "Ocean",
+                        "Ocean"
+                    ],
+                    [
+                        "Overworld",
+                        "Overworld"
+                    ],
+                    [
+                        "Overworld Day",
+                        "OverworldDay"
+                    ],
+                    [
+                        "Overworld Hallow",
+                        "OverworldHallow"
+                    ],
+                    [
+                        "Overworld Night",
+                        "OverworldNight"
+                    ],
+                    [
+                        "Overworld Night Monster",
+                        "OverworldNightMonster"
+                    ],
+                    [
+                        "Sky",
+                        "Sky"
+                    ],
+                    [
+                        "Solar Eclipse",
+                        "SolarEclipse"
+                    ],
+                    [
+                        "Underground",
+                        "Underground"
+                    ],
+                    [
+                        "Underworld",
+                        "Underworld"
+                    ]
+                ]
             }
         ],
         "previousStatement": null,

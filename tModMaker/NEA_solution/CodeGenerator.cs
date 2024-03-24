@@ -48,7 +48,8 @@ namespace NEA_solution
                 "\r\nusing Terraria.ID;" +
                 "\r\nusing Terraria.ModLoader;" +
                 "\r\nusing System;" +
-                "\r\nusing System.Collections.Generic;";
+                "\r\nusing System.Collections.Generic;" +
+                "\r\nusing Terraria.ModLoader.Utilities;";
 
             string itemType = item.get_type();
             Console.WriteLine(itemType);
@@ -297,6 +298,11 @@ namespace NEA_solution
                     case "set_spawn_rate":
                         set_spawn_rate set_Spawn_Rate = JsonSerializer.Deserialize<set_spawn_rate>(blocksAsStrings[i]);
                         spawnrate += "spawnChance = " + set_Spawn_Rate.rate + "f;";
+                        break;
+
+                    case "set_spawn_condition":
+                        set_spawn_condition set_Spawn_Condition = JsonSerializer.Deserialize<set_spawn_condition>(blocksAsStrings[i]);
+                        spawnrate += "spawnChance = SpawnCondition." + set_Spawn_Condition.condition + ".Chance;";
                         break;
 
 
