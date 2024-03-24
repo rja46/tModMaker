@@ -305,6 +305,11 @@ namespace NEA_solution
                         spawnrate += "spawnChance = SpawnCondition." + set_Spawn_Condition.condition + ".Chance;";
                         break;
 
+                    case "spawn_rate_multiplier":
+                        spawn_rate_multiplayer spawn_Rate_Multiplayer = JsonSerializer.Deserialize<spawn_rate_multiplayer>(blocksAsStrings[i]);
+                        spawnrate += "spawnChance *= " + spawn_Rate_Multiplayer.multiplier + "f;";
+                        break;
+
 
                     //AI Class Blocks
                     case "chase_player_x":

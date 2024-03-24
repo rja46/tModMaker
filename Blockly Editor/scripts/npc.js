@@ -49,6 +49,10 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "set_spawn_condition"
+                },
+                {
+                    "kind": "block",
+                    "type": "spawn_rate_multiplier"
                 }
             ]
         },
@@ -557,6 +561,22 @@ Blockly.common.defineBlocksWithJsonArray([
             {
                 "type": "field_number",
                 "name": "rate",
+                "value": 0
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 300,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "spawn_rate_multiplier",
+        "message0": "Multiply spawn rate by %1",
+        "args0": [
+            {
+                "type": "field_number",
+                "name": "multiplier",
                 "value": 0
             }
         ],

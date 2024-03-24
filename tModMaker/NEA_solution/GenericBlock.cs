@@ -232,4 +232,9 @@ namespace NEA_solution
     {
         public string condition { get; set; }
     }
+
+    internal class spawn_rate_multiplayer : GenericBlock
+    {
+        public float multiplier { get; set;}
+    }
 }
