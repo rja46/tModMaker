@@ -297,17 +297,27 @@ namespace NEA_solution
 
                     case "set_spawn_rate":
                         set_spawn_rate set_Spawn_Rate = JsonSerializer.Deserialize<set_spawn_rate>(blocksAsStrings[i]);
-                        spawnrate += "spawnChance = " + set_Spawn_Rate.rate + "f;";
+                        spawnrate += "\r\nspawnChance = " + set_Spawn_Rate.rate + "f;";
                         break;
 
                     case "set_spawn_condition":
                         set_spawn_condition set_Spawn_Condition = JsonSerializer.Deserialize<set_spawn_condition>(blocksAsStrings[i]);
-                        spawnrate += "spawnChance = SpawnCondition." + set_Spawn_Condition.condition + ".Chance;";
+                        spawnrate += "\r\nspawnChance = SpawnCondition." + set_Spawn_Condition.condition + ".Chance;";
                         break;
 
                     case "spawn_rate_multiplier":
                         spawn_rate_multiplayer spawn_Rate_Multiplayer = JsonSerializer.Deserialize<spawn_rate_multiplayer>(blocksAsStrings[i]);
-                        spawnrate += "spawnChance *= " + spawn_Rate_Multiplayer.multiplier + "f;";
+                        spawnrate += "\r\nspawnChance *= " + spawn_Rate_Multiplayer.multiplier + "f;";
+                        break;
+
+                    case "create_tile":
+                        create_tile create_Tile = JsonSerializer.Deserialize<create_tile>(blocksAsStrings[i]);
+                        setDefaults += "\r\nItem.createTile = TileID." + create_Tile.tileName + ";";
+                        break;
+
+                    case "create_custom_tile":
+                        create_tile create_Custom_Tile = JsonSerializer.Deserialize<create_tile>(blocksAsStrings[i]);
+                        setDefaults += "\r\nItem.createTile = ModContent.TileType<" + create_Custom_Tile.tileName + ">();";
                         break;
 
 
@@ -315,7 +325,7 @@ namespace NEA_solution
                     case "chase_player_x":
                         chase_player_X chase_Player_X = JsonSerializer.Deserialize<chase_player_X>(blocksAsStrings[i]);
                         chasePlayer = true;
-                        AI +=   "if (targetPosition.X < npc.position.X && npc.velocity.X > " + chase_Player_X.xVelocity + ")" +
+                        AI += "\r\nif (targetPosition.X < npc.position.X && npc.velocity.X > " + chase_Player_X.xVelocity + ")" +
                             "\r\n{" +
                             "\r\nnpc.velocity.X -= " + chase_Player_X.xAcceleration + ";" +
                             "\r\n}" +

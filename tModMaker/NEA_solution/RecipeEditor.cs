@@ -79,7 +79,13 @@ namespace NEA_solution
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-
+            IngredientsList.Remove(currentItem);
+            lbIngredients.Items.Clear();
+            foreach (RecipeItem item in IngredientsList)
+            {
+                lbIngredients.Items.Add(item.itemName);
+            }
+            lbIngredients.Refresh();
         }
     }
 }

@@ -132,7 +132,22 @@ function loadData(theData){
                      "type": "equip_slot"
                  }
              ]
-        }
+         },
+         {
+             "kind": "category",
+             "name": "Blocks",
+             "colour": 360,
+             "contents": [
+                 {
+                     "kind": "block",
+                     "type": "create_tile"
+                 },
+                 {
+                     "kind": "block",
+                     "type": "create_custom_tile"
+                 }
+             ]
+         }
   ]
 };
 
@@ -978,6 +993,38 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 165,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "create_tile",
+        "message0": "Create tile called %1",
+        "args0": [
+            {
+                "type": "field_input",
+                "name": "tileName",
+                "text": "default"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 360,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "create_custom_tile",
+        "message0": "Create custom tile called %1",
+        "args0": [
+            {
+                "type": "field_input",
+                "name": "tileName",
+                "text": "default"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 360,
         "tooltip": "",
         "helpUrl": ""
     }

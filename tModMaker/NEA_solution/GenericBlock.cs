@@ -237,4 +237,9 @@ namespace NEA_solution
     {
         public float multiplier { get; set;}
     }
+
+    internal class create_tile : GenericBlock
+    {
+        public string tileName { get; set; }
+    }
 }
