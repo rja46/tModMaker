@@ -2,5 +2,4 @@
 -Saving can break and remove all the code.
 -Set mood text is the wrong block colour.
 -The recent projects menu does not work as intended.
--Some pieces of code reference specific paths and must be changed.
 -Sometimes no code is loaded.
