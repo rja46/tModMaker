@@ -206,15 +206,15 @@ namespace NEA_solution
                 switch (loadedMod.get_item(i).get_type())
                 {
                     case "Item":
-                        wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\tool_editor.html");
+                        wvSave.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\tool_editor.html");
                         break;
 
                     case "Projectile":
-                        wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\projectile_editor.html");
+                        wvSave.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\projectile_editor.html");
                         break;
 
                     case "NPC":
-                        wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\npc_editor.html");
+                        wvSave.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\npc_editor.html");
                         break;
                 }
                 
