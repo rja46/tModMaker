@@ -70,7 +70,8 @@ namespace NEA_solution
         {
             //sets up the webview component running the editor
             InitWebview();
-            wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\start.html");
+            wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\start.html");
+            //wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\start.html");
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
@@ -205,15 +206,15 @@ namespace NEA_solution
                 switch (loadedMod.get_item(i).get_type())
                 {
                     case "Item":
-                        wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
+                        wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\tool_editor.html");
                         break;
 
                     case "Projectile":
-                        wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\projectile_editor.html");
+                        wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\projectile_editor.html");
                         break;
 
                     case "NPC":
-                        wvSave.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\npc_editor.html");
+                        wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\npc_editor.html");
                         break;
                 }
                 
@@ -603,20 +604,57 @@ namespace NEA_solution
             DialogResult result = folderDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                existingFiles = Directory.GetFiles(folderDialog.SelectedPath);
+                 existingFiles = Directory.GetFiles(folderDialog.SelectedPath);
 
+                 //This ensures the directory is the correct structure.
+                 if (existingFiles.Length != 1)
+                 {
+                     MessageBox.Show("Please select a valid folder");
+                     return;
+                 }
+                 else
+                 {
+                     //The details of the mod are loaded for the files.
+                     modDetails = File.ReadAllText(existingFiles[0]);
+                     modDetailsSplit = modDetails.Split('|');
+                     theMod = new Mod(modDetailsSplit[0], folderDialog.SelectedPath);
+                     theMod.set_description(modDetailsSplit[1]);
+                     theMod.set_author(modDetailsSplit[2]);
+                     loadedMod = theMod;
+                     Text = "tModMaker - " + loadedMod.get_name();
+                     displayItem(new Item("", ""));
+                     clearBlockly();
+                     lock_controls();
+                 }
+                 //The procedure to load the items is called.
+                 load_items_for_mod();
+                 add_recent_path(folderDialog.SelectedPath);
+            }
+        }
+
+        private void open_mod(string path)
+        {
+            Mod theMod;
+            string modDetails;
+            string[] modDetailsSplit;
+            string[] existingFiles;
+            try
+            {
+                existingFiles = Directory.GetFiles(path);
+            
+            
                 //This ensures the directory is the correct structure.
                 if (existingFiles.Length != 1)
                 {
                     MessageBox.Show("Please select a valid folder");
                     return;
-                }   
+                }
                 else
                 {
                     //The details of the mod are loaded for the files.
                     modDetails = File.ReadAllText(existingFiles[0]);
                     modDetailsSplit = modDetails.Split('|');
-                    theMod = new Mod(modDetailsSplit[0], folderDialog.SelectedPath);
+                    theMod = new Mod(modDetailsSplit[0], path);
                     theMod.set_description(modDetailsSplit[1]);
                     theMod.set_author(modDetailsSplit[2]);
                     loadedMod = theMod;
@@ -627,41 +665,12 @@ namespace NEA_solution
                 }
                 //The procedure to load the items is called.
                 load_items_for_mod();
-                add_recent_path(folderDialog.SelectedPath);
+                add_recent_path(path);
             }
-        }
-
-        private void open_mod(string path)
-        {
-            Mod theMod;
-            string modDetails;
-            string[] modDetailsSplit;
-            string[] existingFiles;
-            existingFiles = Directory.GetFiles(path);
-            
-            //This ensures the directory is the correct structure.
-            if (existingFiles.Length != 1)
+            catch (Exception e)
             {
-                MessageBox.Show("Please select a valid folder");
-                return;
+                MessageBox.Show(e.Message);
             }
-            else
-            {
-                //The details of the mod are loaded for the files.
-                modDetails = File.ReadAllText(existingFiles[0]);
-                modDetailsSplit = modDetails.Split('|');
-                theMod = new Mod(modDetailsSplit[0], path);
-                theMod.set_description(modDetailsSplit[1]);
-                theMod.set_author(modDetailsSplit[2]);
-                loadedMod = theMod;
-                Text = "tModMaker - " + loadedMod.get_name();
-                displayItem(new Item("", ""));
-                clearBlockly();
-                lock_controls();
-            }
-            //The procedure to load the items is called.
-            load_items_for_mod();
-            add_recent_path(path);
         }
 
         private void add_recent_path(string path)
@@ -863,8 +872,11 @@ namespace NEA_solution
                     tmpString += "Please ensure all items have sprites, details, and code.";
                     MessageBox.Show(tmpString);
                 }
+                else
+                {
+                    MessageBox.Show("Export complete");
+                }
 
-                MessageBox.Show("Export complete");
             }
             else
             {
@@ -885,19 +897,19 @@ namespace NEA_solution
             //these paths need to be made relative to the programs location
             if (loadedItem.get_type() == "Item")
             {
-                wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\tool_editor.html");
+                wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\tool_editor.html");
                 txtTooltip.Enabled = true;
                 btnRecipe.Enabled = true;
             }
             else if (loadedItem.get_type() == "Projectile")
             {
-                wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\projectile_editor.html");
+                wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\projectile_editor.html");
                 txtTooltip.Enabled = false;
                 btnRecipe.Enabled = false;
             }
             else if (loadedItem.get_type() == "NPC")
             {
-                wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\npc_editor.html");
+                wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\npc_editor.html");
                 txtTooltip.Enabled = false;
                 btnRecipe.Enabled = false;
             }

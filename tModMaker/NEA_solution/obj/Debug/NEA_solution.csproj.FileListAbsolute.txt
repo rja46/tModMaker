@@ -92,3 +92,13 @@ C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Syste
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.OtherSprites.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.RecipeEditor.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.csproj.CopyComplete
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Blockly Editor\index.html
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Blockly Editor\javascript_compressed.js
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Blockly Editor\npc_editor.html
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Blockly Editor\projectile_editor.html
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Blockly Editor\scripts\blockly.min.js
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Blockly Editor\scripts\npc.js
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Blockly Editor\scripts\projectile.js
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Blockly Editor\scripts\tool.js
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Blockly Editor\start.html
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Blockly Editor\tool_editor.html

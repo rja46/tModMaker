@@ -2,7 +2,5 @@
 -Saving can break and remove all the code.
 -Set mood text is the wrong block colour.
 -The recent projects menu does not work as intended.
--If an item is marked as not being able to be exported, it is still exported.
 -Some pieces of code reference specific paths and must be changed.
--Opening a not existent mod causes a crash.
 -Sometimes no code is loaded.
