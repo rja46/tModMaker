@@ -101,4 +101,4 @@ C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Block
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Blockly Editor\scripts\tool.js
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Blockly Editor\start.html
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\Blockly Editor\tool_editor.html
-C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solu.0B966018.Up2Date
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Debug\NEA_solution.csproj.CopyComplete

@@ -680,12 +680,18 @@ namespace NEA_solution
 
             int count = 0;
             int checkPaths = 0;
-            while (count < 4 && checkPaths < recents.Length)
+            while (count < 5 && checkPaths < recents.Length)
             {
                 if (recents[checkPaths] != path)
                 {
-                    pathsToWrite += "\r\n" + recents[checkPaths];
+                    pathsToWrite += "\r\n" + recents[count];
+                    Console.WriteLine("wrote " + recents[count]);
+
                     checkPaths++;
+                }
+                else
+                {
+                    Console.WriteLine("did not write " + recents[count]);
                 }
                 count++;
             }
