@@ -678,24 +678,22 @@ namespace NEA_solution
             string[] recents = File.ReadAllLines(Environment.CurrentDirectory + "\\recents.txt");
             string pathsToWrite = path;
 
-            int count = 0;
             int checkPaths = 0;
             Console.WriteLine(recents.Length);
-            while (count < 5 && checkPaths < recents.Length)
+            while (checkPaths < recents.Length && checkPaths < 5)
             {
                 if (recents[checkPaths] != path)
                 {
-                    pathsToWrite += "\r\n" + recents[count];
-                    Console.WriteLine("wrote " + recents[count]);
+                    pathsToWrite += "\r\n" + recents[checkPaths];
+                    Console.WriteLine("wrote " + recents[checkPaths]);
 
-                    checkPaths++;
                 }
                 else
                 {
-                    Console.WriteLine("did not write " + recents[count]);
+                    Console.WriteLine("did not write " + recents[checkPaths]);
                 }
-                count++;
-                Console.WriteLine(count);
+                Console.WriteLine(checkPaths);
+                checkPaths++;
             }
             File.WriteAllText(Environment.CurrentDirectory + "\\recents.txt", pathsToWrite);
             load_recents();
