@@ -680,6 +680,7 @@ namespace NEA_solution
 
             int count = 0;
             int checkPaths = 0;
+            Console.WriteLine(recents.Length);
             while (count < 5 && checkPaths < recents.Length)
             {
                 if (recents[checkPaths] != path)
@@ -694,6 +695,7 @@ namespace NEA_solution
                     Console.WriteLine("did not write " + recents[count]);
                 }
                 count++;
+                Console.WriteLine(count);
             }
             File.WriteAllText(Environment.CurrentDirectory + "\\recents.txt", pathsToWrite);
             load_recents();

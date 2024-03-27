@@ -94,90 +94,92 @@ namespace NEA_solution
                     //Item class blocks
                     case "define_item":
                         define_item define_Item = JsonSerializer.Deserialize<define_item>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.width = " + define_Item.width + ";";
-                        setDefaults += "\r\nItem.height = " + define_Item.height + ";";
-                        setDefaults += "\r\nItem.value = " + define_Item.value + ";";
-                        setDefaults += "\r\nItem.rare = " + define_Item.rare + ";";
+                        setDefaults += "\r\n\t\t\tItem.width = " + define_Item.width + ";";
+                        setDefaults += "\r\n\t\t\tItem.height = " + define_Item.height + ";";
+                        setDefaults += "\r\n\t\t\tItem.value = " + define_Item.value + ";";
+                        setDefaults += "\r\n\t\t\tItem.rare = " + define_Item.rare + ";";
                         break;
 
                     case "define_weapon_essential":
                         define_weapon_essential define_Weapon_Essential = JsonSerializer.Deserialize<define_weapon_essential>(blocksAsStrings[i]);
 
-                        setDefaults += "\r\nItem.damage = " + define_Weapon_Essential.damage + ";";
-                        setDefaults += "\r\nItem.DamageType = DamageClass." + define_Weapon_Essential.damageType + ";";
-                        setDefaults += "\r\nItem.useTime = " + define_Weapon_Essential.useTime + ";";
-                        setDefaults += "\r\nItem.useAnimation = " + define_Weapon_Essential.useAnimation + ";";
-                        setDefaults += "\r\nItem.knockBack = " + define_Weapon_Essential.knockback + ";";
-                        setDefaults += "\r\nItem.UseSound = SoundID.Item" + define_Weapon_Essential.UseSound + ";";
-                        setDefaults += "\r\nItem.autoReuse = " + define_Weapon_Essential.autoReuse.ToString().ToLower() + ";";
-                        setDefaults += "\r\nItem.useStyle = " + define_Weapon_Essential.useStyle + ";";
+                        setDefaults += "\r\n\t\t\tItem.damage = " + define_Weapon_Essential.damage + ";";
+                        setDefaults += "\r\n\t\t\tItem.DamageType = DamageClass." + define_Weapon_Essential.damageType + ";";
+                        setDefaults += "\r\n\t\t\tItem.useTime = " + define_Weapon_Essential.useTime + ";";
+                        setDefaults += "\r\n\t\t\tItem.useAnimation = " + define_Weapon_Essential.useAnimation + ";";
+                        setDefaults += "\r\n\t\t\tItem.knockBack = " + define_Weapon_Essential.knockback + ";";
+                        setDefaults += "\r\n\t\t\tItem.UseSound = SoundID.Item" + define_Weapon_Essential.UseSound + ";";
+                        setDefaults += "\r\n\t\t\tItem.autoReuse = " + define_Weapon_Essential.autoReuse.ToString().ToLower() + ";";
+                        setDefaults += "\r\n\t\t\tItem.useStyle = " + define_Weapon_Essential.useStyle + ";";
 
                         break;
 
                     case "tool_power":
                         tool_power tool_Power = JsonSerializer.Deserialize<tool_power>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem." + tool_Power.tool_type + " = " + tool_Power.power + ";";
+                        setDefaults += "\r\n\t\t\tItem." + tool_Power.tool_type + " = " + tool_Power.power + ";";
                         break;
 
                     case "is_consumable":
                         is_consumable is_Consumable = JsonSerializer.Deserialize<is_consumable>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.consumable = " + is_Consumable.consumable + ";";
+                        setDefaults += "\r\n\t\t\tItem.consumable = " + is_Consumable.consumable + ";";
                         break;
 
                     case "no_melee":
                         no_melee no_Melee = JsonSerializer.Deserialize<no_melee>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.noMelee = " + (!no_Melee.melee).ToString().ToLower() + ";";
+                        setDefaults += "\r\n\t\t\tItem.noMelee = " + (!no_Melee.melee).ToString().ToLower() + ";";
                         break;
 
                     case "shoot_existing_ammo":
                         shoot_existing_ammo shoot_Existing_Ammo = JsonSerializer.Deserialize<shoot_existing_ammo>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.shoot = 10;" + "\r\nItem.shootSpeed = " + shoot_Existing_Ammo.shoot_speed + ";" + "\r\nItem.useAmmo = AmmoID." + shoot_Existing_Ammo.ammo_type + ";";
+                        setDefaults += "\r\n\t\t\tItem.shoot = 10;"
+                            + "\r\n\t\t\tItem.shootSpeed = " + shoot_Existing_Ammo.shoot_speed + ";"
+                            + "\r\n\t\t\tItem.useAmmo = AmmoID." + shoot_Existing_Ammo.ammo_type + ";";
                         //this may need a tidier implementation to allow the user to choose the rocket fired
                         if (shoot_Existing_Ammo.ammo_type == "Rocket")
                         {
-                            setDefaults += "\r\nItem.shoot = ProjectileID.RocketI;";
+                            setDefaults += "\r\n\t\t\tItem.shoot = ProjectileID.RocketI;";
                         }
                         break;
 
                     case "change_class_stat":
                         change_class_stat change_Class_Stat = JsonSerializer.Deserialize<change_class_stat>(blocksAsStrings[i]);
-                        UpdateAccessory += "player." + change_Class_Stat.stat + "(DamageClass." + change_Class_Stat.class_name + ") += " + change_Class_Stat.value + ";";
+                        UpdateAccessory += "\r\n\t\t\tplayer." + change_Class_Stat.stat + "(DamageClass." + change_Class_Stat.class_name + ") += " + change_Class_Stat.value + ";";
                         isEquipable = true;
                         break;
 
                     case "use_mana":
                         use_mana use_Mana = JsonSerializer.Deserialize<use_mana>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.mana = " + use_Mana.useMana + ";";
+                        setDefaults += "\r\n\t\t\tItem.mana = " + use_Mana.useMana + ";";
                         break;
 
                     case "grant_ability":
                         grant_ability grant_Ability = JsonSerializer.Deserialize<grant_ability>(blocksAsStrings[i]);
-                        UpdateAccessory += "\r\nplayer." + grant_Ability.ability + " = true;";
+                        UpdateAccessory += "\r\n\t\t\tplayer." + grant_Ability.ability + " = true;";
                         isEquipable = true;
                         break;
 
                     case "change_player_stat":
                         change_player_stat change_Player_Stat = JsonSerializer.Deserialize<change_player_stat>(blocksAsStrings[i]);
-                        UpdateAccessory += "\r\nplayer." + change_Player_Stat.stat + " += " + change_Player_Stat.value + ";";
+                        UpdateAccessory += "\r\n\t\t\tplayer." + change_Player_Stat.stat + " += " + change_Player_Stat.value + ";";
                         isEquipable = true;
                         break;
 
                     case "set_player_stat":
                         //defence doesnt work
                         set_player_stat set_Player_Stat = JsonSerializer.Deserialize<set_player_stat>(blocksAsStrings[i]);
-                        UpdateAccessory += "\r\nplayer." + set_Player_Stat.stat + " = " + set_Player_Stat.value + ";";
+                        UpdateAccessory += "\r\n\t\t\tplayer." + set_Player_Stat.stat + " = " + set_Player_Stat.value + ";";
                         isEquipable = true;
                         break;
 
                     case "set_class_stat":
                         set_class_stat set_Class_Stat = JsonSerializer.Deserialize<set_class_stat>(blocksAsStrings[i]);
-                        UpdateAccessory += "player." + set_Class_Stat.stat + "(DamageClass." + set_Class_Stat.class_name + ") = " + set_Class_Stat.value + ";";
+                        UpdateAccessory += "\r\n\t\t\tplayer." + set_Class_Stat.stat + "(DamageClass." + set_Class_Stat.class_name + ") = " + set_Class_Stat.value + ";";
                         isEquipable = true;
                         break;
 
                     case "set_all_player_bools":
                         set_all_player_bools set_All_Player_Bools = JsonSerializer.Deserialize<set_all_player_bools>(blocksAsStrings[i]);
-                        UpdateAccessory += "\r\nplayer." + set_All_Player_Bools.property + " = true;";
+                        UpdateAccessory += "\r\n\t\t\tplayer." + set_All_Player_Bools.property + " = true;";
                         isEquipable = true;
                         break;
 
@@ -200,7 +202,7 @@ namespace NEA_solution
 
                     case "use_custom_projectile":
                         use_custom_projectile use_Custom_Projectile = JsonSerializer.Deserialize<use_custom_projectile>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.shoot = 10;" + "\r\nItem.shootSpeed = " + use_Custom_Projectile.shoot_speed + ";" + "\r\nItem.shoot = ModContent.ProjectileType<Projectiles." + use_Custom_Projectile.projectile + ">();";
+                        setDefaults += "\r\n\t\t\tItem.shoot = 10;" + "\r\nItem.shootSpeed = " + use_Custom_Projectile.shoot_speed + ";" + "\r\nItem.shoot = ModContent.ProjectileType<Projectiles." + use_Custom_Projectile.projectile + ">();";
                         break;
 
                     case "equip_slot":
@@ -214,49 +216,49 @@ namespace NEA_solution
                     //Projectile class blocks
                     case "projectile_basic":
                         projectile_basic projectile_Basic = JsonSerializer.Deserialize<projectile_basic>(blocksAsStrings[i]);
-                        setDefaults += "\r\nProjectile.width = " + projectile_Basic.width + ";";
-                        setDefaults += "\r\nProjectile.height = " + projectile_Basic.height + ";";
-                        setDefaults += "\r\nProjectile.timeLeft = " + projectile_Basic.time_left + ";";
+                        setDefaults += "\r\n\t\t\tProjectile.width = " + projectile_Basic.width + ";";
+                        setDefaults += "\r\n\t\t\tProjectile.height = " + projectile_Basic.height + ";";
+                        setDefaults += "\r\n\t\t\tProjectile.timeLeft = " + projectile_Basic.time_left + ";";
                         break;
 
                     case "use_ai":
                         use_ai use_Ai = JsonSerializer.Deserialize<use_ai>(blocksAsStrings[i]);
-                        setDefaults += "\r\nProjectile.aiStyle = " + use_Ai.style + ";";
+                        setDefaults += "\r\n\t\t\tProjectile.aiStyle = " + use_Ai.style + ";";
                         break;
 
                     case "set_value":
                         Set_value set_Value = JsonSerializer.Deserialize<Set_value>(blocksAsStrings[i]);
-                        setDefaults += "\r\nProjectile." + set_Value.property + " = " + set_Value.value + ";";
+                        setDefaults += "\r\n\t\t\tProjectile." + set_Value.property + " = " + set_Value.value + ";";
                         break;
 
                     case "declare_friendly":
                         declare_friendly declare_Friendly = JsonSerializer.Deserialize<declare_friendly>(blocksAsStrings[i]);
-                        setDefaults += "\r\nProjectile.friendly = " + declare_Friendly.friendly.ToString().ToLower() + ";";
+                        setDefaults += "\r\n\t\t\tProjectile.friendly = " + declare_Friendly.friendly.ToString().ToLower() + ";";
                         break;
 
                     case "declare_hostile":
                         declare_hostile declare_Hostile = JsonSerializer.Deserialize<declare_hostile>(blocksAsStrings[i]);
-                        setDefaults += "\r\nProjectile.hostile = " + declare_Hostile.hostile.ToString().ToLower() + ";";
+                        setDefaults += "\r\n\t\t\tProjectile.hostile = " + declare_Hostile.hostile.ToString().ToLower() + ";";
                         break;
 
                     case "hide_projectile":
                         hide_projectile hide_Projectile = JsonSerializer.Deserialize<hide_projectile>(blocksAsStrings[i]);
-                        setDefaults += "\r\nProjectile.hide = " + hide_Projectile.hide.ToString().ToLower() + ";";
+                        setDefaults += "\r\n\t\t\tProjectile.hide = " + hide_Projectile.hide.ToString().ToLower() + ";";
                         break;
 
                     case "collide_with_tiles":
                         collide_with_tiles collide_With_Tiles = JsonSerializer.Deserialize<collide_with_tiles>(blocksAsStrings[i]);
-                        setDefaults += "\r\nProjectile.tileCollide = " + collide_With_Tiles.collide.ToString().ToLower() + ";";
+                        setDefaults += "\r\n\t\t\tProjectile.tileCollide = " + collide_With_Tiles.collide.ToString().ToLower() + ";";
                         break;
 
                     case "ignore_water":
                         ignore_water ignore_Water = JsonSerializer.Deserialize<ignore_water>(blocksAsStrings[i]);
-                        setDefaults += "\r\nProjectile.ignoreWater = " + (!ignore_Water.ignore).ToString().ToLower() + ";";
+                        setDefaults += "\r\n\t\t\tProjectile.ignoreWater = " + (!ignore_Water.ignore).ToString().ToLower() + ";";
                         break;
 
                     case "emit_light":
                         emit_light emit_Light = JsonSerializer.Deserialize<emit_light>(blocksAsStrings[i]);
-                        setDefaults += "\r\nProjectile.light = " + emit_Light.light + "f;";
+                        setDefaults += "\r\n\t\t\tProjectile.light = " + emit_Light.light + "f;";
                         break;
 
 
@@ -264,18 +266,18 @@ namespace NEA_solution
                     //NPC Class Blocks
                     case "npc_basic":
                         npc_basic npc_Basic = JsonSerializer.Deserialize<npc_basic>(blocksAsStrings[i]);
-                        setDefaults += "\r\nNPC.width = " + npc_Basic.width + ";";
-                        setDefaults += "\r\nNPC.height = " + npc_Basic.height + ";";
-                        setDefaults += "\r\nNPC.height = " + npc_Basic.height + ";";
-                        setDefaults += "\r\nNPC.damage = " + npc_Basic.damage + ";";
-                        setDefaults += "\r\nNPC.defense = " + npc_Basic.defense + ";";
-                        setDefaults += "\r\nNPC.lifeMax = " + npc_Basic.life + ";";
-                        setDefaults += "\r\nNPC.knockBackResist = " + npc_Basic.knockResist + ";";
+                        setDefaults += "\r\n\t\t\tNPC.width = " + npc_Basic.width + ";";
+                        setDefaults += "\r\n\t\t\tNPC.height = " + npc_Basic.height + ";";
+                        setDefaults += "\r\n\t\t\tNPC.height = " + npc_Basic.height + ";";
+                        setDefaults += "\r\n\t\t\tNPC.damage = " + npc_Basic.damage + ";";
+                        setDefaults += "\r\n\t\t\tNPC.defense = " + npc_Basic.defense + ";";
+                        setDefaults += "\r\n\t\t\tNPC.lifeMax = " + npc_Basic.life + ";";
+                        setDefaults += "\r\n\t\t\tNPC.knockBackResist = " + npc_Basic.knockResist + ";";
                         break;
 
                     case "use_npc_ai":
                         use_ai use_Npc_Ai = JsonSerializer.Deserialize<use_ai>(blocksAsStrings[i]);
-                        setDefaults += "\r\nNPC.aiStyle = " + use_Npc_Ai.style + ";";
+                        setDefaults += "\r\n\t\t\tNPC.aiStyle = " + use_Npc_Ai.style + ";";
                         break;
 
                     case "chat_option":
@@ -297,27 +299,27 @@ namespace NEA_solution
 
                     case "set_spawn_rate":
                         set_spawn_rate set_Spawn_Rate = JsonSerializer.Deserialize<set_spawn_rate>(blocksAsStrings[i]);
-                        spawnrate += "\r\nspawnChance = " + set_Spawn_Rate.rate + "f;";
+                        spawnrate += "\r\n\t\t\tspawnChance = " + set_Spawn_Rate.rate + "f;";
                         break;
 
                     case "set_spawn_condition":
                         set_spawn_condition set_Spawn_Condition = JsonSerializer.Deserialize<set_spawn_condition>(blocksAsStrings[i]);
-                        spawnrate += "\r\nspawnChance = SpawnCondition." + set_Spawn_Condition.condition + ".Chance;";
+                        spawnrate += "\r\n\t\t\tspawnChance = SpawnCondition." + set_Spawn_Condition.condition + ".Chance;";
                         break;
 
                     case "spawn_rate_multiplier":
                         spawn_rate_multiplayer spawn_Rate_Multiplayer = JsonSerializer.Deserialize<spawn_rate_multiplayer>(blocksAsStrings[i]);
-                        spawnrate += "\r\nspawnChance *= " + spawn_Rate_Multiplayer.multiplier + "f;";
+                        spawnrate += "\r\n\t\t\tspawnChance *= " + spawn_Rate_Multiplayer.multiplier + "f;";
                         break;
 
                     case "create_tile":
                         create_tile create_Tile = JsonSerializer.Deserialize<create_tile>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.createTile = TileID." + create_Tile.tileName + ";";
+                        setDefaults += "\r\n\t\t\tItem.createTile = TileID." + create_Tile.tileName + ";";
                         break;
 
                     case "create_custom_tile":
                         create_tile create_Custom_Tile = JsonSerializer.Deserialize<create_tile>(blocksAsStrings[i]);
-                        setDefaults += "\r\nItem.createTile = ModContent.TileType<" + create_Custom_Tile.tileName + ">();";
+                        setDefaults += "\r\n\t\t\tItem.createTile = ModContent.TileType<" + create_Custom_Tile.tileName + ">();";
                         break;
 
 
@@ -339,56 +341,56 @@ namespace NEA_solution
 
             if (slot != null)
             {
-                generatedCode += "\r\n[AutoloadEquip(EquipType." + slot + ")]";
+                generatedCode += "\r\n\t[AutoloadEquip(EquipType." + slot + ")]";
             }
 
             if (itemType == "Item")
             {
                 generatedCode +=
-                    "\r\npublic class " + item.get_name() + " : ModItem" +
-                    "\r\n{";
+                    "\r\n\tpublic class " + item.get_name() + " : ModItem" +
+                    "\r\n\t{";
             }
             else if (itemType == "Projectile")
             {
                 generatedCode +=
-                    "\r\npublic class " + item.get_name() + " : ModProjectile" +
-                    "\r\n{";
+                    "\r\n\tpublic class " + item.get_name() + " : ModProjectile" +
+                    "\r\n\t{";
             }
             else if (itemType == "NPC")
             {
                 generatedCode +=
-                    "\r\npublic class " + item.get_name() + " : ModNPC" +
-                    "\r\n{";
+                    "\r\n\tpublic class " + item.get_name() + " : ModNPC" +
+                    "\r\n\t{";
             }
 
             if (isEquipable)
             {
-                setDefaults += "\r\nItem.accessory = true;";
+                setDefaults += "\r\n\t\t\tItem.accessory = true;";
             }
 
             if (isWing)
             {
                 if (canHover)
                 {
-                    SetStaticDefaults = "\r\nArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(" + (int)wingStats[0] + ", " + wingStats[1] + "f, " + wingStats[2] + "f, true, " + wingStats[3] + "f, " + wingStats[4] + "f);";
+                    SetStaticDefaults = "\r\n\t\t\tArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(" + (int)wingStats[0] + ", " + wingStats[1] + "f, " + wingStats[2] + "f, true, " + wingStats[3] + "f, " + wingStats[4] + "f);";
                 }
                 else
                 {
-                    SetStaticDefaults = "\r\nArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(" + (int)wingStats[0] + "," + wingStats[1] + "f," + wingStats[2] + "f);";
+                    SetStaticDefaults = "\r\n\t\t\tArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(" + (int)wingStats[0] + "," + wingStats[1] + "f," + wingStats[2] + "f);";
                 }
-                generatedCode += "\r\npublic override void SetStaticDefaults()\r\n{\r\n" + SetStaticDefaults + "\r\n}\r\n";
+                generatedCode += "\r\n\t\tpublic override void SetStaticDefaults()\r\n\t\t{\r\n" + SetStaticDefaults + "\r\n\t\t}";
             }
 
             //I need to make it possible to add the second sprite for wings.
-            verticalWingsSpeeds = "public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising," +
-                "\r\nref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)" +
-                "\r\n{" +
-                "\r\nascentWhenFalling = 0.85f;" +
-                "\r\nascentWhenRising = 0.15f;" +
-                "\r\nmaxCanAscendMultiplier = 1f;" +
-                "\r\nmaxAscentMultiplier = 3f;" +
-                "\r\nconstantAscend = 0.135f;" +
-                "\r\n}";
+            verticalWingsSpeeds = "\r\n\t\tpublic override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising," +
+                "\r\n\t\tref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)" +
+                "\r\n\t\t{" +
+                "\r\n\t\tascentWhenFalling = 0.85f;" +
+                "\r\n\t\tascentWhenRising = 0.15f;" +
+                "\r\n\t\tmaxCanAscendMultiplier = 1f;" +
+                "\r\n\t\tmaxAscentMultiplier = 3f;" +
+                "\r\n\t\tconstantAscend = 0.135f;" +
+                "\r\n\t\t}";
 
             if (isWing)
             {
@@ -397,73 +399,60 @@ namespace NEA_solution
 
             if (chatOptions.Count > 0)
             {
-                generatedCode += "\r\npublic override string GetChat() {";
-                generatedCode += "\r\nRandom rand = new Random();";
-                generatedCode += "\r\nint result = rand.Next(" + chatOptions.Count + ");";
+                generatedCode += "\r\n\t\tpublic override string GetChat() {";
+                generatedCode += "\r\n\t\t\tRandom rand = new Random();";
+                generatedCode += "\r\n\t\t\tint result = rand.Next(" + chatOptions.Count + ");";
                 for (int i = 0; i < chatOptions.Count; i++)
                 {
-                    generatedCode += "\r\nif (result == " + i + ") { return \"" + chatOptions[i] + "\"; }";
+                    generatedCode += "\r\n\t\t\tif (result == " + i + ") { return \"" + chatOptions[i] + "\"; }";
                 }
-                generatedCode += "\r\nelse { return \"oh no\"; }";
-                generatedCode += "\r\n}";
-                setDefaults += "\r\nNPC.townNPC = true;";
-            }
-
-            if (nameOptions.Count > 0)
-            {
-                generatedCode += "\r\npublic override List<string> SetNPCNameList() {" +
-                    "\r\nreturn new List<string> {";
-
-                for (int i = 0; i < nameOptions.Count - 1;i++)
-                {
-                    generatedCode += "\r\n\"" + nameOptions[i] + "\",";
-                }
-                generatedCode += "\r\n\"" + nameOptions[nameOptions.Count - 1] + "\"";
-
-                generatedCode += "\r\n};\r\n}";
+                generatedCode += "\r\n\t\t\telse { return \"oh no\"; }";
+                generatedCode += "\r\n\t\t}";
+                setDefaults += "\r\n\t\tNPC.townNPC = true;";
             }
 
             if (button1 != "" || button2 != "")
             {
-                generatedCode += "\r\npublic override void SetChatButtons(ref string button, ref string button2) {";
+                generatedCode += "\r\n\t\tpublic override void SetChatButtons(ref string button, ref string button2) {";
                     
                 if (button1 != "")
                 {
-                    generatedCode += "\r\nbutton = \"" + button1 + "\";";
+                    generatedCode += "\r\n\t\t\tbutton = \"" + button1 + "\";";
                 }
                 if (button2 != "")
                 {
-                    generatedCode += "\r\nbutton2 = \"" + button2 + "\";";
+                    generatedCode += "\r\n\t\t\tbutton2 = \"" + button2 + "\";";
                 }
-                generatedCode += "\r\n}";
+                generatedCode += "\r\n\t\t}";
             }
 
             if (spawnrate != "")
             {
-                generatedCode += "\r\npublic override float SpawnChance(NPCSpawnInfo spawnInfo)";
-                generatedCode += "\r\n{\r\nfloat spawnChance;";
+                generatedCode += "\r\n\t\tpublic override float SpawnChance(NPCSpawnInfo spawnInfo)";
+                generatedCode += "\r\n\t\t{\r\n\t\t\tfloat spawnChance;";
                 generatedCode += spawnrate;
-                generatedCode += "\r\nreturn spawnChance;\r\n}";
+                generatedCode += "\r\n\t\t\treturn spawnChance;\r\n\t\t}";
             }
 
             //The generated methods are compiled into one string here.
-            generatedCode += "\r\npublic override void SetDefaults()\r\n{\r\n" + setDefaults + "\r\n}";
+            generatedCode += "\r\n\t\tpublic override void SetDefaults()\r\n\t\t{\r\n" + setDefaults + "\r\n\t\t}";
             if (isEquipable)
             {
-                generatedCode += "\r\npublic override void UpdateAccessory(Player player, bool hideVisual)\r\n{\r\n" + UpdateAccessory + "\r\n}";
+                generatedCode += "\r\n\t\tpublic override void UpdateAccessory(Player player, bool hideVisual)\r\n\t\t{\r\n" + UpdateAccessory + "\r\n\t\t}";
             }
 
             //adds recipes
             if (itemType == "Item")
             {
-                generatedCode += "\r\npublic override void AddRecipes() {" +
-                    "\r\nRecipe recipe = CreateRecipe();";
+                generatedCode += "\r\n\t\tpublic override void AddRecipes() \r\n\t\t{" +
+                    "\r\n\t\t\tRecipe recipe = CreateRecipe();";
                 for (int i = 0; i < item.get_ingredients().Length; i++)
                 {
-                    generatedCode += "\r\nrecipe.AddIngredient(ItemID." + item.get_ingredients()[i].itemName + "," + item.get_ingredients()[i].quantity + ");";
+                    generatedCode += "\r\n\t\t\trecipe.AddIngredient(ItemID." + item.get_ingredients()[i].itemName + "," + item.get_ingredients()[i].quantity + ");";
                 }
-                generatedCode += "\r\nrecipe.AddTile(TileID.WorkBenches);\r\nrecipe.Register();";
-                generatedCode += "\r\n}";
+                generatedCode += "\r\n\t\t\trecipe.AddTile(TileID.WorkBenches);" +
+                    "\r\n\t\t\trecipe.Register();";
+                generatedCode += "\r\n\t\t}";
             }
 
             if (AI != "")
@@ -481,7 +470,7 @@ namespace NEA_solution
                 generatedCode += "\r\n}";
             }
 
-            generatedCode += "\r\n}\r\n}";
+            generatedCode += "\r\n\t}\r\n}";
             
             return generatedCode;
         }
