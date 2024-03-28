@@ -45,7 +45,8 @@
             this.cbType.Items.AddRange(new object[] {
             "Item",
             "NPC",
-            "Projectile"});
+            "Projectile",
+            "Tile"});
             this.cbType.Location = new System.Drawing.Point(93, 58);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(121, 21);

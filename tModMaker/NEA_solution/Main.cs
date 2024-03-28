@@ -33,13 +33,12 @@ namespace NEA_solution
 
         public Main()
         {
-            //MessageBox.Show("Hi Sir, please do not click one item 4 times in a short space of time.");
             InitializeComponent();
             Text = "tModMaker";
 
-            //Loads an empty mod.
             loadedMod = new Mod("", "");
 
+            //This checks to seem if the user has set a path to export to.
             if (File.ReadAllText(Environment.CurrentDirectory + "\\userConfig.txt") != "")
             {
                 hasExportPath = true;
@@ -54,6 +53,7 @@ namespace NEA_solution
         {
             string[] recents = File.ReadAllLines(Environment.CurrentDirectory + "\\recents.txt");
             openRecentToolStripMenuItem.DropDownItems.Clear();
+            //Each recent project is added to the dropdown.
             for (int i = 0;i < recents.Length; i++)
             {
                 openRecentToolStripMenuItem.DropDownItems.Add(recents[i]);
@@ -68,30 +68,28 @@ namespace NEA_solution
 
         private void initialise_editor()
         {
-            //sets up the webview component running the editor
+            //The webView component containing the editor is set up.
             InitWebview();
             wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\start.html");
-            //wvCode.Source = new Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor\\start.html");
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            //Loads the dialog to get the details for the new item.
+            //A dialog for the users to enter the details of the mod is opened.
             CreateItemDialog createItemDialog = new CreateItemDialog();
             DialogResult result = createItemDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                //Gets the new item from CreateItem form.
                 loadedMod.add_item(createItemDialog.newItem);
 
-                //Updates the list of items in the mod.
+                //The list of items is updated to contain the new item.
                 update_item_list();
             }
         }
 
         private void update_item_list()
         {
-            //loops through items and add their names to the list box
+            //Each name is added to the list box.
             lbItems.Items.Clear();
             string[,] displayText = loadedMod.get_items_for_display();
             for (int i = 0; i < displayText.GetLength(0); i++)
@@ -102,15 +100,18 @@ namespace NEA_solution
 
         private void lbItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //changes the item loaded by the mod when a different one is select
             update_loaded_item(lbItems.SelectedIndex);
         }
 
         private async void update_loaded_item(int index)
         {
-            //loads the item specified by the index from the list of items in the mod
             if (loadedItem != null)
             {
+                /*
+                 * The save data of the load item is requested before it is changed.
+                 * This means that when the save button is pressed, all items have 
+                 * their updated code written to file.
+                 */
                 requestData();
                 returned = false;
                 do
@@ -139,7 +140,6 @@ namespace NEA_solution
         {
             if (loadedMod.get_name() == "")
             {
-                //loads the dialog to ensure the mod has a name
                 NameDialog nameDialog = new NameDialog();
                 DialogResult result = nameDialog.ShowDialog();
                 if (result == DialogResult.OK)
@@ -151,19 +151,19 @@ namespace NEA_solution
                     return;
                 }
             }
-            //opens a folder browser so the user can choose where the mod is saved
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             DialogResult dialogResult = dialog.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
                 loadedMod.set_modPath(dialog.SelectedPath + "\\" + loadedMod.get_name());
-                //once the necessary details exist, the regular save_mod() procedure is called
+                
+                //Once the path and name are specified, it is saved as normal.
                 add_recent_path(loadedMod.get_modPath());
                 save_mod();
             }
         }
 
-        //this procedure is asynchronous as it waits to recieve the data from the web component
+        //This procedure is asynchronous as it waits to recieve the data from the web component.
         private async void save_mod()
         {
             pbSave.Step = 1;
@@ -177,7 +177,7 @@ namespace NEA_solution
                 pbSave.Maximum = 1;
             }
             pbSave.Value = 1;
-            //if an item is loaded, it is saved
+            //If an item is loaded, it is saved.
             if (txtDisplayName.Text != "")
             {
                 theItem.set_display_name(txtDisplayName.Text);
@@ -188,6 +188,7 @@ namespace NEA_solution
             }
             if (loadedItem != null)
             {
+                //The program must wait here to recieve the code.
                 requestData();
                 returned = false;
                 do
@@ -203,6 +204,9 @@ namespace NEA_solution
                 await Console.Out.WriteLineAsync(i.ToString());
                 string prevSource = wvSave.Source.ToString();
 
+                /* The correct editor is loaded into the hidden webView component where the 
+                 * saving takes place.
+                 */
                 switch (loadedMod.get_item(i).get_type())
                 {
                     case "Item":
@@ -215,6 +219,10 @@ namespace NEA_solution
 
                     case "NPC":
                         wvSave.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\npc_editor.html");
+                        break;
+
+                    case "Tile":
+                        wvSave.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\tile_editor.html");
                         break;
                 }
                 
@@ -810,6 +818,10 @@ namespace NEA_solution
                     {
                         File.WriteAllText(path + "\\NPCs\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                     }
+                    else if (itemsToExport[i].get_type() == "Tile")
+                    {
+                        File.WriteAllText(path + "\\Tiles\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
+                    }
                     bmp = itemsToExport[i].get_sprite();
                     if (bmp == null)
                     {
@@ -829,6 +841,10 @@ namespace NEA_solution
                         else if (itemsToExport[i].get_type() == "NPC")
                         {
                             bmp.Save(path + "\\NPCs\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                        }
+                        else if (itemsToExport[i].get_type() == "Tiles")
+                        {
+                            bmp.Save(path + "\\Tiles\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
                         }
                     }
                     bmp = itemsToExport[i].get_wingSprite();
@@ -916,6 +932,12 @@ namespace NEA_solution
             else if (loadedItem.get_type() == "NPC")
             {
                 wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\npc_editor.html");
+                txtTooltip.Enabled = false;
+                btnRecipe.Enabled = false;
+            }
+            else if (loadedItem.get_type() == "Tile")
+            {
+                wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\tile_editor.html");
                 txtTooltip.Enabled = false;
                 btnRecipe.Enabled = false;
             }
