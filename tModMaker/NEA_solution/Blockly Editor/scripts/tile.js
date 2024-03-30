@@ -36,6 +36,10 @@ const toolbox = {
             contents: [
                 {
                     "kind": "block",
+                    "type": "tile_default"
+                },
+                {
+                    "kind": "block",
                     "type": "toughness"
                 }
             ]
@@ -57,6 +61,59 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "min": 0,
                 "precision": 1
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "tile_default",
+        "message0": "Solid block %1 %2 Merge with dirt %3 %4 Block light %5 %6 Dust type %7",
+        "args0": [
+            {
+                "type": "field_checkbox",
+                "name": "solid",
+                "checked": true
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "field_checkbox",
+                "name": "merge",
+                "checked": true
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "field_checkbox",
+                "name": "block_light",
+                "checked": true
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "field_dropdown",
+                "name": "dust_type",
+                "options": [
+                    [
+                        "option",
+                        "OPTIONNAME"
+                    ],
+                    [
+                        "option",
+                        "OPTIONNAME"
+                    ],
+                    [
+                        "option",
+                        "OPTIONNAME"
+                    ]
+                ]
             }
         ],
         "previousStatement": null,

@@ -242,4 +242,12 @@ namespace NEA_solution
     {
         public string tileName { get; set; }
     }
+
+    internal class tile_default : GenericBlock
+    {
+        public bool solid { get; set; }
+        public bool merge { get; set; }
+        public bool block_light { get; set; }
+        public string dust_type { get; set; }
+    }
 }

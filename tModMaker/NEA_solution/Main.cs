@@ -47,6 +47,11 @@ namespace NEA_solution
 
             initialise_editor();
             load_recents();
+            btnRecipe.Enabled = false;
+            txtTooltip.Enabled = false;
+            txtDisplayName.Enabled = false;
+            btnChangeSprite.Enabled = false;
+            btnAdditionalSprites.Enabled = false;
         }
 
         private void load_recents()
@@ -760,6 +765,7 @@ namespace NEA_solution
                 Directory.CreateDirectory(path + "\\Properties");
                 Directory.CreateDirectory(path + "\\Projectiles");
                 Directory.CreateDirectory(path + "\\NPCs");
+                Directory.CreateDirectory(path + "\\Tiles");
 
                 File.WriteAllText(path + "\\description.txt", loadedMod.get_description());
                 //add functionality to enter a version number

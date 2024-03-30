@@ -65,6 +65,10 @@ namespace NEA_solution
             {
                 generatedCode += "\r\nnamespace " + modName + ".NPCs";
             }
+            else if (itemType == "Tile")
+            {
+                generatedCode += "\r\nnamespace " + modName + ".Tiles";
+            }
             generatedCode += "\r\n{";
 
 
@@ -336,6 +340,14 @@ namespace NEA_solution
                             "\r\nnpc.velocity.X += " + chase_Player_X.xAcceleration + ";" +
                             "\r\n}";
                         break;
+
+                    //Tile blocks
+                    case "tile_default":
+                        tile_default tile_Default = JsonSerializer.Deserialize<tile_default>(blocksAsStrings[i]);
+                        setDefaults += "\r\n\t\t\tMain.tileSolid[Type] = " + tile_Default.solid + ";";
+                        setDefaults += "\r\n\t\t\tMain.tileMergeDirt[Type] = " + tile_Default.merge + ";";
+                        setDefaults += "\r\n\t\t\tMain.tileBlockLight[Type] = " + tile_Default.block_light + ";";
+                        break;
                 }
             }
 
@@ -360,6 +372,12 @@ namespace NEA_solution
             {
                 generatedCode +=
                     "\r\n\tpublic class " + item.get_name() + " : ModNPC" +
+                    "\r\n\t{";
+            }
+            else if (itemType == "Tile")
+            {
+                generatedCode +=
+                    "\r\n\tpublic class " + item.get_name() + " : ModTile" +
                     "\r\n\t{";
             }
 
