@@ -47,11 +47,7 @@ namespace NEA_solution
 
             initialise_editor();
             load_recents();
-            btnRecipe.Enabled = false;
-            txtTooltip.Enabled = false;
-            txtDisplayName.Enabled = false;
-            btnChangeSprite.Enabled = false;
-            btnAdditionalSprites.Enabled = false;
+            lock_controls();
         }
 
         private void load_recents()
@@ -541,13 +537,14 @@ namespace NEA_solution
 
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {
-            //A confirmation dialog will appear.
-            DialogResult result = MessageBox.Show("Are you sure?", "Confirm action", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if (lbItems.SelectedIndex != -1)
             {
-                //This ensures they have selected a valid item to delete.
-                if (lbItems.SelectedIndex != -1)
+                //A confirmation dialog will appear.
+                DialogResult result = MessageBox.Show("Are you sure?", "Confirm action", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
+                    //This ensures they have selected a valid item to delete.
+                    
                     /*
                      * A list one shorter than the current one is created,
                      * and every item except the deleted one is written to it.
@@ -743,172 +740,179 @@ namespace NEA_solution
             else { hasExportPath = false; }
             //This checks for the export directory being set. If not, the user is prompted to set one.
             //validate if the mod is going to overwrite the editable files: do they have the same name.
-            if (hasExportPath)
+            if (loadedMod.get_name() != "")
             {
-                path = File.ReadAllText(Environment.CurrentDirectory + "\\userConfig.txt") + "\\" + loadedMod.get_name();
-
-                //An array is created containing all the items to export.
-                Item[] itemsToExport = new Item[loadedMod.get_item_number()];
-                for (int i = 0; i < itemsToExport.Length; i++)
+                if (hasExportPath)
                 {
-                    itemsToExport[i] = loadedMod.get_item(i);
-                }
+                    path = File.ReadAllText(Environment.CurrentDirectory + "\\userConfig.txt") + "\\" + loadedMod.get_name();
 
-                //The necessary directories are created.
-                if (Directory.Exists(path))
-                {
-                    Directory.Delete(path, true);
-                }
-                Directory.CreateDirectory(path);
-                Directory.CreateDirectory(path + "\\Items");
-                Directory.CreateDirectory(path + "\\Localization");
-                Directory.CreateDirectory(path + "\\Properties");
-                Directory.CreateDirectory(path + "\\Projectiles");
-                Directory.CreateDirectory(path + "\\NPCs");
-                Directory.CreateDirectory(path + "\\Tiles");
+                    //An array is created containing all the items to export.
+                    Item[] itemsToExport = new Item[loadedMod.get_item_number()];
+                    for (int i = 0; i < itemsToExport.Length; i++)
+                    {
+                        itemsToExport[i] = loadedMod.get_item(i);
+                    }
 
-                File.WriteAllText(path + "\\description.txt", loadedMod.get_description());
-                //add functionality to enter a version number
-                File.WriteAllText(path + "\\build.txt", "displayName = " + loadedMod.get_name() + "\nauthor = " + loadedMod.get_author() + "\nversion = 0.1");
-                
-                File.WriteAllText(path + "\\" + loadedMod.get_name() + ".cs", "using Terraria.ModLoader;\r\n\r\nnamespace " + loadedMod.get_name() + "\r\n{\r\n\tpublic class " + loadedMod.get_name() + " : Mod\r\n\t{\r\n\t}\r\n}");
+                    //The necessary directories are created.
+                    if (Directory.Exists(path))
+                    {
+                        Directory.Delete(path, true);
+                    }
+                    Directory.CreateDirectory(path);
+                    Directory.CreateDirectory(path + "\\Items");
+                    Directory.CreateDirectory(path + "\\Localization");
+                    Directory.CreateDirectory(path + "\\Properties");
+                    Directory.CreateDirectory(path + "\\Projectiles");
+                    Directory.CreateDirectory(path + "\\NPCs");
+                    Directory.CreateDirectory(path + "\\Tiles");
 
-                File.WriteAllText(path + "\\" + loadedMod.get_name() + ".csproj", File.ReadAllText(@"projectConfig.txt"));
+                    File.WriteAllText(path + "\\description.txt", loadedMod.get_description());
+                    //add functionality to enter a version number
+                    File.WriteAllText(path + "\\build.txt", "displayName = " + loadedMod.get_name() + "\nauthor = " + loadedMod.get_author() + "\nversion = 0.1");
 
-                localizationString += "Mods: {\r\n" + loadedMod.get_name() + ": {\r\nItems: {\r\n";
-                for (int i = 0; i < itemsToExport.Length; i++)
-                {
-                    if (itemsToExport[i].get_type() == "Item")
-                    {
-                        localizationString += itemsToExport[i].get_name() + ": {\r\nTooltip: "+ itemsToExport[i].get_tooltip() +"\r\nDisplayName: " + itemsToExport[i].get_displayName() + "\r\n}\r\n";
-                    }
-                }
-                localizationString += "}\r\n";
-                for (int i = 0; i < itemsToExport.Length; i++)
-                {
-                    if (itemsToExport[i].get_type() == "Projectile")
-                    {
-                        localizationString += "Projectiles." + itemsToExport[i].get_name() + ".DisplayName: " + itemsToExport[i].get_displayName() + "\r\n";
-                    }
-                }
-                localizationString += "NPCs: {\r\n";
-                for (int i = 0; i < itemsToExport.Length; i++)
-                {
-                    if (itemsToExport[i].get_type() == "NPC")
-                    {
-                        localizationString += "\r\n" + itemsToExport[i].get_name() + ": {\r\nDisplayName: " + itemsToExport[i].get_displayName() + "\r\n}";
-                    }
-                }
-                localizationString += "\r\n}";
-                localizationString += "\r\n}\r\n}";
-                File.WriteAllText(path + "\\Localization\\en-US.hjson", localizationString);
+                    File.WriteAllText(path + "\\" + loadedMod.get_name() + ".cs", "using Terraria.ModLoader;\r\n\r\nnamespace " + loadedMod.get_name() + "\r\n{\r\n\tpublic class " + loadedMod.get_name() + " : Mod\r\n\t{\r\n\t}\r\n}");
 
-                /*
-                 * The code is generated by the code generator, then the correctly named code and sprite
-                 * are saved to the export directory.
-                 */
-                Bitmap bmp;
-                for (int i = 0; i < itemsToExport.Length; i++)
-                {
-                    tmpCode = codeGenerator.generate_code(itemsToExport[i], loadedMod.get_name());
-                    
-                    if (itemsToExport[i].get_type() == "Item")
-                    {
-                        File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
-                    }
-                    else if (itemsToExport[i].get_type() == "Projectile")
-                    {
-                        File.WriteAllText(path + "\\Projectiles\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
-                    }
-                    else if (itemsToExport[i].get_type() == "NPC")
-                    {
-                        File.WriteAllText(path + "\\NPCs\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
-                    }
-                    else if (itemsToExport[i].get_type() == "Tile")
-                    {
-                        File.WriteAllText(path + "\\Tiles\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
-                    }
-                    bmp = itemsToExport[i].get_sprite();
-                    if (bmp == null)
-                    {
-                        incompleteItems.Add(itemsToExport[i].get_name());
-                        canExport = false;
-                    }
-                    else
+                    File.WriteAllText(path + "\\" + loadedMod.get_name() + ".csproj", File.ReadAllText(@"projectConfig.txt"));
+
+                    localizationString += "Mods: {\r\n" + loadedMod.get_name() + ": {\r\nItems: {\r\n";
+                    for (int i = 0; i < itemsToExport.Length; i++)
                     {
                         if (itemsToExport[i].get_type() == "Item")
                         {
-                            bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                            localizationString += itemsToExport[i].get_name() + ": {\r\nTooltip: " + itemsToExport[i].get_tooltip() + "\r\nDisplayName: " + itemsToExport[i].get_displayName() + "\r\n}\r\n";
+                        }
+                    }
+                    localizationString += "}\r\n";
+                    for (int i = 0; i < itemsToExport.Length; i++)
+                    {
+                        if (itemsToExport[i].get_type() == "Projectile")
+                        {
+                            localizationString += "Projectiles." + itemsToExport[i].get_name() + ".DisplayName: " + itemsToExport[i].get_displayName() + "\r\n";
+                        }
+                    }
+                    localizationString += "NPCs: {\r\n";
+                    for (int i = 0; i < itemsToExport.Length; i++)
+                    {
+                        if (itemsToExport[i].get_type() == "NPC")
+                        {
+                            localizationString += "\r\n" + itemsToExport[i].get_name() + ": {\r\nDisplayName: " + itemsToExport[i].get_displayName() + "\r\n}";
+                        }
+                    }
+                    localizationString += "\r\n}";
+                    localizationString += "\r\n}\r\n}";
+                    File.WriteAllText(path + "\\Localization\\en-US.hjson", localizationString);
+
+                    /*
+                     * The code is generated by the code generator, then the correctly named code and sprite
+                     * are saved to the export directory.
+                     */
+                    Bitmap bmp;
+                    for (int i = 0; i < itemsToExport.Length; i++)
+                    {
+                        tmpCode = codeGenerator.generate_code(itemsToExport[i], loadedMod.get_name());
+
+                        if (itemsToExport[i].get_type() == "Item")
+                        {
+                            File.WriteAllText(path + "\\Items\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                         }
                         else if (itemsToExport[i].get_type() == "Projectile")
                         {
-                            bmp.Save(path + "\\Projectiles\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                            File.WriteAllText(path + "\\Projectiles\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                         }
                         else if (itemsToExport[i].get_type() == "NPC")
                         {
-                            bmp.Save(path + "\\NPCs\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                            File.WriteAllText(path + "\\NPCs\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                         }
-                        else if (itemsToExport[i].get_type() == "Tiles")
+                        else if (itemsToExport[i].get_type() == "Tile")
                         {
-                            bmp.Save(path + "\\Tiles\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                            File.WriteAllText(path + "\\Tiles\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
+                        }
+                        bmp = itemsToExport[i].get_sprite();
+                        if (bmp == null)
+                        {
+                            incompleteItems.Add(itemsToExport[i].get_name());
+                            canExport = false;
+                        }
+                        else
+                        {
+                            if (itemsToExport[i].get_type() == "Item")
+                            {
+                                bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                            }
+                            else if (itemsToExport[i].get_type() == "Projectile")
+                            {
+                                bmp.Save(path + "\\Projectiles\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                            }
+                            else if (itemsToExport[i].get_type() == "NPC")
+                            {
+                                bmp.Save(path + "\\NPCs\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                            }
+                            else if (itemsToExport[i].get_type() == "Tiles")
+                            {
+                                bmp.Save(path + "\\Tiles\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                            }
+                        }
+                        bmp = itemsToExport[i].get_wingSprite();
+                        if (bmp != null)
+                        {
+                            if (itemsToExport[i].get_type() == "Item")
+                            {
+                                bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + "_Wings.png", ImageFormat.Png);
+                            }
+                        }
+                        bmp = itemsToExport[i].get_headSprite();
+                        if (bmp != null)
+                        {
+                            if (itemsToExport[i].get_type() == "Item")
+                            {
+                                bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + "_Head.png", ImageFormat.Png);
+                            }
+                        }
+                        bmp = itemsToExport[i].get_bodySprite();
+                        if (bmp != null)
+                        {
+                            if (itemsToExport[i].get_type() == "Item")
+                            {
+                                bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + "_Body.png", ImageFormat.Png);
+                            }
+                        }
+                        bmp = itemsToExport[i].get_legsSprite();
+                        if (bmp != null)
+                        {
+                            if (itemsToExport[i].get_type() == "Item")
+                            {
+                                bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + "_Legs.png", ImageFormat.Png);
+                            }
                         }
                     }
-                    bmp = itemsToExport[i].get_wingSprite();
-                    if (bmp != null)
-                    {
-                        if (itemsToExport[i].get_type() == "Item")
-                        {
-                            bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + "_Wings.png", ImageFormat.Png);
-                        }
-                    }
-                    bmp = itemsToExport[i].get_headSprite();
-                    if (bmp != null)
-                    {
-                        if (itemsToExport[i].get_type() == "Item")
-                        {
-                            bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + "_Head.png", ImageFormat.Png);
-                        }
-                    }
-                    bmp = itemsToExport[i].get_bodySprite();
-                    if (bmp != null)
-                    {
-                        if (itemsToExport[i].get_type() == "Item")
-                        {
-                            bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + "_Body.png", ImageFormat.Png);
-                        }
-                    }
-                    bmp = itemsToExport[i].get_legsSprite();
-                    if (bmp != null)
-                    {
-                        if (itemsToExport[i].get_type() == "Item")
-                        {
-                            bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + "_Legs.png", ImageFormat.Png);
-                        }
-                    }
-                }
 
-                //make this the last thing that runs
-                if (!canExport)
-                {
-                    Directory.Delete(path, true);
-
-                    string tmpString = "The following items cannot be exported:\n";
-                    for (int i = 0;i < incompleteItems.Count; i++)
+                    //make this the last thing that runs
+                    if (!canExport)
                     {
-                        tmpString += "\u2022 " + incompleteItems[i] + "\n";
+                        Directory.Delete(path, true);
+
+                        string tmpString = "The following items cannot be exported:\n";
+                        for (int i = 0; i < incompleteItems.Count; i++)
+                        {
+                            tmpString += "\u2022 " + incompleteItems[i] + "\n";
+                        }
+                        tmpString += "Please ensure all items have sprites, details, and code.";
+                        MessageBox.Show(tmpString);
                     }
-                    tmpString += "Please ensure all items have sprites, details, and code.";
-                    MessageBox.Show(tmpString);
+                    else
+                    {
+                        MessageBox.Show("Export complete");
+                    }
+
                 }
                 else
                 {
-                    MessageBox.Show("Export complete");
+                    MessageBox.Show("Please set an export directory in Edit>Settings");
                 }
-
             }
             else
             {
-                MessageBox.Show("Please set an export directory in Edit>Settings");
+                MessageBox.Show("Please save the mod before exporting");
             }
 
         }
@@ -1035,6 +1039,8 @@ namespace NEA_solution
             txtDisplayName.Enabled = false;
             txtTooltip.Enabled = false;
             wvCode.Enabled = false;
+            btnRecipe.Enabled = false;
+            btnAdditionalSprites.Enabled = false;
         }
 
         public void unlock_controls()
