@@ -149,6 +149,10 @@ namespace NEA_solution
                 }
                 else
                 {
+                    unlock_controls();
+                    tbSave.Enabled = true;
+                    fileSaveMod.Enabled = true;
+                    wvCode.Enabled = true;
                     return;
                 }
             }
@@ -162,11 +166,28 @@ namespace NEA_solution
                 add_recent_path(loadedMod.get_modPath());
                 save_mod();
             }
+            else
+            {
+                unlock_controls();
+                tbSave.Enabled = true;
+                fileSaveMod.Enabled = true;
+                wvCode.Enabled = true;
+                return;
+            }
+            unlock_controls();
+            tbSave.Enabled = true;
+            fileSaveMod.Enabled = true;
+            wvCode.Enabled = true;
+            Text = "tModMaker - " + loadedMod.get_name();
         }
 
         //This procedure is asynchronous as it waits to recieve the data from the web component.
         private async void save_mod()
         {
+            lock_controls();
+            tbSave.Enabled = false;
+            fileSaveMod.Enabled = false;
+            wvCode.Enabled = false;
             pbSave.Step = 1;
             pbSave.Minimum = 1;
             if (loadedMod.get_item_number() > 0)
@@ -312,26 +333,26 @@ namespace NEA_solution
             //the details of the mod are written to a file here
             File.WriteAllText(thePath + "\\" + loadedMod.get_name() + ".mod", modFile);
 
+            //this checks for and creates other directories that need to exist
+            if (!Directory.Exists(thePath + "\\Items"))
+            {
+                Directory.CreateDirectory(thePath + "\\Items");
+            }
+            if (!Directory.Exists(thePath + "\\Items\\Code"))
+            {
+                Directory.CreateDirectory(thePath + "\\Items\\Code");
+            }
+            if (!Directory.Exists(thePath + "\\Items\\Sprites"))
+            {
+                Directory.CreateDirectory(thePath + "\\Items\\Sprites");
+            }
+            if (!Directory.Exists(thePath + "\\Items\\Recipes"))
+            {
+                Directory.CreateDirectory(thePath + "\\Items\\Recipes");
+            }
+
             if (loadedMod.get_item_number() != 0)
             {
-                //this checks for and creates other directories that need to exist
-                if (!Directory.Exists(thePath + "\\Items"))
-                {
-                    Directory.CreateDirectory(thePath + "\\Items");
-                }
-                if (!Directory.Exists(thePath + "\\Items\\Code"))
-                {
-                    Directory.CreateDirectory(thePath + "\\Items\\Code");
-                }
-                if (!Directory.Exists(thePath + "\\Items\\Sprites"))
-                {
-                    Directory.CreateDirectory(thePath + "\\Items\\Sprites");
-                }
-                if (!Directory.Exists(thePath + "\\Items\\Recipes"))
-                {
-                    Directory.CreateDirectory(thePath + "\\Items\\Recipes");
-                }
-
                 //this loops through and saves each item
                 for (int i = 0; i < loadedMod.get_item_number(); i++)
                 {
@@ -404,6 +425,10 @@ namespace NEA_solution
             await Task.Delay(delay);
             await Console.Out.WriteLineAsync("clearing");
             pbSave.Value = 1;
+            tbSave.Enabled = true;
+            fileSaveMod.Enabled = true;
+            wvCode.Enabled = true;
+            unlock_controls();
         }
         private void fileOpenMod_Click(object sender, EventArgs e)
         {
@@ -435,6 +460,7 @@ namespace NEA_solution
                     //this stops and item with no items from loading - it needs to be removed
                     if (existingItems.Length == 0)
                     {
+                        lbItems.Items.Clear();
                         return;
                     }
                     else
