@@ -139,22 +139,19 @@ namespace NEA_solution
 
         private void save_mod_as()
         {
-            if (loadedMod.get_name() == "")
+            NameDialog nameDialog = new NameDialog();
+            DialogResult result = nameDialog.ShowDialog();
+            if (result == DialogResult.OK)
             {
-                NameDialog nameDialog = new NameDialog();
-                DialogResult result = nameDialog.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    loadedMod.set_name(nameDialog.name);
-                }
-                else
-                {
-                    unlock_controls();
-                    tbSave.Enabled = true;
-                    fileSaveMod.Enabled = true;
-                    wvCode.Enabled = true;
-                    return;
-                }
+                loadedMod.set_name(nameDialog.name);
+            }
+            else
+            {
+                unlock_controls();
+                tbSave.Enabled = true;
+                fileSaveMod.Enabled = true;
+                wvCode.Enabled = true;
+                return;
             }
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             DialogResult dialogResult = dialog.ShowDialog();
