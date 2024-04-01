@@ -12,6 +12,26 @@ namespace NEA_solution
 {
     internal class CodeGenerator
     {
+        public string get_slot(Item item)
+        {
+            string slot = string.Empty;
+            string blockType;
+
+            string[] blocksAsStrings = findBlocksInline(item.get_code());
+
+            for (int i = 0; i < blocksAsStrings.Length; i++)
+            {
+                blockType = JsonSerializer.Deserialize<GenericBlock>(blocksAsStrings[i]).type;
+
+                if (blockType == "equip_slot")
+                {
+                    slot = JsonSerializer.Deserialize<equip_slot>(blocksAsStrings[i]).slot;
+                }
+            }
+
+            return slot;
+
+        }
         public string generate_code(Item item, string modName)
         {
             string setDefaults = "";

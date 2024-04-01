@@ -413,19 +413,32 @@ namespace NEA_solution
                     //the step for the progress bar is performed
                     pbSave.PerformStep();
                 }
-                finishPb(1000);
+                finishSaving(1000);
             }
         }
 
         //this doesnt work with any value <1000
-        private async void finishPb(int delay)
+        private async void finishSaving(int delay)
         {
+            CodeGenerator codeGenerator = new CodeGenerator();
             await Task.Delay(delay);
             await Console.Out.WriteLineAsync("clearing");
             pbSave.Value = 1;
             tbSave.Enabled = true;
             fileSaveMod.Enabled = true;
             wvCode.Enabled = true;
+            if (loadedItem != null)
+            {
+                if (loadedItem.get_type() == "Item")
+                {
+                    txtTooltip.Enabled = true;
+                    btnRecipe.Enabled = true;
+                    if (codeGenerator.get_slot(loadedItem) != string.Empty)
+                    {
+                        btnAdditionalSprites.Enabled = true;
+                    }
+                }
+            }
             unlock_controls();
         }
         private void fileOpenMod_Click(object sender, EventArgs e)
@@ -759,6 +772,7 @@ namespace NEA_solution
             bool canExport = true;
             List<string> incompleteItems = new List<string>();
             string localizationString = "";
+            string slot;
 
             if (File.ReadAllText(Environment.CurrentDirectory + "\\userConfig.txt") != "")
             {
@@ -783,8 +797,25 @@ namespace NEA_solution
 
                     for (int i = 0;i < itemsToExport.Length; i++)
                     {
+                        slot = codeGenerator.get_slot(itemsToExport[i]);
                         bmp = itemsToExport[i].get_sprite();
                         if (bmp == null)
+                        {
+                            incompleteItems.Add(itemsToExport[i].get_name());
+                            canExport = false;
+                        }
+                        MessageBox.Show(slot);
+                        if (slot == "Head" && itemsToExport[i].get_headSprite() == null)
+                        {
+                            incompleteItems.Add(itemsToExport[i].get_name());
+                            canExport = false;
+                        }
+                        if (slot == "Body" && itemsToExport[i].get_bodySprite() == null)
+                        {
+                            incompleteItems.Add(itemsToExport[i].get_name());
+                            canExport = false;
+                        }
+                        if (slot == "Legs" && itemsToExport[i].get_legsSprite() == null)
                         {
                             incompleteItems.Add(itemsToExport[i].get_name());
                             canExport = false;
@@ -937,7 +968,6 @@ namespace NEA_solution
 
                     //make this the last thing that runs
                     MessageBox.Show("Export complete: the mod will be available in tModLoader");
-
                 }
                 else
                 {
