@@ -140,14 +140,14 @@
             // 
             this.fileSaveMod.Name = "fileSaveMod";
             this.fileSaveMod.Size = new System.Drawing.Size(191, 22);
-            this.fileSaveMod.Text = "Save Mod";
+            this.fileSaveMod.Text = "Save Project";
             this.fileSaveMod.Click += new System.EventHandler(this.fileSaveMod_Click);
             // 
             // fileSaveModAs
             // 
             this.fileSaveModAs.Name = "fileSaveModAs";
             this.fileSaveModAs.Size = new System.Drawing.Size(191, 22);
-            this.fileSaveModAs.Text = "Save Mod As";
+            this.fileSaveModAs.Text = "Save Project As";
             this.fileSaveModAs.Click += new System.EventHandler(this.fileSaveModAs_Click);
             // 
             // fileOpenMod
@@ -189,14 +189,14 @@
             // modDetailsToolStripMenuItem
             // 
             this.modDetailsToolStripMenuItem.Name = "modDetailsToolStripMenuItem";
-            this.modDetailsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.modDetailsToolStripMenuItem.Text = "Mod Details";
+            this.modDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modDetailsToolStripMenuItem.Text = "Project Details";
             this.modDetailsToolStripMenuItem.Click += new System.EventHandler(this.modDetailsToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
