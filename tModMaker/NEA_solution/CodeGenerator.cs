@@ -336,6 +336,15 @@ namespace NEA_solution
                         spawnrate += "\r\n\t\t\tspawnChance *= " + spawn_Rate_Multiplayer.multiplier + "f;";
                         break;
 
+                    case "npc_friendly":
+                        npc_friendly npc_Friendly = JsonSerializer.Deserialize<npc_friendly>(blocksAsStrings[i]);
+                        setDefaults += "\r\n\t\t\tNPC.friendly = " + npc_Friendly.friendly.ToString().ToLower() + ";";
+                        break;
+
+
+
+
+
                     case "create_tile":
                         create_tile create_Tile = JsonSerializer.Deserialize<create_tile>(blocksAsStrings[i]);
                         setDefaults += "\r\n\t\t\tItem.createTile = TileID." + create_Tile.tileName + ";";
@@ -345,6 +354,7 @@ namespace NEA_solution
                         create_tile create_Custom_Tile = JsonSerializer.Deserialize<create_tile>(blocksAsStrings[i]);
                         setDefaults += "\r\n\t\t\tItem.createTile = ModContent.TileType<" + create_Custom_Tile.tileName + ">();";
                         break;
+
 
 
                     //AI Class Blocks

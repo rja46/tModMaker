@@ -71,11 +71,11 @@ const toolbox = {
                 },
                 {
                     "kind": "block",
-                    "type": "name_option"
+                    "type": "set_mood_text"
                 },
                 {
                     "kind": "block",
-                    "type": "set_mood_text"
+                    "type": "npc_friendly"
                 }
             ]
         },
@@ -345,22 +345,6 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_input",
                 "name": "chat",
                 "text": "Hello World!"
-            }
-        ],
-        "previousStatement": null,
-        "nextStatement": null,
-        "colour": 250,
-        "tooltip": "",
-        "helpUrl": ""
-    },
-    {
-        "type": "name_option",
-        "message0": "Add name option: %1",
-        "args0": [
-            {
-                "type": "field_input",
-                "name": "name",
-                "text": "Dave, the Former Ethereal"
             }
         ],
         "previousStatement": null,
@@ -672,6 +656,22 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 300,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "npc_friendly",
+        "message0": "Make NPC friendly %1",
+        "args0": [
+            {
+                "type": "field_checkbox",
+                "name": "friendly",
+                "checked": true
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 250,
         "tooltip": "",
         "helpUrl": ""
     }

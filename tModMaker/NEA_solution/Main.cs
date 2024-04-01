@@ -9,6 +9,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Security.Permissions;
@@ -86,6 +87,8 @@ namespace NEA_solution
 
                 //The list of items is updated to contain the new item.
                 update_item_list();
+                loadedItem = loadedMod.get_item(loadedMod.get_item_number() - 1);
+                displayItem(loadedItem);
             }
         }
 
@@ -601,10 +604,17 @@ namespace NEA_solution
                         }
                     }
                     //The files for the item are deleted, and the list of items is overwritten.
-                    File.Delete(loadedMod.get_modPath() + "\\Items\\" + loadedItem.get_name() + ".item");
-                    File.Delete(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedItem.get_name() + "_code.code");
+                    if (File.Exists(loadedMod.get_modPath() + "\\Items\\" + loadedItem.get_name() + ".item"))
+                    {
+                        File.Delete(loadedMod.get_modPath() + "\\Items\\" + loadedItem.get_name() + ".item");
+                    }
+                    if (File.Exists(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedItem.get_name() + "_code.code"))
+                    {
+                        File.Delete(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedItem.get_name() + "_code.code");
+                    }
                     loadedMod.set_items(tmpItems);
                     displayItem(new Item("", ""));
+                    wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\start.html");
                     update_item_list();
                 }
             }
@@ -804,7 +814,6 @@ namespace NEA_solution
                             incompleteItems.Add(itemsToExport[i].get_name());
                             canExport = false;
                         }
-                        MessageBox.Show(slot);
                         if (slot == "Head" && itemsToExport[i].get_headSprite() == null)
                         {
                             incompleteItems.Add(itemsToExport[i].get_name());
@@ -1105,6 +1114,7 @@ namespace NEA_solution
             wvCode.Enabled = false;
             btnRecipe.Enabled = false;
             btnAdditionalSprites.Enabled = false;
+            lbItems.Enabled = false;
         }
 
         public void unlock_controls()
@@ -1112,6 +1122,7 @@ namespace NEA_solution
             btnChangeSprite.Enabled = true;
             txtDisplayName.Enabled = true;
             wvCode.Enabled = true;
+            lbItems.Enabled = true;
         }
 
         private void pbSprite_Paint(object sender, PaintEventArgs e)

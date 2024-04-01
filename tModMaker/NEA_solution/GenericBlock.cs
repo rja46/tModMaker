@@ -250,4 +250,9 @@ namespace NEA_solution
         public bool block_light { get; set; }
         public string dust_type { get; set; }
     }
+
+    internal class npc_friendly: GenericBlock
+    {
+        public bool friendly { get; set; }
+    }
 }
