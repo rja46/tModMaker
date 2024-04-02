@@ -1,3 +1,8 @@
-2024/04/01-22:57:53.049 1d48 Reusing MANIFEST C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
-2024/04/01-22:57:53.051 1d48 Recovering log #3
-2024/04/01-22:57:53.054 1d48 Reusing old log C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Local Storage\leveldb/000003.log 
+2024/04/02-20:34:04.397 7c88 Reusing MANIFEST C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Debug\NEA_solution.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2024/04/02-20:34:04.399 7c88 Recovering log #3
+2024/04/02-20:34:04.403 7c88 Level-0 table #3: started
+2024/04/02-20:34:04.415 7c88 Level-0 table #3: 559103 bytes OK
+2024/04/02-20:34:04.420 7c88 Delete type=0 #3
+2024/04/02-20:35:07.005 7c70 Level-0 table #6: started
+2024/04/02-20:35:07.013 7c70 Level-0 table #6: 553314 bytes OK
+2024/04/02-20:35:07.014 7c70 Delete type=0 #4

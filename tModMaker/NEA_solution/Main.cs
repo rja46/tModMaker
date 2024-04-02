@@ -152,9 +152,7 @@ namespace NEA_solution
             else
             {
                 unlock_controls();
-                tbSave.Enabled = true;
-                fileSaveMod.Enabled = true;
-                wvCode.Enabled = true;
+                
                 return;
             }
             FolderBrowserDialog dialog = new FolderBrowserDialog();
@@ -170,15 +168,10 @@ namespace NEA_solution
             else
             {
                 unlock_controls();
-                tbSave.Enabled = true;
-                fileSaveMod.Enabled = true;
-                wvCode.Enabled = true;
+                
                 return;
             }
             unlock_controls();
-            tbSave.Enabled = true;
-            fileSaveMod.Enabled = true;
-            wvCode.Enabled = true;
             Text = "tModMaker - " + loadedMod.get_name();
         }
 
@@ -186,9 +179,7 @@ namespace NEA_solution
         private async void save_mod()
         {
             lock_controls();
-            tbSave.Enabled = false;
-            fileSaveMod.Enabled = false;
-            wvCode.Enabled = false;
+
             pbSave.Step = 1;
             pbSave.Minimum = 1;
             if (loadedMod.get_item_number() > 0)
@@ -423,25 +414,12 @@ namespace NEA_solution
         //this doesnt work with any value <1000
         private async void finishSaving(int delay)
         {
-            CodeGenerator codeGenerator = new CodeGenerator();
             await Task.Delay(delay);
             await Console.Out.WriteLineAsync("clearing");
             pbSave.Value = 1;
             tbSave.Enabled = true;
             fileSaveMod.Enabled = true;
             wvCode.Enabled = true;
-            if (loadedItem != null)
-            {
-                if (loadedItem.get_type() == "Item")
-                {
-                    txtTooltip.Enabled = true;
-                    btnRecipe.Enabled = true;
-                    if (codeGenerator.get_slot(loadedItem) != string.Empty)
-                    {
-                        btnAdditionalSprites.Enabled = true;
-                    }
-                }
-            }
             unlock_controls();
         }
         private void fileOpenMod_Click(object sender, EventArgs e)
@@ -1115,6 +1093,9 @@ namespace NEA_solution
             btnRecipe.Enabled = false;
             btnAdditionalSprites.Enabled = false;
             lbItems.Enabled = false;
+            tbSave.Enabled = false;
+            fileSaveMod.Enabled = false;
+            wvCode.Enabled = false;
         }
 
         public void unlock_controls()
@@ -1123,6 +1104,27 @@ namespace NEA_solution
             txtDisplayName.Enabled = true;
             wvCode.Enabled = true;
             lbItems.Enabled = true;
+            tbSave.Enabled = true;
+            fileSaveMod.Enabled = true;
+            wvCode.Enabled = true;
+            CodeGenerator codeGenerator = new CodeGenerator();
+            if (loadedItem != null)
+            {
+                if (loadedItem.get_type() == "Item")
+                {
+                    txtTooltip.Enabled = true;
+                    btnRecipe.Enabled = true;
+                    if (codeGenerator.get_slot(loadedItem) != string.Empty)
+                    {
+                        btnAdditionalSprites.Enabled = true;
+                    }
+                }
+                if (loadedItem.get_type() == "Item")
+                {
+                    btnRecipe.Enabled = true;
+                    txtTooltip.Enabled = true;
+                }
+            }
         }
 
         private void pbSprite_Paint(object sender, PaintEventArgs e)
@@ -1159,7 +1161,7 @@ namespace NEA_solution
             if (theItem != null)
             {
                 OtherSprites otherSprites = new OtherSprites(theItem, GetTypeOfItem(theItem));
-                otherSprites.Show();
+                otherSprites.ShowDialog();
                 theItem = otherSprites.theItem;
             }
         }

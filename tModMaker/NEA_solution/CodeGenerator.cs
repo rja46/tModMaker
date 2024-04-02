@@ -47,8 +47,9 @@ namespace NEA_solution
             string slot = null;
             List<string> chatOptions = new List<string>();
             List<string> nameOptions = new List<string>();
-            string button1 = "";
-            string button2 = "";
+            List<string> shopItems = new List<string>();
+            List<int> shopValues = new List<int>();
+            bool hasShop = false;
             string AI = "";
             bool chasePlayer = false;
             string spawnrate = "";
@@ -234,6 +235,15 @@ namespace NEA_solution
                         slot = equip_Slot.slot;
                         break;
 
+                    case "create_tile":
+                        create_tile create_Tile = JsonSerializer.Deserialize<create_tile>(blocksAsStrings[i]);
+                        setDefaults += "\r\n\t\t\tItem.createTile = TileID." + create_Tile.tileName + ";";
+                        break;
+
+                    case "create_custom_tile":
+                        create_tile create_Custom_Tile = JsonSerializer.Deserialize<create_tile>(blocksAsStrings[i]);
+                        setDefaults += "\r\n\t\t\tItem.createTile = ModContent.TileType<" + create_Custom_Tile.tileName + ">();";
+                        break;
 
 
 
@@ -315,12 +325,6 @@ namespace NEA_solution
                         nameOptions.Add(name_Options.name);
                         break;
 
-                    case "add_buttons":
-                        add_buttons add_Buttons = JsonSerializer.Deserialize<add_buttons>(blocksAsStrings[i]);
-                        button1 = add_Buttons.button1;
-                        button2 = add_Buttons.button2;
-                        break;
-
                     case "set_spawn_rate":
                         set_spawn_rate set_Spawn_Rate = JsonSerializer.Deserialize<set_spawn_rate>(blocksAsStrings[i]);
                         spawnrate += "\r\n\t\t\tspawnChance = " + set_Spawn_Rate.rate + "f;";
@@ -341,18 +345,11 @@ namespace NEA_solution
                         setDefaults += "\r\n\t\t\tNPC.friendly = " + npc_Friendly.friendly.ToString().ToLower() + ";";
                         break;
 
-
-
-
-
-                    case "create_tile":
-                        create_tile create_Tile = JsonSerializer.Deserialize<create_tile>(blocksAsStrings[i]);
-                        setDefaults += "\r\n\t\t\tItem.createTile = TileID." + create_Tile.tileName + ";";
-                        break;
-
-                    case "create_custom_tile":
-                        create_tile create_Custom_Tile = JsonSerializer.Deserialize<create_tile>(blocksAsStrings[i]);
-                        setDefaults += "\r\n\t\t\tItem.createTile = ModContent.TileType<" + create_Custom_Tile.tileName + ">();";
+                    case "add_shop_item":
+                        add_shop_item add_Shop_Item = JsonSerializer.Deserialize<add_shop_item>(blocksAsStrings[i]);
+                        shopItems.Add(add_Shop_Item.item);
+                        shopValues.Add(add_Shop_Item.value);
+                        hasShop = true;
                         break;
 
 
@@ -459,18 +456,10 @@ namespace NEA_solution
                 setDefaults += "\r\n\t\tNPC.townNPC = true;";
             }
 
-            if (button1 != "" || button2 != "")
+            if (hasShop)
             {
                 generatedCode += "\r\n\t\tpublic override void SetChatButtons(ref string button, ref string button2) {";
-                    
-                if (button1 != "")
-                {
-                    generatedCode += "\r\n\t\t\tbutton = \"" + button1 + "\";";
-                }
-                if (button2 != "")
-                {
-                    generatedCode += "\r\n\t\t\tbutton2 = \"" + button2 + "\";";
-                }
+                generatedCode += "\r\n\t\t\tbutton = \"Shop\";";
                 generatedCode += "\r\n\t\t}";
             }
 
@@ -516,6 +505,30 @@ namespace NEA_solution
                 generatedCode += AI;
 
                 generatedCode += "\r\n}";
+            }
+
+            if (shopItems.Count > 0)
+            {
+                generatedCode += "\r\n\t\tpublic override void OnChatButtonClicked(bool firstButton, ref string shop)";
+                generatedCode += "\r\n\t\t{";
+                generatedCode += "\r\n\t\t\tif (firstButton) { shop = \"Shop\"; }";
+                generatedCode += "\r\n\t\t}";
+
+                generatedCode += "\r\n";
+
+                generatedCode += "\r\n\t\tpublic override void AddShops()";
+                generatedCode += "\r\n\t\t{";
+
+                generatedCode += "\r\n\t\t\tNPCShop Shop = new NPCShop(Type);";
+
+                for (int i = 0;i < shopItems.Count; i++)
+                {
+                    generatedCode += "\r\n\t\t\tShop.Add(ItemID." + shopItems[i] + ");";
+                }
+
+                generatedCode += "\r\n\t\t\tShop.Register();";
+
+                generatedCode += "\r\n\t\t}";
             }
 
             generatedCode += "\r\n\t}\r\n}";

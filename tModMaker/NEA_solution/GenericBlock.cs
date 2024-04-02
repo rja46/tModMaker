@@ -251,8 +251,14 @@ namespace NEA_solution
         public string dust_type { get; set; }
     }
 
-    internal class npc_friendly: GenericBlock
+    internal class npc_friendly : GenericBlock
     {
         public bool friendly { get; set; }
+    }
+
+    internal class add_shop_item : GenericBlock
+    {
+        public string item { get; set; }
+        public int value { get; set; }
     }
 }

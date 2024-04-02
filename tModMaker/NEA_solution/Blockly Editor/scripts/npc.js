@@ -67,15 +67,15 @@ const toolbox = {
                 },
                 {
                     "kind": "block",
-                    "type": "add_buttons"
-                },
-                {
-                    "kind": "block",
                     "type": "set_mood_text"
                 },
                 {
                     "kind": "block",
                     "type": "npc_friendly"
+                },
+                {
+                    "kind": "block",
+                    "type": "add_shop_item"
                 }
             ]
         },
@@ -345,35 +345,6 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_input",
                 "name": "chat",
                 "text": "Hello World!"
-            }
-        ],
-        "previousStatement": null,
-        "nextStatement": null,
-        "colour": 250,
-        "tooltip": "",
-        "helpUrl": ""
-    },
-    {
-        "type": "add_buttons",
-        "implicitAlign0": "RIGHT",
-        "message0": "Add buttons: %1 %2 %3 %4",
-        "args0": [
-            {
-                "type": "input_dummy"
-            },
-            {
-                "type": "field_input",
-                "name": "button1",
-                "text": "button1"
-            },
-            {
-                "type": "input_dummy",
-                "align": "RIGHT"
-            },
-            {
-                "type": "field_input",
-                "name": "button2",
-                "text": "button2"
             }
         ],
         "previousStatement": null,
@@ -674,6 +645,22 @@ Blockly.common.defineBlocksWithJsonArray([
         "colour": 250,
         "tooltip": "",
         "helpUrl": ""
+    },
+    {
+        "type": "add_shop_item",
+        "message0": "Add %1 to shop",
+        "args0": [
+            {
+                "type": "field_input",
+                "name": "item",
+                "text": "item name"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 250,
+        "tooltip": "",
+        "helpUrl": "https://terraria.fandom.com/wiki/Item_IDs"
     }
 ]);
 
