@@ -67,10 +67,6 @@ const toolbox = {
                 },
                 {
                     "kind": "block",
-                    "type": "set_mood_text"
-                },
-                {
-                    "kind": "block",
                     "type": "npc_friendly"
                 },
                 {
@@ -354,62 +350,6 @@ Blockly.common.defineBlocksWithJsonArray([
         "helpUrl": ""
     },
     {
-        "type": "set_mood_text",
-        "message0": "When content say: %1 %2 When homeless say: %3 %4 When far from home say: %5 %6 When not crowded say: %7 %8 When crowded say: %9 %10 When too crowded say: %11",
-        "args0": [
-            {
-                "type": "field_input",
-                "name": "content",
-                "text": "I am content."
-            },
-            {
-                "type": "input_dummy"
-            },
-            {
-                "type": "field_input",
-                "name": "noHome",
-                "text": "I hate not having a home."
-            },
-            {
-                "type": "input_dummy"
-            },
-            {
-                "type": "field_input",
-                "name": "FarFromHome",
-                "text": "I am too far from home."
-            },
-            {
-                "type": "input_dummy"
-            },
-            {
-                "type": "field_input",
-                "name": "LoveSpace",
-                "text": "I love having so much space."
-            },
-            {
-                "type": "input_dummy"
-            },
-            {
-                "type": "field_input",
-                "name": "DislikeCrowded",
-                "text": "I dislike how crowded I am."
-            },
-            {
-                "type": "input_dummy"
-            },
-            {
-                "type": "field_input",
-                "name": "HateCrowded",
-                "text": "I hate how crowded I am."
-            }
-        ],
-        "previousStatement": null,
-        "nextStatement": null,
-        "colour": 230,
-        "tooltip": "",
-        "helpUrl": ""
-    },
-        {
         "type": "customAI",
         "message0": "Use custom AI called %1",
         "args0": [

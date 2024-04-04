@@ -66,6 +66,7 @@ namespace NEA_solution
 
         private void recent_click(object sender, EventArgs e)
         {
+            //The name of the sender is the path of the mod, so it can be opened like this.
             open_mod(sender.ToString());
         }
 
@@ -151,6 +152,7 @@ namespace NEA_solution
             }
             else
             {
+                //When save mod is called, the controls are locked, so they must be unlocked here if the mod is not going to be saved.
                 unlock_controls();
                 
                 return;
@@ -179,7 +181,7 @@ namespace NEA_solution
         private async void save_mod()
         {
             lock_controls();
-
+            //The properties of the progress bar are set up.
             pbSave.Step = 1;
             pbSave.Minimum = 1;
             if (loadedMod.get_item_number() > 0)
@@ -215,7 +217,6 @@ namespace NEA_solution
             }
             for (int i = 0; i < loadedMod.get_item_number(); i++)
             {
-                await Console.Out.WriteLineAsync(i.ToString());
                 string prevSource = wvSave.Source.ToString();
 
                 /* The correct editor is loaded into the hidden webView component where the 
@@ -240,48 +241,29 @@ namespace NEA_solution
                         break;
                 }
                 
-                await Console.Out.WriteLineAsync("type found");
-
+                //If the correct editor is not loaded, it will be loaded here.
                 if (prevSource != wvSave.Source.ToString())
                 {
-                    await Console.Out.WriteLineAsync(prevSource);
-                    await Console.Out.WriteLineAsync(wvSave.Source.ToString());
                     wvSaveReady = false;
                     do
                     {
                         await Task.Delay(100);
-
-                        await Console.Out.WriteLineAsync("waiting for uri");
                     }
                     while (wvSaveReady == false);
                 }
-
-
-                await Console.Out.WriteLineAsync("blockly loaded");
                 
-                await wvSave.ExecuteScriptAsync("loadData('" + loadedMod.get_item(i).get_code() + "')");
-                
-                await Console.Out.WriteLineAsync("data sent");
-                
+                await wvSave.ExecuteScriptAsync("loadData('" + loadedMod.get_item(i).get_code() + "')");                
                 requestSaveData();
-
-                await Console.Out.WriteLineAsync("data request sent");
                 
                 saveReturned = false;
                 do
                 {
                     await Task.Delay(100);
-
-                    await Console.Out.WriteLineAsync("waiting for data");
                 }
                 while (saveReturned == false);
 
-                await Console.Out.WriteLineAsync("data recieved");
-
                 loadedMod.get_item(i).set_code(workspace);
 
-                await Console.Out.WriteLineAsync("code set");
-                await Console.Out.WriteLineAsync(loadedMod.get_item(i).get_code());
                 pbSave.PerformStep();
             }
 
@@ -292,28 +274,29 @@ namespace NEA_solution
             string recipeItems;
             
             /*
-            the details of the mod are compiled into one string, seperated with pipes,
-            as it is a fairly uncommon character, and is unlikely to appear in the mod's
-            details
-            validation is needed here, because terrible things will happen if someone enters
-            a pipe in any of these fields
-            */
+             * The details of the mod are compiled into one string, seperated with pipes,
+             * as it is a fairly uncommon character, and is unlikely to appear in the mod's
+             * details.
+             * Validation is needed here, because terrible things will happen if someone enters
+             * a pipe in any of these fields.
+             */
             modFile += loadedMod.get_name() + "|";
             modFile += loadedMod.get_description() + "|";
             modFile += loadedMod.get_author();
 
             /*
-            the progress bar is set up to make a step for each item in the mod
-            it is worth noting that the progress bar doesnt appear to work on 
-            windows 11
-            */
+             * The progress bar is set up to make a step for each item in the mod.
+             * It is worth noting that the progress bar doesnt appear to work on 
+             * windows 11 - this issue is inconsistent, and seems to be happening
+             * less
+             */
             
 
 
             /*
-            if the mod is missing a path i.e. the placeholder is loaded, the save_mod_as(),
-            then returns nothing for this procedure
-            */
+             * If the mod is missing a path i.e. the placeholder is loaded, the save_mod_as(),
+             * then returns nothing for this procedure.
+             */
             if (thePath == "")
             {
                 save_mod_as();
@@ -322,10 +305,10 @@ namespace NEA_solution
 
             Directory.CreateDirectory(thePath);
 
-            //the details of the mod are written to a file here
+            //The details of the mod are written to a file here.
             File.WriteAllText(thePath + "\\" + loadedMod.get_name() + ".mod", modFile);
 
-            //this checks for and creates other directories that need to exist
+            //This checks for and creates other directories that need to exist.
             if (!Directory.Exists(thePath + "\\Items"))
             {
                 Directory.CreateDirectory(thePath + "\\Items");
@@ -345,10 +328,10 @@ namespace NEA_solution
 
             if (loadedMod.get_item_number() != 0)
             {
-                //this loops through and saves each item
+                //This loops through and saves each item.
                 for (int i = 0; i < loadedMod.get_item_number(); i++)
                 {
-                    //the details of the item and put into a string, then saved
+                    //The details of the item and put into a string, then saved.
                     tempItem = "";
                     tempItem += loadedMod.get_item(i).get_name() + "\r\n";
                     tempItem += loadedMod.get_item(i).get_displayName() + "\r\n";
@@ -356,7 +339,7 @@ namespace NEA_solution
                     tempItem += loadedMod.get_item(i).get_type();
                     File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + ".item", tempItem);
                     
-                    //the code is written to a seperate file
+                    //The code is written to a seperate file.
                     File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + "_code.code", loadedMod.get_item(i).get_code());
 
                     recipeItems = "";
@@ -367,8 +350,8 @@ namespace NEA_solution
                     File.WriteAllText(thePath + "\\Items\\Recipes\\" + loadedMod.get_item(i).get_name() + "_recipe.recipe", recipeItems);
                     
                     Bitmap bmp = loadedMod.get_item(i).get_sprite();
-                    //File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + ".png");
-                    //if a sprite exists for the item, it is saved as a .png
+                    
+                    //If a sprite exists for the item, it is saved as a .png.
                     if (bmp != null)
                     {
                         bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + ".png", ImageFormat.Png);
@@ -404,18 +387,17 @@ namespace NEA_solution
                         bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Legs.png", ImageFormat.Png);
                     }
 
-                    //the step for the progress bar is performed
+                    //The step for the progress bar is performed.
                     pbSave.PerformStep();
                 }
+                //This delay is purely visual, but I found the user experience was much better as a result.
                 finishSaving(1000);
             }
         }
 
-        //this doesnt work with any value <1000
         private async void finishSaving(int delay)
         {
             await Task.Delay(delay);
-            await Console.Out.WriteLineAsync("clearing");
             pbSave.Value = 1;
             tbSave.Enabled = true;
             fileSaveMod.Enabled = true;
@@ -437,19 +419,24 @@ namespace NEA_solution
             Item currentItem;
             string[] tmpProperties;
             {
-                //this ensures the correct structure exists in the specified directory
+                /*
+                 * This ensures the correct structure exists in the specified directory.
+                 * 
+                 * This isn't foolproof, but it is unlikely someone would try to open another folder which
+                 * just happened to have the same structure, without doing it on purpose.
+                 */
                 if (Directory.Exists(loadedMod.get_modPath() + "\\Items") 
                     && Directory.Exists(loadedMod.get_modPath() + "\\Items\\Code") 
                     && Directory.Exists(loadedMod.get_modPath() + "\\Items\\Sprites")
                     && Directory.Exists(loadedMod.get_modPath() + "\\Items\\Recipes"))
                 {
-                    //if it does, arrays of paths are created for each item, sprite, and code
+                    //If it does, arrays of paths are created for each item, sprite, and code.
                     existingItems = Directory.GetFiles(loadedMod.get_modPath() + "\\Items");
                     existingCode = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Code");
                     existingSprites = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Sprites");
                     existingRecipes = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Recipes");
                     
-                    //this stops and item with no items from loading - it needs to be removed
+                    //If there are no items in the mod, an empty workspace is loaded.
                     if (existingItems.Length == 0)
                     {
                         wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\start.html");
@@ -462,7 +449,6 @@ namespace NEA_solution
                         for (int i = 0; i < existingItems.Length; i++)
                         {
 
-                            //The details are split by the dividing symbol.
                             tmpProperties = File.ReadAllLines(existingItems[i]);
                             
                             //The properties in the array created are used to assemble the item.
@@ -488,31 +474,28 @@ namespace NEA_solution
                                     FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
                                     currentItem.set_wingSprite(new Bitmap(fileHandler));
                                     fileHandler.Close();
-                                    Console.WriteLine(currentItem.get_name());
                                 }
                                 else if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + "_Head.png" == existingSprites[j])
                                 {
                                     FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
                                     currentItem.set_headSprite(new Bitmap(fileHandler));
                                     fileHandler.Close();
-                                    Console.WriteLine(currentItem.get_name());
                                 }
                                 else if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + "_Body.png" == existingSprites[j])
                                 {
                                     FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
                                     currentItem.set_bodySprite(new Bitmap(fileHandler));
                                     fileHandler.Close();
-                                    Console.WriteLine(currentItem.get_name());
                                 }
                                 else if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + "_Legs.png" == existingSprites[j])
                                 {
                                     FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
                                     currentItem.set_legsSprite(new Bitmap(fileHandler));
                                     fileHandler.Close();
-                                    Console.WriteLine(currentItem.get_name());
                                 }
                             }
 
+                            //If the item has a recipe, it is assigned here.
                             for (int j = 0; j < existingRecipes.Length; j++)
                             {
                                 if (loadedMod.get_modPath() + "\\Items\\Recipes\\" + currentItem.get_name() + "_recipe.recipe" == existingRecipes[j])
@@ -582,15 +565,16 @@ namespace NEA_solution
                         }
                     }
                     //The files for the item are deleted, and the list of items is overwritten.
-                    if (File.Exists(loadedMod.get_modPath() + "\\Items\\" + loadedItem.get_name() + ".item"))
+                    if (File.Exists(loadedMod.get_modPath() + "\\Items\\" + loadedMod.get_item(indexToDelete).get_name() + ".item"))
                     {
-                        File.Delete(loadedMod.get_modPath() + "\\Items\\" + loadedItem.get_name() + ".item");
+                        File.Delete(loadedMod.get_modPath() + "\\Items\\" + loadedMod.get_item(indexToDelete).get_name() + ".item");
                     }
-                    if (File.Exists(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedItem.get_name() + "_code.code"))
+                    if (File.Exists(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedMod.get_item(indexToDelete).get_name() + "_code.code"))
                     {
-                        File.Delete(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedItem.get_name() + "_code.code");
+                        File.Delete(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedMod.get_item(indexToDelete).get_name() + "_code.code");
                     }
                     loadedMod.set_items(tmpItems);
+                    loadedItem = null;
                     displayItem(new Item("", ""));
                     wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\start.html");
                     update_item_list();
@@ -707,6 +691,7 @@ namespace NEA_solution
             }
             catch (Exception e)
             {
+                //This should tell the user that the path does not exist, as this is the error this is designed to catch.
                 MessageBox.Show(e.Message);
             }
         }
@@ -716,21 +701,14 @@ namespace NEA_solution
             string[] recents = File.ReadAllLines(Environment.CurrentDirectory + "\\recents.txt");
             string pathsToWrite = path;
 
+            //This loop ensures there are at maximum 5 unique paths listed.
             int checkPaths = 0;
-            Console.WriteLine(recents.Length);
             while (checkPaths < recents.Length && checkPaths < 5)
             {
                 if (recents[checkPaths] != path)
                 {
                     pathsToWrite += "\r\n" + recents[checkPaths];
-                    Console.WriteLine("wrote " + recents[checkPaths]);
-
                 }
-                else
-                {
-                    Console.WriteLine("did not write " + recents[checkPaths]);
-                }
-                Console.WriteLine(checkPaths);
                 checkPaths++;
             }
             File.WriteAllText(Environment.CurrentDirectory + "\\recents.txt", pathsToWrite);
@@ -746,7 +724,6 @@ namespace NEA_solution
         {
             if (loadedItem != null)
             {
-
                 displayItem(loadedItem);
                 update_item_list();
             }
@@ -768,7 +745,7 @@ namespace NEA_solution
             }
             else { hasExportPath = false; }
             //This checks for the export directory being set. If not, the user is prompted to set one.
-            //validate if the mod is going to overwrite the editable files: do they have the same name.
+            
             if (loadedMod.get_name() != "")
             {
                 if (hasExportPath)
@@ -785,6 +762,7 @@ namespace NEA_solution
 
                     for (int i = 0;i < itemsToExport.Length; i++)
                     {
+                        //This ensures each item has all the sprites they require.
                         slot = codeGenerator.get_slot(itemsToExport[i]);
                         bmp = itemsToExport[i].get_sprite();
                         if (bmp == null)
@@ -809,6 +787,7 @@ namespace NEA_solution
                         }
                     }
 
+                    //At this point, all the checks to ensure the mod is valid have been run, so it will return if it is invalid.
                     if (!canExport)
                     {
                         string tmpString = "The following items cannot be exported:\n";
@@ -817,6 +796,8 @@ namespace NEA_solution
                             tmpString += "\u2022 " + incompleteItems[i] + "\n";
                         }
                         tmpString += "Please ensure all items have sprites, details, and code.";
+                        
+                        //The user is told which item is the problem.
                         MessageBox.Show(tmpString);
                         return;
                     }
@@ -842,6 +823,11 @@ namespace NEA_solution
 
                     File.WriteAllText(path + "\\" + loadedMod.get_name() + ".csproj", File.ReadAllText(@"projectConfig.txt"));
 
+                    /*
+                     * The localisation string contains user facing data, mainly display names.
+                     * While it would be nice to add functionality to support multiple languages,
+                     * this is a fairly unlikely scenario for my target users, so I have not implemented it.
+                     */
                     localizationString += "Mods: {\r\n" + loadedMod.get_name() + ": {\r\nItems: {\r\n";
                     for (int i = 0; i < itemsToExport.Length; i++)
                     {
@@ -894,6 +880,11 @@ namespace NEA_solution
                         {
                             File.WriteAllText(path + "\\Tiles\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                         }
+                        
+                        /*
+                         * The sprites are written to files here. Each item has a main sprite, then
+                         * other sprites are checked for and saved.
+                         */
                         bmp = itemsToExport[i].get_sprite();
                         if (bmp == null)
                         {
@@ -953,7 +944,6 @@ namespace NEA_solution
                         }
                     }
 
-                    //make this the last thing that runs
                     MessageBox.Show("Export complete: the mod will be available in tModLoader");
                 }
                 else
@@ -976,8 +966,8 @@ namespace NEA_solution
 
         public async void displayItem(Item loadedItem)
         {
+            //If the Blockly editor needs to be changed, it is. The correct buttons are enabled or disabled.
             string prevSource = wvCode.Source.ToString();
-            //these paths need to be made relative to the programs location
             if (loadedItem.get_type() == "Item")
             {
                 wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\tool_editor.html");
@@ -1002,18 +992,9 @@ namespace NEA_solution
                 txtTooltip.Enabled = false;
                 btnRecipe.Enabled = false;
             }
-            else
-            {
-                Console.WriteLine("please update type");
-            }
-            /* Tidy this up. The constant delay works, but isn't a good way of doing it. Make it wait
-             * on a value being true.
-             */
 
-            //loads the details of the item onto the screen
-
+            //Here, it checks to see if the item has an additional sprite, and enables the button to change it.
             string type = GetTypeOfItem(loadedItem);
-
             if (type == "body")
             {
                 btnAdditionalSprites.Enabled = true;
@@ -1036,10 +1017,10 @@ namespace NEA_solution
             }
 
 
+            //This waits for the webView componenent to be ready before displaying the item.
             if (prevSource != wvCode.Source.ToString())
             {
                 wvready = false;
-
             }
 
             while (!wvready)
@@ -1053,13 +1034,11 @@ namespace NEA_solution
             txtTooltip.Text = theItem.get_tooltip();
             pbSprite.Refresh();
             sendData();
-
             unlock_controls();
         }
 
         async void InitWebview()
         {
-            await wvCode.EnsureCoreWebView2Async(null);
             await wvCode.EnsureCoreWebView2Async(null);
         }
 
@@ -1083,7 +1062,10 @@ namespace NEA_solution
             await wvCode.ExecuteScriptAsync("clear()");
         }
 
-        //these need to lock the controls at certain points where access to the buttons would cause issues
+        /*
+         * These are needed to lock the controls at certain points where access
+         * to the buttons would cause issues, predominantly during saving.
+         */
         public void lock_controls()
         {
             btnChangeSprite.Enabled = false;
@@ -1107,6 +1089,8 @@ namespace NEA_solution
             tbSave.Enabled = true;
             fileSaveMod.Enabled = true;
             wvCode.Enabled = true;
+            
+            //This has to check whether or not the additional sprite button should be enabled.
             CodeGenerator codeGenerator = new CodeGenerator();
             if (loadedItem != null)
             {
@@ -1133,7 +1117,10 @@ namespace NEA_solution
             {
                 Bitmap theImage = theItem.get_sprite();
                 Graphics g = e.Graphics;
+                
+                //As this will be using mostly pixel art, this prevents bluring instead of sharp edges.
                 e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+
                 if (theItem.get_sprite() != null)
                 {
                     double picBoxWidth = pbSprite.Width;
@@ -1184,7 +1171,7 @@ namespace NEA_solution
 
         private void btnChangeSprite_Click(object sender, EventArgs e)
         {
-            //this opens a file dialog to let the user select a new sprite, then refreshes the pic box
+            //This opens a file dialog to let the user select a new sprite, then refreshes the picture box.
             if (theItem != null)
             {
                 OpenFileDialog openSpriteDialog = new OpenFileDialog();

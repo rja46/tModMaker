@@ -119,6 +119,10 @@ function loadData(theData){
                  {
                      "kind": "block",
                      "type": "wing_hover"
+                 },
+                 {
+                     "kind": "block",
+                     "type": "grant_effect"
                  }
              ]
          },
@@ -993,7 +997,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 165,
-        "tooltip": "",
+        "tooltip": "Makes the item display on the corresponding slot on the body",
         "helpUrl": ""
     },
     {
@@ -1009,8 +1013,8 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 360,
-        "tooltip": "",
-        "helpUrl": ""
+        "tooltip": "Places an existing tile",
+        "helpUrl": "https://terraria.wiki.gg/wiki/Tile_IDs/Part1"
     },
     {
         "type": "create_custom_tile",
@@ -1025,8 +1029,31 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 360,
-        "tooltip": "",
+        "tooltip": "Places a custom tile",
         "helpUrl": ""
+    },
+    {
+        "type": "grant_effect",
+        "message0": "Grant player %1 effect for %2 seconds",
+        "args0": [
+            {
+                "type": "field_input",
+                "name": "effect",
+                "text": "default"
+            },
+            {
+                "type": "field_number",
+                "name": "time",
+                "value": 0,
+                "min": 0,
+                "precision": 1
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 330,
+        "tooltip": "Grants the player a status effect",
+        "helpUrl": "https://terraria.wiki.gg/wiki/Buff_IDs"
     }
 ]);
 

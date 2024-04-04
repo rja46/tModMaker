@@ -67,11 +67,6 @@ namespace NEA_solution
             currentItem.quantity = (int)numQuantity.Value;
         }
 
-        private void lbIngredients_SelectedValueChanged(object sender, EventArgs e)
-        {
-            Console.WriteLine(lbIngredients.SelectedIndex);
-        }
-
         private void RecipeEditor_FormClosing(object sender, FormClosingEventArgs e)
         {
             outputArray = IngredientsList.ToArray();

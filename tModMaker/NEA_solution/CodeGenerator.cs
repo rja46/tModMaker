@@ -12,6 +12,7 @@ namespace NEA_solution
 {
     internal class CodeGenerator
     {
+        //This algorithm will only return the final slot that is assigned in code.
         public string get_slot(Item item)
         {
             string slot = string.Empty;
@@ -73,7 +74,6 @@ namespace NEA_solution
                 "\r\nusing Terraria.ModLoader.Utilities;";
 
             string itemType = item.get_type();
-            Console.WriteLine(itemType);
             if (itemType == "Item")
             {
                 generatedCode += "\r\nnamespace " + modName + ".Items";
@@ -190,7 +190,6 @@ namespace NEA_solution
                         break;
 
                     case "set_player_stat":
-                        //defence doesnt work
                         set_player_stat set_Player_Stat = JsonSerializer.Deserialize<set_player_stat>(blocksAsStrings[i]);
                         UpdateAccessory += "\r\n\t\t\tplayer." + set_Player_Stat.stat + " = " + set_Player_Stat.value + ";";
                         isEquipable = true;
@@ -245,6 +244,11 @@ namespace NEA_solution
                         setDefaults += "\r\n\t\t\tItem.createTile = ModContent.TileType<" + create_Custom_Tile.tileName + ">();";
                         break;
 
+                    case "grant_effect":
+                        grant_effect grant_Effect = JsonSerializer.Deserialize<grant_effect>(blocksAsStrings[i]);
+                        setDefaults += "\r\n\t\t\tItem.buffType = BuffID." + grant_Effect.effect + ";";
+                        setDefaults += "\r\n\t\t\tItem.buffTime =" + grant_Effect.time * 60 + ";";
+                        break;
 
 
                     //Projectile class blocks
@@ -378,6 +382,7 @@ namespace NEA_solution
                 }
             }
 
+            //All these if statements ensure the formatting is correct.
             if (slot != null)
             {
                 generatedCode += "\r\n\t[AutoloadEquip(EquipType." + slot + ")]";
@@ -426,7 +431,6 @@ namespace NEA_solution
                 generatedCode += "\r\n\t\tpublic override void SetStaticDefaults()\r\n\t\t{\r\n" + SetStaticDefaults + "\r\n\t\t}";
             }
 
-            //I need to make it possible to add the second sprite for wings.
             verticalWingsSpeeds = "\r\n\t\tpublic override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising," +
                 "\r\n\t\tref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)" +
                 "\r\n\t\t{" +
@@ -453,7 +457,7 @@ namespace NEA_solution
                 }
                 generatedCode += "\r\n\t\t\telse { return \"oh no\"; }";
                 generatedCode += "\r\n\t\t}";
-                setDefaults += "\r\n\t\tNPC.townNPC = true;";
+                setDefaults += "\r\n\t\t\tNPC.townNPC = true;";
             }
 
             if (hasShop)
@@ -461,6 +465,7 @@ namespace NEA_solution
                 generatedCode += "\r\n\t\tpublic override void SetChatButtons(ref string button, ref string button2) {";
                 generatedCode += "\r\n\t\t\tbutton = \"Shop\";";
                 generatedCode += "\r\n\t\t}";
+                setDefaults += "\r\n\t\t\tNPC.townNPC = true;";
             }
 
             if (spawnrate != "")
@@ -478,7 +483,7 @@ namespace NEA_solution
                 generatedCode += "\r\n\t\tpublic override void UpdateAccessory(Player player, bool hideVisual)\r\n\t\t{\r\n" + UpdateAccessory + "\r\n\t\t}";
             }
 
-            //adds recipes
+            //The recipes are added here.
             if (itemType == "Item")
             {
                 generatedCode += "\r\n\t\tpublic override void AddRecipes() \r\n\t\t{" +
@@ -544,6 +549,13 @@ namespace NEA_solution
             bool reading = false;
             int count = 0;
 
+            //An ID can contain '}', which causes the program to misregister blocks, so they must be removed.
+            do
+            {
+                contents = contents.Remove(contents.IndexOf("\"id\""), 28);
+            }
+            while (contents.Contains("\"id\""));
+
             //This first loop checks for the type of each block and add them to an array.
             for (int i = 0; i < contents.Length; i++)
             {
@@ -574,10 +586,11 @@ namespace NEA_solution
                     reading = true;
                 }
 
+                //still doesnt work
                 if (reader.Contains("}") && reading)
-                {
-                    reading = false;
+                { 
                     blocksList[count] += reader;
+                    reading = false;
                     count++;
                 }
             }
@@ -589,15 +602,11 @@ namespace NEA_solution
                 {
                     blocksList[i] = blocksList[i].Trim(',');
                     blocksList[i] += '}';
-                    Console.WriteLine(blocksList[i]);
                 }
             }
 
             string[] blocks = blocksList.ToArray();
-            foreach (string block in blocks)
-            {
-                Console.WriteLine(block);
-            }
+
             return blocks;
         }
     }

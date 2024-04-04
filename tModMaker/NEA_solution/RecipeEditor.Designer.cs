@@ -62,7 +62,6 @@
             this.lbIngredients.Size = new System.Drawing.Size(120, 147);
             this.lbIngredients.TabIndex = 3;
             this.lbIngredients.SelectedIndexChanged += new System.EventHandler(this.lbIngredients_SelectedIndexChanged);
-            this.lbIngredients.SelectedValueChanged += new System.EventHandler(this.lbIngredients_SelectedValueChanged);
             // 
             // btnAdd
             // 

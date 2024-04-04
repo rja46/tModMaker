@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace NEA_solution
 {
+    //These are definitions of blocks that can have data deserialised into them.
     internal class GenericBlock
     {
         public string type { get; set; }
@@ -260,5 +261,11 @@ namespace NEA_solution
     {
         public string item { get; set; }
         public int value { get; set; }
+    }
+
+    internal class grant_effect : GenericBlock
+    {
+        public string effect { get; set; }
+        public int time { get; set; }
     }
 }
