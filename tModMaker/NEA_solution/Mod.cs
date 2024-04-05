@@ -14,6 +14,7 @@ namespace NEA_solution
         private string description;
         private string author;
         private string modPath;
+        private double version;
 
         public Mod(string name, string modPath)
         {
@@ -22,6 +23,7 @@ namespace NEA_solution
             items = new Item[0];
             author = string.Empty;
             description = string.Empty;
+            version = 0;
         }
 
         public void add_item(Item item)
@@ -52,11 +54,13 @@ namespace NEA_solution
         public string get_author() { return author;}
         public string get_modPath() {  return modPath;}
         public int get_item_number() { return items.Length; }
+        public double get_version() { return version;}
         public void set_name(string name) { this.name = name.Replace('\u0020', '_');}
         public void set_author (string  author) { this.author = author;}
         public void set_description(string description) {  this.description = description;}
         public void set_modPath(string modPath) { this.modPath = modPath;}
         public void set_items(Item[] items) { this.items = items;}
+        public void set_version(double version) {  this.version = version;}
 
         public string[,] get_items_for_display()
         {

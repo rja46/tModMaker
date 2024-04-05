@@ -15,12 +15,14 @@ namespace NEA_solution
         public string name;
         public string description;
         public string author;
-        public EditDetailsDialog(string name, string author, string description)
+        public double version;
+        public EditDetailsDialog(string name, string author, string description, double version)
         {
             InitializeComponent();
             txtAuthor.Text = author;
             txtDescription.Text = description;
             txtName.Text = name;
+            numVersion.Value = (decimal)version;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
         }
@@ -30,6 +32,7 @@ namespace NEA_solution
             name = txtName.Text;
             description = txtDescription.Text;
             author = txtAuthor.Text;
+            version = (double)numVersion.Value;
         }
     }
 }

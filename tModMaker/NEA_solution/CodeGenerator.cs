@@ -550,11 +550,14 @@ namespace NEA_solution
             int count = 0;
 
             //An ID can contain '}', which causes the program to misregister blocks, so they must be removed.
-            do
+            if (contents != "{}")
             {
-                contents = contents.Remove(contents.IndexOf("\"id\""), 28);
+                do
+                {
+                    contents = contents.Remove(contents.IndexOf("\"id\""), 28);
+                }
+                while (contents.Contains("\"id\""));
             }
-            while (contents.Contains("\"id\""));
 
             //This first loop checks for the type of each block and add them to an array.
             for (int i = 0; i < contents.Length; i++)

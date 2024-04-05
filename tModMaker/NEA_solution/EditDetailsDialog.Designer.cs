@@ -36,6 +36,9 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
+            this.lblVersion = new System.Windows.Forms.Label();
+            this.numVersion = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numVersion)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
@@ -57,7 +60,7 @@
             this.txtDescription.Location = new System.Drawing.Point(15, 77);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(264, 89);
+            this.txtDescription.Size = new System.Drawing.Size(264, 72);
             this.txtDescription.TabIndex = 2;
             // 
             // lblName
@@ -90,7 +93,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(204, 172);
+            this.btnCancel.Location = new System.Drawing.Point(204, 181);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 6;
@@ -100,7 +103,7 @@
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(123, 172);
+            this.btnOK.Location = new System.Drawing.Point(123, 181);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 7;
@@ -108,11 +111,35 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // lblVersion
+            // 
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Location = new System.Drawing.Point(12, 157);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(45, 13);
+            this.lblVersion.TabIndex = 8;
+            this.lblVersion.Text = "Version:";
+            // 
+            // numVersion
+            // 
+            this.numVersion.DecimalPlaces = 1;
+            this.numVersion.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.numVersion.Location = new System.Drawing.Point(56, 155);
+            this.numVersion.Name = "numVersion";
+            this.numVersion.Size = new System.Drawing.Size(223, 20);
+            this.numVersion.TabIndex = 9;
+            // 
             // EditDetailsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 208);
+            this.ClientSize = new System.Drawing.Size(298, 213);
+            this.Controls.Add(this.numVersion);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblDescription);
@@ -124,6 +151,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EditDetailsDialog";
             this.Text = "EditDetailsDialog";
+            ((System.ComponentModel.ISupportInitialize)(this.numVersion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,5 +167,7 @@
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Label lblVersion;
+        private System.Windows.Forms.NumericUpDown numVersion;
     }
 }

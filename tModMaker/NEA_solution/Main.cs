@@ -282,7 +282,8 @@ namespace NEA_solution
              */
             modFile += loadedMod.get_name() + "|";
             modFile += loadedMod.get_description() + "|";
-            modFile += loadedMod.get_author();
+            modFile += loadedMod.get_author() + "|";
+            modFile += loadedMod.get_version();
 
             /*
              * The progress bar is set up to make a step for each item in the mod.
@@ -528,13 +529,14 @@ namespace NEA_solution
         private void modDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //This opens a dialog where the user can edit the details of the mod.
-            EditDetailsDialog editDetailsDialog = new EditDetailsDialog(loadedMod.get_name(), loadedMod.get_author(), loadedMod.get_description());
+            EditDetailsDialog editDetailsDialog = new EditDetailsDialog(loadedMod.get_name(), loadedMod.get_author(), loadedMod.get_description(),loadedMod.get_version());
             DialogResult result = editDetailsDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
                 loadedMod.set_name(editDetailsDialog.name);
                 loadedMod.set_author(editDetailsDialog.author);
                 loadedMod.set_description(editDetailsDialog.description);
+                loadedMod.set_version(editDetailsDialog.version);
                 this.Text = loadedMod.get_name();
             }
         }
@@ -642,6 +644,7 @@ namespace NEA_solution
                      theMod = new Mod(modDetailsSplit[0], folderDialog.SelectedPath);
                      theMod.set_description(modDetailsSplit[1]);
                      theMod.set_author(modDetailsSplit[2]);
+                     theMod.set_version(Convert.ToDouble(modDetailsSplit[3]));
                      loadedMod = theMod;
                      Text = "tModMaker - " + loadedMod.get_name();
                      displayItem(new Item("", ""));
@@ -679,6 +682,7 @@ namespace NEA_solution
                     theMod = new Mod(modDetailsSplit[0], path);
                     theMod.set_description(modDetailsSplit[1]);
                     theMod.set_author(modDetailsSplit[2]);
+                    theMod.set_version(Convert.ToDouble(modDetailsSplit[3]));
                     loadedMod = theMod;
                     Text = "tModMaker - " + loadedMod.get_name();
                     displayItem(new Item("", ""));
@@ -816,8 +820,13 @@ namespace NEA_solution
                     Directory.CreateDirectory(path + "\\Tiles");
 
                     File.WriteAllText(path + "\\description.txt", loadedMod.get_description());
-                    //add functionality to enter a version number
-                    File.WriteAllText(path + "\\build.txt", "displayName = " + loadedMod.get_name() + "\nauthor = " + loadedMod.get_author() + "\nversion = 0.1");
+                    DialogResult messageResult = MessageBox.Show("Increment version number?", "Increment version",MessageBoxButtons.YesNo);
+                    if (messageResult == DialogResult.Yes)
+                    {
+                        loadedMod.set_version(loadedMod.get_version() + 0.1);
+                    }
+
+                    File.WriteAllText(path + "\\build.txt", "displayName = " + loadedMod.get_name() + "\nauthor = " + loadedMod.get_author() + "\nversion = " + loadedMod.get_version());
 
                     File.WriteAllText(path + "\\" + loadedMod.get_name() + ".cs", "using Terraria.ModLoader;\r\n\r\nnamespace " + loadedMod.get_name() + "\r\n{\r\n\tpublic class " + loadedMod.get_name() + " : Mod\r\n\t{\r\n\t}\r\n}");
 
