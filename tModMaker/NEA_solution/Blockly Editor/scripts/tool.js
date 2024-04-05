@@ -85,6 +85,10 @@ function loadData(theData){
                      "kind": "block",
                      "type": "no_melee"
                  },
+                 {
+                     "kind": "block",
+                     "type": "hit_effect"
+                 }
              ]
          },
          {
@@ -1053,6 +1057,29 @@ Blockly.common.defineBlocksWithJsonArray([
         "nextStatement": null,
         "colour": 330,
         "tooltip": "Grants the player a status effect",
+        "helpUrl": "https://terraria.wiki.gg/wiki/Buff_IDs"
+    },
+    {
+        "type": "hit_effect",
+        "message0": "Inflict %1 effect on hit for %2 seconds",
+        "args0": [
+            {
+                "type": "field_input",
+                "name": "effect",
+                "text": "default"
+            },
+            {
+                "type": "field_number",
+                "name": "time",
+                "value": 0,
+                "min": 0,
+                "precision": 1
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 120,
+        "tooltip": "",
         "helpUrl": "https://terraria.wiki.gg/wiki/Buff_IDs"
     }
 ]);

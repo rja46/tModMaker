@@ -54,6 +54,9 @@ namespace NEA_solution
             string AI = "";
             bool chasePlayer = false;
             string spawnrate = "";
+            string NPCloot = "";
+            string onHit = "";
+            string[] vanillaItems = File.ReadAllLines(Environment.CurrentDirectory + "\\itemIDs.txt");
 
 
             /*
@@ -71,7 +74,8 @@ namespace NEA_solution
                 "\r\nusing Terraria.ModLoader;" +
                 "\r\nusing System;" +
                 "\r\nusing System.Collections.Generic;" +
-                "\r\nusing Terraria.ModLoader.Utilities;";
+                "\r\nusing Terraria.ModLoader.Utilities;" +
+                "\r\nusing Terraria.GameContent.ItemDropRules;";
 
             string itemType = item.get_type();
             if (itemType == "Item")
@@ -250,6 +254,11 @@ namespace NEA_solution
                         setDefaults += "\r\n\t\t\tItem.buffTime =" + grant_Effect.time * 60 + ";";
                         break;
 
+                    case "hit_effect":
+                        hit_effect hit_Effect = JsonSerializer.Deserialize<hit_effect>(blocksAsStrings[i]);
+                        onHit += "\r\n\t\t\ttarget.AddBuff(BuffID." + hit_Effect.effect + ", " + hit_Effect.time * 60 + ");";
+                        break;
+
 
                     //Projectile class blocks
                     case "projectile_basic":
@@ -354,6 +363,19 @@ namespace NEA_solution
                         shopItems.Add(add_Shop_Item.item);
                         shopValues.Add(add_Shop_Item.value);
                         hasShop = true;
+                        break;
+
+                    case "add_loot_drop":
+                        add_loot_drop add_Loot_Drop = JsonSerializer.Deserialize<add_loot_drop>(blocksAsStrings[i]);
+                        if (vanillaItems.Contains(add_Loot_Drop.item))
+                        {
+                            NPCloot += "\r\n\t\t\tnpcLoot.Add(ItemDropRule.Common(ItemID." + add_Loot_Drop.item + "," + add_Loot_Drop.rate + "," + add_Loot_Drop.min + "," + add_Loot_Drop.max + "));";
+                        }
+                        else
+                        {
+                            //This currently doesn't work - I'm not sure about the referencing.
+                            NPCloot += "\r\n\t\t\tnpcLoot.Add(ItemDropRule.Common(ModItems." + add_Loot_Drop.item + "," + add_Loot_Drop.rate + "," + add_Loot_Drop.min + "," + add_Loot_Drop.max + "));";
+                        }
                         break;
 
 
@@ -536,6 +558,22 @@ namespace NEA_solution
                 generatedCode += "\r\n\t\t}";
             }
 
+            if (NPCloot != "")
+            {
+                generatedCode += "\r\n\t\tpublic override void ModifyNPCLoot(NPCLoot npcLoot)";
+                generatedCode += "\r\n\t\t{";
+                generatedCode += NPCloot;
+                generatedCode += "\r\n\t\t}";
+            }
+
+            if (onHit != "")
+            {
+                generatedCode += "\r\n\t\tpublic override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)";
+                generatedCode += "\r\n\t\t{";
+                generatedCode += onHit;
+                generatedCode += "\r\n\t\t}";
+            }
+
             generatedCode += "\r\n\t}\r\n}";
             
             return generatedCode;
@@ -549,14 +587,10 @@ namespace NEA_solution
             bool reading = false;
             int count = 0;
 
-            //An ID can contain '}', which causes the program to misregister blocks, so they must be removed.
-            if (contents != "{}")
+            //An ID can contain '}', which causes the program to misidentify blocks, so they must be removed.
+            while (contents.Contains("\"id\""))
             {
-                do
-                {
-                    contents = contents.Remove(contents.IndexOf("\"id\""), 28);
-                }
-                while (contents.Contains("\"id\""));
+                contents = contents.Remove(contents.IndexOf("\"id\""), 28);
             }
 
             //This first loop checks for the type of each block and add them to an array.

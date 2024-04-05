@@ -268,4 +268,19 @@ namespace NEA_solution
         public string effect { get; set; }
         public int time { get; set; }
     }
+
+    internal class add_loot_drop : GenericBlock
+    {
+        public int min { get; set; }
+        public int max { get; set; }
+        public string item { get; set; }
+        public string amount { get; set; }
+        public int rate { get; set; }
+    }
+
+    internal class hit_effect : GenericBlock
+    {
+        public string effect { get; set; }
+        public int time { get; set; }
+    }
 }

@@ -53,6 +53,10 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "spawn_rate_multiplier"
+                },
+                {
+                    "kind": "block",
+                    "type": "add_loot_drop"
                 }
             ]
         },
@@ -601,6 +605,43 @@ Blockly.common.defineBlocksWithJsonArray([
         "colour": 250,
         "tooltip": "",
         "helpUrl": "https://terraria.fandom.com/wiki/Item_IDs"
+    },
+    {
+        "type": "add_loot_drop",
+        "message0": "Drop %1 to %2 %3 with a 1 in %4 chance",
+        "args0": [
+            {
+                "type": "field_number",
+                "name": "min",
+                "value": 0,
+                "min": 0,
+                "precision": 1
+            },
+            {
+                "type": "field_number",
+                "name": "max",
+                "value": 0,
+                "min": 0,
+                "precision": 1
+            },
+            {
+                "type": "field_input",
+                "name": "item",
+                "text": "item"
+            },
+            {
+                "type": "field_number",
+                "name": "rate",
+                "value": 0,
+                "min": 0,
+                "precision": 1
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
     }
 ]);
 
