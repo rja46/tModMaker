@@ -1,0 +1,606 @@
+-65	Big Hornet Stingy	Hornet
+-64	Little Hornet Stingy	Hornet
+-63	Big Hornet Spikey	Hornet
+-62	Little Hornet Spikey	Hornet
+-61	Big Hornet Leafy	Hornet
+-60	Little Hornet Leafy	Hornet
+-59	Big Hornet Honey	Hornet
+-58	Little Hornet Honey	Hornet
+-57	Big Hornet Fatty	Hornet
+-56	Little Hornet Fatty	Hornet
+-55	Big Rain Zombie	Zombie
+-54	Small Rain Zombie	Zombie
+-53	Big Pantless Skeleton	Skeleton
+-52	Small Pantless Skeleton	Skeleton
+-51	Big Misassembled Skeleton	Skeleton
+-50	Small Misassembled Skeleton	Skeleton
+-49	Big Headache Skeleton	Skeleton
+-48	Small Headache Skeleton	Skeleton
+-47	Big Skeleton	Skeleton
+-46	Small Skeleton	Skeleton
+-45	Big Female Zombie	Zombie
+-44	Small Female Zombie	Zombie
+-43	Demon Eye 2	Demon Eye
+-42	Purple Eye 2	Demon Eye
+-41	Green Eye 2	Demon Eye
+-40	Dialated Eye 2	Demon Eye
+-39	Sleepy Eye 2	Demon Eye
+-38	Cataract Eye 2	Demon Eye
+-37	Big Twiggy Zombie	Zombie
+-36	Small Twiggy Zombie	Zombie
+-35	Big Swamp Zombie	Zombie
+-34	Small Swamp Zombie	Zombie
+-33	Big Slimed Zombie	Zombie
+-32	Small Slimed Zombie	Zombie
+-31	Big Pincushion Zombie	Zombie
+-30	Small Pincushion Zombie	Zombie
+-29	Big Bald Zombie	Zombie
+-28	Small Bald Zombie	Zombie
+-27	Big Zombie	Zombie
+-26	Small Zombie	Zombie
+-25	Big Crimslime	Crimslime
+-24	Little Crimslime	Crimslime
+-23	Big Crimera	Crimera
+-22	Little Crimera	Crimera
+-21	Giant Moss Hornet	Moss Hornet
+-20	Big Moss Hornet	Moss Hornet
+-19	Little Moss Hornet	Moss Hornet
+-18	Tiny Moss Hornet	Moss Hornet
+-17	Big Stinger	Hornet
+-16	Little Stinger	Hornet
+-15	Heavy Skeleton	Armored Skeleton
+-14	Big Boned	Angry Bones
+-13	Short Bones	Angry Bones
+-12	Big Eater	Eater of Souls
+-11	Little Eater	Eater of Souls
+-10	Jungle Slime	Jungle Slime
+-9	Yellow Slime	Yellow Slime
+-8	Red Slime	Red Slime
+-7	Purple Slime	Purple Slime
+-6	Black Slime	Black Slime
+-5	Baby Slime	Baby Slime
+-4	Pinky	Pinky
+-3	Green Slime	Green Slime
+-2	Slimer2	Slimer
+-1	Slimeling	Slimeling
+1	Blue Slime	Blue Slime
+2	Demon Eye	Demon Eye
+3	Zombie	Zombie
+4	Eye of Cthulhu	Eye of Cthulhu
+5	Servant of Cthulhu	Servant of Cthulhu
+6	Eater of Souls	Eater of Souls
+7	Devourer Head	Devourer
+8	Devourer Body	Devourer
+9	Devourer Tail	Devourer
+10	Giant Worm Head	Giant Worm
+11	Giant Worm Body	Giant Worm
+12	Giant Worm Tail	Giant Worm
+13	Eater of Worlds Head	Eater of Worlds
+14	Eater of Worlds Body	Eater of Worlds
+15	Eater of Worlds Tail	Eater of Worlds
+16	Mother Slime	Mother Slime
+17	Merchant	Merchant
+18	Nurse	Nurse
+19	Arms Dealer	Arms Dealer
+20	Dryad	Dryad
+21	Skeleton	Skeleton
+22	Guide	Guide
+23	Meteor Head	Meteor Head
+24	Fire Imp	Fire Imp
+25	Burning Sphere	Burning Sphere
+26	Goblin Peon	Goblin Peon
+27	Goblin Thief	Goblin Thief
+28	Goblin Warrior	Goblin Warrior
+29	Goblin Sorcerer	Goblin Sorcerer
+30	Chaos Ball	Chaos Ball
+31	Angry Bones	Angry Bones
+32	Dark Caster	Dark Caster
+33	Water Sphere	Water Sphere
+34	Cursed Skull	Cursed Skull
+35	Skeletron Head	Skeletron
+36	Skeletron Hand	Skeletron
+37	Old Man	Old Man
+38	Demolitionist	Demolitionist
+39	Bone Serpent Head	Bone Serpent
+40	Bone Serpent Body	Bone Serpent
+41	Bone Serpent Tail	Bone Serpent
+42	Hornet	Hornet
+43	Man Eater	Man Eater
+44	Undead Miner	Undead Miner
+45	Tim	Tim
+46	Bunny	Bunny
+47	Corrupt Bunny	Corrupt Bunny
+48	Harpy	Harpy
+49	Cave Bat	Cave Bat
+50	King Slime	King Slime
+51	Jungle Bat	Jungle Bat
+52	Doctor Bones	Doctor Bones
+53	The Groom	The Groom
+54	Clothier	Clothier
+55	Goldfish	Goldfish
+56	Snatcher	Snatcher
+57	Corrupt Goldfish	Corrupt Goldfish
+58	Piranha	Piranha
+59	Lava Slime	Lava Slime
+60	Hellbat	Hellbat
+61	Vulture	Vulture
+62	Demon	Demon
+63	Blue Jellyfish	Blue Jellyfish
+64	Pink Jellyfish	Pink Jellyfish
+65	Shark	Shark
+66	Voodoo Demon	Voodoo Demon
+67	Crab	Crab
+68	Dungeon Guardian	Dungeon Guardian
+69	Antlion	Antlion
+70	Spike Ball	Spike Ball
+71	Dungeon Slime	Dungeon Slime
+72	Blazing Wheel	Blazing Wheel
+73	Goblin Scout	Goblin Scout
+74	Bird	Bird
+75	Pixie	Pixie
+77	Armored Skeleton	Armored Skeleton
+78	Mummy	Mummy
+79	Dark Mummy	Dark Mummy
+80	Light Mummy	Light Mummy
+81	Corrupt Slime	Corrupt Slime
+82	Wraith	Wraith
+83	Cursed Hammer	Cursed Hammer
+84	Enchanted Sword	Enchanted Sword
+85	Mimic	Mimic
+86	Unicorn	Unicorn
+87	Wyvern Head	Wyvern
+88	Wyvern Legs	Wyvern
+89	Wyvern Body	Wyvern
+90	Wyvern Body 2	Wyvern
+91	Wyvern Body 3	Wyvern
+92	Wyvern Tail	Wyvern
+93	Giant Bat	Giant Bat
+94	Corruptor	Corruptor
+95	Digger Head	Digger
+96	Digger Body	Digger
+97	Digger Tail	Digger
+98	Seeker Head	World Feeder
+99	Seeker Body	World Feeder
+100	Seeker Tail	World Feeder
+101	Clinger	Clinger
+102	Angler Fish	Angler Fish
+103	Green Jellyfish	Green Jellyfish
+104	Werewolf	Werewolf
+105	Bound Goblin	Bound Goblin
+106	Bound Wizard	Bound Wizard
+107	Goblin Tinkerer	Goblin Tinkerer
+108	Wizard	Wizard
+109	Clown	Clown
+110	Skeleton Archer	Skeleton Archer
+111	Goblin Archer	Goblin Archer
+112	Vile Spit	Vile Spit
+113	Wall of Flesh	Wall of Flesh
+114	Wall of Flesh Eye	Wall of Flesh
+115	The Hungry	The Hungry
+116	The Hungry II	The Hungry
+117	Leech Head	Leech
+118	Leech Body	Leech
+119	Leech Tail	Leech
+120	Chaos Elemental	Chaos Elemental
+121	Slimer	Slimer
+122	Gastropod	Gastropod
+123	Bound Mechanic	Bound Mechanic
+124	Mechanic	Mechanic
+125	Retinazer	Retinazer
+126	Spazmatism	Spazmatism
+127	Skeletron Prime	Skeletron Prime
+128	Prime Cannon	Prime Cannon
+129	Prime Saw	Prime Saw
+130	Prime Vice	Prime Vice
+131	Prime Laser	Prime Laser
+132	Bald Zombie	Zombie
+133	Wandering Eye	Wandering Eye
+134	The Destroyer	The Destroyer
+135	The Destroyer Body	The Destroyer
+136	The Destroyer Tail	The Destroyer
+137	Illuminant Bat	Illuminant Bat
+138	Illuminant Slime	Illuminant Slime
+139	Probe	Probe
+140	Possessed Armor	Possessed Armor
+141	Toxic Sludge	Toxic Sludge
+142	Santa Claus	Santa Claus
+143	Snowman Gangsta	Snowman Gangsta
+144	Mister Stabby	Mister Stabby
+145	Snow Balla	Snow Balla
+147	Ice Slime	Ice Slime
+148	Penguin	Penguin
+149	Penguin	Penguin
+150	Ice Bat	Ice Bat
+151	Lava bat	Lava Bat
+152	Giant Flying Fox	Giant Flying Fox
+153	Giant Tortoise	Giant Tortoise
+154	Ice Tortoise	Ice Tortoise
+155	Wolf	Wolf
+156	Red Devil	Red Devil
+157	Arapaima	Arapaima
+158	Vampire	Vampire
+159	Vampire	Vampire
+160	Truffle	Truffle
+161	Zombie Eskimo	Zombie Eskimo
+162	Frankenstein	Frankenstein
+163	Black Recluse	Black Recluse
+164	Wall Creeper	Wall Creeper
+165	Wall Creeper	Wall Creeper
+166	Swamp Thing	Swamp Thing
+167	Undead Viking	Undead Viking
+168	Corrupt Penguin	Corrupt Penguin
+169	Ice Elemental	Ice Elemental
+170	Pigron	Pigron
+171	Pigron	Pigron
+172	Rune Wizard	Rune Wizard
+173	Crimera	Crimera
+174	Herpling	Herpling
+175	Angry Trapper	Angry Trapper
+176	Moss Hornet	Moss Hornet
+177	Derpling	Derpling
+178	Steampunker	Steampunker
+179	Crimson Axe	Crimson Axe
+180	Pigron	Pigron
+181	Face Monster	Face Monster
+182	Floaty Gross	Floaty Gross
+183	Crimslime	Crimslime
+184	Spiked Ice Slime	Spiked Ice Slime
+185	Snow Flinx	Snow Flinx
+186	Pincushion Zombie	Zombie
+187	Slimed Zombie	Zombie
+188	Swamp Zombie	Zombie
+189	Twiggy Zombie	Zombie
+190	Cataract Eye	Demon Eye
+191	Sleepy Eye	Demon Eye
+192	Dialated Eye	Demon Eye
+193	Green Eye	Demon Eye
+194	Purple Eye	Demon Eye
+195	Lost Girl	Lost Girl
+196	Nymph	Nymph
+197	Armored Viking	Armored Viking
+198	Lihzahrd	Lihzahrd
+199	Lihzahrd	Lihzahrd
+200	Female Zombie	Zombie
+201	Headache Skeleton	Skeleton
+202	Misassembled Skeleton	Skeleton
+203	Pantless Skeleton	Skeleton
+204	Spiked Jungle Slime	Spiked Jungle Slime
+205	Moth	Moth
+206	Icy Merman	Icy Merman
+207	Dye Trader	Dye Trader
+208	Party Girl	Party Girl
+209	Cyborg	Cyborg
+210	Bee	Bee
+211	Bee	Bee
+212	Pirate Deckhand	Pirate Deckhand
+213	Pirate Corsair	Pirate Corsair
+214	Pirate Deadeye	Pirate Deadeye
+215	Pirate Crossbower	Pirate Crossbower
+216	Pirate Captain	Pirate Captain
+217	Cochineal Beetle	Cochineal Beetle
+218	Cyan Beetle	Cyan Beetle
+219	Lac Beetle	Lac Beetle
+220	Sea Snail	Sea Snail
+221	Squid	Squid
+222	Queen Bee	Queen Bee
+223	Zombie	Raincoat Zombie
+224	Flying Fish	Flying Fish
+225	Umbrella Slime	Umbrella Slime
+226	Flying Snake	Flying Snake
+227	Painter	Painter
+228	Witch Doctor	Witch Doctor
+229	Pirate	Pirate
+230	Goldfish	Goldfish
+231	Hornet Fatty	Hornet
+232	Hornet Honey	Hornet
+233	Hornet Leafy	Hornet
+234	Hornet Spikey	Hornet
+235	Hornet Stingy	Hornet
+236	Jungle Creeper	Jungle Creeper
+237	Jungle Creeper	Jungle Creeper
+238	Black Recluse	Black Recluse
+239	Blood Crawler	Blood Crawler
+240	Blood Crawler	Blood Crawler
+241	Blood Feeder	Blood Feeder
+242	Blood Jelly	Blood Jelly
+243	Ice Golem	Ice Golem
+244	Rainbow Slime	Rainbow Slime
+245	Golem	Golem
+246	Golem Head	Golem Head
+247	Golem Fist	Golem Fist
+248	Golem Fist	Golem Fist
+249	Golem Head	Golem Head
+250	Angry Nimbus	Angry Nimbus
+251	Eyezor	Eyezor
+252	Parrot	Parrot
+253	Reaper	Reaper
+254	Spore Zombie	Spore Zombie
+255	Spore Zombie	Spore Zombie
+256	Fungo Fish	Fungo Fish
+257	Anomura Fungus	Anomura Fungus
+258	Mushi Ladybug	Mushi Ladybug
+259	Fungi Bulb	Fungi Bulb
+260	Giant Fungi Bulb	Giant Fungi Bulb
+261	Fungi Spore	Fungi Spore
+262	Plantera	Plantera
+263	Plantera's Hook	Plantera's Hook
+264	Plantera's Tentacle	Plantera's Tentacle
+265	Spore	Spore
+266	Brain of Cthulhu	Brain of Cthulhu
+267	Creeper	Creeper
+268	Ichor Sticker	Ichor Sticker
+269	Rusty Armored Bones	Rusty Armored Bones
+270	Rusty Armored Bones	Rusty Armored Bones
+271	Rusty Armored Bones	Rusty Armored Bones
+272	Rusty Armored Bones	Rusty Armored Bones
+273	Blue Armored Bones	Blue Armored Bones
+274	Blue Armored Bones	Blue Armored Bones
+275	Blue Armored Bones	Blue Armored Bones
+276	Blue Armored Bones	Blue Armored Bones
+277	Hell Armored Bones	Hell Armored Bones
+278	Hell Armored Bones	Hell Armored Bones
+279	Hell Armored Bones	Hell Armored Bones
+280	Hell Armored Bones	Hell Armored Bones
+281	Ragged Caster	Ragged Caster
+282	Ragged Caster	Ragged Caster
+283	Necromancer	Necromancer
+284	Necromancer	Necromancer
+285	Diabolist	Diabolist
+286	Diabolist	Diabolist
+287	Bone Lee	Bone Lee
+288	Dungeon Spirit	Dungeon Spirit
+289	Giant Cursed Skull	Giant Cursed Skull
+290	Paladin	Paladin
+291	Skeleton Sniper	Skeleton Sniper
+292	Tactical Skeleton	Tactical Skeleton
+293	Skeleton Commando	Skeleton Commando
+294	Angry Bones	Angry Bones
+295	Angry Bones	Angry Bones
+296	Angry Bones	Angry Bones
+297	Bird	Blue Jay
+298	Bird	Cardinal
+299	Squirrel	Squirrel
+300	Mouse	Mouse
+301	Raven	Raven
+302	Slime	Slime
+303	Bunny	Bunny
+304	Hoppin' Jack	Hoppin' Jack
+305	Scarecrow	Scarecrow
+306	Scarecrow	Scarecrow
+307	Scarecrow	Scarecrow
+308	Scarecrow	Scarecrow
+309	Scarecrow	Scarecrow
+310	Scarecrow	Scarecrow
+311	Scarecrow	Scarecrow
+312	Scarecrow	Scarecrow
+313	Scarecrow	Scarecrow
+314	Scarecrow	Scarecrow
+315	Headless Horseman	Headless Horseman
+316	Ghost	Ghost
+317	Demon Eye	Demon Eye
+318	Demon Eye	Demon Eye
+319	Zombie	Zombie
+320	Zombie	Zombie
+321	Zombie	Zombie
+322	Skeleton	Skeleton
+323	Skeleton	Skeleton
+324	Skeleton	Skeleton
+325	Mourning Wood	Mourning Wood
+326	Splinterling	Splinterling
+327	Pumpking	Pumpking
+328	Pumpking	Pumpking
+329	Hellhound	Hellhound
+330	Poltergeist	Poltergeist
+331	Zombie	Zombie
+332	Zombie	Zombie
+333	Slime	Slime
+334	Slime	Slime
+335	Slime	Slime
+336	Slime	Slime
+337	Bunny	Bunny
+338	Zombie Elf	Zombie Elf
+339	Zombie Elf	Zombie Elf
+340	Zombie Elf	Zombie Elf
+341	Present Mimic	Present Mimic
+342	Gingerbread Man	Gingerbread Man
+343	Yeti	Yeti
+344	Everscream	Everscream
+345	Ice Queen	Ice Queen
+346	Santa-NK1	Santa-NK1
+347	Elf Copter	Elf Copter
+348	Nutcracker	Nutcracker
+349	Nutcracker	Nutcracker
+350	Elf Archer	Elf Archer
+351	Krampus	Krampus
+352	Flocko	Flocko
+353	Stylist	Stylist
+354	Webbed Stylist	Webbed Stylist
+355	Firefly	Firefly
+356	Butterfly	Butterfly
+357	Worm	Worm
+358	Lightning Bug	Lightning Bug
+359	Snail	Snail
+360	Glowing Snail	Glowing Snail
+361	Frog	Frog
+362	Duck	Duck
+363	Duck	Duck
+364	Duck	Duck
+365	Duck	Duck
+366	Scorpion	Scorpion
+367	Scorpion	Scorpion
+368	Travelling Merchant	Traveling Merchant
+369	Angler	Angler
+370	Duke Fishron	Duke Fishron
+371	Detonating Bubble	Detonating Bubble
+372	Sharkron	Sharkron
+373	Sharkron2	Sharkron
+374	Truffle Worm	Truffle Worm
+375	Truffle Worm Digger	Truffle Worm
+376	Sleeping Angler	Sleeping Angler
+377	Grasshopper	Grasshopper
+378	Chattering Teeth Bomb	Chattering Teeth Bomb
+379	Lunatic Cultist Archer	Blue Cultist Archer
+380	Lunatic Cultist Archer	White Cultist Archer
+381	Martian Ranger	Brain Scrambler
+382	Martian Ranger	Ray Gunner
+383	Martian Officer	Martian Officer
+384	Bubble Shield	Bubble Shield
+385	Martian Grunty	Gray Grunt
+386	Martian Engineer	Martian Engineer
+387	Tesla Turret	Tesla Turret
+388	Martian Drone	Martian Drone
+389	Gigazapper	Gigazapper
+390	Scutlix Gunner	Scutlix Gunner
+391	Scutlix	Scutlix
+392	Martian Saucer	Martian Saucer
+393	Saucer Turret	Martian Saucer Turret
+394	Saucer Cannon	Martian Saucer Cannon
+395	Saucer Core	Martian Saucer
+396	Moon Lord Head	Moon Lord
+397	Moon Lord Hand	Moon Lord's Hand
+398	Moon Lord Core	Moon Lord's Core
+399	Martian Probe	Martian Probe
+400	True Eye of Cthulhu	
+401	Moon Leech Clot	
+402	Milkyway Weaver	Milkyway Weaver
+405	Star Cell	Star Cell
+406	Star Cell	Star Cell
+407	Flow Invader	Flow Invader
+409	Twinkle Popper	Twinkle Popper
+410	Twinkle	Twinkle
+411	Stardust Soldier	Stargazer
+412	Crawltipede	Crawltipede
+413	Crawltipede	Crawltipede
+414	Crawltipede	Crawltipede
+415	Drakomire	Drakomire
+416	Drakomire Rider	Drakomire Rider
+417	Sroller	Sroller
+418	Corite	Corite
+419	Solar Solenian	Selenian
+420	Nebula Floater	Nebula Floater
+421	Nebula Headcrab	Brain Suckler
+422	Vortex Tower	Vortex Pillar
+423	Nebula Beast	Evolution Beast
+424	Nebula Soldier	Predictor
+425	Vortex Rifleman	Storm Diver
+426	Alien Queen	Alien Queen
+427	Alien Hornet	Alien Hornet
+428	Alien Larva	Alien Larva
+429	Vortex Soldier	Vortexian
+430	Zombie	Zombie
+431	Zombie Eskimo	Zombie Eskimo
+432	Pincushion Zombie	Zombie
+433	Slimed Zombie	Zombie
+434	Swamp Zombie	Zombie
+435	Twiggy Zombie	Zombie
+436	Female Zombie	Zombie
+437	Lunar Tablet	Mysterious Tablet
+438	Lunar Devote	Lunatic Devote
+439	Ancient Cultist	Lunatic Cultist
+440	Ancient Cultist	Lunatic Cultist
+441	Tax Collector	
+442	Gold Bird	Gold Bird
+443	Gold Bunny	Gold Bunny
+444	Gold Butterfly	Gold Butterfly
+445	Gold Frog	Gold Frog
+446	Gold Grasshopper	Gold Grasshopper
+447	Gold Mouse	Gold Mouse
+448	Gold Worm	Gold Worm
+449	Skeleton	Skeleton
+450	Headache Skeleton	Skeleton
+451	Misassembled Skeleton	Skeleton
+452	Pantless Skeleton	Skeleton
+453	Skeleton Merchant	
+454	Phantasm Dragon Head	Phantasm Dragon
+455	Phantasm Dragon Body	Phantasm Dragon
+456	Phantasm Dragon Body	Phantasm Dragon
+457	Phantasm Dragon Body	Phantasm Dragon
+458	Phantasm Dragon Body	Phantasm Dragon
+459	Phantasm Dragon Tail	Phantasm Dragon
+460	Butcher	Butcher
+461	Creature from the Deep	Creature from the Deep
+462	Fritz	Fritz
+463	Nailhead	Nailhead
+464	Crimson Bunny	Crimtane Bunny
+465	Crimson Goldfish	Crimtane Goldfish
+466	Psycho	Psycho
+467	Deadly Sphere	Deadly Sphere
+468	Dr. Man Fly	Dr. Man Fly
+469	The Possessed	The Possessed
+470	Crimtane Penguin	Vicious Penguin
+471	Goblin Summoner	Goblin Summoner
+472	Shadowflame Apparition	Shadowflame Apparation
+473	Big Mimic	Corrupt Mimic
+474	Big Mimic	Crimson Mimic
+475	Big Mimic	Hallowed Mimic
+476	Big Mimic	Jungle Mimic
+477	Mothron	Mothron
+478	Mothron Egg	Mothron Egg
+479	Mothron Spawn	Baby Mothron
+480	Medusa	Medusa
+481	Hoplite	Hoplite
+482	Grolem	Granite Golem
+483	Grelimental	Granite Elemental
+484	Grub	Enchanted Nightcrawler
+485	Grub	Grubby
+486	Grub	Sluggy
+487	Grub	Buggy
+488	Target Dummy	Target Dummy
+489	Blood Zombie	Blood Zombie
+490	Drippler	Drippler
+491	Flying Dutchman	
+492	Dutchman Cannon	
+493	Stardust Tower	Stardust Pillar
+494	Crawdad	Crawdad
+495	Crawdad	Crawdad
+496	Giant Shelly	Giant Shelly
+497	Giant Shelly	Giant Shelly
+498	Salamander	Salamander
+499	Salamander	Salamander
+500	Salamander	Salamander
+501	Salamander	Salamander
+502	Salamander	Salamander
+503	Salamander	Salamander
+504	Salamander	Salamander
+505	Salamander	Salamander
+506	Salamander	Salamander
+507	Nebula Tower	Nebula Pillar
+508	Antlion Charger	Antlion Charger
+509	Antlion Swarmer	Antlion Swarmer
+510	Dune Splicer Head	Dune Splicer
+511	Dune Splicer Body	Dune Splicer
+512	Dune Splicer Tail	Dune Splicer
+513	Tomb Crawler Head	Tomb Crawler
+514	Tomb Crawler Body	Tomb Crawler
+515	Tomb Crawler Tail	Tomb Crawler
+516	Solar Flare	Solar Flare
+517	Solar Tower	Solar Pillar
+518	Solar Spearman	Drakanian
+519	Solar Goop	Solar Fragment
+520	Martian Walker	Martian Walker
+521	Ancient Vision	Ancient Vision
+522	Ancient Light	Ancient Light
+523	Ending's Prophecy	Ancient Doom
+524	Ghoul	Ghoul
+525	Ghoul	Vile Ghoul
+526	Ghoul	Tainted Ghoul
+527	Ghoul	Dreamer Ghoul
+528	Lamia	Lamia
+529	Lamia	Lamia
+530	Ravager Scorpion	Sand Poacher
+531	Ravager Scorpion	Sand Poacher
+532	Basilisk	Basilisk
+533	Desert Spirit	Desert Spirit
+534	Tortured Soul	Tortured Soul
+535	Spiked Slime	Spiked Slime
+536	The Bride	The Bride
+537	Sand Slime	Sand Slime
+538	Squirrel	Red Squirrel
+539	Squirrel	Gold Squirrel
+540	Bunny	Bunny
+541	Sand Elemental	Sand Elemental
+542	Sand Shark	Sand Shark
+543	Bone Biter	Bone Biter
+544	Flesh Reaver	Flesh Reaver
+545	Crystal Thresher	Crystal Thresher
+546	Angry Tumbler	Angry Tumbler

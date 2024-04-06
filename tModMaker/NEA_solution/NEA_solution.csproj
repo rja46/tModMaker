@@ -217,6 +217,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="itemIDs.txt" />
+    <Content Include="npcIDS.txt" />
     <Content Include="projectConfig.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
