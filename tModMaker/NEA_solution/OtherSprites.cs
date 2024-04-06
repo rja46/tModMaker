@@ -39,6 +39,10 @@ namespace NEA_solution
             {
                 btnChangeSprite.Text = "Change Wings Sprite";
             }
+            else if (type == "boss")
+            {
+                btnChangeSprite.Text = "Change Map Head Sprite";
+            }
         }
 
         private void btnChangeSprite_Click(object sender, EventArgs e)
@@ -66,7 +70,11 @@ namespace NEA_solution
                     {
                         theItem.set_wingSprite(new Bitmap(@openSpriteDialog.FileName));
                     }
-                    
+                    else if (type == "boss")
+                    {
+                        theItem.set_mapHead(new Bitmap(@openSpriteDialog.FileName));
+                    }
+
                     pbSprite.Refresh();
                 }
             }
@@ -92,6 +100,10 @@ namespace NEA_solution
                 else if (type == "wings")
                 {
                     theImage = theItem.get_wingSprite();
+                }
+                else if (type == "boss")
+                {
+                    theImage= theItem.get_mapHead();
                 }
                 else
                 {

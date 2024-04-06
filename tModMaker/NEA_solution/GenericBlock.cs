@@ -275,7 +275,8 @@ namespace NEA_solution
         public int max { get; set; }
         public string item { get; set; }
         public string amount { get; set; }
-        public int rate { get; set; }
+        public int numerator { get; set; }
+        public int denominator { get; set; }
     }
 
     internal class hit_effect : GenericBlock
@@ -287,5 +288,10 @@ namespace NEA_solution
     internal class spawn_enemy : GenericBlock
     {
         public string enemy_name { get; set; }
+    }
+
+    internal class is_boss : GenericBlock
+    {
+        public bool boss { get; set; }
     }
 }

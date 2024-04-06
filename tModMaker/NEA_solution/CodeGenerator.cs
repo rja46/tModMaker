@@ -57,7 +57,10 @@ namespace NEA_solution
             string NPCloot = "";
             string onHit = "";
             string useItem = "";
+            bool isBoss = false;
+            string useItemReturn = "\r\n\t\t\treturn true;";
             string[] vanillaItems = File.ReadAllLines(Environment.CurrentDirectory + "\\itemIDs.txt");
+            string[] vanillaMobs = File.ReadAllLines(Environment.CurrentDirectory + "\\npcIDs.txt");
 
 
             /*
@@ -151,7 +154,7 @@ namespace NEA_solution
 
                     case "is_consumable":
                         is_consumable is_Consumable = JsonSerializer.Deserialize<is_consumable>(blocksAsStrings[i]);
-                        setDefaults += "\r\n\t\t\tItem.consumable = " + is_Consumable.consumable + ";";
+                        setDefaults += "\r\n\t\t\tItem.consumable = " + is_Consumable.consumable.ToString().ToLower() + ";";
                         break;
 
                     case "no_melee":
@@ -264,12 +267,13 @@ namespace NEA_solution
                         spawn_enemy spawn_Enemy = JsonSerializer.Deserialize<spawn_enemy>(blocksAsStrings[i]);
                         if (vanillaMobs.Contains(spawn_Enemy.enemy_name))
                         {
-                            useItem += "\r\n\t\t\tNPC.SpawnOnPlayer(player.whoAmI, type);"
+                            useItem += "\r\n\t\t\tNPC.SpawnOnPlayer(player.whoAmI, NPCID." + spawn_Enemy.enemy_name + ");";
                         }
                         else
                         {
-                            useItem += "\r\n\t\t\tNPC.SpawnOnPlayer(player.whoAmI, type);"
+                            useItem += "\r\n\t\t\tNPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<NPCs." + spawn_Enemy.enemy_name + ">());";
                         }
+                        break;
 
 
                     //Projectile class blocks
@@ -381,12 +385,25 @@ namespace NEA_solution
                         add_loot_drop add_Loot_Drop = JsonSerializer.Deserialize<add_loot_drop>(blocksAsStrings[i]);
                         if (vanillaItems.Contains(add_Loot_Drop.item))
                         {
-                            NPCloot += "\r\n\t\t\tnpcLoot.Add(ItemDropRule.Common(ItemID." + add_Loot_Drop.item + "," + add_Loot_Drop.rate + "," + add_Loot_Drop.min + "," + add_Loot_Drop.max + "));";
+                            NPCloot += "\r\n\t\t\tnpcLoot.Add(new CommonDrop(ItemID." + add_Loot_Drop.item + "," + add_Loot_Drop.numerator + "," + add_Loot_Drop.min + "," + add_Loot_Drop.max + "," + add_Loot_Drop.denominator + "));";
                         }
                         else
                         {
                             //This currently doesn't work - I'm not sure about the referencing.
-                            NPCloot += "\r\n\t\t\tnpcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items." + add_Loot_Drop.item + ">()," + add_Loot_Drop.rate + "," + add_Loot_Drop.min + "," + add_Loot_Drop.max + "));";
+                            NPCloot += "\r\n\t\t\tnpcLoot.Add(new CommonDrop(ModContent.ItemType<Items." + add_Loot_Drop.item + ">()," + add_Loot_Drop.numerator + "," + add_Loot_Drop.min + "," + add_Loot_Drop.max + "," + add_Loot_Drop.denominator + "));";
+                        }
+                        break;
+
+                    case "is_boss":
+                        is_boss is_Boss = JsonSerializer.Deserialize<is_boss>(blocksAsStrings[i]);
+                        setDefaults += "\r\n\t\t\tNPC.boss = " + is_Boss.boss.ToString().ToLower() + ";";
+                        if (is_Boss.boss)
+                        {
+                            isBoss = true;
+                        }
+                        else
+                        {
+                            isBoss = false;
                         }
                         break;
 
@@ -417,6 +434,11 @@ namespace NEA_solution
             }
 
             //All these if statements ensure the formatting is correct.
+            if (isBoss)
+            {
+                generatedCode += "\r\n\t[AutoloadBossHead]";
+            }
+
             if (slot != null)
             {
                 generatedCode += "\r\n\t[AutoloadEquip(EquipType." + slot + ")]";
@@ -590,6 +612,15 @@ namespace NEA_solution
                 generatedCode += "\r\n\t\tpublic override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)";
                 generatedCode += "\r\n\t\t{";
                 generatedCode += onHit;
+                generatedCode += "\r\n\t\t}";
+            }
+
+            if (useItem != "")
+            {
+                generatedCode += "\r\n\t\tpublic override bool? UseItem(Player player)";
+                generatedCode += "\r\n\t\t{";
+                generatedCode += useItem;
+                generatedCode += useItemReturn;
                 generatedCode += "\r\n\t\t}";
             }
 

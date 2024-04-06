@@ -89,7 +89,6 @@
             this.lbItems.Name = "lbItems";
             this.lbItems.Size = new System.Drawing.Size(156, 340);
             this.lbItems.TabIndex = 7;
-            this.lbItems.SelectedIndexChanged += new System.EventHandler(this.lbItems_SelectedIndexChanged);
             this.lbItems.DoubleClick += new System.EventHandler(this.lbItems_DoubleClick);
             // 
             // btnDeleteItem

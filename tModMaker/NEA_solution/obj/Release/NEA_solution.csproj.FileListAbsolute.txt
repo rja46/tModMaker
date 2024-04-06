@@ -1,0 +1,62 @@
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Blockly Editor\index.html
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Blockly Editor\javascript_compressed.js
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Blockly Editor\npc_editor.html
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Blockly Editor\projectile_editor.html
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Blockly Editor\scripts\blockly.min.js
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Blockly Editor\scripts\npc.js
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Blockly Editor\scripts\projectile.js
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Blockly Editor\scripts\tile.js
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Blockly Editor\scripts\tool.js
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Blockly Editor\start.html
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Blockly Editor\tile_editor.html
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Blockly Editor\tool_editor.html
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\npcIDS.txt
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\projectConfig.txt
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\NEA_solution.exe.config
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\NEA_solution.exe
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\NEA_solution.pdb
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Microsoft.Web.WebView2.Core.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.Buffers.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.Memory.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.Numerics.Vectors.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.Text.Encodings.Web.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.Text.Json.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.Threading.Tasks.Extensions.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.ValueTuple.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Microsoft.Web.WebView2.Core.xml
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Microsoft.Web.WebView2.Wpf.xml
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.Buffers.xml
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.Memory.xml
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.Numerics.Vectors.xml
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.Text.Encodings.Web.xml
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.Text.Json.xml
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.ValueTuple.xml
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.csproj.AssemblyReference.cache
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.csproj.SuggestedBindingRedirects.cache
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.exe.config
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.CreateItemDialog.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.EditDetailsDialog.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.Main.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.NameDialog.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.OtherSprites.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.Properties.Resources.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.RecipeEditor.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.Settings.resources
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.csproj.GenerateResource.cache
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.csproj.CoreCompileInputs.cache
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solu.0B966018.Up2Date
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.exe
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.pdb
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\userConfig.txt
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\recents.txt

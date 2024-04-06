@@ -104,11 +104,6 @@ namespace NEA_solution
             }
         }
 
-        private void lbItems_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            update_loaded_item(lbItems.SelectedIndex);
-        }
-
         private async void update_loaded_item(int index)
         {
             if (loadedItem != null)
@@ -127,8 +122,12 @@ namespace NEA_solution
                 }
                 while (returned == false);
                 loadedItem.set_code(workspace);
+
+                loadedItem = loadedMod.get_item(index);
+                displayItem(loadedItem);
+                update_item_list();
             }
-            loadedItem = loadedMod.get_item(index);
+
         }
 
 
@@ -388,6 +387,13 @@ namespace NEA_solution
                         bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Legs.png", ImageFormat.Png);
                     }
 
+                    bmp = loadedMod.get_item(i).get_mapHead();
+                    File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_MapHead.png");
+                    if (bmp != null && itemType == "boss")
+                    {
+                        bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_MapHead.png", ImageFormat.Png);
+                    }
+
                     //The step for the progress bar is performed.
                     pbSave.PerformStep();
                 }
@@ -492,6 +498,12 @@ namespace NEA_solution
                                 {
                                     FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
                                     currentItem.set_legsSprite(new Bitmap(fileHandler));
+                                    fileHandler.Close();
+                                }
+                                else if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + "_MapHead.png" == existingSprites[j])
+                                {
+                                    FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
+                                    currentItem.set_mapHead(new Bitmap(fileHandler));
                                     fileHandler.Close();
                                 }
                             }
@@ -726,10 +738,9 @@ namespace NEA_solution
 
         private void lbItems_DoubleClick(object sender, EventArgs e)
         {
-            if (loadedItem != null)
+            if (lbItems.SelectedIndex != -1)
             {
-                displayItem(loadedItem);
-                update_item_list();
+                update_loaded_item(lbItems.SelectedIndex);
             }
         }
 
@@ -754,6 +765,11 @@ namespace NEA_solution
             {
                 if (hasExportPath)
                 {
+                    DialogResult result = MessageBox.Show("Save before exporting?", "Save?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        save_mod();
+                    }
                     path = File.ReadAllText(Environment.CurrentDirectory + "\\userConfig.txt") + "\\" + loadedMod.get_name();
                     Bitmap bmp;
 
@@ -785,6 +801,11 @@ namespace NEA_solution
                             canExport = false;
                         }
                         if (slot == "Legs" && itemsToExport[i].get_legsSprite() == null)
+                        {
+                            incompleteItems.Add(itemsToExport[i].get_name());
+                            canExport = false;
+                        }
+                        if (GetTypeOfItem(itemsToExport[i]) == "boss" && itemsToExport[i].get_mapHead() == null)
                         {
                             incompleteItems.Add(itemsToExport[i].get_name());
                             canExport = false;
@@ -960,6 +981,15 @@ namespace NEA_solution
                                 bmp.Save(path + "\\Items\\" + itemsToExport[i].get_name() + "_Legs.png", ImageFormat.Png);
                             }
                         }
+
+                        bmp = itemsToExport[i].get_mapHead();
+                        if (bmp != null)
+                        {
+                            if (GetTypeOfItem(itemsToExport[i]) == "boss")
+                            {
+                                bmp.Save(path + "\\NPCs\\" + itemsToExport[i].get_name() + "_Head_Boss.png", ImageFormat.Png);
+                            }
+                        }
                     }
 
                     MessageBox.Show("Export complete: the mod will be available in tModLoader");
@@ -984,6 +1014,7 @@ namespace NEA_solution
 
         public async void displayItem(Item loadedItem)
         {
+            lock_controls();
             //If the Blockly editor needs to be changed, it is. The correct buttons are enabled or disabled.
             string prevSource = wvCode.Source.ToString();
             if (loadedItem.get_type() == "Item")
@@ -1126,6 +1157,10 @@ namespace NEA_solution
                     btnRecipe.Enabled = true;
                     txtTooltip.Enabled = true;
                 }
+                if (GetTypeOfItem(loadedItem) == "boss")
+                {
+                    btnAdditionalSprites.Enabled = true;
+                }
             }
         }
 
@@ -1222,6 +1257,10 @@ namespace NEA_solution
             else if (item.get_code().Contains("\"type\":\"create_wings\""))
             {
                 return "wings";
+            }
+            else if (item.get_code().Contains("\"boss\":true"))
+            {
+                return "boss";
             }
 
             return "null";

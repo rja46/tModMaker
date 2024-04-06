@@ -81,20 +81,12 @@ const toolbox = {
         },
         {
             "kind": "category",
-            "name": "AI",
+            "name": "Enemy",
             "colour": 170,
             "contents": [
                 {
                     "kind": "block",
-                    "type": "fire_projectile"
-                },
-                {
-                    "kind": "block",
-                    "type": "chase_player_x"
-                },
-                {
-                    "kind": "block",
-                    "type": "chase_player_y"
+                    "type": "is_boss"
                 }
             ]
         }
@@ -608,7 +600,7 @@ Blockly.common.defineBlocksWithJsonArray([
     },
     {
         "type": "add_loot_drop",
-        "message0": "Drop %1 to %2 %3 with a 1 in %4 chance",
+        "message0": "Drop %1 to %2 %3 with a %4 in %5 chance",
         "args0": [
             {
                 "type": "field_number",
@@ -631,7 +623,14 @@ Blockly.common.defineBlocksWithJsonArray([
             },
             {
                 "type": "field_number",
-                "name": "rate",
+                "name": "numerator",
+                "value": 0,
+                "min": 0,
+                "precision": 1
+            },
+            {
+                "type": "field_number",
+                "name": "denominator",
                 "value": 0,
                 "min": 0,
                 "precision": 1
@@ -640,6 +639,22 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "is_boss",
+        "message0": "Is boss %1",
+        "args0": [
+            {
+                "type": "field_checkbox",
+                "name": "boss",
+                "checked": true
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 170,
         "tooltip": "",
         "helpUrl": ""
     }
