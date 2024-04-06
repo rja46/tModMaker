@@ -56,6 +56,7 @@ namespace NEA_solution
             string spawnrate = "";
             string NPCloot = "";
             string onHit = "";
+            string useItem = "";
             string[] vanillaItems = File.ReadAllLines(Environment.CurrentDirectory + "\\itemIDs.txt");
 
 
@@ -259,6 +260,17 @@ namespace NEA_solution
                         onHit += "\r\n\t\t\ttarget.AddBuff(BuffID." + hit_Effect.effect + ", " + hit_Effect.time * 60 + ");";
                         break;
 
+                    case "spawn_enemy":
+                        spawn_enemy spawn_Enemy = JsonSerializer.Deserialize<spawn_enemy>(blocksAsStrings[i]);
+                        if (vanillaMobs.Contains(spawn_Enemy.enemy_name))
+                        {
+                            useItem += "\r\n\t\t\tNPC.SpawnOnPlayer(player.whoAmI, type);"
+                        }
+                        else
+                        {
+                            useItem += "\r\n\t\t\tNPC.SpawnOnPlayer(player.whoAmI, type);"
+                        }
+
 
                     //Projectile class blocks
                     case "projectile_basic":
@@ -374,7 +386,7 @@ namespace NEA_solution
                         else
                         {
                             //This currently doesn't work - I'm not sure about the referencing.
-                            NPCloot += "\r\n\t\t\tnpcLoot.Add(ItemDropRule.Common(ModItems." + add_Loot_Drop.item + "," + add_Loot_Drop.rate + "," + add_Loot_Drop.min + "," + add_Loot_Drop.max + "));";
+                            NPCloot += "\r\n\t\t\tnpcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items." + add_Loot_Drop.item + ">()," + add_Loot_Drop.rate + "," + add_Loot_Drop.min + "," + add_Loot_Drop.max + "));";
                         }
                         break;
 
@@ -550,7 +562,14 @@ namespace NEA_solution
 
                 for (int i = 0;i < shopItems.Count; i++)
                 {
-                    generatedCode += "\r\n\t\t\tShop.Add(ItemID." + shopItems[i] + ");";
+                    if (vanillaItems.Contains(shopItems[i]))
+                    {
+                        generatedCode += "\r\n\t\t\tShop.Add(ItemID." + shopItems[i] + ");";
+                    }
+                    else
+                    {
+                        generatedCode += "\r\n\t\t\tShop.Add(ModContent.ItemType<Items." + shopItems[i] + ">());";
+                    }
                 }
 
                 generatedCode += "\r\n\t\t\tShop.Register();";

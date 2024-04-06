@@ -216,6 +216,7 @@
     <Content Include="Blockly Editor\tool_editor.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="itemIDs.txt" />
     <Content Include="projectConfig.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

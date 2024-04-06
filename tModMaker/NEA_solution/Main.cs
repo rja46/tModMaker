@@ -823,7 +823,16 @@ namespace NEA_solution
                     DialogResult messageResult = MessageBox.Show("Increment version number?", "Increment version",MessageBoxButtons.YesNo);
                     if (messageResult == DialogResult.Yes)
                     {
+                        //It the version number is incremented, the change is saved here.
                         loadedMod.set_version(loadedMod.get_version() + 0.1);
+                        string modFile = "";
+                        modFile += loadedMod.get_name() + "|";
+                        modFile += loadedMod.get_description() + "|";
+                        modFile += loadedMod.get_author() + "|";
+                        modFile += loadedMod.get_version();
+
+                        File.WriteAllText(loadedMod.get_modPath() + "\\" + loadedMod.get_name() + ".mod", modFile);
+
                     }
 
                     File.WriteAllText(path + "\\build.txt", "displayName = " + loadedMod.get_name() + "\nauthor = " + loadedMod.get_author() + "\nversion = " + loadedMod.get_version());

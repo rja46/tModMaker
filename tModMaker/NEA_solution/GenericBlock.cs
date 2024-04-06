@@ -283,4 +283,9 @@ namespace NEA_solution
         public string effect { get; set; }
         public int time { get; set; }
     }
+
+    internal class spawn_enemy : GenericBlock
+    {
+        public string enemy_name { get; set; }
+    }
 }

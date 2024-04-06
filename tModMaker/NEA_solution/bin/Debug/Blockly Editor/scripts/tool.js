@@ -155,6 +155,17 @@ function loadData(theData){
                      "type": "create_custom_tile"
                  }
              ]
+         },
+         {
+             "kind": "category",
+             "name": "Summoning",
+             "colour": 80,
+             "contents": [
+                 {
+                     "kind": "block",
+                     "type": "spawn_enemy"
+                 }
+             ]
          }
   ]
 };
@@ -1081,6 +1092,22 @@ Blockly.common.defineBlocksWithJsonArray([
         "colour": 120,
         "tooltip": "",
         "helpUrl": "https://terraria.wiki.gg/wiki/Buff_IDs"
+    },
+    {
+        "type": "spawn_enemy",
+        "message0": "Spawn %1 on player",
+        "args0": [
+            {
+                "type": "field_input",
+                "name": "enemy_name",
+                "text": "default"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 80,
+        "tooltip": "",
+        "helpUrl": "https://terraria.wiki.gg/wiki/Data_IDs"
     }
 ]);
 
