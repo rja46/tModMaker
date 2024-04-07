@@ -84,7 +84,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "name": "time_left",
                 "value": 0,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "nextStatement": null,
@@ -438,7 +438,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "name": "value",
                 "value": 0,
                 "min": 0,
-                "max": 2147483647,
+                "max": 2147483646,
                 "precision": 0
             }
         ],
@@ -521,7 +521,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "name": "light",
                 "value": 0,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,

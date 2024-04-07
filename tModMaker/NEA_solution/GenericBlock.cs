@@ -189,7 +189,7 @@ namespace NEA_solution
         public int damage { get; set; }
         public int defense { get; set;}
         public int life { get; set; }
-        public int knockResist { get; set; }
+        public float knockResist { get; set; }
     }
     
     internal class chat_options : GenericBlock

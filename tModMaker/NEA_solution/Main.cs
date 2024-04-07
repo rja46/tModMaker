@@ -19,6 +19,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
+//This program is confirmed working for 1.4.4.9
 namespace NEA_solution
 {
     public partial class Main : Form

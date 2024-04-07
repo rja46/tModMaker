@@ -112,7 +112,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             },
             {
                 "type": "input_dummy"
@@ -120,10 +120,10 @@ Blockly.common.defineBlocksWithJsonArray([
             {
                 "type": "field_number",
                 "name": "defense",
-                "value": 0,
+                "value": 1,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             },
             {
                 "type": "input_dummy"
@@ -134,7 +134,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             },
             {
                 "type": "input_dummy"
@@ -143,9 +143,8 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "knockResist",
                 "value": 0,
-                "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "nextStatement": null,
@@ -178,44 +177,12 @@ Blockly.common.defineBlocksWithJsonArray([
                         "3"
                     ],
                     [
-                        "Eye of Cthulhu",
-                        "4"
-                    ],
-                    [
-                        "Aggressive Flier",
-                        "5"
-                    ],
-                    [
-                        "Burrower",
-                        "6"
-                    ],
-                    [
                         "Friendly NPC",
                         "7"
                     ],
                     [
                         "Teleporting Spellcaster",
                         "8"
-                    ],
-                    [
-                        "Magical Projectiles",
-                        "9"
-                    ],
-                    [
-                        "Hesitant Flier",
-                        "10"
-                    ],
-                    [
-                        "Flying Skull",
-                        "11"
-                    ],
-                    [
-                        "Flying Arms",
-                        "12"
-                    ],
-                    [
-                        "Carnivorous Plant",
-                        "13"
                     ],
                     [
                         "General Flier",
@@ -242,18 +209,6 @@ Blockly.common.defineBlocksWithJsonArray([
                         "19"
                     ],
                     [
-                        "Spike Ball",
-                        "20"
-                    ],
-                    [
-                        "Blazing Wheel",
-                        "21"
-                    ],
-                    [
-                        "Hovering Fliers",
-                        "22"
-                    ],
-                    [
                         "Animated Weapons",
                         "23"
                     ],
@@ -268,50 +223,6 @@ Blockly.common.defineBlocksWithJsonArray([
                     [
                         "Unicorn",
                         "26"
-                    ],
-                    [
-                        "Wall of Flesh (Mouth)",
-                        "27"
-                    ],
-                    [
-                        "Wall of Flesh (Eye)",
-                        "28"
-                    ],
-                    [
-                        "The Hungry",
-                        "29"
-                    ],
-                    [
-                        "Retinazer",
-                        "30"
-                    ],
-                    [
-                        "Spazmatism",
-                        "31"
-                    ],
-                    [
-                        "Skeletron Prime (Head)",
-                        "32"
-                    ],
-                    [
-                        "Skeletron Prime (Saw)",
-                        "33"
-                    ],
-                    [
-                        "Skeletron Prime (Vice)",
-                        "34"
-                    ],
-                    [
-                        "Skeletron Prime (Cannon)",
-                        "35"
-                    ],
-                    [
-                        "Skeletron Prime (Laser)",
-                        "36"
-                    ],
-                    [
-                        "Destroyer",
-                        "37"
                     ],
                     [
                         "Snowman",
@@ -368,7 +279,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "name": "rate",
                 "value": 0,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,
@@ -386,7 +297,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "name": "multiplier",
                 "value": 0,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,
@@ -526,7 +437,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             },
             {
                 "type": "field_number",
@@ -534,7 +445,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             },
             {
                 "type": "field_input",
@@ -547,7 +458,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             },
             {
                 "type": "field_number",
@@ -555,14 +466,14 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,
         "nextStatement": null,
         "colour": 300,
         "tooltip": "Gives the NPC a chance to drop an item on death",
-        "helpUrl": ""
+        "helpUrl": "https://terraria.fandom.com/wiki/Item_IDs"
     },
     {
         "type": "is_boss",
@@ -590,7 +501,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,
@@ -610,10 +521,6 @@ Blockly.common.defineBlocksWithJsonArray([
                     [
                         "immune to lava",
                         "lavaImmune"
-                    ],
-                    [
-                        "pass through tiles",
-                        "noTileCollide"
                     ],
                     [
                         "unaffected by gravity",

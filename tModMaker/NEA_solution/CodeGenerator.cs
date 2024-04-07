@@ -323,7 +323,7 @@ namespace NEA_solution
                         setDefaults += "\r\n\t\t\tNPC.damage = " + npc_Basic.damage + ";";
                         setDefaults += "\r\n\t\t\tNPC.defense = " + npc_Basic.defense + ";";
                         setDefaults += "\r\n\t\t\tNPC.lifeMax = " + npc_Basic.life + ";";
-                        setDefaults += "\r\n\t\t\tNPC.knockBackResist = " + npc_Basic.knockResist + ";";
+                        setDefaults += "\r\n\t\t\tNPC.knockBackResist = " + npc_Basic.knockResist + "f;";
                         break;
 
                     case "use_npc_ai":
