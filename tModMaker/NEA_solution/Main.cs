@@ -1008,67 +1008,74 @@ namespace NEA_solution
         {
             lock_controls();
             //If the Blockly editor needs to be changed, it is. The correct buttons are enabled or disabled.
-            string prevSource = wvCode.Source.ToString();
-            if (loadedItem.get_type() == "Item")
+            if (loadedItem != null)
             {
-                wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\tool_editor.html");
-                txtTooltip.Enabled = true;
-                btnRecipe.Enabled = true;
-            }
-            else if (loadedItem.get_type() == "Projectile")
-            {
-                wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\projectile_editor.html");
-                txtTooltip.Enabled = false;
-                btnRecipe.Enabled = false;
-            }
-            else if (loadedItem.get_type() == "NPC")
-            {
-                wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\npc_editor.html");
-                txtTooltip.Enabled = false;
-                btnRecipe.Enabled = false;
-            }
+                string prevSource = wvCode.Source.ToString();
+                if (loadedItem.get_type() == "Item")
+                {
+                    wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\tool_editor.html");
+                    txtTooltip.Enabled = true;
+                    btnRecipe.Enabled = true;
+                }
+                else if (loadedItem.get_type() == "Projectile")
+                {
+                    wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\projectile_editor.html");
+                    txtTooltip.Enabled = false;
+                    btnRecipe.Enabled = false;
+                }
+                else if (loadedItem.get_type() == "NPC")
+                {
+                    wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\npc_editor.html");
+                    txtTooltip.Enabled = false;
+                    btnRecipe.Enabled = false;
+                }
 
-            //Here, it checks to see if the item has an additional sprite, and enables the button to change it.
-            string type = GetTypeOfItem(loadedItem);
-            if (type == "body")
-            {
-                btnAdditionalSprites.Enabled = true;
-            }
-            else if (type == "head")
-            {
-                btnAdditionalSprites.Enabled = true;
-            }
-            else if (type == "legs")
-            {
-                btnAdditionalSprites.Enabled = true;
-            }
-            else if (type == "wings")
-            {
-                btnAdditionalSprites.Enabled = true;
-            }
-            else
-            {
-                btnAdditionalSprites.Enabled = false;
-            }
+                //Here, it checks to see if the item has an additional sprite, and enables the button to change it.
+                string type = GetTypeOfItem(loadedItem);
+                if (type == "body")
+                {
+                    btnAdditionalSprites.Enabled = true;
+                }
+                else if (type == "head")
+                {
+                    btnAdditionalSprites.Enabled = true;
+                }
+                else if (type == "legs")
+                {
+                    btnAdditionalSprites.Enabled = true;
+                }
+                else if (type == "wings")
+                {
+                    btnAdditionalSprites.Enabled = true;
+                }
+                else
+                {
+                    btnAdditionalSprites.Enabled = false;
+                }
 
 
-            //This waits for the webView componenent to be ready before displaying the item.
-            if (prevSource != wvCode.Source.ToString())
-            {
-                wvready = false;
-            }
+                //This waits for the webView componenent to be ready before displaying the item.
+                if (prevSource != wvCode.Source.ToString())
+                {
+                    wvready = false;
+                }
 
-            while (!wvready)
-            {
-                await Task.Delay(100);
+                while (!wvready)
+                {
+                    await Task.Delay(100);
+                }
+
+                clearBlockly();
+                theItem = loadedItem;
+                txtDisplayName.Text = theItem.get_displayName();
+                txtTooltip.Text = theItem.get_tooltip();
+                pbSprite.Refresh();
+                sendData();
             }
-            
-            clearBlockly();
-            theItem = loadedItem;
-            txtDisplayName.Text = theItem.get_displayName();
-            txtTooltip.Text = theItem.get_tooltip();
-            pbSprite.Refresh();
-            sendData();
+            if (loadedItem == null)
+            {
+                wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\start.html");
+            }
             unlock_controls();
         }
 
@@ -1117,8 +1124,6 @@ namespace NEA_solution
 
         public void unlock_controls()
         {
-            btnChangeSprite.Enabled = true;
-            txtDisplayName.Enabled = true;
             wvCode.Enabled = true;
             lbItems.Enabled = true;
             tbSave.Enabled = true;
@@ -1129,6 +1134,8 @@ namespace NEA_solution
             CodeGenerator codeGenerator = new CodeGenerator();
             if (loadedItem != null)
             {
+                btnChangeSprite.Enabled = true;
+                txtDisplayName.Enabled = true;
                 if (loadedItem.get_type() == "Item")
                 {
                     txtTooltip.Enabled = true;

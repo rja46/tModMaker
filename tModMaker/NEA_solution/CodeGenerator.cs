@@ -541,7 +541,10 @@ namespace NEA_solution
                 }
                 if (item.get_craftingStationID() != 0)
                 {
-                    generatedCode += "\r\n\t\t\trecipe.AddTile(TileID." + stations[item.get_craftingStationID()] + ");";
+                    if (item.get_craftingStationID() != -1)
+                    {
+                        generatedCode += "\r\n\t\t\trecipe.AddTile(TileID." + stations[item.get_craftingStationID()] + ");";
+                    }
 
                 }
                 generatedCode += "\r\n\t\t\trecipe.Register();";
