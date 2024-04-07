@@ -127,8 +127,6 @@ namespace NEA_solution
                     //Item class blocks
                     case "define_item":
                         define_item define_Item = JsonSerializer.Deserialize<define_item>(blocksAsStrings[i]);
-                        setDefaults += "\r\n\t\t\tItem.width = " + define_Item.width + ";";
-                        setDefaults += "\r\n\t\t\tItem.height = " + define_Item.height + ";";
                         setDefaults += "\r\n\t\t\tItem.value = " + define_Item.value + ";";
                         setDefaults += "\r\n\t\t\tItem.rare = " + define_Item.rare + ";";
                         break;
@@ -138,13 +136,16 @@ namespace NEA_solution
 
                         setDefaults += "\r\n\t\t\tItem.damage = " + define_Weapon_Essential.damage + ";";
                         setDefaults += "\r\n\t\t\tItem.DamageType = DamageClass." + define_Weapon_Essential.damageType + ";";
-                        setDefaults += "\r\n\t\t\tItem.useTime = " + define_Weapon_Essential.useTime + ";";
-                        setDefaults += "\r\n\t\t\tItem.useAnimation = " + define_Weapon_Essential.useAnimation + ";";
                         setDefaults += "\r\n\t\t\tItem.knockBack = " + define_Weapon_Essential.knockback + ";";
-                        setDefaults += "\r\n\t\t\tItem.UseSound = SoundID.Item" + define_Weapon_Essential.UseSound + ";";
-                        setDefaults += "\r\n\t\t\tItem.autoReuse = " + define_Weapon_Essential.autoReuse.ToString().ToLower() + ";";
-                        setDefaults += "\r\n\t\t\tItem.useStyle = " + define_Weapon_Essential.useStyle + ";";
+                        break;
 
+                    case "define_tool":
+                        define_tool define_Tool = JsonSerializer.Deserialize<define_tool>(blocksAsStrings[i]);
+                        setDefaults += "\r\n\t\t\tItem.useTime = " + define_Tool.useTime + ";";
+                        setDefaults += "\r\n\t\t\tItem.useAnimation = " + define_Tool.useTime + ";";
+                        setDefaults += "\r\n\t\t\tItem.UseSound = SoundID.Item" + define_Tool.UseSound + ";";
+                        setDefaults += "\r\n\t\t\tItem.autoReuse = " + define_Tool.autoReuse.ToString().ToLower() + ";";
+                        setDefaults += "\r\n\t\t\tItem.useStyle = " + define_Tool.useStyle + ";";
                         break;
 
                     case "tool_power":
@@ -279,9 +280,7 @@ namespace NEA_solution
                     //Projectile class blocks
                     case "projectile_basic":
                         projectile_basic projectile_Basic = JsonSerializer.Deserialize<projectile_basic>(blocksAsStrings[i]);
-                        setDefaults += "\r\n\t\t\tProjectile.width = " + projectile_Basic.width + ";";
-                        setDefaults += "\r\n\t\t\tProjectile.height = " + projectile_Basic.height + ";";
-                        setDefaults += "\r\n\t\t\tProjectile.timeLeft = " + projectile_Basic.time_left + ";";
+                        setDefaults += "\r\n\t\t\tProjectile.timeLeft = " + projectile_Basic.time_left * 60 + ";";
                         break;
 
                     case "use_ai":
@@ -329,9 +328,6 @@ namespace NEA_solution
                     //NPC Class Blocks
                     case "npc_basic":
                         npc_basic npc_Basic = JsonSerializer.Deserialize<npc_basic>(blocksAsStrings[i]);
-                        setDefaults += "\r\n\t\t\tNPC.width = " + npc_Basic.width + ";";
-                        setDefaults += "\r\n\t\t\tNPC.height = " + npc_Basic.height + ";";
-                        setDefaults += "\r\n\t\t\tNPC.height = " + npc_Basic.height + ";";
                         setDefaults += "\r\n\t\t\tNPC.damage = " + npc_Basic.damage + ";";
                         setDefaults += "\r\n\t\t\tNPC.defense = " + npc_Basic.defense + ";";
                         setDefaults += "\r\n\t\t\tNPC.lifeMax = " + npc_Basic.life + ";";
@@ -434,6 +430,22 @@ namespace NEA_solution
             }
 
             //All these if statements ensure the formatting is correct.
+            if (item.get_type() == "Item")
+            {
+                setDefaults += "\r\n\t\t\tItem.width = " + item.get_sprite().Width + ";";
+                setDefaults += "\r\n\t\t\tItem.height = " + item.get_sprite().Height + ";";
+            }
+            if (item.get_type() == "NPC")
+            {
+                setDefaults += "\r\n\t\t\tNPC.width = " + item.get_sprite().Width + ";";
+                setDefaults += "\r\n\t\t\tNPC.height = " + item.get_sprite().Height + ";";
+            }
+            if (item.get_type() == "Projectile")
+            {
+                setDefaults += "\r\n\t\t\tProjectile.width = " + item.get_sprite().Width + ";";
+                setDefaults += "\r\n\t\t\tProjectile.height = " + item.get_sprite().Height + ";";
+            }
+
             if (isBoss)
             {
                 generatedCode += "\r\n\t[AutoloadBossHead]";

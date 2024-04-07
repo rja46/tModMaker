@@ -81,26 +81,8 @@ const toolbox = {
 Blockly.common.defineBlocksWithJsonArray([
     {
         "type": "projectile_basic",
-        "message0": "Hitbox width: %1 %2 Hitbox height: %3 %4 Time left %5",
+        "message0": "Last for %1 seconds",
         "args0": [
-            {
-                "type": "field_number",
-                "name": "width",
-                "value": 0,
-                "min": 0
-            },
-            {
-                "type": "input_dummy"
-            },
-            {
-                "type": "field_number",
-                "name": "height",
-                "value": 0,
-                "min": 0
-            },
-            {
-                "type": "input_dummy"
-            },
             {
                 "type": "field_number",
                 "name": "time_left",

@@ -60,3 +60,4 @@ C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.pdb
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\userConfig.txt
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\recents.txt
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\itemIDs.txt

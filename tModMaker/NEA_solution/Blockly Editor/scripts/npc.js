@@ -96,26 +96,8 @@ const toolbox = {
 Blockly.common.defineBlocksWithJsonArray([
     {
         "type": "npc_basic",
-        "message0": "Hitbox width: %1 %2 Hitbox height: %3 %4 Damage: %5 %6 Defense: %7 %8 Maximum life: %9 %10 Knockback resistance: %11",
+        "message0": "Deal %1 damage on hit %2 Set defence to %3 %4 Set maximum life to %5 %6 Take %7 knockback",
         "args0": [
-            {
-                "type": "field_number",
-                "name": "width",
-                "value": 0,
-                "precision": 1
-            },
-            {
-                "type": "input_dummy"
-            },
-            {
-                "type": "field_number",
-                "name": "height",
-                "value": 0,
-                "precision": 1
-            },
-            {
-                "type": "input_dummy"
-            },
             {
                 "type": "field_number",
                 "name": "damage",
@@ -638,7 +620,7 @@ Blockly.common.defineBlocksWithJsonArray([
         ],
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 230,
+        "colour": 300,
         "tooltip": "",
         "helpUrl": ""
     },
@@ -656,7 +638,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "nextStatement": null,
         "colour": 170,
         "tooltip": "",
-        "helpUrl": ""
+        "helpUrl": "https://terraria.fandom.com/wiki/Item_IDs"
     }
 ]);
 

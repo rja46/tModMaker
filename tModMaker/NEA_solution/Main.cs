@@ -122,11 +122,10 @@ namespace NEA_solution
                 }
                 while (returned == false);
                 loadedItem.set_code(workspace);
-
-                loadedItem = loadedMod.get_item(index);
-                displayItem(loadedItem);
-                update_item_list();
             }
+            loadedItem = loadedMod.get_item(index);
+            displayItem(loadedItem);
+            update_item_list();
 
         }
 

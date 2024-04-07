@@ -24,11 +24,14 @@ namespace NEA_solution
     {
         public int damage { get; set; }
         public string damageType { get; set; }
-        public int useTime { get; set; }
-        public int useAnimation { get; set; }
-        public string useStyle { get; set; }
         public int knockback { get; set; }
         public int crit { get; set; }
+    }
+
+    internal class define_tool : GenericBlock
+    {
+        public int useTime { get; set; }
+        public string useStyle { get; set; }
         public int UseSound { get; set; }
         public bool autoReuse { get; set; }
     }
