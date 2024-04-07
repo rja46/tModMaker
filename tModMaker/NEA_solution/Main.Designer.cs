@@ -188,14 +188,14 @@
             // modDetailsToolStripMenuItem
             // 
             this.modDetailsToolStripMenuItem.Name = "modDetailsToolStripMenuItem";
-            this.modDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modDetailsToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.modDetailsToolStripMenuItem.Text = "Project Details";
             this.modDetailsToolStripMenuItem.Click += new System.EventHandler(this.modDetailsToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -390,6 +390,7 @@
             this.Controls.Add(this.lblDisplayName);
             this.Controls.Add(this.wvCode);
             this.Controls.Add(this.txtTooltip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.msMain;
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Main";

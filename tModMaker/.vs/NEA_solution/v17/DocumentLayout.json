@@ -3,27 +3,31 @@
   "WorkspaceRootPath": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\nea_solution\\codegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\codegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|c:\\users\\rjand\\documents\\github\\tmodmaker\\tmodmaker\\nea_solution\\recipeeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\recipeeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|c:\\users\\rjand\\documents\\github\\tmodmaker\\tmodmaker\\nea_solution\\recipeeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\recipeeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\nea_solution\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\nea_solution\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|c:\\users\\rjand\\documents\\github\\tmodmaker\\tmodmaker\\nea_solution\\codegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\codegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\nea_solution\\recipeeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\recipeeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\nea_solution\\recipeeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\recipeeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\nea_solution\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|c:\\users\\rjand\\documents\\github\\tmodmaker\\tmodmaker\\nea_solution\\tileids.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\nea_solution\\tileids.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\tileids.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
@@ -39,7 +43,7 @@
       "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\blockly editor\\scripts\\projectile.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|c:\\users\\rjand\\documents\\github\\tmodmaker\\tmodmaker\\nea_solution\\blockly editor\\scripts\\tool.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\nea_solution\\blockly editor\\scripts\\tool.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\blockly editor\\scripts\\tool.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
@@ -49,10 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\nea_solution\\itemids.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\itemids.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\nea_solution\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,11 +62,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Main.cs",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Main.cs",
               "RelativeDocumentMoniker": "NEA_solution\\Main.cs",
@@ -80,7 +80,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 0,
               "Title": "Main.cs [Design]",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Main.cs",
               "RelativeDocumentMoniker": "NEA_solution\\Main.cs",
@@ -93,7 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "tileIDs.txt",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\tileIDs.txt",
               "RelativeDocumentMoniker": "NEA_solution\\tileIDs.txt",
@@ -101,12 +101,11 @@
               "RelativeToolTip": "NEA_solution\\tileIDs.txt",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-04-07T13:55:36.524Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-07T13:55:36.524Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "RecipeEditor.cs",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\RecipeEditor.cs",
               "RelativeDocumentMoniker": "NEA_solution\\RecipeEditor.cs",
@@ -114,24 +113,22 @@
               "RelativeToolTip": "NEA_solution\\RecipeEditor.cs",
               "ViewState": "AQIAABEAAAAAAAAAAAAQwCcAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T13:08:12.29Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-07T13:08:12.29Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "RecipeEditor.cs [Design]",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\RecipeEditor.cs",
               "RelativeDocumentMoniker": "NEA_solution\\RecipeEditor.cs",
               "ToolTip": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\RecipeEditor.cs [Design]",
               "RelativeToolTip": "NEA_solution\\RecipeEditor.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T13:04:24.493Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-04-07T13:04:24.493Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Item.cs",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Item.cs",
               "RelativeDocumentMoniker": "NEA_solution\\Item.cs",
@@ -139,12 +136,11 @@
               "RelativeToolTip": "NEA_solution\\Item.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T15:10:49.852Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-06T15:10:49.852Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "itemIDs.txt",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\itemIDs.txt",
               "RelativeDocumentMoniker": "NEA_solution\\itemIDs.txt",
@@ -152,12 +148,11 @@
               "RelativeToolTip": "NEA_solution\\itemIDs.txt",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-04-06T12:50:56.462Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-06T12:50:56.462Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Mod.cs",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Mod.cs",
               "RelativeDocumentMoniker": "NEA_solution\\Mod.cs",
@@ -165,12 +160,11 @@
               "RelativeToolTip": "NEA_solution\\Mod.cs",
               "ViewState": "AQIAAC8AAAAAAAAAAAAwwD4AAABLAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T10:40:55.428Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T10:40:55.428Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "tool.js",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Blockly Editor\\scripts\\tool.js",
               "RelativeDocumentMoniker": "NEA_solution\\Blockly Editor\\scripts\\tool.js",
@@ -178,12 +172,11 @@
               "RelativeToolTip": "NEA_solution\\Blockly Editor\\scripts\\tool.js",
               "ViewState": "AQIAAGEBAAAAAAAAAAAwwGQBAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-04-03T10:28:55.416Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T10:28:55.416Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "npc.js",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Blockly Editor\\scripts\\npc.js",
               "RelativeDocumentMoniker": "NEA_solution\\Blockly Editor\\scripts\\npc.js",
@@ -191,12 +184,11 @@
               "RelativeToolTip": "NEA_solution\\Blockly Editor\\scripts\\npc.js",
               "ViewState": "AQIAACYAAAAAAAAAAAAwwD4AAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-04-01T21:37:13.093Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-01T21:37:13.093Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "CodeGenerator.cs",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\CodeGenerator.cs",
               "RelativeDocumentMoniker": "NEA_solution\\CodeGenerator.cs",
@@ -209,7 +201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "GenericBlock.cs",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\GenericBlock.cs",
               "RelativeDocumentMoniker": "NEA_solution\\GenericBlock.cs",
@@ -217,12 +209,11 @@
               "RelativeToolTip": "NEA_solution\\GenericBlock.cs",
               "ViewState": "AQIAACcBAAAAAAAAAAA4wDkBAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T10:52:41.288Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-07T10:52:41.288Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "projectile.js",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Blockly Editor\\scripts\\projectile.js",
               "RelativeDocumentMoniker": "NEA_solution\\Blockly Editor\\scripts\\projectile.js",
@@ -230,8 +221,7 @@
               "RelativeToolTip": "NEA_solution\\Blockly Editor\\scripts\\projectile.js",
               "ViewState": "AQIAAEgAAAAAAAAAAAAAAFcAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-04-06T22:26:09.929Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-06T22:26:09.929Z"
             }
           ]
         }
