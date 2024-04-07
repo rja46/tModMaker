@@ -297,4 +297,19 @@ namespace NEA_solution
     {
         public bool boss { get; set; }
     }
+
+    internal class max_stack : GenericBlock
+    {
+        public int max { get; set; }
+    }
+
+    internal class set_boss_value : GenericBlock
+    {
+        public int value { get; set; }
+    }
+
+    internal class set_npc_property : GenericBlock
+    {
+        public string property { get; set; }
+    }
 }

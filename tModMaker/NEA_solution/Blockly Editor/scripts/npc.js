@@ -57,6 +57,10 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "add_loot_drop"
+                },
+                {
+                    "kind": "block",
+                    "type": "set_npc_property"
                 }
             ]
         },
@@ -87,6 +91,10 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "is_boss"
+                },
+                {
+                    "kind": "block",
+                    "type": "set_boss_value"
                 }
             ]
         }
@@ -639,6 +647,53 @@ Blockly.common.defineBlocksWithJsonArray([
         "colour": 170,
         "tooltip": "",
         "helpUrl": "https://terraria.fandom.com/wiki/Item_IDs"
+    },
+    {
+        "type": "set_boss_value",
+        "message0": "Drop %1 copper on death",
+        "args0": [
+            {
+                "type": "field_number",
+                "name": "value",
+                "value": 0,
+                "min": 0,
+                "precision": 1
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 170,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "set_npc_property",
+        "message0": "Make NPC %1",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "property",
+                "options": [
+                    [
+                        "immune to lava",
+                        "lavaImmune"
+                    ],
+                    [
+                        "pass through tiles",
+                        "noTileCollide"
+                    ],
+                    [
+                        "unaffected by gravity",
+                        "noGravity"
+                    ]
+                ]
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 300,
+        "tooltip": "",
+        "helpUrl": ""
     }
 ]);
 

@@ -137,6 +137,7 @@ namespace NEA_solution
                         setDefaults += "\r\n\t\t\tItem.damage = " + define_Weapon_Essential.damage + ";";
                         setDefaults += "\r\n\t\t\tItem.DamageType = DamageClass." + define_Weapon_Essential.damageType + ";";
                         setDefaults += "\r\n\t\t\tItem.knockBack = " + define_Weapon_Essential.knockback + ";";
+                        setDefaults += "\r\n\t\t\tItem.crit = " + define_Weapon_Essential.crit + ";";
                         break;
 
                     case "define_tool":
@@ -276,6 +277,11 @@ namespace NEA_solution
                         }
                         break;
 
+                    case "max_stack":
+                        max_stack max_Stack = JsonSerializer.Deserialize<max_stack>(blocksAsStrings[i]);
+                        setDefaults += "\r\n\t\t\tItem.maxStack = " + max_Stack.max + ";";
+                        break;
+
 
                     //Projectile class blocks
                     case "projectile_basic":
@@ -401,6 +407,16 @@ namespace NEA_solution
                         {
                             isBoss = false;
                         }
+                        break;
+
+                    case "set_boss_value":
+                        set_boss_value set_Boss_Value = JsonSerializer.Deserialize<set_boss_value>(blocksAsStrings[i]);
+                        setDefaults += "\r\n\t\t\tNPC.value = " + set_Boss_Value.value + ";";
+                        break;
+
+                    case "set_npc_property":
+                        set_npc_property set_Npc_Property = JsonSerializer.Deserialize<set_npc_property>(blocksAsStrings[i]);
+                        setDefaults += "\r\n\t\t\tNPC." + set_Npc_Property.property + " = true;";
                         break;
 
 
@@ -551,6 +567,7 @@ namespace NEA_solution
                 generatedCode += "\r\n\t\tpublic override void UpdateAccessory(Player player, bool hideVisual)\r\n\t\t{\r\n" + UpdateAccessory + "\r\n\t\t}";
             }
 
+            string[] stations = File.ReadAllLines(Environment.CurrentDirectory + "\\tileIDs.txt");
             //The recipes are added here.
             if (itemType == "Item")
             {
@@ -560,8 +577,12 @@ namespace NEA_solution
                 {
                     generatedCode += "\r\n\t\t\trecipe.AddIngredient(ItemID." + item.get_ingredients()[i].itemName + "," + item.get_ingredients()[i].quantity + ");";
                 }
-                generatedCode += "\r\n\t\t\trecipe.AddTile(TileID.WorkBenches);" +
-                    "\r\n\t\t\trecipe.Register();";
+                if (item.get_craftingStationID() != 0)
+                {
+                    generatedCode += "\r\n\t\t\trecipe.AddTile(TileID." + stations[item.get_craftingStationID()] + ");";
+
+                }
+                generatedCode += "\r\n\t\t\trecipe.Register();";
                 generatedCode += "\r\n\t\t}";
             }
 

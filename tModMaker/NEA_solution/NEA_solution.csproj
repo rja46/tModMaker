@@ -228,6 +228,9 @@
     <Content Include="recents.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="tileIDs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="userConfig.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

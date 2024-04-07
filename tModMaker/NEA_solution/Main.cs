@@ -176,7 +176,7 @@ namespace NEA_solution
         }
 
         //This procedure is asynchronous as it waits to recieve the data from the web component.
-        private async void save_mod()
+        private async Task save_mod()
         {
             lock_controls();
             //The properties of the progress bar are set up.
@@ -341,7 +341,7 @@ namespace NEA_solution
                     //The code is written to a seperate file.
                     File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + "_code.code", loadedMod.get_item(i).get_code());
 
-                    recipeItems = "";
+                    recipeItems = loadedMod.get_item(i).get_craftingStationID() + "\r\n";
                     for (int j = 0; j < loadedMod.get_item(i).get_ingredients().Length; j++)
                     {
                         recipeItems += loadedMod.get_item(i).get_ingredients()[j].itemName + "|" + loadedMod.get_item(i).get_ingredients()[j].quantity + "\r\n";
@@ -397,19 +397,15 @@ namespace NEA_solution
                     pbSave.PerformStep();
                 }
                 //This delay is purely visual, but I found the user experience was much better as a result.
-                finishSaving(1000);
+                await Task.Delay(1000);
+                pbSave.Value = 1;
+                tbSave.Enabled = true;
+                fileSaveMod.Enabled = true;
+                wvCode.Enabled = true;
+                unlock_controls();
             }
         }
 
-        private async void finishSaving(int delay)
-        {
-            await Task.Delay(delay);
-            pbSave.Value = 1;
-            tbSave.Enabled = true;
-            fileSaveMod.Enabled = true;
-            wvCode.Enabled = true;
-            unlock_controls();
-        }
         private void fileOpenMod_Click(object sender, EventArgs e)
         {
             open_mod();
@@ -514,7 +510,8 @@ namespace NEA_solution
                                 {
                                     tmpRecipe = new List<RecipeItem>();
                                     recipeItems = File.ReadAllLines(existingRecipes[j]);
-                                    for (int k = 0; k < recipeItems.Length; k++)
+                                    currentItem.set_craftingStationID(Convert.ToInt32(recipeItems[0]));
+                                    for (int k = 1; k < recipeItems.Length; k++)
                                     {
                                         tmpRecipe.Add(new RecipeItem(recipeItems[k].Split('|')[0],Convert.ToInt32(recipeItems[k].Split('|')[1])));
                                     }
@@ -743,7 +740,7 @@ namespace NEA_solution
             }
         }
 
-        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CodeGenerator codeGenerator = new CodeGenerator();
             string path;
@@ -767,7 +764,7 @@ namespace NEA_solution
                     DialogResult result = MessageBox.Show("Save before exporting?", "Save?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        save_mod();
+                        await save_mod();
                     }
                     path = File.ReadAllText(Environment.CurrentDirectory + "\\userConfig.txt") + "\\" + loadedMod.get_name();
                     Bitmap bmp;
@@ -840,7 +837,7 @@ namespace NEA_solution
                     Directory.CreateDirectory(path + "\\Tiles");
 
                     File.WriteAllText(path + "\\description.txt", loadedMod.get_description());
-                    DialogResult messageResult = MessageBox.Show("Increment version number?", "Increment version",MessageBoxButtons.YesNo);
+                    DialogResult messageResult = MessageBox.Show("Increment version number?", "Increment version",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (messageResult == DialogResult.Yes)
                     {
                         //It the version number is incremented, the change is saved here.
@@ -1276,6 +1273,7 @@ namespace NEA_solution
             RecipeEditor recipeEditor = new RecipeEditor(loadedItem);
             recipeEditor.ShowDialog();
             loadedItem.set_ingredients(recipeEditor.outputArray);
+            loadedItem.set_craftingStationID(recipeEditor.station);
         }
 
         private void wvSave_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)

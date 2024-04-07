@@ -22,6 +22,7 @@ namespace NEA_solution
         private Bitmap legsSprite;
         private RecipeItem[] ingredients = new RecipeItem[1];
         private Bitmap mapHead;
+        private int craftingStationID = -1;
 
 
         public Item(string name, string type)
@@ -45,6 +46,7 @@ namespace NEA_solution
         public Bitmap get_sprite() { return sprite;}
         public RecipeItem[] get_ingredients() { return ingredients; }
         public Bitmap get_mapHead() { return mapHead;}
+        public int get_craftingStationID() { return craftingStationID; }
         public void set_tooltip(string tooltip)
         {
             this.tooltip = tooltip;
@@ -105,6 +107,10 @@ namespace NEA_solution
         public void set_mapHead(Bitmap mapHead)
         {
             this.mapHead = mapHead;
+        }
+        public void set_craftingStationID (int craftingStationID)
+        {
+            this.craftingStationID = craftingStationID;
         }
     }
 }

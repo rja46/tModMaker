@@ -43,6 +43,10 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "define_weapon_essential"
+                },
+                {
+                    "kind": "block",
+                    "type": "max_stack"
                 }
             ]
         },
@@ -350,7 +354,7 @@ Blockly.common.defineBlocksWithJsonArray([
     },
     {
         "type": "define_item",
-        "message0": "Cost %1 copper to buy %2 Have %3 rarity",
+        "message0": "Set value to %1 copper %2 Have %3 rarity",
         "args0": [
             {
                 "type": "field_number",
@@ -1093,6 +1097,24 @@ Blockly.common.defineBlocksWithJsonArray([
         "colour": 80,
         "tooltip": "",
         "helpUrl": "https://terraria.wiki.gg/wiki/Data_IDs"
+    },
+    {
+        "type": "max_stack",
+        "message0": "Set maximum stack size to %1",
+        "args0": [
+            {
+                "type": "field_number",
+                "name": "max",
+                "value": 0,
+                "min": 0,
+                "precision": 1
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
     }
 ]);
 

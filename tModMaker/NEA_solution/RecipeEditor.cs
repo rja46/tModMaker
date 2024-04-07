@@ -16,6 +16,7 @@ namespace NEA_solution
         RecipeItem currentItem;
         List<RecipeItem> IngredientsList = new List<RecipeItem>();
         public RecipeItem[] outputArray;
+        public int station;
         public RecipeEditor(Item item)
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace NEA_solution
             }
             lbIngredients.SelectedIndex = 0;
             numQuantity.Value = IngredientsList[0].quantity;
+            cbStation.SelectedIndex = item.get_craftingStationID();
         }
 
         private void lbIngredients_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,6 +72,7 @@ namespace NEA_solution
         private void RecipeEditor_FormClosing(object sender, FormClosingEventArgs e)
         {
             outputArray = IngredientsList.ToArray();
+            station = cbStation.SelectedIndex;
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
