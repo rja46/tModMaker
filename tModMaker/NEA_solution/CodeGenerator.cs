@@ -94,10 +94,6 @@ namespace NEA_solution
             {
                 generatedCode += "\r\nnamespace " + modName + ".NPCs";
             }
-            else if (itemType == "Tile")
-            {
-                generatedCode += "\r\nnamespace " + modName + ".Tiles";
-            }
             generatedCode += "\r\n{";
 
 
@@ -249,11 +245,6 @@ namespace NEA_solution
                         setDefaults += "\r\n\t\t\tItem.createTile = TileID." + create_Tile.tileName + ";";
                         break;
 
-                    case "create_custom_tile":
-                        create_tile create_Custom_Tile = JsonSerializer.Deserialize<create_tile>(blocksAsStrings[i]);
-                        setDefaults += "\r\n\t\t\tItem.createTile = ModContent.TileType<" + create_Custom_Tile.tileName + ">();";
-                        break;
-
                     case "grant_effect":
                         grant_effect grant_Effect = JsonSerializer.Deserialize<grant_effect>(blocksAsStrings[i]);
                         setDefaults += "\r\n\t\t\tItem.buffType = BuffID." + grant_Effect.effect + ";";
@@ -317,11 +308,6 @@ namespace NEA_solution
                     case "collide_with_tiles":
                         collide_with_tiles collide_With_Tiles = JsonSerializer.Deserialize<collide_with_tiles>(blocksAsStrings[i]);
                         setDefaults += "\r\n\t\t\tProjectile.tileCollide = " + collide_With_Tiles.collide.ToString().ToLower() + ";";
-                        break;
-
-                    case "ignore_water":
-                        ignore_water ignore_Water = JsonSerializer.Deserialize<ignore_water>(blocksAsStrings[i]);
-                        setDefaults += "\r\n\t\t\tProjectile.ignoreWater = " + (!ignore_Water.ignore).ToString().ToLower() + ";";
                         break;
 
                     case "emit_light":
@@ -417,30 +403,6 @@ namespace NEA_solution
                     case "set_npc_property":
                         set_npc_property set_Npc_Property = JsonSerializer.Deserialize<set_npc_property>(blocksAsStrings[i]);
                         setDefaults += "\r\n\t\t\tNPC." + set_Npc_Property.property + " = true;";
-                        break;
-
-
-
-                    //AI Class Blocks
-                    case "chase_player_x":
-                        chase_player_X chase_Player_X = JsonSerializer.Deserialize<chase_player_X>(blocksAsStrings[i]);
-                        chasePlayer = true;
-                        AI += "\r\nif (targetPosition.X < npc.position.X && npc.velocity.X > " + chase_Player_X.xVelocity + ")" +
-                            "\r\n{" +
-                            "\r\nnpc.velocity.X -= " + chase_Player_X.xAcceleration + ";" +
-                            "\r\n}" +
-                            "\r\nif (targetPosition.X > npc.position.X && npc.velocity.X < " + chase_Player_X.xVelocity + ")" +
-                            "\r\n{" +
-                            "\r\nnpc.velocity.X += " + chase_Player_X.xAcceleration + ";" +
-                            "\r\n}";
-                        break;
-
-                    //Tile blocks
-                    case "tile_default":
-                        tile_default tile_Default = JsonSerializer.Deserialize<tile_default>(blocksAsStrings[i]);
-                        setDefaults += "\r\n\t\t\tMain.tileSolid[Type] = " + tile_Default.solid + ";";
-                        setDefaults += "\r\n\t\t\tMain.tileMergeDirt[Type] = " + tile_Default.merge + ";";
-                        setDefaults += "\r\n\t\t\tMain.tileBlockLight[Type] = " + tile_Default.block_light + ";";
                         break;
                 }
             }

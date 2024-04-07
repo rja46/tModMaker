@@ -233,10 +233,6 @@ namespace NEA_solution
                     case "NPC":
                         wvSave.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\npc_editor.html");
                         break;
-
-                    case "Tile":
-                        wvSave.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\tile_editor.html");
-                        break;
                 }
                 
                 //If the correct editor is not loaded, it will be loaded here.
@@ -834,7 +830,6 @@ namespace NEA_solution
                     Directory.CreateDirectory(path + "\\Properties");
                     Directory.CreateDirectory(path + "\\Projectiles");
                     Directory.CreateDirectory(path + "\\NPCs");
-                    Directory.CreateDirectory(path + "\\Tiles");
 
                     File.WriteAllText(path + "\\description.txt", loadedMod.get_description());
                     DialogResult messageResult = MessageBox.Show("Increment version number?", "Increment version",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -868,7 +863,16 @@ namespace NEA_solution
                     {
                         if (itemsToExport[i].get_type() == "Item")
                         {
-                            localizationString += itemsToExport[i].get_name() + ": {\r\nTooltip: " + itemsToExport[i].get_tooltip() + "\r\nDisplayName: " + itemsToExport[i].get_displayName() + "\r\n}\r\n";
+                            localizationString += itemsToExport[i].get_name() + ": {";
+                            if (itemsToExport[i].get_tooltip() != "")
+                            {
+                                localizationString += "\r\nTooltip: " + itemsToExport[i].get_tooltip();
+                            }
+                            if (itemsToExport[i].get_displayName() != "")
+                            {
+                                localizationString += "\r\nDisplayName: " + itemsToExport[i].get_displayName();
+                            }
+                            localizationString += "\r\n}\r\n";
                         }
                     }
                     localizationString += "}\r\n";
@@ -911,10 +915,6 @@ namespace NEA_solution
                         {
                             File.WriteAllText(path + "\\NPCs\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                         }
-                        else if (itemsToExport[i].get_type() == "Tile")
-                        {
-                            File.WriteAllText(path + "\\Tiles\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
-                        }
                         
                         /*
                          * The sprites are written to files here. Each item has a main sprite, then
@@ -939,10 +939,6 @@ namespace NEA_solution
                             else if (itemsToExport[i].get_type() == "NPC")
                             {
                                 bmp.Save(path + "\\NPCs\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
-                            }
-                            else if (itemsToExport[i].get_type() == "Tiles")
-                            {
-                                bmp.Save(path + "\\Tiles\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
                             }
                         }
                         bmp = itemsToExport[i].get_wingSprite();
@@ -1028,12 +1024,6 @@ namespace NEA_solution
             else if (loadedItem.get_type() == "NPC")
             {
                 wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\npc_editor.html");
-                txtTooltip.Enabled = false;
-                btnRecipe.Enabled = false;
-            }
-            else if (loadedItem.get_type() == "Tile")
-            {
-                wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\tile_editor.html");
                 txtTooltip.Enabled = false;
                 btnRecipe.Enabled = false;
             }

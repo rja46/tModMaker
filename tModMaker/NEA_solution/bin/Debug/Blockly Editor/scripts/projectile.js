@@ -64,10 +64,6 @@ const toolbox = {
                 },
                 {
                     "kind": "block",
-                    "type": "ignore_water"
-                },
-                {
-                    "kind": "block",
                     "type": "emit_light"
                 }
             ]
@@ -87,12 +83,13 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "time_left",
                 "value": 0,
-                "min": 0
+                "min": 0,
+                "max": 2147483647
             }
         ],
         "nextStatement": null,
         "colour": 230,
-        "tooltip": "",
+        "tooltip": "Sets the amount of time the projectile will stay in the world for",
         "helpUrl": ""
     },
     {
@@ -407,7 +404,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
-        "tooltip": "",
+        "tooltip": "Sets the way the projectile acts when fired",
         "helpUrl": ""
     },
     {
@@ -439,13 +436,16 @@ Blockly.common.defineBlocksWithJsonArray([
             {
                 "type": "field_number",
                 "name": "value",
-                "value": 0
+                "value": 0,
+                "min": 0,
+                "max": 2147483647,
+                "precision": 0
             }
         ],
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
-        "tooltip": "",
+        "tooltip": "Sets a property of the projectile",
         "helpUrl": ""
     },
     {
@@ -461,7 +461,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
-        "tooltip": "",
+        "tooltip": "Stops the projectile from damaging the player",
         "helpUrl": ""
     },
     {
@@ -477,7 +477,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
-        "tooltip": "",
+        "tooltip": "Makes the projectile target and damage the player",
         "helpUrl": ""
     },
     {
@@ -493,7 +493,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
-        "tooltip": "",
+        "tooltip": "Makes the projectile invisible",
         "helpUrl": ""
     },
     {
@@ -509,23 +509,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
-        "tooltip": "",
-        "helpUrl": ""
-    },
-    {
-        "type": "ignore_water",
-        "message0": "Slow in water %1",
-        "args0": [
-            {
-                "type": "field_checkbox",
-                "name": "ignore",
-                "checked": true
-            }
-        ],
-        "previousStatement": null,
-        "nextStatement": null,
-        "colour": 230,
-        "tooltip": "",
+        "tooltip": "Stops the projectile from hitting blocks",
         "helpUrl": ""
     },
     {
@@ -535,13 +519,15 @@ Blockly.common.defineBlocksWithJsonArray([
             {
                 "type": "field_number",
                 "name": "light",
-                "value": 0
+                "value": 0,
+                "min": 0,
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
-        "tooltip": "",
+        "tooltip": "Makes the projectile emit light",
         "helpUrl": ""
     }
 ])

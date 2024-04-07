@@ -279,15 +279,15 @@
             this.txtTooltip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtTooltip.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTooltip.Location = new System.Drawing.Point(51, 273);
+            this.txtTooltip.Location = new System.Drawing.Point(51, 302);
             this.txtTooltip.Multiline = true;
             this.txtTooltip.Name = "txtTooltip";
-            this.txtTooltip.Size = new System.Drawing.Size(190, 125);
+            this.txtTooltip.Size = new System.Drawing.Size(190, 96);
             this.txtTooltip.TabIndex = 22;
             // 
             // lblDisplayName
             // 
-            this.lblDisplayName.Location = new System.Drawing.Point(7, 242);
+            this.lblDisplayName.Location = new System.Drawing.Point(7, 273);
             this.lblDisplayName.Name = "lblDisplayName";
             this.lblDisplayName.Size = new System.Drawing.Size(42, 29);
             this.lblDisplayName.TabIndex = 23;
@@ -296,7 +296,7 @@
             // lblTooltip
             // 
             this.lblTooltip.AutoSize = true;
-            this.lblTooltip.Location = new System.Drawing.Point(7, 271);
+            this.lblTooltip.Location = new System.Drawing.Point(7, 304);
             this.lblTooltip.Name = "lblTooltip";
             this.lblTooltip.Size = new System.Drawing.Size(42, 13);
             this.lblTooltip.TabIndex = 21;
@@ -305,7 +305,7 @@
             // txtDisplayName
             // 
             this.txtDisplayName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDisplayName.Location = new System.Drawing.Point(51, 247);
+            this.txtDisplayName.Location = new System.Drawing.Point(51, 276);
             this.txtDisplayName.Name = "txtDisplayName";
             this.txtDisplayName.Size = new System.Drawing.Size(190, 20);
             this.txtDisplayName.TabIndex = 24;
@@ -314,7 +314,7 @@
             // 
             this.btnChangeSprite.Location = new System.Drawing.Point(10, 218);
             this.btnChangeSprite.Name = "btnChangeSprite";
-            this.btnChangeSprite.Size = new System.Drawing.Size(201, 23);
+            this.btnChangeSprite.Size = new System.Drawing.Size(231, 23);
             this.btnChangeSprite.TabIndex = 20;
             this.btnChangeSprite.Text = "Change Sprite";
             this.btnChangeSprite.UseVisualStyleBackColor = true;
@@ -332,11 +332,11 @@
             // 
             // btnAdditionalSprites
             // 
-            this.btnAdditionalSprites.Location = new System.Drawing.Point(217, 218);
+            this.btnAdditionalSprites.Location = new System.Drawing.Point(10, 247);
             this.btnAdditionalSprites.Name = "btnAdditionalSprites";
-            this.btnAdditionalSprites.Size = new System.Drawing.Size(24, 23);
+            this.btnAdditionalSprites.Size = new System.Drawing.Size(231, 23);
             this.btnAdditionalSprites.TabIndex = 26;
-            this.btnAdditionalSprites.Text = "...";
+            this.btnAdditionalSprites.Text = "Additional Sprites";
             this.btnAdditionalSprites.UseVisualStyleBackColor = true;
             this.btnAdditionalSprites.Click += new System.EventHandler(this.btnAdditionalSprites_Click);
             // 

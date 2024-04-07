@@ -157,10 +157,6 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "create_tile"
-                },
-                {
-                    "kind": "block",
-                    "type": "create_custom_tile"
                 }
             ]
         },
@@ -187,8 +183,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "damage",
                 "value": 0,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             },
             {
                 "type": "input_dummy"
@@ -226,8 +223,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "knockback",
                 "value": 0,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             },
             {
                 "type": "input_dummy"
@@ -236,15 +234,16 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "crit",
                 "value": 0,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
-        "tooltip": "Define a basic weapon",
-        "helpUrl": "no"
+        "tooltip": "Defines a basic weapon",
+        "helpUrl": ""
     },
     {
         "type": "define_tool",
@@ -254,8 +253,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "useTime",
                 "value": 1,
+                "precision": 1,
                 "min": 1,
-                "precision": 1
+                "max": 2147483647
             },
             {
                 "type": "input_dummy"
@@ -349,7 +349,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
-        "tooltip": "Define how a weapon is used",
+        "tooltip": "Defines how a weapon is used",
         "helpUrl": "no"
     },
     {
@@ -360,8 +360,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "value",
                 "value": 0,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             },
             {
                 "type": "input_dummy"
@@ -439,7 +440,7 @@ Blockly.common.defineBlocksWithJsonArray([
         ],
         "nextStatement": null,
         "colour": 230,
-        "tooltip": "Define a basic item",
+        "tooltip": "Defines a basic item",
         "helpUrl": "no"
     },
     {
@@ -450,8 +451,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "power",
                 "value": 0,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             },
             {
                 "type": "field_dropdown",
@@ -490,8 +492,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "useMana",
                 "value": 0,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
@@ -546,8 +549,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "shoot_speed",
                 "value": 0,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
@@ -616,7 +620,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "value",
                 "value": 0,
-                "precision": 1
+                "precision": 1,
+                "min": 0,
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
@@ -685,7 +691,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "value",
                 "value": 0,
-                "precision": 1
+                "precision": 1,
+                "min": 0,
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
@@ -809,7 +817,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "value",
                 "value": 0,
-                "precision": 1
+                "precision": 1,
+                "min": 0,
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
@@ -864,7 +874,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "value",
                 "value": 0,
-                "precision": 1
+                "precision": 1,
+                "min": 0,
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
@@ -896,8 +908,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "flight_time",
                 "value": 180,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             },
             {
                 "type": "input_dummy"
@@ -906,8 +919,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "flight_speed",
                 "value": 9,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             },
             {
                 "type": "input_dummy"
@@ -917,6 +931,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "name": "acceleration",
                 "value": 2.5,
                 "min": 0,
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
@@ -933,8 +948,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "hover_speed",
                 "value": 9,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             },
             {
                 "type": "input_dummy"
@@ -943,7 +959,8 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "acceleration",
                 "value": 2.5,
-                "min": 0
+                "min": 0,
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
@@ -965,8 +982,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "shoot_speed",
                 "value": 0,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
@@ -1011,7 +1029,7 @@ Blockly.common.defineBlocksWithJsonArray([
             {
                 "type": "field_input",
                 "name": "tileName",
-                "text": "default"
+                "text": "tile name"
             }
         ],
         "previousStatement": null,
@@ -1021,36 +1039,21 @@ Blockly.common.defineBlocksWithJsonArray([
         "helpUrl": "https://terraria.wiki.gg/wiki/Tile_IDs/Part1"
     },
     {
-        "type": "create_custom_tile",
-        "message0": "Create custom tile called %1",
-        "args0": [
-            {
-                "type": "field_input",
-                "name": "tileName",
-                "text": "default"
-            }
-        ],
-        "previousStatement": null,
-        "nextStatement": null,
-        "colour": 360,
-        "tooltip": "Places a custom tile",
-        "helpUrl": ""
-    },
-    {
         "type": "grant_effect",
         "message0": "Grant player %1 effect for %2 seconds",
         "args0": [
             {
                 "type": "field_input",
                 "name": "effect",
-                "text": "default"
+                "text": "buff"
             },
             {
                 "type": "field_number",
                 "name": "time",
                 "value": 0,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
@@ -1066,20 +1069,21 @@ Blockly.common.defineBlocksWithJsonArray([
             {
                 "type": "field_input",
                 "name": "effect",
-                "text": "default"
+                "text": "buff"
             },
             {
                 "type": "field_number",
                 "name": "time",
                 "value": 0,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
         "nextStatement": null,
         "colour": 120,
-        "tooltip": "",
+        "tooltip": "Inflicts a buff or debuff on hit",
         "helpUrl": "https://terraria.wiki.gg/wiki/Buff_IDs"
     },
     {
@@ -1089,13 +1093,13 @@ Blockly.common.defineBlocksWithJsonArray([
             {
                 "type": "field_input",
                 "name": "enemy_name",
-                "text": "default"
+                "text": "enemy name"
             }
         ],
         "previousStatement": null,
         "nextStatement": null,
         "colour": 80,
-        "tooltip": "",
+        "tooltip": "Spawns an enemy when used",
         "helpUrl": "https://terraria.wiki.gg/wiki/Data_IDs"
     },
     {
@@ -1106,14 +1110,15 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "max",
                 "value": 0,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
-        "tooltip": "",
+        "tooltip": "Sets the number of items that will fit in one inventory slot",
         "helpUrl": ""
     }
 ]);

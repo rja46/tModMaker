@@ -110,7 +110,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "damage",
                 "value": 0,
-                "precision": 1
+                "precision": 1,
+                "min": 0,
+                "max": 2147483647
             },
             {
                 "type": "input_dummy"
@@ -119,7 +121,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "defense",
                 "value": 0,
-                "precision": 1
+                "precision": 1,
+                "min": 0,
+                "max": 2147483647
             },
             {
                 "type": "input_dummy"
@@ -128,7 +132,9 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "life",
                 "value": 0,
-                "precision": 1
+                "precision": 1,
+                "min": 0,
+                "max": 2147483647
             },
             {
                 "type": "input_dummy"
@@ -137,12 +143,14 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "knockResist",
                 "value": 0,
-                "precision": 1
+                "precision": 1,
+                "min": 0,
+                "max": 2147483647
             }
         ],
         "nextStatement": null,
         "colour": 300,
-        "tooltip": "",
+        "tooltip": "Sets the basic properties of an NPC",
         "helpUrl": ""
     },
     {
@@ -316,7 +324,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "nextStatement": null,
         "previousStatement": null,
         "colour": 300,
-        "tooltip": "",
+        "tooltip": "Defines the way in which the NPC moves",
         "helpUrl": ""
     },
     {
@@ -332,39 +340,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 250,
-        "tooltip": "",
-        "helpUrl": ""
-    },
-    {
-        "type": "customAI",
-        "message0": "Use custom AI called %1",
-        "args0": [
-            {
-                "type": "field_input",
-                "name": "aiName",
-                "text": "default"
-            }
-        ],
-        "previousStatement": null,
-        "nextStatement": null,
-        "colour": 230,
-        "tooltip": "",
-        "helpUrl": ""
-    },
-    {
-        "type": "use_custom_ai",
-        "message0": "Use custom AI called %1",
-        "args0": [
-            {
-                "type": "field_input",
-                "name": "aiName",
-                "text": "default"
-            }
-        ],
-        "previousStatement": null,
-        "nextStatement": null,
-        "colour": 170,
-        "tooltip": "",
+        "tooltip": "Adds a phrase to the list of things the NPC can say",
         "helpUrl": ""
     },
     {
@@ -384,71 +360,21 @@ Blockly.common.defineBlocksWithJsonArray([
         "helpUrl": ""
     },
     {
-        "type": "chase_player_x",
-        "message0": "Chase player horizontally with %1 velocity and %2 acceleration",
-        "args0": [
-            {
-                "type": "field_number",
-                "name": "xVelocity",
-                "value": 0,
-                "precision": 1
-            },
-            {
-                "type": "field_number",
-                "name": "xAcceleration",
-                "value": 0,
-                "precision": 0
-            }
-        ],
-        "previousStatement": null,
-        "nextStatement": null,
-        "colour": 230,
-        "tooltip": "",
-        "helpUrl": ""
-    },
-    {
-        "type": "chase_player_y",
-        "message0": "Chase player vertically with %1 velocity and %2 acceleration if player is within %3 blocks",
-        "args0": [
-            {
-                "type": "field_number",
-                "name": "yVelocity",
-                "value": 0,
-                "precision": 1
-            },
-            {
-                "type": "field_number",
-                "name": "yAcceleration",
-                "value": 0,
-                "precision": 0
-            },
-            {
-                "type": "field_number",
-                "name": "distance",
-                "value": 0,
-                "precision": 1
-            }
-        ],
-        "previousStatement": null,
-        "nextStatement": null,
-        "colour": 230,
-        "tooltip": "",
-        "helpUrl": ""
-    },
-    {
         "type": "set_spawn_rate",
         "message0": "Set spawn rate to %1",
         "args0": [
             {
                 "type": "field_number",
                 "name": "rate",
-                "value": 0
+                "value": 0,
+                "min": 0,
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
         "nextStatement": null,
         "colour": 300,
-        "tooltip": "",
+        "tooltip": "Sets a flat rate at which the NPC will spawn",
         "helpUrl": ""
     },
     {
@@ -458,13 +384,15 @@ Blockly.common.defineBlocksWithJsonArray([
             {
                 "type": "field_number",
                 "name": "multiplier",
-                "value": 0
+                "value": 0,
+                "min": 0,
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
         "nextStatement": null,
         "colour": 300,
-        "tooltip": "",
+        "tooltip": "Sets a multiplier for the spawn rate",
         "helpUrl": ""
     },
     {
@@ -553,7 +481,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 300,
-        "tooltip": "",
+        "tooltip": "Sets the spawn rate to a given condition",
         "helpUrl": ""
     },
     {
@@ -569,7 +497,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 250,
-        "tooltip": "",
+        "tooltip": "Stops the NPC from damaging the player",
         "helpUrl": ""
     },
     {
@@ -585,7 +513,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 250,
-        "tooltip": "",
+        "tooltip": "Adds an item to the NPC's shop",
         "helpUrl": "https://terraria.fandom.com/wiki/Item_IDs"
     },
     {
@@ -596,15 +524,17 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "min",
                 "value": 0,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             },
             {
                 "type": "field_number",
                 "name": "max",
                 "value": 0,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             },
             {
                 "type": "field_input",
@@ -615,21 +545,23 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "numerator",
                 "value": 0,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             },
             {
                 "type": "field_number",
                 "name": "denominator",
                 "value": 0,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
         "nextStatement": null,
         "colour": 300,
-        "tooltip": "",
+        "tooltip": "Gives the NPC a chance to drop an item on death",
         "helpUrl": ""
     },
     {
@@ -645,7 +577,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 170,
-        "tooltip": "",
+        "tooltip": "Makes the NPC a boss",
         "helpUrl": "https://terraria.fandom.com/wiki/Item_IDs"
     },
     {
@@ -656,14 +588,15 @@ Blockly.common.defineBlocksWithJsonArray([
                 "type": "field_number",
                 "name": "value",
                 "value": 0,
+                "precision": 1,
                 "min": 0,
-                "precision": 1
+                "max": 2147483647
             }
         ],
         "previousStatement": null,
         "nextStatement": null,
         "colour": 170,
-        "tooltip": "",
+        "tooltip": "Sets the amount of money the NPC will drop on death",
         "helpUrl": ""
     },
     {
@@ -692,7 +625,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "previousStatement": null,
         "nextStatement": null,
         "colour": 300,
-        "tooltip": "",
+        "tooltip": "Sets a property of the NPC",
         "helpUrl": ""
     }
 ]);

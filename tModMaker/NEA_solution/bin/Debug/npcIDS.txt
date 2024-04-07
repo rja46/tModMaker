@@ -14,166 +14,106 @@ BigPantlessSkeleton
 SmallPantlessSkeleton
 BigMisassembledSkeleton
 SmallMisassembledSkeleton
--49 	Skeleton
-(Big Headache Skeleton) 	Headache Skeleton.png 	BigHeadacheSkeleton
--48 	Skeleton
-(Small Headache Skeleton) 	Headache Skeleton.png 	SmallHeadacheSkeleton
--47 	Skeleton
-(Big Skeleton) 	Skeleton.png 	BigSkeleton
--46 	Skeleton
-(Small Skeleton) 	Skeleton.png 	SmallSkeleton
--45 	Zombie
-(Big Female Zombie) 	Female Zombie.png 	BigFemaleZombie
--44 	Zombie
-(Small Female Zombie) 	Female Zombie.png 	SmallFemaleZombie
--43 	Demon Eye
-(Demon Eye)
-(Variant 2) 	Demon Eye.png 	DemonEye2
--42 	Demon Eye
-(Purple Eye)
-(Variant 2) 	Purple Eye.png 	PurpleEye2
--41 	Demon Eye
-(Green Eye)
-(Variant 2) 	Green Eye.png 	GreenEye2
--40 	Demon Eye
-(Dilated Eye)
-(Variant 2) 	Dilated Eye.png 	DialatedEye2
--39 	Demon Eye
-(Sleepy Eye)
-(Variant 2) 	Sleepy Eye.png 	SleepyEye2
--38 	Demon Eye
-(Cataract Eye)
-(Variant 2) 	Cataract Eye.png 	CataractEye2
--37 	Zombie
-(Big Twiggy Zombie) 	Twiggy Zombie.png 	BigTwiggyZombie
--36 	Zombie
-(Small Twiggy Zombie) 	Twiggy Zombie.png 	SmallTwiggyZombie
--35 	Zombie
-(Big Swamp Zombie) 	Swamp Zombie.png 	BigSwampZombie
--34 	Zombie
-(Small Swamp Zombie) 	Swamp Zombie.png 	SmallSwampZombie
--33 	Zombie
-(Big Slimed Zombie) 	Slimed Zombie.png 	BigSlimedZombie
--32 	Zombie
-(Small Slimed Zombie) 	Slimed Zombie.png 	SmallSlimedZombie
--31 	Zombie
-(Big Pincushion Zombie) 	Pincushion Zombie.png 	BigPincushionZombie
--30 	Zombie
-(Small Pincushion Zombie) 	Pincushion Zombie.png 	SmallPincushionZombie
--29 	Zombie
-(Big Bald Zombie) 	Bald Zombie.png 	BigBaldZombie
--28 	Zombie
-(Small Bald Zombie) 	Bald Zombie.png 	SmallBaldZombie
--27 	Zombie
-(Big Zombie) 	Zombie.png 	BigZombie
--26 	Zombie
-(Small Zombie) 	Zombie.png 	SmallZombie
--25 	Crimslime
-(Big Crimslime) 	Crimslime.png 	BigCrimslime
--24 	Crimslime
-(Little Crimslime) 	Crimslime.png 	LittleCrimslime
--23 	Crimera
-(Big Crimera) 	Crimera.png 	BigCrimera
--22 	Crimera
-(Little Crimera) 	Crimera.png 	LittleCrimera
--21 	Moss Hornet
-(Giant Moss Hornet) 	Moss Hornet.png 	GiantMossHornet
--20 	Moss Hornet
-(Big Moss Hornet) 	Moss Hornet.png 	BigMossHornet
--19 	Moss Hornet
-(Little Moss Hornet) 	Moss Hornet.png 	LittleMossHornet
--18 	Moss Hornet
-(Tiny Moss Hornet) 	Moss Hornet.png 	TinyMossHornet
--17 	Hornet
-(Big Stinger) 	Hornet.png 	BigStinger
--16 	Hornet
-(Little Stinger) 	Hornet.png 	LittleStinger
--15 	Armored Skeleton
-(Heavy Skeleton) 	Armored Skeleton.gif 	HeavySkeleton
--14 	Angry Bones
-(Big Bones) 	Angry Bones 1.png 	BigBoned
--13 	Angry Bones
-(Short Bones) 	Angry Bones 1.png 	ShortBones
--12 	Eater of Souls
-(Big Eater) 	Eater of Souls.png 	BigEater
--11 	Eater of Souls
-(Little Eater) 	Eater of Souls.png 	LittleEater
--10 	Jungle Slime 	Jungle Slime.gif 	JungleSlime
--9 	Yellow Slime 	Yellow Slime.gif 	YellowSlime
--8 	Red Slime 	Red Slime.gif 	RedSlime
--7 	Purple Slime 	Purple Slime.gif 	PurpleSlime
--6 	Black Slime 	Black Slime.gif 	BlackSlime
--5 	Baby Slime 	Baby Slime.gif 	BabySlime
--4 	Pinky 	Pinky.gif 	Pinky
--3 	Green Slime 	Green Slime.gif 	GreenSlime
--2 	Slimer
-(Without Wings) 	Corrupt Slime.gif 	Slimer2
--1 	Slimeling 	Slimeling.gif 	Slimeling
-1 	Blue Slime 	Blue Slime.gif 	BlueSlime
-2 	Demon Eye 	Demon Eye.gif 	DemonEye
-3 	Zombie 	Zombie.gif 	Zombie
-4 	Eye of Cthulhu 	Eye of Cthulhu (Phase 1).gif 	EyeofCthulhu
-5 	Servant of Cthulhu 	Servant of Cthulhu.gif 	ServantofCthulhu
-6 	Eater of Souls 	Eater of Souls.gif 	EaterofSouls
-7 	Devourer
-(Devourer Head) 	Devourer Head.png 	DevourerHead
-8 	Devourer
-(Devourer Body) 	Devourer Body.png 	DevourerBody
-9 	Devourer
-(Devourer Tail) 	Devourer Tail.png 	DevourerTail
-10 	Giant Worm
-(Giant Worm Head) 	Giant Worm Head.png 	GiantWormHead
-11 	Giant Worm
-(Giant Worm Body) 	Giant Worm Body.png 	GiantWormBody
-12 	Giant Worm
-(Giant Worm Tail) 	Giant Worm Tail.png 	GiantWormTail
-13 	Eater of Worlds
-(Eater of Worlds Head) 	Eater of Worlds Head.png 	EaterofWorldsHead
-14 	Eater of Worlds
-(Eater of Worlds Body) 	Eater of Worlds Body.png 	EaterofWorldsBody
-15 	Eater of Worlds
-(Eater of Worlds Tail) 	Eater of Worlds Tail.png 	EaterofWorldsTail
-16 	Mother Slime 	Mother Slime.gif 	MotherSlime
-17 	Merchant 	Merchant.png 	Merchant
-18 	Nurse 	Nurse.png 	Nurse
-19 	Arms Dealer 	Arms Dealer.png 	ArmsDealer
-20 	Dryad 	Dryad.png 	Dryad
-21 	Skeleton 	Skeleton.gif 	Skeleton
-22 	Guide 	Guide.png 	Guide
-23 	Meteor Head 	Meteor Head.gif 	MeteorHead
-24 	Fire Imp 	Fire Imp.gif 	FireImp
-25 	Burning Sphere 	Burning Sphere.png 	BurningSphere
-26 	Goblin Peon 	Goblin Peon.gif 	GoblinPeon
-27 	Goblin Thief 	Goblin Thief.gif 	GoblinThief
-28 	Goblin Warrior 	Goblin Warrior.gif 	GoblinWarrior
-29 	Goblin Sorcerer 	Goblin Sorcerer.png 	GoblinSorcerer
-30 	Chaos Ball 	Chaos Ball.png 	ChaosBall
-31 	Angry Bones 	Angry Bones 1.gif 	AngryBones
-32 	Dark Caster 	Dark Caster.png 	DarkCaster
-33 	Water Sphere 	Water Sphere.png 	WaterSphere
-34 	Cursed Skull 	Cursed Skull.gif 	CursedSkull
-35 	Skeletron
-(Skeletron Head) 	Skeletron Head.png 	SkeletronHead
-36 	Skeletron
-(Skeletron Hand) 	Skeletron Hand (NPC).png 	SkeletronHand
-37 	Old Man 	Old Man.png 	OldMan
-38 	Demolitionist 	Demolitionist.png 	Demolitionist
-39 	Bone Serpent
-(Bone Serpent Head) 	Bone Serpent Head.png 	BoneSerpentHead
-40 	Bone Serpent
-(Bone Serpent Body) 	Bone Serpent Body.png 	BoneSerpentBody
-41 	Bone Serpent
-(Bone Serpent Tail) 	Bone Serpent Tail.png 	BoneSerpentTail
-42 	Hornet 	Hornet.gif 	Hornet
-43 	Man Eater 	Man Eater.gif 	ManEater
-44 	Undead Miner 	Undead Miner.gif 	UndeadMiner
-45 	Tim 	Tim.png 	Tim
-46 	Bunny 	Bunny.gif 	Bunny
-47 	Corrupt Bunny 	Corrupt Bunny.gif 	CorruptBunny
-48 	Harpy 	Harpy.gif 	Harpy
-49 	Cave Bat 	Cave Bat.gif 	CaveBat
-50 	King Slime 	King Slime.gif 	KingSlime
-51 	Jungle Bat 	Jungle Bat.gif 	JungleBat
+BigHeadacheSkeleton
+SmallHeadacheSkeleton
+BigSkeleton
+SmallSkeleton
+BigFemaleZombie
+SmallFemaleZombie
+DemonEye2
+PurpleEye2
+GreenEye2
+DialatedEye2
+SleepyEye2
+CataractEye2
+BigTwiggyZombie
+SmallTwiggyZombie
+BigSwampZombie
+SmallSwampZombie
+BigSlimedZombie
+SmallSlimedZombie
+BigPincushionZombie
+SmallPincushionZombie
+BigBaldZombie
+SmallBaldZombie
+BigZombie
+SmallZombie
+BigCrimslime
+LittleCrimslime
+BigCrimera
+LittleCrimera
+GiantMossHornet
+BigMossHornet
+LittleMossHornet
+TinyMossHornet
+BigStinger
+LittleStinger
+HeavySkeleton
+BigBoned
+ShortBones
+BigEater
+LittleEater
+JungleSlime
+YellowSlime
+RedSlime
+PurpleSlime
+BlackSlime
+BabySlime
+Pinky
+GreenSlime
+Slimer
+Corrupt Slime.gif 	Slimer2
+Slimeling
+BlueSlime
+DemonEye
+Zombie
+EyeofCthulhu
+ServantofCthulhu
+EaterofSouls
+DevourerHead
+DevourerBody
+DevourerTail
+GiantWormHead
+GiantWormBody
+GiantWormTail
+EaterofWorldsHead
+EaterofWorldsBody
+EaterofWorldsTail
+MotherSlime
+Merchant
+Nurse
+ArmsDealer
+Dryad
+Skeleton
+Guide
+MeteorHead
+FireImp
+BurningSphere
+GoblinPeon
+GoblinThief
+GoblinWarrior
+GoblinSorcerer
+ChaosBall
+AngryBones
+DarkCaster
+WaterSphere
+CursedSkull
+SkeletronHead
+SkeletronHandOldMan
+Demolitionist
+BoneSerpentHead
+BoneSerpentBody
+BoneSerpentTail
+Hornet
+ManEater
+UndeadMiner
+Tim
+Bunny
+CorruptBunny
+Harpy
+CaveBat
+KingSlime
+JungleBat
 52 	Doctor Bones 	Doctor Bones.gif 	DoctorBones
 53 	The Groom 	The Groom.gif 	TheGroom
 54 	Clothier 	Clothier.png 	Clothier
@@ -688,10 +628,10 @@ Sulphur Butterfly.gif Tree Nymph Butterfly.gif Ulysses Butterfly.gif Zebra Swall
 (Armed Twiggy Zombie) 	Armed Twiggy Zombie.gif 	ArmedZombieTwiggy
 436 	Zombie
 (Armed Female Zombie) 	Armed Female Zombie.gif 	ArmedZombieCenx
-437 	Mysterious Tablet 	Mysterious Tablet.gif 	CultistTablet
-438 	Lunatic Devotee 	Lunatic Devotee.gif 	CultistDevote
-439 	Lunatic Cultist 	Lunatic Cultist.gif 	CultistBoss
-440 	Lunatic Cultist 	Ancient Cultist.gif 	CultistBossClone
+CultistTablet
+CultistDevote
+CultistBoss
+CultistBossClone
 441 	Tax Collector 	Tax Collector.png 	TaxCollector
 442 	Gold Bird 	Gold Bird.png 	GoldBird
 443 	Gold Bunny 	Gold Bunny.gif 	GoldBunny
@@ -750,67 +690,51 @@ CultistDragonBody4
 489 	Blood Zombie 	Blood Zombie.gif 	BloodZombie
 490 	Drippler 	Drippler.gif 	Drippler
 491 	Flying Dutchman 	Animated Flying Dutchman.gif 	PirateShip
-492 	Dutchman Cannon 	Dutchman Cannon.png 	PirateShipCannon
-493 	Stardust Pillar 	Stardust Pillar.png 	LunarTowerStardust
-494 	Crawdad 	Crawdad.gif 	Crawdad
-495 	Crawdad 	Crawdad Blue.gif 	Crawdad2
-496 	Giant Shelly 	Giant Shelly.gif 	GiantShelly
-497 	Giant Shelly 	Giant Shelly Orange.gif 	GiantShelly2
-498 	Salamander 	Salamander 2.gif 	Salamander
-499 	Salamander
-(Variant 2) 	Salamander 2.gif 	Salamander2
-500 	Salamander
-(Variant 3) 	Salamander 3.gif 	Salamander3
-501 	Salamander
-(Variant 4) 	Salamander 4.gif 	Salamander4
-502 	Salamander
-(Variant 5) 	Salamander 5.gif 	Salamander5
-503 	Salamander
-(Variant 6) 	Salamander 6.gif 	Salamander6
-504 	Salamander
-(Variant 7) 	Salamander 7.gif 	Salamander7
-505 	Salamander
-(Variant 8) 	Salamander 8.gif 	Salamander8
-506 	Salamander
-(Variant 9) 	Salamander 9.gif 	Salamander9
-507 	Nebula Pillar 	Nebula Pillar.png 	LunarTowerNebula
-508 	Giant Antlion Charger 	Giant Antlion Charger.gif 	GiantWalkingAntlion
-509 	Giant Antlion Swarmer 	Giant Antlion Swarmer.gif 	GiantFlyingAntlion
-510 	Dune Splicer
-(Dune Splicer Head) 	Dune Splicer Head.png 	DuneSplicerHead
-511 	Dune Splicer
-(Dune Splicer Body) 	Dune Splicer Body.png 	DuneSplicerBody
-512 	Dune Splicer
-(Dune Splicer Tail) 	Dune Splicer Tail.png 	DuneSplicerTail
-513 	Tomb Crawler
-(Tomb Crawler Head) 	Tomb Crawler Head.png 	TombCrawlerHead
-514 	Tomb Crawler
-(Tomb Crawler Body) 	Tomb Crawler Body.png 	TombCrawlerBody
-515 	Tomb Crawler
-(Tomb Crawler Tail) 	Tomb Crawler Tail.png 	TombCrawlerTail
-516 	Solar Flare 	Solar Flare.gif 	SolarFlare
-517 	Solar Pillar 	Solar Pillar.png 	LunarTowerSolar
-518 	Drakanian 	Drakanian.gif 	SolarSpearman
-519 	Solar Fragment 	Solar Fragment (NPC).png 	SolarGoop
-520 	Martian Walker 	Martian Walker.gif 	MartianWalker
-521 	Ancient Vision 	Ancient Vision.gif 	AncientCultistSquidhead
-522 	Ancient Light 	Ancient Light.png 	AncientLight
-523 	Ancient Doom 	Ancient Doom.gif 	AncientDoom
-524 	Ghoul 	Ghoul.gif 	DesertGhoul
-525 	Vile Ghoul 	Vile Ghoul.gif 	DesertGhoulCorruption
-526 	Tainted Ghoul 	Tainted Ghoul.gif 	DesertGhoulCrimson
-527 	Dreamer Ghoul 	Dreamer Ghoul.gif 	DesertGhoulHallow
-528 	Lamia
-(Light Lamia) 	Lamia.gif 	DesertLamiaLight
-529 	Lamia
-(Dark Lamia) 	Lamia2.gif 	DesertLamiaDark
-530 	Sand Poacher 	Sand Poacher.gif 	DesertScorpionWalk
-531 	Sand Poacher
-(On Wall) 	Sand Poacher2.gif 	DesertScorpionWall
-532 	Basilisk 	Basilisk.gif 	DesertBeast
-533 	Desert Spirit 	Desert Spirit.gif 	DesertDjinn
-534 	Tortured Soul 	Tortured Soul.gif 	DemonTaxCollector
-535 	Spiked Slime 	Spiked Slime.gif 	SlimeSpiked
+PirateShipCannon
+LunarTowerStardust
+Crawdad
+Crawdad2
+GiantShelly
+GiantShelly2
+Salamander
+Salamander2
+Salamander3
+Salamander4
+Salamander5
+Salamander6
+Salamander7
+Salamander8
+Salamander9
+GiantWalkingAntlion
+GiantFlyingAntlion
+Dune Splicer
+DuneSplicerHead
+DuneSplicerBody
+DuneSplicerTail
+TombCrawlerHead
+TombCrawlerBody
+TombCrawlerTail
+SolarFlare
+LunarTowerSolar
+SolarSpearman
+SolarGoop
+MartianWalker
+AncientCultistSquidhead
+AncientLight
+AncientDoom
+DesertGhoul
+DesertGhoulCorruption
+DesertGhoulCrimson
+DesertGhoulHallow
+DesertLamiaLight
+DesertLamiaDark
+DesertScorpionWalk
+Sand Poacher
+DesertScorpionWall
+DesertBeast
+DesertDjinn
+DemonTaxCollector
+SlimeSpiked
 TheBride
 SandSlime
 SquirrelRed
