@@ -57,6 +57,7 @@ namespace NEA_solution
             string NPCloot = "";
             string onHit = "";
             string useItem = "";
+            string preLoot = "";
             bool isBoss = false;
             string useItemReturn = "\r\n\t\t\treturn true;";
             string[] vanillaItems = File.ReadAllLines(Environment.CurrentDirectory + "\\itemIDs.txt");
@@ -549,6 +550,14 @@ namespace NEA_solution
                 generatedCode += "\r\n\t\t{\r\n\t\t\tfloat spawnChance;";
                 generatedCode += spawnrate;
                 generatedCode += "\r\n\t\t\treturn spawnChance;\r\n\t\t}";
+            }
+
+            if (preLoot != "")
+            {
+                generatedCode += "\r\n\t\tpublic void OnKill()";
+                generatedCode += "\r\n\t\t{";
+                generatedCode += preLoot;
+                generatedCode += "\r\n\t\t}";
             }
 
             //The generated methods are compiled into one string here.
