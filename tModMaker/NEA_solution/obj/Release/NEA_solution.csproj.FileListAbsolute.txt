@@ -59,4 +59,7 @@ C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\userConfig.txt
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\recents.txt
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\itemIDs.txt
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Blockly Editor\tile_editor.html
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Blockly Editor\scripts\tile.js
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\stationIDs.txt
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\tileIDs.txt

@@ -186,6 +186,12 @@
     <Content Include="Blockly Editor\javascript_compressed.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Blockly Editor\scripts\tile.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Blockly Editor\tile_editor.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Blockly Editor\npc_editor.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -220,6 +226,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="recents.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="stationIDs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="tileIDs.txt">

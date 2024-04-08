@@ -235,11 +235,8 @@ namespace NEA_solution
     internal class set_spawn_condition : GenericBlock
     {
         public string condition { get; set; }
-    }
+        public float multiplier { get; set; }
 
-    internal class spawn_rate_multiplayer : GenericBlock
-    {
-        public float multiplier { get; set;}
     }
 
     internal class create_tile : GenericBlock
@@ -311,5 +308,13 @@ namespace NEA_solution
     internal class set_npc_property : GenericBlock
     {
         public string property { get; set; }
+    }
+
+    internal class define_tile : GenericBlock
+    {
+        public bool solid { get; set; }
+        public bool mergeDirt { get; set; }
+        public bool blockLight { get; set; }
+        public string colour { get; set; }
     }
 }

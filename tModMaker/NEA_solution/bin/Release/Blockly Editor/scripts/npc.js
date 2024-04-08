@@ -52,10 +52,6 @@ const toolbox = {
                 },
                 {
                     "kind": "block",
-                    "type": "spawn_rate_multiplier"
-                },
-                {
-                    "kind": "block",
                     "type": "add_loot_drop"
                 },
                 {
@@ -289,26 +285,8 @@ Blockly.common.defineBlocksWithJsonArray([
         "helpUrl": ""
     },
     {
-        "type": "spawn_rate_multiplier",
-        "message0": "Multiply spawn rate by %1",
-        "args0": [
-            {
-                "type": "field_number",
-                "name": "multiplier",
-                "value": 0,
-                "min": 0,
-                "max": 2147483646
-            }
-        ],
-        "previousStatement": null,
-        "nextStatement": null,
-        "colour": 300,
-        "tooltip": "Sets a multiplier for the spawn rate",
-        "helpUrl": ""
-    },
-    {
         "type": "set_spawn_condition",
-        "message0": "Use %1 spawn condition",
+        "message0": "Use %1 spawn condition with a %2 times multiplier",
         "args0": [
             {
                 "type": "field_dropdown",
@@ -387,6 +365,13 @@ Blockly.common.defineBlocksWithJsonArray([
                         "Underworld"
                     ]
                 ]
+            },
+            {
+                "type": "field_number",
+                "name": "multiplier",
+                "value": 0,
+                "min": 0,
+                "max": 2147483646
             }
         ],
         "previousStatement": null,

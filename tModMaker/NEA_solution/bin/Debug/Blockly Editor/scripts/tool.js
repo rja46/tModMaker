@@ -185,7 +185,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             },
             {
                 "type": "input_dummy"
@@ -225,7 +225,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             },
             {
                 "type": "input_dummy"
@@ -236,7 +236,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,
@@ -255,7 +255,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 1,
                 "precision": 1,
                 "min": 1,
-                "max": 2147483647
+                "max": 2147483646
             },
             {
                 "type": "input_dummy"
@@ -362,7 +362,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             },
             {
                 "type": "input_dummy"
@@ -453,7 +453,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             },
             {
                 "type": "field_dropdown",
@@ -494,7 +494,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,
@@ -551,7 +551,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,
@@ -622,7 +622,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,
@@ -693,7 +693,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,
@@ -819,7 +819,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,
@@ -876,7 +876,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,
@@ -910,7 +910,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 180,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             },
             {
                 "type": "input_dummy"
@@ -921,7 +921,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 9,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             },
             {
                 "type": "input_dummy"
@@ -931,7 +931,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "name": "acceleration",
                 "value": 2.5,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,
@@ -950,7 +950,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 9,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             },
             {
                 "type": "input_dummy"
@@ -960,7 +960,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "name": "acceleration",
                 "value": 2.5,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,
@@ -984,7 +984,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,
@@ -1053,7 +1053,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,
@@ -1077,7 +1077,7 @@ Blockly.common.defineBlocksWithJsonArray([
                 "value": 0,
                 "precision": 1,
                 "min": 0,
-                "max": 2147483647
+                "max": 2147483646
             }
         ],
         "previousStatement": null,
@@ -1111,8 +1111,8 @@ Blockly.common.defineBlocksWithJsonArray([
                 "name": "max",
                 "value": 0,
                 "precision": 1,
-                "min": 0,
-                "max": 2147483647
+                "min": 1,
+                "max": 2147483646
             }
         ],
         "previousStatement": null,

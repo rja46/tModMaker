@@ -61,6 +61,8 @@ namespace NEA_solution
             string useItemReturn = "\r\n\t\t\treturn true;";
             string[] vanillaItems = File.ReadAllLines(Environment.CurrentDirectory + "\\itemIDs.txt");
             string[] vanillaMobs = File.ReadAllLines(Environment.CurrentDirectory + "\\npcIDs.txt");
+            string[] vanillaTiles = File.ReadAllLines(Environment.CurrentDirectory + "\\tileIDs.txt");
+
 
 
             /*
@@ -79,7 +81,8 @@ namespace NEA_solution
                 "\r\nusing System;" +
                 "\r\nusing System.Collections.Generic;" +
                 "\r\nusing Terraria.ModLoader.Utilities;" +
-                "\r\nusing Terraria.GameContent.ItemDropRules;";
+                "\r\nusing Terraria.GameContent.ItemDropRules;" +
+                "\r\nusing Microsoft.Xna.Framework;";
 
             string itemType = item.get_type();
             if (itemType == "Item")
@@ -93,6 +96,10 @@ namespace NEA_solution
             else if (itemType == "NPC")
             {
                 generatedCode += "\r\nnamespace " + modName + ".NPCs";
+            }
+            else if (itemType == "Tile")
+            {
+                generatedCode += "\r\nnamespace " + modName + ".Tiles";
             }
             generatedCode += "\r\n{";
 
@@ -242,7 +249,14 @@ namespace NEA_solution
 
                     case "create_tile":
                         create_tile create_Tile = JsonSerializer.Deserialize<create_tile>(blocksAsStrings[i]);
-                        setDefaults += "\r\n\t\t\tItem.createTile = TileID." + create_Tile.tileName + ";";
+                        if (vanillaTiles.Contains(create_Tile.tileName))
+                        {
+                            setDefaults += "\r\n\t\t\tItem.createTile = TileID." + create_Tile.tileName + ";";
+                        }
+                        else
+                        {
+                            setDefaults += "\r\n\t\t\tItem.createTile = ModContent.TileType<Tiles." + create_Tile.tileName + ">();";
+                        }
                         break;
 
                     case "grant_effect":
@@ -350,11 +364,7 @@ namespace NEA_solution
                     case "set_spawn_condition":
                         set_spawn_condition set_Spawn_Condition = JsonSerializer.Deserialize<set_spawn_condition>(blocksAsStrings[i]);
                         spawnrate += "\r\n\t\t\tspawnChance = SpawnCondition." + set_Spawn_Condition.condition + ".Chance;";
-                        break;
-
-                    case "spawn_rate_multiplier":
-                        spawn_rate_multiplayer spawn_Rate_Multiplayer = JsonSerializer.Deserialize<spawn_rate_multiplayer>(blocksAsStrings[i]);
-                        spawnrate += "\r\n\t\t\tspawnChance *= " + spawn_Rate_Multiplayer.multiplier + "f;";
+                        spawnrate += "\r\n\t\t\tspawnChance *= " + set_Spawn_Condition.multiplier + "f;";
                         break;
 
                     case "npc_friendly":
@@ -403,6 +413,15 @@ namespace NEA_solution
                     case "set_npc_property":
                         set_npc_property set_Npc_Property = JsonSerializer.Deserialize<set_npc_property>(blocksAsStrings[i]);
                         setDefaults += "\r\n\t\t\tNPC." + set_Npc_Property.property + " = true;";
+                        break;
+
+                    //Tile blocks
+                    case "define_tile":
+                        define_tile define_Tile = JsonSerializer.Deserialize<define_tile>(blocksAsStrings[i]);
+                        SetStaticDefaults += "\r\n\t\t\tMain.tileSolid[Type] = " + define_Tile.solid.ToString().ToLower() + ";";
+                        SetStaticDefaults += "\r\n\t\t\tMain.tileMergeDirt[Type] = " + define_Tile.mergeDirt.ToString().ToLower() + ";";
+                        SetStaticDefaults += "\r\n\t\t\tMain.tileBlockLight[Type] = " + define_Tile.blockLight.ToString().ToLower() + ";";
+                        SetStaticDefaults += "\r\n\t\t\tAddMapEntry(new Color(" + Convert.ToInt32(define_Tile.colour[1].ToString() + define_Tile.colour[2].ToString(), 16) + ", " + Convert.ToInt32(define_Tile.colour[3].ToString() + define_Tile.colour[4].ToString(), 16) + ", " + Convert.ToInt32(define_Tile.colour[5].ToString() + define_Tile.colour[6].ToString(), 16) + "));";
                         break;
                 }
             }
@@ -523,13 +542,16 @@ namespace NEA_solution
             }
 
             //The generated methods are compiled into one string here.
-            generatedCode += "\r\n\t\tpublic override void SetDefaults()\r\n\t\t{\r\n" + setDefaults + "\r\n\t\t}";
+            if (item.get_type() != "Tile")
+            {
+                generatedCode += "\r\n\t\tpublic override void SetDefaults()\r\n\t\t{\r\n" + setDefaults + "\r\n\t\t}";
+            }
             if (isEquipable)
             {
                 generatedCode += "\r\n\t\tpublic override void UpdateAccessory(Player player, bool hideVisual)\r\n\t\t{\r\n" + UpdateAccessory + "\r\n\t\t}";
             }
 
-            string[] stations = File.ReadAllLines(Environment.CurrentDirectory + "\\tileIDs.txt");
+            string[] stations = File.ReadAllLines(Environment.CurrentDirectory + "\\stationIDs.txt");
             //The recipes are added here.
             if (itemType == "Item")
             {
@@ -620,6 +642,11 @@ namespace NEA_solution
                 generatedCode += useItem;
                 generatedCode += useItemReturn;
                 generatedCode += "\r\n\t\t}";
+            }
+
+            if (item.get_type() == "Tile")
+            {
+                generatedCode += "\r\n\t\tpublic override void SetStaticDefaults()\r\n\t\t{" + SetStaticDefaults + "\r\n\t\t}";
             }
 
             generatedCode += "\r\n\t}\r\n}";

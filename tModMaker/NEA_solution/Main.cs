@@ -234,6 +234,10 @@ namespace NEA_solution
                     case "NPC":
                         wvSave.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\npc_editor.html");
                         break;
+
+                    case "Tile":
+                        wvSave.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\tile_editor.html");
+                        break;
                 }
                 
                 //If the correct editor is not loaded, it will be loaded here.
@@ -580,6 +584,10 @@ namespace NEA_solution
                     {
                         File.Delete(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedMod.get_item(indexToDelete).get_name() + "_code.code");
                     }
+                    if (File.Exists(loadedMod.get_modPath() + "\\Items\\Recipes\\" + loadedMod.get_item(indexToDelete).get_name() + "_recipe.code"))
+                    {
+                        File.Delete(loadedMod.get_modPath() + "\\Items\\Recipes\\" + loadedMod.get_item(indexToDelete).get_name() + "_recipe.code");
+                    }
                     loadedMod.set_items(tmpItems);
                     loadedItem = null;
                     displayItem(new Item("", ""));
@@ -780,27 +788,27 @@ namespace NEA_solution
                         bmp = itemsToExport[i].get_sprite();
                         if (bmp == null)
                         {
-                            incompleteItems.Add(itemsToExport[i].get_name());
+                            incompleteItems.Add(itemsToExport[i].get_name() + " - no sprite");
                             canExport = false;
                         }
                         if (slot == "Head" && itemsToExport[i].get_headSprite() == null)
                         {
-                            incompleteItems.Add(itemsToExport[i].get_name());
+                            incompleteItems.Add(itemsToExport[i].get_name() + " - no head sprite");
                             canExport = false;
                         }
                         if (slot == "Body" && itemsToExport[i].get_bodySprite() == null)
                         {
-                            incompleteItems.Add(itemsToExport[i].get_name());
+                            incompleteItems.Add(itemsToExport[i].get_name() + " - no body sprite");
                             canExport = false;
                         }
                         if (slot == "Legs" && itemsToExport[i].get_legsSprite() == null)
                         {
-                            incompleteItems.Add(itemsToExport[i].get_name());
+                            incompleteItems.Add(itemsToExport[i].get_name() + " - no legs sprite");
                             canExport = false;
                         }
                         if (GetTypeOfItem(itemsToExport[i]) == "boss" && itemsToExport[i].get_mapHead() == null)
                         {
-                            incompleteItems.Add(itemsToExport[i].get_name());
+                            incompleteItems.Add(itemsToExport[i].get_name() + " - no map sprite");
                             canExport = false;
                         }
                     }
@@ -831,6 +839,7 @@ namespace NEA_solution
                     Directory.CreateDirectory(path + "\\Properties");
                     Directory.CreateDirectory(path + "\\Projectiles");
                     Directory.CreateDirectory(path + "\\NPCs");
+                    Directory.CreateDirectory(path + "\\Tiles");
 
                     File.WriteAllText(path + "\\description.txt", loadedMod.get_description());
                     DialogResult messageResult = MessageBox.Show("Increment version number?", "Increment version",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -916,7 +925,11 @@ namespace NEA_solution
                         {
                             File.WriteAllText(path + "\\NPCs\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
                         }
-                        
+                        else if (itemsToExport[i].get_type() == "Tile")
+                        {
+                            File.WriteAllText(path + "\\Tiles\\" + itemsToExport[i].get_name() + ".cs", tmpCode);
+                        }
+
                         /*
                          * The sprites are written to files here. Each item has a main sprite, then
                          * other sprites are checked for and saved.
@@ -940,6 +953,10 @@ namespace NEA_solution
                             else if (itemsToExport[i].get_type() == "NPC")
                             {
                                 bmp.Save(path + "\\NPCs\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
+                            }
+                            else if (itemsToExport[i].get_type() == "Tile")
+                            {
+                                bmp.Save(path + "\\Tiles\\" + itemsToExport[i].get_name() + ".png", ImageFormat.Png);
                             }
                         }
                         bmp = itemsToExport[i].get_wingSprite();
@@ -1027,6 +1044,12 @@ namespace NEA_solution
                 else if (loadedItem.get_type() == "NPC")
                 {
                     wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\npc_editor.html");
+                    txtTooltip.Enabled = false;
+                    btnRecipe.Enabled = false;
+                }
+                else if (loadedItem.get_type() == "Tile")
+                {
+                    wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\tile_editor.html");
                     txtTooltip.Enabled = false;
                     btnRecipe.Enabled = false;
                 }
