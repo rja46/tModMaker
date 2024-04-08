@@ -1,1 +1,1 @@
-AnotherTestMod|A mod for testing during development.|rja|9.3
+AnotherTestMod|A mod for testing during development.|rja|10.4

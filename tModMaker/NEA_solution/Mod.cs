@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace NEA_solution
         private string author;
         private string modPath;
         private double version;
+        private Bitmap icon;
 
         public Mod(string name, string modPath)
         {
@@ -55,12 +57,14 @@ namespace NEA_solution
         public string get_modPath() {  return modPath;}
         public int get_item_number() { return items.Length; }
         public double get_version() { return version;}
+        public Bitmap get_icon() { return icon;}
         public void set_name(string name) { this.name = name.Replace('\u0020', '_');}
         public void set_author (string  author) { this.author = author;}
         public void set_description(string description) {  this.description = description;}
         public void set_modPath(string modPath) { this.modPath = modPath;}
         public void set_items(Item[] items) { this.items = items;}
         public void set_version(double version) {  this.version = version;}
+        public void set_icon(Bitmap icon) {  this.icon = icon;}
 
         public string[,] get_items_for_display()
         {

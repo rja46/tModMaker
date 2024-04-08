@@ -423,6 +423,16 @@ namespace NEA_solution
                         SetStaticDefaults += "\r\n\t\t\tMain.tileBlockLight[Type] = " + define_Tile.blockLight.ToString().ToLower() + ";";
                         SetStaticDefaults += "\r\n\t\t\tAddMapEntry(new Color(" + Convert.ToInt32(define_Tile.colour[1].ToString() + define_Tile.colour[2].ToString(), 16) + ", " + Convert.ToInt32(define_Tile.colour[3].ToString() + define_Tile.colour[4].ToString(), 16) + ", " + Convert.ToInt32(define_Tile.colour[5].ToString() + define_Tile.colour[6].ToString(), 16) + "));";
                         break;
+
+                    case "min_pickaxe":
+                        min_pickaxe min_Pickaxe = JsonSerializer.Deserialize<min_pickaxe>(blocksAsStrings[i]);
+                        SetStaticDefaults += "\r\n\t\t\tMinPick = " + min_Pickaxe.power + ";";
+                        break;
+
+                    case "mine_resist":
+                        mine_resist mine_Resist = JsonSerializer.Deserialize<mine_resist>(blocksAsStrings[i]);
+                        SetStaticDefaults += "\r\n\t\t\tMineResist = " + mine_Resist.resist + ";";
+                        break;
                 }
             }
 

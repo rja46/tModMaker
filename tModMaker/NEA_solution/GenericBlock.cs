@@ -317,4 +317,14 @@ namespace NEA_solution
         public bool blockLight { get; set; }
         public string colour { get; set; }
     }
+
+    internal class min_pickaxe : GenericBlock
+    {
+        public int power { get; set; }
+    }
+
+    internal class mine_resist : GenericBlock
+    {
+        public int resist { get; set; }
+    }
 }

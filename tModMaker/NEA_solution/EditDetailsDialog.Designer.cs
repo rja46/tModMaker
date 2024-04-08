@@ -38,7 +38,10 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.lblVersion = new System.Windows.Forms.Label();
             this.numVersion = new System.Windows.Forms.NumericUpDown();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnChangeIcon = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numVersion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
@@ -133,11 +136,33 @@
             this.numVersion.Size = new System.Drawing.Size(223, 20);
             this.numVersion.TabIndex = 9;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(285, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(166, 166);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            // 
+            // btnChangeIcon
+            // 
+            this.btnChangeIcon.Location = new System.Drawing.Point(285, 181);
+            this.btnChangeIcon.Name = "btnChangeIcon";
+            this.btnChangeIcon.Size = new System.Drawing.Size(166, 23);
+            this.btnChangeIcon.TabIndex = 11;
+            this.btnChangeIcon.Text = "Change Icon";
+            this.btnChangeIcon.UseVisualStyleBackColor = true;
+            this.btnChangeIcon.Click += new System.EventHandler(this.btnChangeIcon_Click);
+            // 
             // EditDetailsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 213);
+            this.ClientSize = new System.Drawing.Size(463, 213);
+            this.Controls.Add(this.btnChangeIcon);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.numVersion);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.btnOK);
@@ -152,6 +177,7 @@
             this.Name = "EditDetailsDialog";
             this.Text = "EditDetailsDialog";
             ((System.ComponentModel.ISupportInitialize)(this.numVersion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,5 +195,7 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.NumericUpDown numVersion;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnChangeIcon;
     }
 }

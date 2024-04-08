@@ -308,6 +308,12 @@ namespace NEA_solution
             //The details of the mod are written to a file here.
             File.WriteAllText(thePath + "\\" + loadedMod.get_name() + ".mod", modFile);
 
+            Bitmap icon = loadedMod.get_icon();
+            if (icon != null)
+            {
+                icon.Save(thePath + "\\" + loadedMod.get_name() + ".png", ImageFormat.Png);
+            }
+
             //This checks for and creates other directories that need to exist.
             if (!Directory.Exists(thePath + "\\Items"))
             {
@@ -538,7 +544,7 @@ namespace NEA_solution
         private void modDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //This opens a dialog where the user can edit the details of the mod.
-            EditDetailsDialog editDetailsDialog = new EditDetailsDialog(loadedMod.get_name(), loadedMod.get_author(), loadedMod.get_description(),loadedMod.get_version());
+            EditDetailsDialog editDetailsDialog = new EditDetailsDialog(loadedMod.get_name(), loadedMod.get_author(), loadedMod.get_description(), loadedMod.get_version(), loadedMod.get_icon());
             DialogResult result = editDetailsDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -546,7 +552,8 @@ namespace NEA_solution
                 loadedMod.set_author(editDetailsDialog.author);
                 loadedMod.set_description(editDetailsDialog.description);
                 loadedMod.set_version(editDetailsDialog.version);
-                this.Text = loadedMod.get_name();
+                loadedMod.set_icon(editDetailsDialog.icon);
+                Text = loadedMod.get_name();
             }
         }
 
@@ -636,6 +643,7 @@ namespace NEA_solution
             string modDetails;
             string[] modDetailsSplit;
             string[] existingFiles;
+            Bitmap modIcon;
             
             FolderBrowserDialog folderDialog = new FolderBrowserDialog();
             DialogResult result = folderDialog.ShowDialog();
@@ -644,7 +652,7 @@ namespace NEA_solution
                  existingFiles = Directory.GetFiles(folderDialog.SelectedPath);
 
                  //This ensures the directory is the correct structure.
-                 if (existingFiles.Length != 1)
+                 if (!(existingFiles.Length == 2 || existingFiles.Length == 1))
                  {
                      MessageBox.Show("Please select a valid folder");
                      return;
@@ -652,12 +660,31 @@ namespace NEA_solution
                  else
                  {
                      //The details of the mod are loaded for the files.
-                     modDetails = File.ReadAllText(existingFiles[0]);
-                     modDetailsSplit = modDetails.Split('|');
+                    if (existingFiles[0].Contains(".mod"))
+                    {
+                        modDetails = File.ReadAllText(existingFiles[0]);
+                    }
+                    else
+                    {
+                        modDetails = File.ReadAllText(existingFiles[1]);
+                    }
+                    modDetailsSplit = modDetails.Split('|');
                      theMod = new Mod(modDetailsSplit[0], folderDialog.SelectedPath);
                      theMod.set_description(modDetailsSplit[1]);
                      theMod.set_author(modDetailsSplit[2]);
                      theMod.set_version(Convert.ToDouble(modDetailsSplit[3]));
+                    if (existingFiles[0].Contains(".png"))
+                    {
+                        FileStream fileHandler = File.Open(existingFiles[0], FileMode.Open);
+                        theMod.set_icon(new Bitmap(fileHandler));
+                        fileHandler.Close();
+                    }
+                    else
+                    {
+                        FileStream fileHandler = File.Open(existingFiles[1], FileMode.Open);
+                        theMod.set_icon(new Bitmap(fileHandler));
+                        fileHandler.Close();
+                    }
                      loadedMod = theMod;
                      Text = "tModMaker - " + loadedMod.get_name();
                      displayItem(new Item("", ""));
@@ -679,10 +706,10 @@ namespace NEA_solution
             try
             {
                 existingFiles = Directory.GetFiles(path);
-            
-            
+
+
                 //This ensures the directory is the correct structure.
-                if (existingFiles.Length != 1)
+                if (!(existingFiles.Length == 2 || existingFiles.Length == 1))
                 {
                     MessageBox.Show("Please select a valid folder");
                     return;
@@ -690,12 +717,31 @@ namespace NEA_solution
                 else
                 {
                     //The details of the mod are loaded for the files.
-                    modDetails = File.ReadAllText(existingFiles[0]);
+                    if (existingFiles[0].Contains(".mod"))
+                    {
+                        modDetails = File.ReadAllText(existingFiles[0]);
+                    }
+                    else
+                    {
+                        modDetails = File.ReadAllText(existingFiles[1]);
+                    }
                     modDetailsSplit = modDetails.Split('|');
                     theMod = new Mod(modDetailsSplit[0], path);
                     theMod.set_description(modDetailsSplit[1]);
                     theMod.set_author(modDetailsSplit[2]);
                     theMod.set_version(Convert.ToDouble(modDetailsSplit[3]));
+                    if (existingFiles[0].Contains(".png"))
+                    {
+                        FileStream fileHandler = File.Open(existingFiles[0], FileMode.Open);
+                        theMod.set_icon(new Bitmap(fileHandler));
+                        fileHandler.Close();
+                    }
+                    else
+                    {
+                        FileStream fileHandler = File.Open(existingFiles[1], FileMode.Open);
+                        theMod.set_icon(new Bitmap(fileHandler));
+                        fileHandler.Close();
+                    }
                     loadedMod = theMod;
                     Text = "tModMaker - " + loadedMod.get_name();
                     displayItem(new Item("", ""));
@@ -841,6 +887,29 @@ namespace NEA_solution
                     Directory.CreateDirectory(path + "\\NPCs");
                     Directory.CreateDirectory(path + "\\Tiles");
 
+                    Bitmap icon = loadedMod.get_icon();
+                    Bitmap exportIcon = new Bitmap(80, 80);
+                    Graphics g = Graphics.FromImage(exportIcon);
+                    g.DrawRectangle(new Pen(Color.Transparent), 0, 0, 80, 80);
+                    g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    double picBoxWidth = 80;
+                    double picBoxHeight = 80;
+                    double height = icon.Height;
+                    double width = icon.Width;
+                    if (height > width)
+                    {
+                        g.DrawImage(icon, (int)(picBoxWidth - (picBoxHeight / height * width)) / 2, 0, (int)(picBoxHeight / height * width), (int)(picBoxHeight));
+                    }
+                    else if (height < width)
+                    {
+                        g.DrawImage(icon, 0, (int)(picBoxHeight - (picBoxWidth / width * height)) / 2, (int)picBoxWidth, (int)(picBoxWidth / width * height));
+                    }
+                    else
+                    {
+                        g.DrawImage(icon, 0, 0, 80, 80);
+                        
+                    }
+                    exportIcon.Save(path + "\\icon.png", ImageFormat.Png);
                     File.WriteAllText(path + "\\description.txt", loadedMod.get_description());
                     DialogResult messageResult = MessageBox.Show("Increment version number?", "Increment version",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (messageResult == DialogResult.Yes)
