@@ -593,7 +593,6 @@ namespace NEA_solution
             string modDetails;
             string[] modDetailsSplit;
             string[] existingFiles;
-            Bitmap modIcon;
             
             FolderBrowserDialog folderDialog = new FolderBrowserDialog();
             DialogResult result = folderDialog.ShowDialog();
@@ -724,7 +723,7 @@ namespace NEA_solution
 
             //This loop ensures there are at maximum 5 unique paths listed.
             int checkPaths = 0;
-            while (checkPaths < recents.Length && checkPaths < 5)
+            while (checkPaths < recents.Length && checkPaths < 4)
             {
                 if (recents[checkPaths] != path)
                 {
