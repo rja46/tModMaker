@@ -32,14 +32,6 @@ namespace NEA_solution
             this.MinimizeBox = false;
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-            name = txtName.Text;
-            description = txtDescription.Text;
-            author = txtAuthor.Text;
-            version = (double)numVersion.Value;
-        }
-
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
             Bitmap theImage = icon;
@@ -79,6 +71,14 @@ namespace NEA_solution
                 icon = new Bitmap(@openSpriteDialog.FileName);
                 pictureBox1.Refresh();
             }
+        }
+
+        private void EditDetailsDialog_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            name = txtName.Text;
+            description = txtDescription.Text;
+            author = txtAuthor.Text;
+            version = (double)numVersion.Value;
         }
     }
 }

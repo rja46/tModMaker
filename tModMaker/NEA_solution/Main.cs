@@ -357,7 +357,7 @@ namespace NEA_solution
                     pbSave.PerformStep();
                 }
                 //This delay is purely visual, but I found the user experience was much better as a result.
-                await Task.Delay(1000);
+                await Task.Delay(500);
                 pbSave.Value = 1;
                 tbSave.Enabled = true;
                 fileSaveMod.Enabled = true;
@@ -498,16 +498,13 @@ namespace NEA_solution
         {
             //This opens a dialog where the user can edit the details of the mod.
             EditDetailsDialog editDetailsDialog = new EditDetailsDialog(loadedMod.get_name(), loadedMod.get_author(), loadedMod.get_description(), loadedMod.get_version(), loadedMod.get_icon());
-            DialogResult result = editDetailsDialog.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                loadedMod.set_name(editDetailsDialog.name);
-                loadedMod.set_author(editDetailsDialog.author);
-                loadedMod.set_description(editDetailsDialog.description);
-                loadedMod.set_version(editDetailsDialog.version);
-                loadedMod.set_icon(editDetailsDialog.icon);
-                Text = loadedMod.get_name();
-            }
+            editDetailsDialog.ShowDialog();
+            loadedMod.set_name(editDetailsDialog.name);
+            loadedMod.set_author(editDetailsDialog.author);
+            loadedMod.set_description(editDetailsDialog.description);
+            loadedMod.set_version(editDetailsDialog.version);
+            loadedMod.set_icon(editDetailsDialog.icon);
+            Text = loadedMod.get_name();
         }
 
         private void btnDeleteItem_Click(object sender, EventArgs e)
@@ -634,9 +631,13 @@ namespace NEA_solution
                     }
                     else
                     {
-                        FileStream fileHandler = File.Open(existingFiles[1], FileMode.Open);
-                        theMod.set_icon(new Bitmap(fileHandler));
-                        fileHandler.Close();
+                        try
+                        {
+                            FileStream fileHandler = File.Open(existingFiles[1], FileMode.Open);
+                            theMod.set_icon(new Bitmap(fileHandler));
+                            fileHandler.Close();
+                        }
+                        catch { }
                     }
                      loadedMod = theMod;
                      Text = "tModMaker - " + loadedMod.get_name();
@@ -691,9 +692,13 @@ namespace NEA_solution
                     }
                     else
                     {
-                        FileStream fileHandler = File.Open(existingFiles[1], FileMode.Open);
-                        theMod.set_icon(new Bitmap(fileHandler));
-                        fileHandler.Close();
+                        try
+                        {
+                            FileStream fileHandler = File.Open(existingFiles[1], FileMode.Open);
+                            theMod.set_icon(new Bitmap(fileHandler));
+                            fileHandler.Close();
+                        }
+                        catch { }
                     }
                     loadedMod = theMod;
                     Text = "tModMaker - " + loadedMod.get_name();
@@ -841,28 +846,32 @@ namespace NEA_solution
                     Directory.CreateDirectory(path + "\\Tiles");
 
                     Bitmap icon = loadedMod.get_icon();
-                    Bitmap exportIcon = new Bitmap(80, 80);
-                    Graphics g = Graphics.FromImage(exportIcon);
-                    g.DrawRectangle(new Pen(Color.Transparent), 0, 0, 80, 80);
-                    g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                    double picBoxWidth = 80;
-                    double picBoxHeight = 80;
-                    double height = icon.Height;
-                    double width = icon.Width;
-                    if (height > width)
+                    if (icon != null)
                     {
-                        g.DrawImage(icon, (int)(picBoxWidth - (picBoxHeight / height * width)) / 2, 0, (int)(picBoxHeight / height * width), (int)(picBoxHeight));
+                        Bitmap exportIcon = new Bitmap(80, 80);
+                        Graphics g = Graphics.FromImage(exportIcon);
+                        g.DrawRectangle(new Pen(Color.Transparent), 0, 0, 80, 80);
+                        g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                        double picBoxWidth = 80;
+                        double picBoxHeight = 80;
+                        double height = icon.Height;
+                        double width = icon.Width;
+                        if (height > width)
+                        {
+                            g.DrawImage(icon, (int)(picBoxWidth - (picBoxHeight / height * width)) / 2, 0, (int)(picBoxHeight / height * width), (int)(picBoxHeight));
+                        }
+                        else if (height < width)
+                        {
+                            g.DrawImage(icon, 0, (int)(picBoxHeight - (picBoxWidth / width * height)) / 2, (int)picBoxWidth, (int)(picBoxWidth / width * height));
+                        }
+                        else
+                        {
+                            g.DrawImage(icon, 0, 0, 80, 80);
+
+                        }
+                        exportIcon.Save(path + "\\icon.png", ImageFormat.Png);
                     }
-                    else if (height < width)
-                    {
-                        g.DrawImage(icon, 0, (int)(picBoxHeight - (picBoxWidth / width * height)) / 2, (int)picBoxWidth, (int)(picBoxWidth / width * height));
-                    }
-                    else
-                    {
-                        g.DrawImage(icon, 0, 0, 80, 80);
-                        
-                    }
-                    exportIcon.Save(path + "\\icon.png", ImageFormat.Png);
+
                     File.WriteAllText(path + "\\description.txt", loadedMod.get_description());
                     DialogResult messageResult = MessageBox.Show("Increment version number?", "Increment version",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (messageResult == DialogResult.Yes)

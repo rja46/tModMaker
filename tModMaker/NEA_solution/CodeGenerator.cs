@@ -51,7 +51,6 @@ namespace NEA_solution
             List<string> shopItems = new List<string>();
             List<int> shopValues = new List<int>();
             bool hasShop = false;
-            string AI = "";
             bool chasePlayer = false;
             string spawnrate = "";
             string NPCloot = "";
@@ -85,7 +84,8 @@ namespace NEA_solution
                 "\r\nusing Terraria.ModLoader.Utilities;" +
                 "\r\nusing Terraria.GameContent.ItemDropRules;" +
                 "\r\nusing Microsoft.Xna.Framework;" +
-                "\r\nusing Terraria.GameContent.Bestiary;";
+                "\r\nusing Terraria.GameContent.Bestiary;" +
+                "\r\nusing Terraria.ObjectData;";
 
             string itemType = item.get_type();
             if (itemType == "Item")
@@ -447,6 +447,16 @@ namespace NEA_solution
                         mine_resist mine_Resist = JsonSerializer.Deserialize<mine_resist>(blocksAsStrings[i]);
                         SetStaticDefaults += "\r\n\t\t\tMineResist = " + mine_Resist.resist + ";";
                         break;
+
+                    case "have_solid_top":
+                        have_solid_top have_Solid_Top = JsonSerializer.Deserialize<have_solid_top>(blocksAsStrings[i]);
+                        SetStaticDefaults += "\r\n\t\t\tMain.tileSolidTop[Type] = " + have_Solid_Top.solid.ToString().ToLower() + ";";
+                        break;
+
+                    case "frame_important":
+                        frame_important frame_Important = JsonSerializer.Deserialize<frame_important>(blocksAsStrings[i]);
+                        SetStaticDefaults += "\r\n\t\t\tMain.tileFrameImportant[Type] = " + frame_Important.connect.ToString().ToLower() + ";";
+                        break;
                 }
             }
 
@@ -456,7 +466,7 @@ namespace NEA_solution
                 setDefaults += "\r\n\t\t\tItem.width = " + item.get_sprite().Width + ";";
                 setDefaults += "\r\n\t\t\tItem.height = " + item.get_sprite().Height + ";";
             }
-            if (item.get_type() == "NPC" && setDefaults.Contains("NPC.width"))
+            if (item.get_type() == "NPC")
             {
                 setDefaults += "\r\n\t\t\tNPC.width = " + item.get_sprite().Width + ";";
                 setDefaults += "\r\n\t\t\tNPC.height = " + item.get_sprite().Height + ";";
@@ -595,21 +605,6 @@ namespace NEA_solution
                 }
                 generatedCode += "\r\n\t\t\trecipe.Register();";
                 generatedCode += "\r\n\t\t}";
-            }
-
-            if (AI != "")
-            {
-                generatedCode += "public void AI\r\n{";
-
-                if (chasePlayer)
-                {
-                    generatedCode += "\r\nnpc.TargetClosest(true);";
-                    generatedCode += "\r\nVector2 targetPosition = Main.player[npc.target].position;";
-                }
-
-                generatedCode += AI;
-
-                generatedCode += "\r\n}";
             }
 
             if (shopItems.Count > 0)

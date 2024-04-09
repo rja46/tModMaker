@@ -34,8 +34,6 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblAuthor = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnOK = new System.Windows.Forms.Button();
             this.lblVersion = new System.Windows.Forms.Label();
             this.numVersion = new System.Windows.Forms.NumericUpDown();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -63,7 +61,7 @@
             this.txtDescription.Location = new System.Drawing.Point(15, 77);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(264, 72);
+            this.txtDescription.Size = new System.Drawing.Size(264, 98);
             this.txtDescription.TabIndex = 2;
             // 
             // lblName
@@ -93,31 +91,10 @@
             this.lblDescription.TabIndex = 5;
             this.lblDescription.Text = "Description";
             // 
-            // btnCancel
-            // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(204, 181);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnOK
-            // 
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(123, 181);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 7;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
             // lblVersion
             // 
             this.lblVersion.AutoSize = true;
-            this.lblVersion.Location = new System.Drawing.Point(12, 157);
+            this.lblVersion.Location = new System.Drawing.Point(12, 186);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(45, 13);
             this.lblVersion.TabIndex = 8;
@@ -131,7 +108,7 @@
             0,
             0,
             65536});
-            this.numVersion.Location = new System.Drawing.Point(56, 155);
+            this.numVersion.Location = new System.Drawing.Point(56, 184);
             this.numVersion.Name = "numVersion";
             this.numVersion.Size = new System.Drawing.Size(223, 20);
             this.numVersion.TabIndex = 9;
@@ -165,8 +142,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.numVersion);
             this.Controls.Add(this.lblVersion);
-            this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblAuthor);
             this.Controls.Add(this.lblName);
@@ -176,6 +151,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EditDetailsDialog";
             this.Text = "EditDetailsDialog";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditDetailsDialog_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.numVersion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -191,8 +167,6 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblAuthor;
         private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.NumericUpDown numVersion;
         private System.Windows.Forms.PictureBox pictureBox1;

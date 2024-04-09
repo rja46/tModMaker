@@ -336,4 +336,14 @@ namespace NEA_solution
     {
         public string potion { get; set; }
     }
+
+    internal class have_solid_top : GenericBlock
+    {
+        public bool solid { get; set; }
+    }
+
+    internal class frame_important : GenericBlock
+    {
+        public bool connect { get; set; }
+    }
 }
