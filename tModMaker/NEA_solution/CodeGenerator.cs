@@ -57,7 +57,8 @@ namespace NEA_solution
             string NPCloot = "";
             string onHit = "";
             string useItem = "";
-            string preLoot = "";
+            string bossLoot = "";
+            string bestiary = "";
             bool isBoss = false;
             string useItemReturn = "\r\n\t\t\treturn true;";
             string[] vanillaItems = File.ReadAllLines(Environment.CurrentDirectory + "\\itemIDs.txt");
@@ -83,7 +84,8 @@ namespace NEA_solution
                 "\r\nusing System.Collections.Generic;" +
                 "\r\nusing Terraria.ModLoader.Utilities;" +
                 "\r\nusing Terraria.GameContent.ItemDropRules;" +
-                "\r\nusing Microsoft.Xna.Framework;";
+                "\r\nusing Microsoft.Xna.Framework;" +
+                "\r\nusing Terraria.GameContent.Bestiary;";
 
             string itemType = item.get_type();
             if (itemType == "Item")
@@ -416,6 +418,17 @@ namespace NEA_solution
                         setDefaults += "\r\n\t\t\tNPC." + set_Npc_Property.property + " = true;";
                         break;
 
+                    case "set_flavour_text":
+                        set_flavour_text set_Flavour_Text = JsonSerializer.Deserialize<set_flavour_text>(blocksAsStrings[i]);
+                        bestiary += "\r\n\t\t\t\tnew FlavorTextBestiaryInfoElement(\"" + set_Flavour_Text.text + "\")";
+                        break;
+
+                    case "drop_potion":
+                        drop_potion drop_Potion = JsonSerializer.Deserialize<drop_potion>(blocksAsStrings[i]);
+                        bossLoot += "\r\n\t\t\tpotionType = ItemID." + drop_Potion.potion + ";";
+                        break;
+
+
                     //Tile blocks
                     case "define_tile":
                         define_tile define_Tile = JsonSerializer.Deserialize<define_tile>(blocksAsStrings[i]);
@@ -443,7 +456,7 @@ namespace NEA_solution
                 setDefaults += "\r\n\t\t\tItem.width = " + item.get_sprite().Width + ";";
                 setDefaults += "\r\n\t\t\tItem.height = " + item.get_sprite().Height + ";";
             }
-            if (item.get_type() == "NPC")
+            if (item.get_type() == "NPC" && setDefaults.Contains("NPC.width"))
             {
                 setDefaults += "\r\n\t\t\tNPC.width = " + item.get_sprite().Width + ";";
                 setDefaults += "\r\n\t\t\tNPC.height = " + item.get_sprite().Height + ";";
@@ -552,14 +565,6 @@ namespace NEA_solution
                 generatedCode += "\r\n\t\t\treturn spawnChance;\r\n\t\t}";
             }
 
-            if (preLoot != "")
-            {
-                generatedCode += "\r\n\t\tpublic void OnKill()";
-                generatedCode += "\r\n\t\t{";
-                generatedCode += preLoot;
-                generatedCode += "\r\n\t\t}";
-            }
-
             //The generated methods are compiled into one string here.
             if (item.get_type() != "Tile")
             {
@@ -660,6 +665,23 @@ namespace NEA_solution
                 generatedCode += "\r\n\t\t{";
                 generatedCode += useItem;
                 generatedCode += useItemReturn;
+                generatedCode += "\r\n\t\t}";
+            }
+
+            if (bestiary != "")
+            {
+                generatedCode += "\r\n\t\tpublic override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)";
+                generatedCode += "\r\n\t\t{";
+                generatedCode += "\r\n\t\t\tbestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {";
+                generatedCode += bestiary;
+                generatedCode += "\r\n\t\t\t});\r\n\t\t}";
+            }
+
+            if (bossLoot != "")
+            {
+                generatedCode += "\r\n\t\tpublic override void BossLoot(ref string name, ref int potionType)";
+                generatedCode += "\r\n\t\t{";
+                generatedCode += bossLoot;
                 generatedCode += "\r\n\t\t}";
             }
 

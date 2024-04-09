@@ -41,6 +41,7 @@
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(297, 20);
             this.txtPath.TabIndex = 0;
+            this.txtPath.TextChanged += new System.EventHandler(this.txtPath_TextChanged);
             // 
             // btnApply
             // 

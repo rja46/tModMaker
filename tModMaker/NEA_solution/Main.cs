@@ -1213,6 +1213,10 @@ namespace NEA_solution
             tbSave.Enabled = false;
             fileSaveMod.Enabled = false;
             wvCode.Enabled = false;
+            toolStrip1.Enabled = false;
+            btnUndo.Enabled = false;
+            btnRedo.Enabled = false;
+            exportToolStripMenuItem.Enabled = false;
         }
 
         public void unlock_controls()
@@ -1222,7 +1226,11 @@ namespace NEA_solution
             tbSave.Enabled = true;
             fileSaveMod.Enabled = true;
             wvCode.Enabled = true;
-            
+            toolStrip1.Enabled = true;
+            btnUndo.Enabled = true;
+            btnRedo.Enabled = true;
+            exportToolStripMenuItem.Enabled = true;
+
             //This has to check whether or not the additional sprite button should be enabled.
             CodeGenerator codeGenerator = new CodeGenerator();
             if (loadedItem != null)
@@ -1375,6 +1383,52 @@ namespace NEA_solution
         private void wvSave_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
             wvSaveReady = true;
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.S | Keys.Shift))
+            {
+                save_mod_as();
+            }
+            if (keyData == (Keys.Control | Keys.S))
+            {
+                save_mod();
+            }
+            if (keyData == (Keys.Control | Keys.O))
+            {
+                open_mod();
+            }
+            if (keyData == (Keys.Control | Keys.Z))
+            {
+                undo();
+            }
+            if (keyData == (Keys.Control | Keys.Y))
+            {
+                redo();
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        async Task undo()
+        {
+            await wvCode.ExecuteScriptAsync("undo()");
+        }
+
+        async Task redo()
+        {
+            await wvCode.ExecuteScriptAsync("redo()");
+        }
+
+        private void btnUndo_Click(object sender, EventArgs e)
+        {
+            undo();
+        }
+
+        private void btnRedo_Click(object sender, EventArgs e)
+        {
+            redo();
         }
     }
 }

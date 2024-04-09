@@ -11,6 +11,14 @@ function sendTranslatedCode() {
 
 }
 
+function redo() {
+    workspace.redo();
+}
+
+function clear() {
+    workspace.clear();
+}
+
 function clear() {
     workspace.clear();
 }

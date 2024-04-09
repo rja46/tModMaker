@@ -327,4 +327,13 @@ namespace NEA_solution
     {
         public int resist { get; set; }
     }
+
+    internal class set_flavour_text : GenericBlock
+    {
+        public string text { get; set; }
+    }
+    internal class drop_potion : GenericBlock
+    {
+        public string potion { get; set; }
+    }
 }

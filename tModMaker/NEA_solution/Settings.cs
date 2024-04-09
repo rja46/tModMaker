@@ -24,12 +24,14 @@ namespace NEA_solution
             txtPath.Text = File.ReadAllText(filePath);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            btnApply.Enabled = false;
         }
 
         private void btnApply_Click(object sender, EventArgs e)
         {
             Console.WriteLine(filePath);
             File.WriteAllText(filePath, txtPath.Text);
+            btnApply.Enabled = false;
         }
 
         private void btnFolderDialog_Click(object sender, EventArgs e)
@@ -41,6 +43,11 @@ namespace NEA_solution
                 path = folderDialog.SelectedPath;
                 txtPath.Text = path;
             }
+        }
+
+        private void txtPath_TextChanged(object sender, EventArgs e)
+        {
+            btnApply.Enabled = true;
         }
     }
 }

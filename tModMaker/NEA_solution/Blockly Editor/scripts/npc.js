@@ -11,6 +11,14 @@ function sendTranslatedCode() {
 
 }
 
+function undo() {
+    workspace.undo();
+}
+
+function redo() {
+    workspace.redo();
+}
+
 function clear() {
     workspace.clear();
 }
@@ -57,6 +65,10 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "set_npc_property"
+                },
+                {
+                    "kind": "block",
+                    "type": "set_flavour_text"
                 }
             ]
         },
@@ -91,6 +103,10 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "set_boss_value"
+                },
+                {
+                    "kind": "block",
+                    "type": "drop_potion"
                 }
             ]
         }
@@ -518,6 +534,55 @@ Blockly.common.defineBlocksWithJsonArray([
         "nextStatement": null,
         "colour": 300,
         "tooltip": "Sets a property of the NPC",
+        "helpUrl": ""
+    },
+    {
+        "type": "set_flavour_text",
+        "message0": "Set bestiary flavour text to %1",
+        "args0": [
+            {
+                "type": "field_input",
+                "name": "text",
+                "text": "text"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 300,
+        "tooltip": "Sets flavour test for the NPC in the bestiary",
+        "helpUrl": ""
+    },
+    {
+        "type": "drop_potion",
+        "message0": "Drop %1 potion on death",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "potion",
+                "options": [
+                    [
+                        "lesser healing",
+                        "LesserHealingPotion"
+                    ],
+                    [
+                        "healing",
+                        "HealingPotion"
+                    ],
+                    [
+                        "greater healing",
+                        "GreaterHealingPotion"
+                    ],
+                    [
+                        "super healing",
+                        "SuperHealingPotion"
+                    ]
+                ]
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 170,
+        "tooltip": "Sets what potion is dropped when killed",
         "helpUrl": ""
     }
 ]);
