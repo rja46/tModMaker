@@ -11,6 +11,14 @@ function sendTranslatedCode() {
 
 }
 
+function redo() {
+    workspace.redo();
+}
+
+function clear() {
+    workspace.clear();
+}
+
 function clear() {
     workspace.clear();
 }
@@ -45,6 +53,14 @@ const toolbox = {
                 {
                     "kind": "block",
                     "type": "mine_resist"
+                },
+                {
+                    "kind": "block",
+                    "type": "have_solid_top"
+                },
+                {
+                    "kind": "block",
+                    "type": "frame_important"
                 }
             ]
         }
@@ -128,6 +144,38 @@ Blockly.common.defineBlocksWithJsonArray([{
         "nextStatement": null,
         "colour": 15,
         "tooltip": "Sets the amount of time it takes to mine the tile",
+        "helpUrl": ""
+    },
+    {
+        "type": "have_solid_top",
+        "message0": "Make only the top of item solid %1",
+        "args0": [
+            {
+                "type": "field_checkbox",
+                "name": "solid",
+                "checked": true
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 15,
+        "tooltip": "Make tile behave like a platform",
+        "helpUrl": ""
+    },
+    {
+        "type": "frame_important",
+        "message0": "Do not connect to tiles %1",
+        "args0": [
+            {
+                "type": "field_checkbox",
+                "name": "connect",
+                "checked": true
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 15,
+        "tooltip": "Stops the tile from connecting to anything",
         "helpUrl": ""
     }
 ])
