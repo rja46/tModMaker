@@ -62,13 +62,11 @@
             this.pbSprite = new System.Windows.Forms.PictureBox();
             this.btnAdditionalSprites = new System.Windows.Forms.Button();
             this.btnRecipe = new System.Windows.Forms.Button();
-            this.wvSave = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.msMain.SuspendLayout();
             this.stsBottom.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wvCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wvSave)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddItem
@@ -382,30 +380,11 @@
             this.btnRecipe.UseVisualStyleBackColor = true;
             this.btnRecipe.Click += new System.EventHandler(this.btnRecipe_Click);
             // 
-            // wvSave
-            // 
-            this.wvSave.AllowExternalDrop = true;
-            this.wvSave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.wvSave.CreationProperties = null;
-            this.wvSave.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.wvSave.Location = new System.Drawing.Point(624, 12);
-            this.wvSave.Name = "wvSave";
-            this.wvSave.Size = new System.Drawing.Size(156, 40);
-            this.wvSave.Source = new System.Uri("C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\Blockly Editor", System.UriKind.Absolute);
-            this.wvSave.TabIndex = 28;
-            this.wvSave.Visible = false;
-            this.wvSave.ZoomFactor = 1D;
-            this.wvSave.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.wvSave_NavigationCompleted);
-            this.wvSave.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.wvSave_WebMessageReceived);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.wvSave);
             this.Controls.Add(this.btnRecipe);
             this.Controls.Add(this.lbItems);
             this.Controls.Add(this.btnAddItem);
@@ -434,7 +413,6 @@
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wvCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSprite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wvSave)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -471,7 +449,6 @@
         private System.Windows.Forms.ToolStripMenuItem openRecentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openExportDirectoryToolStripMenuItem;
         private System.Windows.Forms.Button btnRecipe;
-        private Microsoft.Web.WebView2.WinForms.WebView2 wvSave;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton btnUndo;
         private System.Windows.Forms.ToolStripButton btnRedo;

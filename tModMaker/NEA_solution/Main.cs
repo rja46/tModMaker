@@ -216,53 +216,6 @@ namespace NEA_solution
             }
             for (int i = 0; i < loadedMod.get_item_number(); i++)
             {
-                string prevSource = wvSave.Source.ToString();
-
-                /* The correct editor is loaded into the hidden webView component where the 
-                 * saving takes place.
-                 */
-                switch (loadedMod.get_item(i).get_type())
-                {
-                    case "Item":
-                        wvSave.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\tool_editor.html");
-                        break;
-
-                    case "Projectile":
-                        wvSave.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\projectile_editor.html");
-                        break;
-
-                    case "NPC":
-                        wvSave.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\npc_editor.html");
-                        break;
-
-                    case "Tile":
-                        wvSave.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\tile_editor.html");
-                        break;
-                }
-                
-                //If the correct editor is not loaded, it will be loaded here.
-                if (prevSource != wvSave.Source.ToString())
-                {
-                    wvSaveReady = false;
-                    do
-                    {
-                        await Task.Delay(100);
-                    }
-                    while (wvSaveReady == false);
-                }
-                
-                await wvSave.ExecuteScriptAsync("loadData('" + loadedMod.get_item(i).get_code() + "')");                
-                requestSaveData();
-                
-                saveReturned = false;
-                do
-                {
-                    await Task.Delay(100);
-                }
-                while (saveReturned == false);
-
-                loadedMod.get_item(i).set_code(workspace);
-
                 pbSave.PerformStep();
             }
 
@@ -1180,11 +1133,6 @@ namespace NEA_solution
         async void requestData()
         {
             await wvCode.ExecuteScriptAsync("sendDataToWinForm()");
-        }
-
-        async void requestSaveData()
-        {
-            await wvSave.ExecuteScriptAsync("sendDataToWinForm()");
         }
 
         async void sendData()
