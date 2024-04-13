@@ -1032,7 +1032,7 @@ namespace NEA_solution
                         }
                     }
 
-                    MessageBox.Show("Export complete: the mod will be available in tModLoader");
+                    MessageBox.Show("Export complete: the mod will be available in the develop mods section of tModLoader");
                 }
                 else
                 {
@@ -1385,6 +1385,12 @@ namespace NEA_solution
         private void btnRedo_Click(object sender, EventArgs e)
         {
             redo();
+        }
+
+        private void viewHelpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpDialog helpDialog = new HelpDialog();
+            helpDialog.ShowDialog();
         }
     }
 }
