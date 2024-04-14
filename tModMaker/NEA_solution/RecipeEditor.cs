@@ -23,10 +23,12 @@ namespace NEA_solution
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             string[] items = File.ReadAllLines(Environment.CurrentDirectory + "\\itemIDs.txt");
+            //The list of items is loaded from the file into the combo box.
             for (int i = 0; i < items.Length; i++)
             {
                 cbIngredient.Items.Add(items[i]);
             }
+            //The items are added to the list box.
             if (item.get_ingredients() != null)
             {
                 for (int i = 0; i < item.get_ingredients().Length; i++)
@@ -52,6 +54,7 @@ namespace NEA_solution
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            //A "blank" item is added.
             lbIngredients.Items.Add("NEW ITEM");
             numQuantity.Value = 1;
             IngredientsList.Add(new RecipeItem("NEW ITEM", 1));

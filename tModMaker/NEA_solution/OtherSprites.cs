@@ -103,12 +103,14 @@ namespace NEA_solution
                 }
                 else if (type == "boss")
                 {
-                    theImage= theItem.get_mapHead();
+                    theImage = theItem.get_mapHead();
                 }
                 else
                 {
                     this.Close();
                 }
+
+                //This ensures the sprite's aspect ratio is maintained.
                 Graphics g = e.Graphics;
                 e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
                 if (theImage != null)

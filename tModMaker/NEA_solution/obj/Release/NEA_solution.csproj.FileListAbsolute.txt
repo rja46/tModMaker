@@ -13,9 +13,6 @@ C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Blo
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Blockly Editor\tool_editor.html
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\npcIDS.txt
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\projectConfig.txt
-C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\NEA_solution.exe.config
-C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\NEA_solution.exe
-C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\NEA_solution.pdb
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Microsoft.Web.WebView2.Core.dll
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Microsoft.Web.WebView2.WinForms.dll
@@ -42,7 +39,6 @@ C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Sys
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.ValueTuple.xml
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.csproj.AssemblyReference.cache
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.csproj.SuggestedBindingRedirects.cache
-C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.exe.config
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.CreateItemDialog.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.EditDetailsDialog.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.Main.resources
@@ -54,8 +50,6 @@ C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.csproj.GenerateResource.cache
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.csproj.CoreCompileInputs.cache
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solu.0B966018.Up2Date
-C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.exe
-C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.pdb
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\userConfig.txt
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\recents.txt
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\itemIDs.txt
@@ -81,3 +75,9 @@ C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Hel
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Help Pages\export_path.png
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Help Pages\export_button.png
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Help Pages\build_mod.png
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\tModMaker.exe.config
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\tModMaker.exe
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\tModMaker.pdb
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\tModMaker.exe.config
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\tModMaker.exe
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\tModMaker.pdb

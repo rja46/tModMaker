@@ -28,10 +28,11 @@ namespace NEA_solution
             numVersion.Value = (decimal)version;
             this.icon = icon;
             pictureBox1.Refresh();
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            MaximizeBox = false;
+            MinimizeBox = false;
         }
 
+        //This maintains the correct aspect ratio for the icon, while resizing it to fit in the picture box.
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
             Bitmap theImage = icon;
@@ -73,6 +74,7 @@ namespace NEA_solution
             }
         }
 
+        //As the form closes the values are set.
         private void EditDetailsDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
             name = txtName.Text;

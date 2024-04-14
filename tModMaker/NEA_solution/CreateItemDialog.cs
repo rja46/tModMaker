@@ -18,17 +18,18 @@ namespace NEA_solution
         {
             InitializeComponent();
             btnOK.DialogResult = DialogResult.None;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            MaximizeBox = false;
+            MinimizeBox = false;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            //This ensures the needed values are entered before creating a new item using them.
             if (txtName.Text.Length != 0 && cbType.SelectedIndex != -1)
             {
                 newItem = new Item(txtName.Text, cbType.Text);
                 newItem.set_display_name(txtDisplayName.Text);
-                this.DialogResult = DialogResult.OK;
+                DialogResult = DialogResult.OK;
             }
             else
             {

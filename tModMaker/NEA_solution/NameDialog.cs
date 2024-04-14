@@ -23,6 +23,7 @@ namespace NEA_solution
 
         private void NameDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //If the creating the item is not cancelled, then it checks that the correct details are entered.
             if (!isCanceled)
             {
                 if (txtName.Text != "")
@@ -31,6 +32,7 @@ namespace NEA_solution
                 }
                 else
                 {
+                    //If the details are not present, the closing is canceled.
                     MessageBox.Show("Please enter a valid name");
                     e.Cancel = true;
                 }

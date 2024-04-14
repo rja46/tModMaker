@@ -18,6 +18,7 @@ namespace NEA_solution
             webView21.Source = new Uri(Environment.CurrentDirectory + "\\Help Pages\\AddItemHelp.html");
         }
 
+        //When the item is double clicked, the corresponding page is loaded.
         private void lbMenu_DoubleClick(object sender, EventArgs e)
         {
             if (lbMenu.SelectedIndex == 0)

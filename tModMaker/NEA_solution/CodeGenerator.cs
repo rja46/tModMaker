@@ -24,6 +24,7 @@ namespace NEA_solution
             {
                 blockType = JsonSerializer.Deserialize<GenericBlock>(blocksAsStrings[i]).type;
 
+                //If a block that assigns it to a slot is found, the value is read from it.
                 if (blockType == "equip_slot")
                 {
                     slot = JsonSerializer.Deserialize<equip_slot>(blocksAsStrings[i]).slot;
@@ -51,7 +52,6 @@ namespace NEA_solution
             List<string> shopItems = new List<string>();
             List<int> shopValues = new List<int>();
             bool hasShop = false;
-            bool chasePlayer = false;
             string spawnrate = "";
             string NPCloot = "";
             string onHit = "";
@@ -175,7 +175,6 @@ namespace NEA_solution
                         setDefaults += "\r\n\t\t\tItem.shoot = 10;"
                             + "\r\n\t\t\tItem.shootSpeed = " + shoot_Existing_Ammo.shoot_speed + ";"
                             + "\r\n\t\t\tItem.useAmmo = AmmoID." + shoot_Existing_Ammo.ammo_type + ";";
-                        //this may need a tidier implementation to allow the user to choose the rocket fired
                         if (shoot_Existing_Ammo.ammo_type == "Rocket")
                         {
                             setDefaults += "\r\n\t\t\tItem.shoot = ProjectileID.RocketI;";
@@ -333,7 +332,6 @@ namespace NEA_solution
                         break;
 
 
-
                     //NPC Class Blocks
                     case "npc_basic":
                         npc_basic npc_Basic = JsonSerializer.Deserialize<npc_basic>(blocksAsStrings[i]);
@@ -352,7 +350,6 @@ namespace NEA_solution
                         chat_options chat_Options = JsonSerializer.Deserialize<chat_options>(blocksAsStrings[i]);
                         chatOptions.Add(chat_Options.chat);
                         break;
-
 
                     case "name_option":
                         name_options name_Options = JsonSerializer.Deserialize<name_options>(blocksAsStrings[i]);
@@ -390,7 +387,6 @@ namespace NEA_solution
                         }
                         else
                         {
-                            //This currently doesn't work - I'm not sure about the referencing.
                             NPCloot += "\r\n\t\t\tnpcLoot.Add(new CommonDrop(ModContent.ItemType<Items." + add_Loot_Drop.item + ">()," + add_Loot_Drop.numerator + "," + add_Loot_Drop.min + "," + add_Loot_Drop.max + "," + add_Loot_Drop.denominator + "));";
                         }
                         break;
@@ -586,6 +582,7 @@ namespace NEA_solution
             }
 
             string[] stations = File.ReadAllLines(Environment.CurrentDirectory + "\\stationIDs.txt");
+            
             //The recipes are added here.
             if (itemType == "Item")
             {
@@ -734,7 +731,6 @@ namespace NEA_solution
                     reading = true;
                 }
 
-                //still doesnt work
                 if (reader.Contains("}") && reading)
                 { 
                     blocksList[count] += reader;

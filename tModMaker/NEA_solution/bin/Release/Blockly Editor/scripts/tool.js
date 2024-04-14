@@ -358,7 +358,7 @@ Blockly.common.defineBlocksWithJsonArray([
         "nextStatement": null,
         "colour": 230,
         "tooltip": "Defines how a weapon is used",
-        "helpUrl": "no"
+        "helpUrl": "https://terraria.fandom.com/wiki/Sound_IDs"
     },
     {
         "type": "define_item",

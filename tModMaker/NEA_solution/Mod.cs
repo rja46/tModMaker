@@ -28,6 +28,7 @@ namespace NEA_solution
             version = 0;
         }
 
+        //This creates a new array one item larger to add the new item to.
         public void add_item(Item item)
         {
             Item[] tempItems = new Item[items.Length + 1];

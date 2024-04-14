@@ -31,6 +31,7 @@ namespace NEA_solution
         {
             Console.WriteLine(filePath);
             File.WriteAllText(filePath, txtPath.Text);
+            //Disabling the button makes it clear to the user that the changes have been applied.
             btnApply.Enabled = false;
         }
 
