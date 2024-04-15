@@ -383,11 +383,11 @@ namespace NEA_solution
                         add_loot_drop add_Loot_Drop = JsonSerializer.Deserialize<add_loot_drop>(blocksAsStrings[i]);
                         if (vanillaItems.Contains(add_Loot_Drop.item))
                         {
-                            NPCloot += "\r\n\t\t\tnpcLoot.Add(new CommonDrop(ItemID." + add_Loot_Drop.item + "," + add_Loot_Drop.numerator + "," + add_Loot_Drop.min + "," + add_Loot_Drop.max + "," + add_Loot_Drop.denominator + "));";
+                            NPCloot += "\r\n\t\t\tnpcLoot.Add(new CommonDrop(ItemID." + add_Loot_Drop.item + "," + add_Loot_Drop.denominator + "," + add_Loot_Drop.min + "," + add_Loot_Drop.max + "," + add_Loot_Drop.numerator + "));";
                         }
                         else
                         {
-                            NPCloot += "\r\n\t\t\tnpcLoot.Add(new CommonDrop(ModContent.ItemType<Items." + add_Loot_Drop.item + ">()," + add_Loot_Drop.numerator + "," + add_Loot_Drop.min + "," + add_Loot_Drop.max + "," + add_Loot_Drop.denominator + "));";
+                            NPCloot += "\r\n\t\t\tnpcLoot.Add(new CommonDrop(ModContent.ItemType<Items." + add_Loot_Drop.item + ">()," + add_Loot_Drop.denominator + "," + add_Loot_Drop.min + "," + add_Loot_Drop.max + "," + add_Loot_Drop.numerator + "));";
                         }
                         break;
 

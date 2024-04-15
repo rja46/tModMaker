@@ -588,7 +588,6 @@ Blockly.common.defineBlocksWithJsonArray([
 ]);
 
 
-//blocks here
 workspace = Blockly.inject('blocklyDiv', {
     toolbox: toolbox,
     scrollbars: true,
