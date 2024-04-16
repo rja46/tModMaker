@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|c:\\users\\rjand\\documents\\github\\tmodmaker\\tmodmaker\\nea_solution\\npcids.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\npcids.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|c:\\users\\rjand\\documents\\github\\tmodmaker\\tmodmaker\\nea_solution\\codegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\codegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,6 +23,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "npcIDS.txt",
+              "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\npcIDS.txt",
+              "RelativeDocumentMoniker": "NEA_solution\\npcIDS.txt",
+              "ToolTip": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\npcIDS.txt",
+              "RelativeToolTip": "NEA_solution\\npcIDS.txt",
+              "ViewState": "AQIAAOUCAAAAAAAAAAAAAGkBAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-04-16T15:41:55.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "CodeGenerator.cs",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\CodeGenerator.cs",
               "RelativeDocumentMoniker": "NEA_solution\\CodeGenerator.cs",
