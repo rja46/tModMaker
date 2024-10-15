@@ -81,3 +81,4 @@ C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\tMo
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\tModMaker.pdb
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Newtonsoft.Json.dll
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Newtonsoft.Json.xml
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.Account.resources

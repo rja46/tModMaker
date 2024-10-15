@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream
-2024/10/14-21:04:53.698 3d1c Reusing MANIFEST C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\tModMaker.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
-2024/10/14-21:04:53.708 3d1c Recovering log #3
-2024/10/14-21:04:53.712 3d1c Reusing old log C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\tModMaker.exe.WebView2\EBWebView\Default\Local Storage\leveldb/000003.log 
-=======
-2024/10/15-20:22:05.939 3300 Reusing MANIFEST C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\tModMaker.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
-2024/10/15-20:22:05.947 3300 Recovering log #3
-2024/10/15-20:22:05.950 3300 Reusing old log C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\tModMaker.exe.WebView2\EBWebView\Default\Local Storage\leveldb/000003.log 
->>>>>>> Stashed changes
+2024/10/15-23:04:26.190 53d0 Reusing MANIFEST C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\tModMaker.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2024/10/15-23:04:26.199 53d0 Recovering log #3
+2024/10/15-23:04:26.202 53d0 Reusing old log C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\tModMaker.exe.WebView2\EBWebView\Default\Local Storage\leveldb/000003.log 

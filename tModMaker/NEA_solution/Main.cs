@@ -21,6 +21,10 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 using Newtonsoft.Json;
+using System.Net.Http;
+using System.Collections.Specialized;
+using System.Net;
+using System.Security.Policy;
 
 //This program is confirmed working for 1.4.4.9
 namespace NEA_solution
@@ -36,6 +40,7 @@ namespace NEA_solution
         bool saveReturned;
         bool wvready = false;
         bool wvSaveReady = false;
+        string LoggedInUser = "";
 
         public Main()
         {
@@ -439,7 +444,6 @@ namespace NEA_solution
                 checkPaths++;
             }
             File.WriteAllText(Environment.CurrentDirectory + "\\recents.txt", pathsToWrite);
-            Console.WriteLine(pathsToWrite);
             load_recents();
         }
 
@@ -1141,8 +1145,6 @@ namespace NEA_solution
 
             theJson = JsonConvert.SerializeObject(JsonObj, Formatting.Indented);
 
-            Console.WriteLine(loadedMod.get_name());
-            Console.WriteLine(theJson);
             return theJson;
         }
 
@@ -1179,6 +1181,13 @@ namespace NEA_solution
         private void uploadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             generateJson();
+        }
+
+        private void btnAccount_Click(object sender, EventArgs e)
+        {
+            Account account = new Account(LoggedInUser);
+
+            account.ShowDialog();
         }
     }
 }

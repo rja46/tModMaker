@@ -3,12 +3,30 @@
   "WorkspaceRootPath": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\",
   "Documents": [
     {
-<<<<<<< Updated upstream
-      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\nea_solution\\codegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|c:\\users\\rjand\\documents\\github\\tmodmaker\\tmodmaker\\nea_solution\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|c:\\users\\rjand\\documents\\github\\tmodmaker\\tmodmaker\\nea_solution\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|c:\\users\\rjand\\documents\\github\\tmodmaker\\tmodmaker\\nea_solution\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\rjand\\AppData\\Local\\Temp\\.vsdbgsrc\\0ff124eb23e46d219f5c1132e0129e27e73dbacc20486ed220357779547eea26\\Delegate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|c:\\users\\rjand\\documents\\github\\tmodmaker\\tmodmaker\\nea_solution\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|c:\\users\\rjand\\documents\\github\\tmodmaker\\tmodmaker\\nea_solution\\codegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\codegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|c:\\users\\rjand\\documents\\github\\tmodmaker\\tmodmaker\\nea_solution\\help pages\\edititemhelp.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\nea_solution\\help pages\\edititemhelp.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\help pages\\edititemhelp.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
@@ -18,20 +36,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\nea_solution\\help pages\\editmodhelp.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\help pages\\editmodhelp.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-=======
-      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|c:\\users\\rjand\\documents\\github\\tmodmaker\\tmodmaker\\nea_solution\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\rjand\\AppData\\Local\\Temp\\.vsdbgsrc\\9ea2ac6a10071cc606fac4962ea3fac28aa8558489b5674bc151b59eb2b49f31\\UpdateDelegates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\rjand\\AppData\\Local\\Temp\\.vsdbgsrc\\1cfd75d69c890cbb91b8192638aaa96ef9f473a44c4c814dffa093d8ade745ab\\__Error.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|c:\\users\\rjand\\documents\\github\\tmodmaker\\tmodmaker\\nea_solution\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{34C069A2-8B38-49AE-9554-B53E3FD2A719}|NEA_solution\\NEA_solution.csproj|solutionrelative:nea_solution\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
->>>>>>> Stashed changes
     }
   ],
   "DocumentGroupContainers": [
@@ -41,48 +45,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-<<<<<<< Updated upstream
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CodeGenerator.cs",
-              "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\CodeGenerator.cs",
-              "RelativeDocumentMoniker": "NEA_solution\\CodeGenerator.cs",
-              "ToolTip": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\CodeGenerator.cs",
-              "RelativeToolTip": "NEA_solution\\CodeGenerator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALsCAAANAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Delegate.cs",
+              "DocumentMoniker": "C:\\Users\\rjand\\AppData\\Local\\Temp\\.vsdbgsrc\\0ff124eb23e46d219f5c1132e0129e27e73dbacc20486ed220357779547eea26\\Delegate.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\0ff124eb23e46d219f5c1132e0129e27e73dbacc20486ed220357779547eea26\\Delegate.cs",
+              "ToolTip": "C:\\Users\\rjand\\AppData\\Local\\Temp\\.vsdbgsrc\\0ff124eb23e46d219f5c1132e0129e27e73dbacc20486ed220357779547eea26\\Delegate.cs [Read Only]",
+              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\0ff124eb23e46d219f5c1132e0129e27e73dbacc20486ed220357779547eea26\\Delegate.cs [Read Only]",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAkwJYAAAACAAAAAQAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T13:34:58.444Z",
-=======
-          "SelectedChildIndex": 2,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UpdateDelegates.cs",
-              "DocumentMoniker": "C:\\Users\\rjand\\AppData\\Local\\Temp\\.vsdbgsrc\\9ea2ac6a10071cc606fac4962ea3fac28aa8558489b5674bc151b59eb2b49f31\\UpdateDelegates.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\9ea2ac6a10071cc606fac4962ea3fac28aa8558489b5674bc151b59eb2b49f31\\UpdateDelegates.cs",
-              "ToolTip": "C:\\Users\\rjand\\AppData\\Local\\Temp\\.vsdbgsrc\\9ea2ac6a10071cc606fac4962ea3fac28aa8558489b5674bc151b59eb2b49f31\\UpdateDelegates.cs [Read Only]",
-              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\9ea2ac6a10071cc606fac4962ea3fac28aa8558489b5674bc151b59eb2b49f31\\UpdateDelegates.cs [Read Only]",
-              "ViewState": "AgIAAMkAAAAAAAAAAAAkwNsAAAACAAAAAQAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T19:13:51.069Z",
+              "WhenOpened": "2024-10-15T21:24:20.195Z",
               "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "__Error.cs",
-              "DocumentMoniker": "C:\\Users\\rjand\\AppData\\Local\\Temp\\.vsdbgsrc\\1cfd75d69c890cbb91b8192638aaa96ef9f473a44c4c814dffa093d8ade745ab\\__Error.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\1cfd75d69c890cbb91b8192638aaa96ef9f473a44c4c814dffa093d8ade745ab\\__Error.cs",
-              "ToolTip": "C:\\Users\\rjand\\AppData\\Local\\Temp\\.vsdbgsrc\\1cfd75d69c890cbb91b8192638aaa96ef9f473a44c4c814dffa093d8ade745ab\\__Error.cs [Read Only]",
-              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\1cfd75d69c890cbb91b8192638aaa96ef9f473a44c4c814dffa093d8ade745ab\\__Error.cs [Read Only]",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAkwIQAAAADAAAAAQAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Account.cs",
+              "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Account.cs",
+              "RelativeDocumentMoniker": "NEA_solution\\Account.cs",
+              "ToolTip": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Account.cs",
+              "RelativeToolTip": "NEA_solution\\Account.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T19:04:10.922Z",
-              "EditorCaption": " [Read Only]"
+              "WhenOpened": "2024-10-15T20:37:28.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Account.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Account.cs",
+              "RelativeDocumentMoniker": "NEA_solution\\Account.cs",
+              "ToolTip": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Account.cs [Design]",
+              "RelativeToolTip": "NEA_solution\\Account.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T20:32:50.782Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -92,16 +93,39 @@
               "RelativeDocumentMoniker": "NEA_solution\\Main.cs",
               "ToolTip": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Main.cs",
               "RelativeToolTip": "NEA_solution\\Main.cs",
-              "ViewState": "AgIAAOEBAAAAAAAAAAAMwCkBAABfAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAEwD0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T15:31:02.348Z",
->>>>>>> Stashed changes
+              "WhenOpened": "2024-10-15T19:31:52.088Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-<<<<<<< Updated upstream
+              "DocumentIndex": 4,
+              "Title": "Main.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Main.cs",
+              "RelativeDocumentMoniker": "NEA_solution\\Main.cs",
+              "ToolTip": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Main.cs [Design]",
+              "RelativeToolTip": "NEA_solution\\Main.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T19:31:50.076Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CodeGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\CodeGenerator.cs",
+              "RelativeDocumentMoniker": "NEA_solution\\CodeGenerator.cs",
+              "ToolTip": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\CodeGenerator.cs",
+              "RelativeToolTip": "NEA_solution\\CodeGenerator.cs",
+              "ViewState": "AgIAAD4BAAAAAAAAAAAowLsCAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T13:34:58.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "EditModHelp.html",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Help Pages\\EditModHelp.html",
               "RelativeDocumentMoniker": "NEA_solution\\Help Pages\\EditModHelp.html",
@@ -113,7 +137,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "EditItemHelp.html",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Help Pages\\EditItemHelp.html",
               "RelativeDocumentMoniker": "NEA_solution\\Help Pages\\EditItemHelp.html",
@@ -121,29 +145,18 @@
               "RelativeToolTip": "NEA_solution\\Help Pages\\EditItemHelp.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-04-21T10:39:02.168Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-21T10:39:02.168Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "RecipeEditor.cs [Design]",
               "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\RecipeEditor.cs",
               "RelativeDocumentMoniker": "NEA_solution\\RecipeEditor.cs",
               "ToolTip": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\RecipeEditor.cs [Design]",
               "RelativeToolTip": "NEA_solution\\RecipeEditor.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
               "WhenOpened": "2024-04-21T10:29:11.165Z"
-=======
-              "Title": "Main.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Main.cs",
-              "RelativeDocumentMoniker": "NEA_solution\\Main.cs",
-              "ToolTip": "C:\\Users\\rjand\\Documents\\GitHub\\tModMaker\\tModMaker\\NEA_solution\\Main.cs [Design]",
-              "RelativeToolTip": "NEA_solution\\Main.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T15:30:58.903Z",
-              "EditorCaption": " [Design]"
->>>>>>> Stashed changes
             }
           ]
         }
