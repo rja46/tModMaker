@@ -1,5 +1,1 @@
-C:\Users\rjand\Documents\GitHub\tModMaker\AnotherTestMod
-C:\Users\rjand\Desktop\testBuff
-C:\Users\rjand\Desktop\a
-C:\Users\rjand\Desktop\b
-C:\Users\rjand\Desktop\AnotherTestMod
+C:\Users\rjand\Documents\GitHub\tModMaker\AnotherTestMod\AnotherTestMod.json

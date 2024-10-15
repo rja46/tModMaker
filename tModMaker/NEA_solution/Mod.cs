@@ -11,12 +11,12 @@ namespace NEA_solution
     public class Mod
     {
         public Item[] items;
-        private string name;
-        private string description;
-        private string author;
-        private string modPath;
-        private double version;
-        private Bitmap icon;
+        public string name;
+        public string description;
+        public string author;
+        public string modPath;
+        public double version;
+        public Bitmap icon;
 
         public Mod(string name, string modPath)
         {
@@ -52,6 +52,7 @@ namespace NEA_solution
             }
         }
 
+        public Item[] get_items() { return items; }
         public string get_name() { return name; }
         public string get_description() { return description; }
         public string get_author() { return author;}

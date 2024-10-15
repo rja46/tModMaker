@@ -64,6 +64,7 @@
             this.pbSprite = new System.Windows.Forms.PictureBox();
             this.btnAdditionalSprites = new System.Windows.Forms.Button();
             this.btnRecipe = new System.Windows.Forms.Button();
+            this.uploadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMain.SuspendLayout();
             this.stsBottom.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -127,7 +128,8 @@
             this.fileOpenMod,
             this.openRecentToolStripMenuItem,
             this.exportToolStripMenuItem,
-            this.openExportDirectoryToolStripMenuItem});
+            this.openExportDirectoryToolStripMenuItem,
+            this.uploadToolStripMenuItem});
             this.msMainFile.Name = "msMainFile";
             this.msMainFile.Size = new System.Drawing.Size(37, 20);
             this.msMainFile.Text = "File";
@@ -192,14 +194,14 @@
             // modDetailsToolStripMenuItem
             // 
             this.modDetailsToolStripMenuItem.Name = "modDetailsToolStripMenuItem";
-            this.modDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modDetailsToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.modDetailsToolStripMenuItem.Text = "Project Details";
             this.modDetailsToolStripMenuItem.Click += new System.EventHandler(this.modDetailsToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -214,7 +216,7 @@
             // viewHelpToolStripMenuItem
             // 
             this.viewHelpToolStripMenuItem.Name = "viewHelpToolStripMenuItem";
-            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.viewHelpToolStripMenuItem.Text = "View Help";
             this.viewHelpToolStripMenuItem.Click += new System.EventHandler(this.viewHelpToolStripMenuItem_Click);
             // 
@@ -398,6 +400,13 @@
             this.btnRecipe.UseVisualStyleBackColor = true;
             this.btnRecipe.Click += new System.EventHandler(this.btnRecipe_Click);
             // 
+            // uploadToolStripMenuItem
+            // 
+            this.uploadToolStripMenuItem.Name = "uploadToolStripMenuItem";
+            this.uploadToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.uploadToolStripMenuItem.Text = "Upload";
+            this.uploadToolStripMenuItem.Click += new System.EventHandler(this.uploadToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -472,6 +481,7 @@
         private System.Windows.Forms.ToolStripButton btnRedo;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewHelpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uploadToolStripMenuItem;
     }
 }
 

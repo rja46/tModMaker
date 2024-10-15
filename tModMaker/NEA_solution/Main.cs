@@ -14,10 +14,13 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Security.Permissions;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
+using Newtonsoft.Json;
 
 //This program is confirmed working for 1.4.4.9
 namespace NEA_solution
@@ -68,7 +71,7 @@ namespace NEA_solution
         private void recent_click(object sender, EventArgs e)
         {
             //The name of the sender is the path of the mod, so it can be opened like this.
-            open_mod(sender.ToString());
+            open_mod_and_items(sender.ToString());
         }
 
         private void initialise_editor()
@@ -160,7 +163,7 @@ namespace NEA_solution
             DialogResult dialogResult = dialog.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-                loadedMod.set_modPath(dialog.SelectedPath + "\\" + loadedMod.get_name());
+                loadedMod.set_modPath(dialog.SelectedPath);
                 
                 //Once the path and name are specified, it is saved as normal.
                 add_recent_path(loadedMod.get_modPath());
@@ -179,6 +182,7 @@ namespace NEA_solution
         //This procedure is asynchronous as it waits to recieve the data from the web component.
         private async Task save_mod()
         {
+
             lock_controls();
             //The properties of the progress bar are set up.
             pbSave.Step = 1;
@@ -217,34 +221,10 @@ namespace NEA_solution
             for (int i = 0; i < loadedMod.get_item_number(); i++)
             {
                 pbSave.PerformStep();
+                pbSave.PerformStep();
             }
 
-
             string thePath = loadedMod.get_modPath();
-            string modFile = "";
-            string tempItem;
-            string recipeItems;
-            
-            /*
-             * The details of the mod are compiled into one string, seperated with pipes,
-             * as it is a fairly uncommon character, and is unlikely to appear in the mod's
-             * details.
-             * Validation is needed here, because terrible things will happen if someone enters
-             * a pipe in any of these fields.
-             */
-            modFile += loadedMod.get_name() + "|";
-            modFile += loadedMod.get_description() + "|";
-            modFile += loadedMod.get_author() + "|";
-            modFile += loadedMod.get_version();
-
-            /*
-             * The progress bar is set up to make a step for each item in the mod.
-             * It is worth noting that the progress bar doesnt appear to work on 
-             * windows 11 - this issue is inconsistent, and seems to be happening
-             * less
-             */
-            
-
 
             /*
              * If the mod is missing a path i.e. the placeholder is loaded, the save_mod_as(),
@@ -256,106 +236,12 @@ namespace NEA_solution
                 return;
             }
 
-            Directory.CreateDirectory(thePath);
+            File.WriteAllText(loadedMod.get_modPath() + "\\" + loadedMod.get_name() + ".json", generateJson());
 
-            //The details of the mod are written to a file here.
-            File.WriteAllText(thePath + "\\" + loadedMod.get_name() + ".mod", modFile);
-
-            Bitmap icon = loadedMod.get_icon();
-            if (icon != null)
-            {
-                icon.Save(thePath + "\\" + loadedMod.get_name() + ".png", ImageFormat.Png);
-            }
-
-            //This checks for and creates other directories that need to exist.
-            if (!Directory.Exists(thePath + "\\Items"))
-            {
-                Directory.CreateDirectory(thePath + "\\Items");
-            }
-            if (!Directory.Exists(thePath + "\\Items\\Code"))
-            {
-                Directory.CreateDirectory(thePath + "\\Items\\Code");
-            }
-            if (!Directory.Exists(thePath + "\\Items\\Sprites"))
-            {
-                Directory.CreateDirectory(thePath + "\\Items\\Sprites");
-            }
-            if (!Directory.Exists(thePath + "\\Items\\Recipes"))
-            {
-                Directory.CreateDirectory(thePath + "\\Items\\Recipes");
-            }
 
             if (loadedMod.get_item_number() != 0)
             {
-                //This loops through and saves each item.
-                for (int i = 0; i < loadedMod.get_item_number(); i++)
-                {
-                    //The details of the item and put into a string, then saved.
-                    tempItem = "";
-                    tempItem += loadedMod.get_item(i).get_name() + "\r\n";
-                    tempItem += loadedMod.get_item(i).get_displayName() + "\r\n";
-                    tempItem += loadedMod.get_item(i).get_tooltip() + "\r\n";
-                    tempItem += loadedMod.get_item(i).get_type();
-                    File.WriteAllText(thePath + "\\Items\\" + loadedMod.get_item(i).get_name() + ".item", tempItem);
-                    
-                    //The code is written to a seperate file.
-                    File.WriteAllText(thePath + "\\Items\\Code\\" + loadedMod.get_item(i).get_name() + "_code.code", loadedMod.get_item(i).get_code());
-
-                    recipeItems = loadedMod.get_item(i).get_craftingStationID() + "\r\n";
-                    for (int j = 0; j < loadedMod.get_item(i).get_ingredients().Length; j++)
-                    {
-                        recipeItems += loadedMod.get_item(i).get_ingredients()[j].itemName + "|" + loadedMod.get_item(i).get_ingredients()[j].quantity + "\r\n";
-                    }
-                    File.WriteAllText(thePath + "\\Items\\Recipes\\" + loadedMod.get_item(i).get_name() + "_recipe.recipe", recipeItems);
-                    
-                    Bitmap bmp = loadedMod.get_item(i).get_sprite();
-                    
-                    //If a sprite exists for the item, it is saved as a .png.
-                    if (bmp != null)
-                    {
-                        bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + ".png", ImageFormat.Png);
-                    }
-
-                    bmp = loadedMod.get_item(i).get_wingSprite();
-                    File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Wings.png");
-                    if (bmp != null)
-                    {
-                        bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Wings.png", ImageFormat.Png);
-                    }
-
-                    string itemType = GetTypeOfItem(loadedMod.get_item(i));
-
-                    bmp = loadedMod.get_item(i).get_headSprite();
-                    File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Head.png");
-                    if (bmp != null && itemType == "head")
-                    {
-                        bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Head.png", ImageFormat.Png);
-                    }
-
-                    bmp = loadedMod.get_item(i).get_bodySprite();
-                    File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Body.png");
-                    if (bmp != null && itemType == "body")
-                    {
-                        bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Body.png", ImageFormat.Png);
-                    }
-
-                    bmp = loadedMod.get_item(i).get_legsSprite();
-                    File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Legs.png");
-                    if (bmp != null && itemType == "legs")
-                    {
-                        bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_Legs.png", ImageFormat.Png);
-                    }
-
-                    bmp = loadedMod.get_item(i).get_mapHead();
-                    File.Delete(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_MapHead.png");
-                    if (bmp != null && itemType == "boss")
-                    {
-                        bmp.Save(thePath + "\\Items\\Sprites\\" + loadedMod.get_item(i).get_name() + "_MapHead.png", ImageFormat.Png);
-                    }
-
-                    //The step for the progress bar is performed.
-                    pbSave.PerformStep();
-                }
+                
                 //This delay is purely visual, but I found the user experience was much better as a result.
                 await Task.Delay(500);
                 pbSave.Value = 1;
@@ -368,130 +254,7 @@ namespace NEA_solution
 
         private void fileOpenMod_Click(object sender, EventArgs e)
         {
-            open_mod();
-        }
-        private void load_items_for_mod()
-        {
-            string[] existingItems;
-            string[] existingCode;
-            string[] existingSprites;
-            string[] existingRecipes;
-            string[] recipeItems;
-            List<RecipeItem> tmpRecipe;
-            Item currentItem;
-            string[] tmpProperties;
-            {
-                /*
-                 * This ensures the correct structure exists in the specified directory.
-                 * 
-                 * This isn't foolproof, but it is unlikely someone would try to open another folder which
-                 * just happened to have the same structure, without doing it on purpose.
-                 */
-                if (Directory.Exists(loadedMod.get_modPath() + "\\Items") 
-                    && Directory.Exists(loadedMod.get_modPath() + "\\Items\\Code") 
-                    && Directory.Exists(loadedMod.get_modPath() + "\\Items\\Sprites")
-                    && Directory.Exists(loadedMod.get_modPath() + "\\Items\\Recipes"))
-                {
-                    //If it does, arrays of paths are created for each item, sprite, and code.
-                    existingItems = Directory.GetFiles(loadedMod.get_modPath() + "\\Items");
-                    existingCode = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Code");
-                    existingSprites = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Sprites");
-                    existingRecipes = Directory.GetFiles(loadedMod.get_modPath() + "\\Items\\Recipes");
-                    
-                    //If there are no items in the mod, an empty workspace is loaded.
-                    if (existingItems.Length == 0)
-                    {
-                        wvCode.Source = new Uri(Environment.CurrentDirectory + "\\Blockly Editor\\start.html");
-                        lbItems.Items.Clear();
-                        return;
-                    }
-                    else
-                    {
-                        lbItems.Items.Clear();
-                        for (int i = 0; i < existingItems.Length; i++)
-                        {
-
-                            tmpProperties = File.ReadAllLines(existingItems[i]);
-                            
-                            //The properties in the array created are used to assemble the item.
-                            currentItem = new Item(tmpProperties[0], tmpProperties[3]);
-                            currentItem.set_display_name(tmpProperties[1]);
-                            currentItem.set_tooltip(tmpProperties[2]);
-                            currentItem.set_code(File.ReadAllText(existingCode[i]));
-
-                            /*
-                             * Sprites are assigned to their item by sharing a file name,
-                             * so this checks if a sprite corresponds to the item that has been loaded.
-                             */
-                            for (int j = 0; j < existingSprites.Length; j++)
-                            {
-                                if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + ".png" == existingSprites[j])
-                                {
-                                    FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
-                                    currentItem.set_sprite(new Bitmap(fileHandler));
-                                    fileHandler.Close();
-                                }
-                                else if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + "_Wings.png" == existingSprites[j])
-                                {
-                                    FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
-                                    currentItem.set_wingSprite(new Bitmap(fileHandler));
-                                    fileHandler.Close();
-                                }
-                                else if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + "_Head.png" == existingSprites[j])
-                                {
-                                    FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
-                                    currentItem.set_headSprite(new Bitmap(fileHandler));
-                                    fileHandler.Close();
-                                }
-                                else if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + "_Body.png" == existingSprites[j])
-                                {
-                                    FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
-                                    currentItem.set_bodySprite(new Bitmap(fileHandler));
-                                    fileHandler.Close();
-                                }
-                                else if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + "_Legs.png" == existingSprites[j])
-                                {
-                                    FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
-                                    currentItem.set_legsSprite(new Bitmap(fileHandler));
-                                    fileHandler.Close();
-                                }
-                                else if (loadedMod.get_modPath() + "\\Items\\Sprites\\" + currentItem.get_name() + "_MapHead.png" == existingSprites[j])
-                                {
-                                    FileStream fileHandler = File.Open(existingSprites[j], FileMode.Open);
-                                    currentItem.set_mapHead(new Bitmap(fileHandler));
-                                    fileHandler.Close();
-                                }
-                            }
-
-                            //If the item has a recipe, it is assigned here.
-                            for (int j = 0; j < existingRecipes.Length; j++)
-                            {
-                                if (loadedMod.get_modPath() + "\\Items\\Recipes\\" + currentItem.get_name() + "_recipe.recipe" == existingRecipes[j])
-                                {
-                                    tmpRecipe = new List<RecipeItem>();
-                                    recipeItems = File.ReadAllLines(existingRecipes[j]);
-                                    currentItem.set_craftingStationID(Convert.ToInt32(recipeItems[0]));
-                                    for (int k = 1; k < recipeItems.Length; k++)
-                                    {
-                                        tmpRecipe.Add(new RecipeItem(recipeItems[k].Split('|')[0],Convert.ToInt32(recipeItems[k].Split('|')[1])));
-                                    }
-                                    currentItem.set_ingredients(tmpRecipe.ToArray());
-                                }
-                            }
-                            //The item is added to the list, then the displayed list is updated.
-                            loadedMod.add_item(currentItem);
-                            update_item_list();
-                            loadedItem = loadedMod.get_item(0);
-                            displayItem(loadedItem);
-                        }
-                    }
-                }
-                //This is reached if the directory does not have the right structure.
-                else
-                {
-                    MessageBox.Show("Please select a valid folder");
-                }
-            }
+            open_mod_and_items("");
         }
 
         private void modDetailsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -533,18 +296,6 @@ namespace NEA_solution
                         }
                     }
                     //The files for the item are deleted, and the list of items is overwritten.
-                    if (File.Exists(loadedMod.get_modPath() + "\\Items\\" + loadedMod.get_item(indexToDelete).get_name() + ".item"))
-                    {
-                        File.Delete(loadedMod.get_modPath() + "\\Items\\" + loadedMod.get_item(indexToDelete).get_name() + ".item");
-                    }
-                    if (File.Exists(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedMod.get_item(indexToDelete).get_name() + "_code.code"))
-                    {
-                        File.Delete(loadedMod.get_modPath() + "\\Items\\Code\\" + loadedMod.get_item(indexToDelete).get_name() + "_code.code");
-                    }
-                    if (File.Exists(loadedMod.get_modPath() + "\\Items\\Recipes\\" + loadedMod.get_item(indexToDelete).get_name() + "_recipe.code"))
-                    {
-                        File.Delete(loadedMod.get_modPath() + "\\Items\\Recipes\\" + loadedMod.get_item(indexToDelete).get_name() + "_recipe.code");
-                    }
                     loadedMod.set_items(tmpItems);
                     loadedItem = null;
                     displayItem(new Item("", ""));
@@ -582,139 +333,95 @@ namespace NEA_solution
             }
         }
 
+        private void open_mod_and_items(string path)
+        {
+            string thePath = "";
+            dynamic JsonObj = "";
+
+            if (path == "")
+            {
+                OpenFileDialog fileDialog = new OpenFileDialog();
+                DialogResult result = fileDialog.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    JsonObj = JsonConvert.DeserializeObject(File.ReadAllText(fileDialog.FileName));
+                    thePath = fileDialog.FileName;
+                }
+            }
+            else
+            {
+                JsonObj = JsonConvert.DeserializeObject(File.ReadAllText(path));
+                thePath = path;
+
+            }
+
+            loadedMod = new Mod(Convert.ToString(JsonObj["name"]), Convert.ToString(JsonObj["modPath"]));
+            loadedMod.set_author(Convert.ToString(JsonObj["author"]));
+            loadedMod.set_description(Convert.ToString(JsonObj["description"]));
+            loadedMod.set_version(Convert.ToDouble(JsonObj["version"]));
+            if (JsonObj["icon"] != null)
+            {
+                loadedMod.set_icon(Base64StringToImage(Convert.ToString(JsonObj["icon"])));
+            }
+
+            List<Item> items = new List<Item>();
+            List<RecipeItem> recipe;
+
+            Item tmpItem;
+
+            foreach (dynamic item in JsonObj["items"])
+            {
+                tmpItem = new Item(Convert.ToString(item["name"]), Convert.ToString(item["type"]));
+                tmpItem.displayName = Convert.ToString(item["displayName"]);
+                tmpItem.tooltip = Convert.ToString(item["tooltip"]);
+                tmpItem.code = Convert.ToString(item["code"]);
+                tmpItem.displayName = Convert.ToString(item["displayName"]);
+                if (item["sprite"] != null)
+                {
+                    tmpItem.sprite = Base64StringToImage(Convert.ToString(item["sprite"]));
+                }
+                if (item["headSprite"] != null)
+                {
+                    tmpItem.headSprite = Base64StringToImage(Convert.ToString(item["headSprite"]));
+                }
+                if (item["bodySprite"] != null)
+                {
+                    tmpItem.bodySprite = Base64StringToImage(Convert.ToString(item["bodySprite"]));
+                }
+                if (item["legsSprite"] != null)
+                {
+                    tmpItem.legsSprite = Base64StringToImage(Convert.ToString(item["legsSprite"]));
+                }
+                if (item["mapHead"] != null)
+                {
+                    tmpItem.mapHead = Base64StringToImage(Convert.ToString(item["mapHead"]));
+                }
+
+                recipe = new List<RecipeItem>();
+
+                foreach (dynamic recipeItem in item["ingredients"])
+                {
+                    recipe.Add(new RecipeItem(Convert.ToString(recipeItem["itemName"]), Convert.ToInt32(recipeItem["quantity"])));
+                }
+
+                tmpItem.set_ingredients(recipe.ToArray());
+
+                items.Add(tmpItem);
+            }
+            displayItem(new Item("", ""));
+            clearBlockly();
+            loadedMod.set_items(items.ToArray());
+            update_item_list();
+            loadedItem = loadedMod.get_item(0);
+            displayItem(loadedItem);
+            add_recent_path(thePath);
+        }
+
         private void tbOpen_Click(object sender, EventArgs e)
         {
-            open_mod();
+            open_mod_and_items("");
         }
 
-        private void open_mod()
-        {
-            Mod theMod;
-            string modDetails;
-            string[] modDetailsSplit;
-            string[] existingFiles;
-            
-            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
-            DialogResult result = folderDialog.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                 existingFiles = Directory.GetFiles(folderDialog.SelectedPath);
-
-                 //This ensures the directory is the correct structure.
-                 if (!(existingFiles.Length == 2 || existingFiles.Length == 1))
-                 {
-                     MessageBox.Show("Please select a valid folder");
-                     return;
-                 }
-                 else
-                 {
-                     //The details of the mod are loaded for the files.
-                    if (existingFiles[0].Contains(".mod"))
-                    {
-                        modDetails = File.ReadAllText(existingFiles[0]);
-                    }
-                    else
-                    {
-                        modDetails = File.ReadAllText(existingFiles[1]);
-                    }
-                    modDetailsSplit = modDetails.Split('|');
-                     theMod = new Mod(modDetailsSplit[0], folderDialog.SelectedPath);
-                     theMod.set_description(modDetailsSplit[1]);
-                     theMod.set_author(modDetailsSplit[2]);
-                     theMod.set_version(Convert.ToDouble(modDetailsSplit[3]));
-                    if (existingFiles[0].Contains(".png"))
-                    {
-                        FileStream fileHandler = File.Open(existingFiles[0], FileMode.Open);
-                        theMod.set_icon(new Bitmap(fileHandler));
-                        fileHandler.Close();
-                    }
-                    else
-                    {
-                        try
-                        {
-                            FileStream fileHandler = File.Open(existingFiles[1], FileMode.Open);
-                            theMod.set_icon(new Bitmap(fileHandler));
-                            fileHandler.Close();
-                        }
-                        catch { }
-                    }
-                     loadedMod = theMod;
-                     Text = "tModMaker - " + loadedMod.get_name();
-                     displayItem(new Item("", ""));
-                     clearBlockly();
-                     lock_controls();
-                 }
-                 //The procedure to load the items is called.
-                 load_items_for_mod();
-                 add_recent_path(folderDialog.SelectedPath);
-            }
-        }
-
-        private void open_mod(string path)
-        {
-            Mod theMod;
-            string modDetails;
-            string[] modDetailsSplit;
-            string[] existingFiles;
-            try
-            {
-                existingFiles = Directory.GetFiles(path);
-
-
-                //This ensures the directory is the correct structure.
-                if (!(existingFiles.Length == 2 || existingFiles.Length == 1))
-                {
-                    MessageBox.Show("Please select a valid folder");
-                    return;
-                }
-                else
-                {
-                    //The details of the mod are loaded for the files.
-                    if (existingFiles[0].Contains(".mod"))
-                    {
-                        modDetails = File.ReadAllText(existingFiles[0]);
-                    }
-                    else
-                    {
-                        modDetails = File.ReadAllText(existingFiles[1]);
-                    }
-                    modDetailsSplit = modDetails.Split('|');
-                    theMod = new Mod(modDetailsSplit[0], path);
-                    theMod.set_description(modDetailsSplit[1]);
-                    theMod.set_author(modDetailsSplit[2]);
-                    theMod.set_version(Convert.ToDouble(modDetailsSplit[3]));
-                    if (existingFiles[0].Contains(".png"))
-                    {
-                        FileStream fileHandler = File.Open(existingFiles[0], FileMode.Open);
-                        theMod.set_icon(new Bitmap(fileHandler));
-                        fileHandler.Close();
-                    }
-                    else
-                    {
-                        try
-                        {
-                            FileStream fileHandler = File.Open(existingFiles[1], FileMode.Open);
-                            theMod.set_icon(new Bitmap(fileHandler));
-                            fileHandler.Close();
-                        }
-                        catch { }
-                    }
-                    loadedMod = theMod;
-                    Text = "tModMaker - " + loadedMod.get_name();
-                    displayItem(new Item("", ""));
-                    clearBlockly();
-                    lock_controls();
-                }
-                //The procedure to load the items is called.
-                load_items_for_mod();
-                add_recent_path(path);
-            }
-            catch (Exception e)
-            {
-                //This should tell the user that the path does not exist, as this is the error this is designed to catch.
-                MessageBox.Show(e.Message);
-            }
-        }
 
         private void add_recent_path(string path)
         {
@@ -732,6 +439,7 @@ namespace NEA_solution
                 checkPaths++;
             }
             File.WriteAllText(Environment.CurrentDirectory + "\\recents.txt", pathsToWrite);
+            Console.WriteLine(pathsToWrite);
             load_recents();
         }
 
@@ -1353,7 +1061,7 @@ namespace NEA_solution
             }
             if (keyData == (Keys.Control | Keys.O))
             {
-                open_mod();
+                open_mod_and_items("");
             }
             if (keyData == (Keys.Control | Keys.Z))
             {
@@ -1391,6 +1099,86 @@ namespace NEA_solution
         {
             HelpDialog helpDialog = new HelpDialog();
             helpDialog.ShowDialog();
+        }
+
+        private string generateJson()
+        {
+            string theJson = JsonConvert.SerializeObject(loadedMod);
+
+            dynamic JsonObj = JsonConvert.DeserializeObject(theJson);
+
+            Item[] theItems = loadedMod.get_items();
+
+            if (loadedMod.get_icon() != null)
+            {
+                JsonObj["icon"] = ImageToBase64String(loadedMod.get_icon());
+            }
+
+            for (int i = 0; i < loadedMod.get_item_number(); i++)
+            {
+                //JsonObj["items"][i]
+                if (theItems[i].get_sprite() != null)
+                {
+                    JsonObj["items"][i]["sprite"] = ImageToBase64String(theItems[i].get_sprite());
+                }
+                if (theItems[i].get_headSprite() != null)
+                {
+                    JsonObj["items"][i]["headSprite"] = ImageToBase64String(theItems[i].get_headSprite());
+                }
+                if (theItems[i].get_bodySprite() != null)
+                {
+                    JsonObj["items"][i]["bodySprite"] = ImageToBase64String(theItems[i].get_bodySprite());
+                }
+                if (theItems[i].get_legsSprite() != null)
+                {
+                    JsonObj["items"][i]["legsSprite"] = ImageToBase64String(theItems[i].get_legsSprite());
+                }
+                if (theItems[i].get_mapHead() != null)
+                {
+                    JsonObj["items"][i]["mapHead"] = ImageToBase64String(theItems[i].get_mapHead());
+                }
+            }
+
+            theJson = JsonConvert.SerializeObject(JsonObj, Formatting.Indented);
+
+            Console.WriteLine(loadedMod.get_name());
+            Console.WriteLine(theJson);
+            return theJson;
+        }
+
+        private string ImageToBase64String(Bitmap bitmap)
+        {
+
+            MemoryStream ms = new MemoryStream();
+
+            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+
+            byte[] arr = new byte[ms.Length];
+
+            ms.Position = 0;
+            ms.Read(arr, 0, (int)ms.Length);
+            ms.Close();
+
+            string strBase64 = Convert.ToBase64String(arr);
+
+            return strBase64;
+        }
+
+        private Bitmap Base64StringToImage(string base64)
+        {
+            byte[] arr = Convert.FromBase64String(base64);
+            MemoryStream ms = new MemoryStream(arr);
+            ms.Position = 0;
+            Bitmap bitmap = null;
+
+            bitmap = (Bitmap)(Bitmap.FromStream(ms));
+
+            return bitmap;
+        }
+
+        private void uploadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            generateJson();
         }
     }
 }

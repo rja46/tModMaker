@@ -10,19 +10,19 @@ namespace NEA_solution
 {
     public class Item
     {
-        private string name;
-        private string displayName;
-        private string tooltip;
-        private string code;
-        private string type;
-        private Bitmap sprite;
-        private Bitmap wingSprite;
-        private Bitmap headSprite;
-        private Bitmap bodySprite;
-        private Bitmap legsSprite;
-        private RecipeItem[] ingredients = new RecipeItem[1];
-        private Bitmap mapHead;
-        private int craftingStationID = -1;
+        public string name;
+        public string displayName;
+        public string tooltip;
+        public string code;
+        public string type;
+        public Bitmap sprite;
+        public Bitmap wingSprite;
+        public Bitmap headSprite;
+        public Bitmap bodySprite;
+        public Bitmap legsSprite;
+        public RecipeItem[] ingredients = new RecipeItem[1];
+        public Bitmap mapHead;
+        public int craftingStationID = -1;
 
 
         public Item(string name, string type)

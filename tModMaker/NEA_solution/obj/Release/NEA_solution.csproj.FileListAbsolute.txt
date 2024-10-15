@@ -38,7 +38,6 @@ C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Sys
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.Threading.Tasks.Extensions.xml
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\System.ValueTuple.xml
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.csproj.AssemblyReference.cache
-C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.csproj.SuggestedBindingRedirects.cache
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.CreateItemDialog.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.EditDetailsDialog.resources
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\NEA_solution.Main.resources
@@ -78,6 +77,7 @@ C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Hel
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\tModMaker.exe.config
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\tModMaker.exe
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\tModMaker.pdb
-C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\tModMaker.exe.config
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\tModMaker.exe
 C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\obj\Release\tModMaker.pdb
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Newtonsoft.Json.dll
+C:\Users\rjand\Documents\GitHub\tModMaker\tModMaker\NEA_solution\bin\Release\Newtonsoft.Json.xml
